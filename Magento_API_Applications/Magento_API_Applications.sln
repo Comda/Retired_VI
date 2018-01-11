@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_Parameters", "Magento_API_Parameters\Magento_API_Parameters.vbproj", "{7693478D-8694-4148-8AFC-6E5300AD1FCF}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Harness_Magento_API_Parameters", "Harness_Magento_API_Parameters\Harness_Magento_API_Parameters.vbproj", "{6EE53B42-1294-45DD-89AB-EAEC788B0574}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_TierPrice", "Magento_API_TierPrice\Magento_API_TierPrice.vbproj", "{F7444F29-A16E-4AAE-8746-A534627FDCC9}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Magento_Catalog_Synchronize_CLR", "Magento_Catalog_Synchronize_CLR\Magento_Catalog_Synchronize_CLR.sqlproj", "{971C96EF-5ED9-4F0F-97A8-BE288CC13B1A}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_UpdateNameDescription", "Magento_API_UpdateNameDescription\Magento_API_UpdateNameDescription.vbproj", "{8B98E491-E4C6-49D0-9892-0E2C2F83CF3C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_SetupFees", "Magento_API_SetupFees\Magento_API_SetupFees.vbproj", "{ACECA74D-488D-4249-A1A3-BA9DFC029F87}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_CustomOptions", "Magento_API_CustomOptions\Magento_API_CustomOptions.vbproj", "{2DDD28E8-51B4-4154-BAE4-B84B9A16B504}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE53B42-1294-45DD-89AB-EAEC788B0574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE53B42-1294-45DD-89AB-EAEC788B0574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE53B42-1294-45DD-89AB-EAEC788B0574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE53B42-1294-45DD-89AB-EAEC788B0574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7444F29-A16E-4AAE-8746-A534627FDCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7444F29-A16E-4AAE-8746-A534627FDCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7444F29-A16E-4AAE-8746-A534627FDCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7444F29-A16E-4AAE-8746-A534627FDCC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971C96EF-5ED9-4F0F-97A8-BE288CC13B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971C96EF-5ED9-4F0F-97A8-BE288CC13B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971C96EF-5ED9-4F0F-97A8-BE288CC13B1A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{971C96EF-5ED9-4F0F-97A8-BE288CC13B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971C96EF-5ED9-4F0F-97A8-BE288CC13B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971C96EF-5ED9-4F0F-97A8-BE288CC13B1A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8B98E491-E4C6-49D0-9892-0E2C2F83CF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B98E491-E4C6-49D0-9892-0E2C2F83CF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B98E491-E4C6-49D0-9892-0E2C2F83CF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B98E491-E4C6-49D0-9892-0E2C2F83CF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACECA74D-488D-4249-A1A3-BA9DFC029F87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACECA74D-488D-4249-A1A3-BA9DFC029F87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACECA74D-488D-4249-A1A3-BA9DFC029F87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACECA74D-488D-4249-A1A3-BA9DFC029F87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDD28E8-51B4-4154-BAE4-B84B9A16B504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDD28E8-51B4-4154-BAE4-B84B9A16B504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDD28E8-51B4-4154-BAE4-B84B9A16B504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDD28E8-51B4-4154-BAE4-B84B9A16B504}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E81E09F1-1F84-430A-A1EE-8A5D80D5032B}
+	EndGlobalSection
+EndGlobal

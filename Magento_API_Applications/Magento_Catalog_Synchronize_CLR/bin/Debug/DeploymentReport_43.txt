@@ -1,0 +1,30 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [Magento_API_CustomOptions.XmlSerializers] (Assembly)
+       [Magento_API_Parameters.XmlSerializers] (Assembly)
+       [Magento_API_UpdateNameDescription.XmlSerializers] (Assembly)
+       [Magento_API_CustomOptions] (Assembly)
+       [Magento_API_UpdateNameDescription] (Assembly)
+       [Magento_API_Parameters] (Assembly)
+     Create
+       [Magento_API_Parameters] (Assembly)
+       [Magento_API_Parameters.XmlSerializers] (Assembly)
+       [Magento_API_UpdateNameDescription] (Assembly)
+       [Magento_API_UpdateNameDescription.XmlSerializers] (Assembly)
+       [Magento_API_SetupFees] (Assembly)
+       [Magento_API_CustomOptions] (Assembly)
+       [Magento_API_CustomOptions.XmlSerializers] (Assembly)
+       [Magento_Catalog_Synchronize_CLR] (Assembly)
+       [dbo].[Magento_Synchronize_ERP] (Procedure)
+
+** Supporting actions

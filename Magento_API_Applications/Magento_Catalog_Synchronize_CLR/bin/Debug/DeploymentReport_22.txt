@@ -1,0 +1,26 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[Magento_Synchronize_ERP] (Procedure)
+       [Magento_Catalog_Synchronize_CLR] (Assembly)
+       [Magento_API_UpdateNameDescription.XmlSerializers] (Assembly)
+       [Magento_API_UpdateNameDescription] (Assembly)
+     Create
+       [Magento_API_UpdateNameDescription] (Assembly)
+       [Magento_Catalog_Synchronize_CLR] (Assembly)
+       [Magento_API_UpdateNameDescription.XmlSerializers] (Assembly)
+       [dbo].[Magento_Synchronize_ERP] (Procedure)
+
+** Supporting actions
+
+If this deployment is executed, changes to [dbo].[Magento_Synchronize_ERP] might introduce run-time errors in [dbo].[Magento_SKU_Get].
+

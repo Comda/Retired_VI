@@ -1,0 +1,25 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [Magento_Catalog_Synchronize_CLR] (Assembly)
+     Create
+       [Magento_Catalog_Synchronize_CLR] (Assembly)
+
+** Supporting actions
+     Drop
+       [dbo].[Magento_Synchronize_ERP] (Procedure)
+     Create
+       [dbo].[Magento_Synchronize_ERP] (Procedure)
+
+If this deployment is executed, changes to [dbo].[Magento_Synchronize_ERP] might introduce run-time errors in [dbo].[Magento_ERP_Data_Synchronizing_JOB].
+If this deployment is executed, changes to [dbo].[Magento_Synchronize_ERP] might introduce run-time errors in [dbo].[Magento_SKU_Get].
+

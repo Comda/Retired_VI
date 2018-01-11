@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Magento_Catalog_Synchronize_CLR</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{971c96ef-5ed9-4f0f-97a8-be288cc13b1a}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Magento_Catalog_Synchronize_CLR</RootNamespace>
+    <AssemblyName>Magento_Catalog_Synchronize_CLR</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>VB</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <Recovery>SIMPLE</Recovery>
+    <Trustworthy>True</Trustworthy>
+    <PermissionSet>UNSAFE</PermissionSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+      <IsModelAware>False</IsModelAware>
+      <SqlPermissionSet>SAFE</SqlPermissionSet>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Magento_API_Parameters.XmlSerializers">
+      <HintPath>..\Magento_API_Parameters\bin\Debug\Magento_API_Parameters.XmlSerializers.dll</HintPath>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <IsVisible>True</IsVisible>
+      <IsModelAware>True</IsModelAware>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </Reference>
+    <Reference Include="Magento_API_UpdateNameDescription.XmlSerializers">
+      <HintPath>..\Magento_API_UpdateNameDescription\bin\Debug\Magento_API_UpdateNameDescription.XmlSerializers.dll</HintPath>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+    </Reference>
+    <Reference Include="Magento_API_SetupFees.XmlSerializers">
+      <HintPath>..\Magento_API_SetupFees\bin\Debug\Magento_API_SetupFees.XmlSerializers.dll</HintPath>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </Reference>
+    <Reference Include="Magento_API_CustomOptions.XmlSerializers">
+      <HintPath>..\Magento_API_CustomOptions\bin\Debug\Magento_API_CustomOptions.XmlSerializers.dll</HintPath>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Magento_Synchronize_ERP.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Magento_API_Parameters\Magento_API_Parameters.vbproj">
+      <Name>Magento_API_Parameters</Name>
+      <Project>{7693478d-8694-4148-8afc-6e5300ad1fcf}</Project>
+      <Private>True</Private>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </ProjectReference>
+    <ProjectReference Include="..\Magento_API_UpdateNameDescription\Magento_API_UpdateNameDescription.vbproj">
+      <Name>Magento_API_UpdateNameDescription</Name>
+      <Project>{8b98e491-e4c6-49d0-9892-0e2c2f83cf3c}</Project>
+      <Private>True</Private>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </ProjectReference>
+    <ProjectReference Include="..\Magento_API_SetupFees\Magento_API_SetupFees.vbproj">
+      <Name>Magento_API_SetupFees</Name>
+      <Project>{aceca74d-488d-4249-a1a3-ba9dfc029f87}</Project>
+      <Private>True</Private>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </ProjectReference>
+    <ProjectReference Include="..\Magento_API_CustomOptions\Magento_API_CustomOptions.vbproj">
+      <Name>Magento_API_CustomOptions</Name>
+      <Project>{2ddd28e8-51b4-4154-bae4-b84b9a16b504}</Project>
+      <Private>True</Private>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
