@@ -1,5 +1,5 @@
 ﻿'RELEASED and PUBLISHED Aug 18, 2017, Jan 11 2018
-'for:   'https://www.mapleleafpromostore.com/index.php/api/v2_soap/index/
+'ONLY for:   'https://www.mapleleafpromostore.com/index.php/api/v2_soap/index/
 Public Class Form1
     Private Sub bGetSessionID_Click(sender As Object, e As EventArgs) Handles bGetSessionID.Click
 
