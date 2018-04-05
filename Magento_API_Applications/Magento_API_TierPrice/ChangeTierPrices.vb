@@ -1,142 +1,590 @@
-﻿Imports Magento_API_Parameters.Mage_API
+﻿Imports System.IO
+Imports Magento_API_Parameters
+Imports Magento_API_Parameters.Mage_Api
+Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
 
 Public Class ChangeTierPrices
-    Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal ERP_type As String, ByVal MagentoType As String, catalogProduct_temp As List(Of catalogProductEntity), ByVal CurrentSessionID As String)
+    'ByVal ERP_type As String, ByVal MagentoType As String, catalogProduct_temp As List(Of catalogProductEntity),
+    Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String)
 
-        ProductUpdate_distinct_da = New Magento_StoreTableAdapters.ProductUpdate_distinctTableAdapter
-        ProductUpdate_distinct_da.Connection = dbConnection
-        Magento_catalogProductUpdate_da = New Magento_StoreTableAdapters.Magento_catalogProductUpdateTableAdapter
-        ProductByFamilyDistinct_da = New Magento_StoreTableAdapters.ProductByFamilyDistinctTableAdapter
-        ProductByFamilyDistinct_da.Connection = dbConnection
+        'ProductUpdate_distinct_da = New Magento_StoreTableAdapters.ProductUpdate_distinctTableAdapter
+        'ProductUpdate_distinct_da.Connection = dbConnection
+        'Magento_catalogProductUpdate_da = New Magento_StoreTableAdapters.Magento_catalogProductUpdateTableAdapter
+        'ProductByFamilyDistinct_da = New Magento_StoreTableAdapters.ProductByFamilyDistinctTableAdapter
+        'ProductByFamilyDistinct_da.Connection = dbConnection
 
-        Magento_Store_ds = New Magento_Store
-        Magento_catalogProductUpdate_da.Connection = dbConnection
+        'Magento_Store_ds = New Magento_Store
+        'Magento_catalogProductUpdate_da.Connection = dbConnection
 
-        Magento_catalogProductUpdate_da.Fill(Magento_Store_ds.Magento_catalogProductUpdate, ERP_type)
+        'Magento_catalogProductUpdate_da.Fill(Magento_Store_ds.Magento_catalogProductUpdate, ERP_type)
 
         SessionId = CurrentSessionID
-        catalogProduct = catalogProduct_temp
+        'catalogProduct = catalogProduct_temp
 
-        UpdatePrices(ERP_type)
+        MageHandler = New Mage_Api.MagentoService
+        InitializeSQLVariables(dbConnection)
+
+        'UpdatePrices(ERP_type)
+        Dim ProductId As Integer
+        Dim storeView As String
+
+
+
+
+        Dim Prd As DataTable = Magento_Store_ds.Magento_ProductCatalogImport_TierPrice
+        For iPrd As Integer = 0 To Prd.Rows.Count - 1
+            ProductId = CInt(Prd.Rows(iPrd).Item("product_id"))
+            storeView = CStr(Prd.Rows(iPrd).Item("store"))
+            Dim dr As DataRow = Prd.Rows(iPrd)
+            GetPrices(SessionId, ProductId, storeView, dr)
+        Next
+
+
+
+        ' = 9625 ' 19559 ' 19905  '
+
+        'UpdatePrices(SessionId, ProductId)
+    End Sub
+    Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String, ByVal CreateTierPrice As Boolean)
+        Dim ProductId As Integer = 19368
+        SessionId = CurrentSessionID
+        MageHandler = New Mage_Api.MagentoService
+        Magento_Store_ds = New Magento_Store
+
+        Magento_ProductCatalog_TierPrice_QA_da = New Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QATableAdapter
+        Magento_ProductCatalog_TierPrice_QA_da.Connection = dbConnection
+
+        Magento_ProductCatalog_TierPrice_QA_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA, ProductId)
+
+
+        Dim storeView As String
+
+
+        Dim Prd As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA
+        For iPrd As Integer = 0 To Prd.Rows.Count - 1
+            ProductId = CInt(Prd.Rows(iPrd).Item("product_id"))
+            storeView = CStr(Prd.Rows(iPrd).Item("store"))
+            Dim dr As DataRow = Prd.Rows(iPrd)
+            Dim NewTierPrice As String = CreateTierPriceData(SessionId, ProductId, storeView, dr)
+            UpdateTierPriceData(CurrentSessionID, ProductId, NewTierPrice, storeView)
+        Next
+
+
+    End Sub
+    Public Class TierPseudo
+        Property Root As String
+        Property website_id As String
+        Property all_groups As String
+        Property price As String
+        Property cust_group As String
+        Property price_qty As String
+        Property website_price As String
+    End Class
+    Private Function CreateTierPriceData(ByVal SessionId As String, ByVal ProductId As Integer, ByVal storeView As String, ByVal dr As DataRow) As String
+
+        Dim TierPriceGrid As String = CStr(dr.Item("TierPriceGrid"))
+        '"website_id":"1"
+        '"all_groups""1"
+        '"cust_group":"32000"
+
+        '{"32000-50":{"website_id":"1","all_groups":"1","price":"6.95","cust_group":"32000","price_qty":"50.0000","website_price":"6.95"}}
+        Dim t_Grid_all = New List(Of RootObject)
+        t_Grid_all = JsonConvert.DeserializeObject(Of List(Of RootObject))(TierPriceGrid)
+        'find all the levels
+        'select by store
+        Dim t_Grid_Store = New List(Of RootObject)
+
+
+        Dim website As String = Nothing
+        Select Case storeView
+            Case "en_ca"
+                website = "mapleleaf_cad"
+            Case "en_us"
+                website = "mapleleaf_usd"
+        End Select
+
+        Dim tierPseudo_string As New List(Of TierPseudo)
+
+        t_Grid_Store.AddRange(t_Grid_all.Where(Function(x) x.website = website).ToList)
+
+        Dim itp As Integer = 0
+
+
+        For Each tp As RootObject In t_Grid_Store
+            'Debug.Print(tp.qty)
+            ' need to fill the pseudo
+
+            Dim website_id As String = "1"
+            Dim all_groups As String = "1"
+            Dim cust_group As String = "32000"
+            Dim Root As String = cust_group & "-" & tp.qty
+            Dim price As String = Math.Round(tp.price, 2)
+            Dim price_qty As String = tp.qty.ToString("f4")
+            Dim website_price As String = Math.Round(tp.price, 2)
+
+            AddToTierPseudo_List(tierPseudo_string,
+                                Root,
+                                website_id,
+                                all_groups,
+                                cust_group,
+                                price,
+                                price_qty,
+                                website_price)
+
+        Next
+
+
+        'we need to format the pseudo... can we use serialize? by list row and catenate?
+        itp = 0
+        Dim TierPriceBuilt As String = Nothing
+
+
+        For Each tp As TierPseudo In tierPseudo_string
+            Dim setOUT As String = JsonConvert.SerializeObject(tp)
+            'Debug.Print(setOUT)
+            If itp = 0 Then
+                'the values in tierPseudo_string FIRST row must be adjusted
+                setOUT = setOUT.Replace("""Root"":", "")
+                setOUT = setOUT.Replace(",""website_id""", ":{""website_id""")
+                TierPriceBuilt = TierPriceBuilt & setOUT
+                Debug.Print(setOUT)
+            End If
+
+
+            If itp > 0 Then
+                'the values in tierPseudo_string SECOND and AFTER rows must be adjusted
+                setOUT = setOUT.Replace("{""Root"":", ",")
+                setOUT = setOUT.Replace(",""website_id""", ":{""website_id""")
+                TierPriceBuilt = TierPriceBuilt & setOUT
+                Debug.Print(setOUT)
+            End If
+
+            itp = itp + 1
+        Next
+
+        TierPriceBuilt = TierPriceBuilt & "}"
+        Return TierPriceBuilt
+
+        Debug.Print(TierPriceBuilt)
+        '[{"customer_group_id":"all","website":"comda_usd","qty":150,"qtySpecified":true,"price":0.85,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_cad","qty":150,"qtySpecified":true,"price":1.16,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_usd","qty":150,"qtySpecified":true,"price":0.85,"priceSpecified":true},{"customer_group_id":"all","website":"comda_usd","qty":250,"qtySpecified":true,"price":0.79,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_cad","qty":250,"qtySpecified":true,"price":1.1,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_usd","qty":250,"qtySpecified":true,"price":0.79,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_usd","qty":500,"qtySpecified":true,"price":0.75,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_cad","qty":500,"qtySpecified":true,"price":1.05,"priceSpecified":true},{"customer_group_id":"all","website":"comda_usd","qty":500,"qtySpecified":true,"price":0.75,"priceSpecified":true},{"customer_group_id":"all","website":"comda_usd","qty":1000,"qtySpecified":true,"price":0.72,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_cad","qty":1000,"qtySpecified":true,"price":0.96,"priceSpecified":true},{"customer_group_id":"all","website":"mapleleaf_usd","qty":1000,"qtySpecified":true,"price":0.72,"priceSpecified":true}]
+        '{"32000-150":{"website_id":"1","all_groups":"1","price":"1.16","cust_group":"32000","price_qty":"150.0000","website_price":"1.16"},"32000-250":{"website_id":"1","all_groups":"1","price":"1.1","cust_group":"32000","price_qty":"250.0000","website_price":"1.1"},"32000-500":{"website_id":"1","all_groups":"1","price":"1.05","cust_group":"32000","price_qty":"500.0000","website_price":"1.05"},"32000-1000":{"website_id":"1","all_groups":"1","price":"0.96","cust_group":"32000","price_qty":"1000.0000","website_price":"0.96"}}
+
+
+        'original
+        '{"32000-48":{"website_id":"1","all_groups":"1","price":"9.94","cust_group":"32000","price_qty":"48.0000","website_price":"9.94"},"32000-96":{"website_id":"1","all_groups":"1","price":"8.64","cust_group":"32000","price_qty":"96.0000","website_price":"8.64"},"32000-144":{"website_id":"1","all_groups":"1","price":"7.52","cust_group":"32000","price_qty":"144.0000","website_price":"7.52"},"32000-288":{"website_id":"1","all_groups":"1","price":"6.54","cust_group":"32000","price_qty":"288.0000","website_price":"6.54"},"32000-576":{"website_id":"1","all_groups":"1","price":"5.68","cust_group":"32000","price_qty":"576.0000","website_price":"5.68"}}
+        '{"32000-48":{"website_id":"1","all_groups":"1","price":"9.94","cust_group":"32000","price_qty":"48.0000","website_price":"9.94"},"32000-96":{"website_id":"1","all_groups":"1","price":"8.64","cust_group":"32000","price_qty":"96.0000","website_price":"8.64"},"32000-144":{"website_id":"1","all_groups":"1","price":"7.52","cust_group":"32000","price_qty":"144.0000","website_price":"7.52"},"32000-288":{"website_id":"1","all_groups":"1","price":"6.54","cust_group":"32000","price_qty":"288.0000","website_price":"6.54"},"32000-576":{"website_id":"1","all_groups":"1","price":"5.68","cust_group":"32000","price_qty":"576.0000","website_price":"5.68"}}
+
+
+
+
+
+    End Function
+    Private Sub UpdateTierPriceData(ByVal CurrentSessionID As String, ByVal ProductId As Integer, ByVal TierPriceBuilt As String, ByVal CurStore As String)
+        StopwatchLocal = New Stopwatch()
+        StopwatchLocal.Start()
+
+        'Dim CurStore As String = "en_us"
+        Dim Updated As Boolean = False
+        Dim KeyName As String = Nothing
+        Dim KeyValue As String = Nothing
+
+        MagentoType = "configurable"
+
+        productdata = New catalogProductCreateEntity
+
+        Dim AdditionalAttributes As associativeEntity() = New associativeEntity(0) {}
+        Dim setup_feeAdditionalAttribute As New associativeEntity()
+        KeyName = "tier_price_data"
+
+        KeyValue = TierPriceBuilt
+
+        setup_feeAdditionalAttribute.key = KeyName
+        setup_feeAdditionalAttribute.value = KeyValue
+
+        'Debug.WriteLine("Key Name {0} :  {1}", KeyName, KeyValue)
+        AdditionalAttributes(0) = setup_feeAdditionalAttribute
+
+        Dim AdditionalAttributesEntity As New catalogProductAdditionalAttributesEntity()
+        AdditionalAttributesEntity.single_data = AdditionalAttributes
+        productdata.additional_attributes = AdditionalAttributesEntity
+
+        Dim id As Integer = 0
+        Dim RowFilter As String = "TEST"
+
+        Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Entering Store {4}", MagentoType, id, StopwatchLocal.Elapsed, ProductId, CurStore)
+        Magento_DescriptionWrite(productdata, ProductId, CurStore, MagentoType, Updated)
+        Debug.WriteLine("Type {0}  Count {1}  Time {2}  SKU {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, RowFilter, CurStore)
+
+    End Sub
+    Private Sub AddToTierPseudo_List(ByRef tierPseudo_string As List(Of TierPseudo),
+                                    ByVal Root As String,
+                                    ByVal website_id As String,
+                                    ByVal all_groups As String,
+                                    ByVal cust_group As String,
+                                    ByVal price As String,
+                                    ByVal price_qty As String,
+                                    ByVal website_price As String)
+
+        tierPseudo_string.Add(New TierPseudo() With {
+           .all_groups = all_groups,
+           .cust_group = cust_group,
+           .price = price,
+           .price_qty = price_qty,
+           .Root = Root,
+           .website_id = website_id,
+           .website_price = website_price
+        })
 
     End Sub
 
-    Private Sub UpdatePrices(ByVal ERP_type As String)
-        'array of product ID
-        'Array of Tier prices - from a string
 
+    Public Class RootObject
+        Public Property customer_group_id As String
+        Public Property website As String
+        Public Property qty As Integer
+        Public Property qtySpecified As Boolean
+        Public Property price As Double
+        Public Property priceSpecified As Boolean
+    End Class
+
+
+
+
+
+
+    Private Sub GetPrices(ByVal SessionId As String, ByVal ProductId As Integer, ByVal storeView As String, ByVal dr As DataRow)
+        'Dim Result As Magento_API_Parameters.Mage_Api.catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
+
+        'Dim storeView As String = "en_us"
         Try
-            Try
-                ProductByFamilyDistinct_da.Fill(Magento_Store_ds.ProductByFamilyDistinct, ERP_type)
-
-                Dim ProdUnique As DataTable = Magento_Store_ds.ProductByFamilyDistinct ' Mage_API_Store_DS.ProductUpdate_distinct
-
-                Dim ProdList As DataTable = Magento_Store_ds.Magento_catalogProductUpdate
-
-                Dim ProdAll As DataView = ProdList.DefaultView
-                Dim RowFilter As String = Nothing
-                ProdAll.Sort = "store ASC"
 
 
-                For id As Integer = 0 To ProdUnique.Rows.Count - 1 'figure out the sku 'separate by store/description type
-                    RowFilter = "sku='" & ProdUnique.Rows(id).Item("sku") & "'"
-                    ProdAll.RowFilter = RowFilter 'we have 4 or more rows we need to group by store
+            Dim identifierType As String = "configurable"
 
-                    Dim ProductDescription = New List(Of PartDescription)
-                    Dim ProductIndex As New List(Of ProductIndex)
+            Dim attributes As catalogProductRequestAttributes
+            attributes = New catalogProductRequestAttributes
 
-                    For ip As Integer = 0 To ProdAll.Count - 1
-                        'select a store
-                        Dim ProductId As Integer = GetProductId(ProdAll(ip).Item("sku"))
-                        Dim NewDescription As String = ProdAll(ip).Item("value")
-                        Dim DescriptionType As String = ProdAll(ip).Item("name")
-                        Dim store As String = ProdAll(ip).Item("store")
-                        If ProductId <> 0 Then
-                            AddToPartDescription(ProductDescription, ProductId, store, DescriptionType, NewDescription, ip)
-                            AddToProductIndex(ProductIndex, ip)
-                        End If
+            Dim AttribNameString As String
+            Dim AttribNameArray() As String
 
-                    Next
-                    If ProductDescription.Count = 0 Then
-                        GoTo SKIP_Prod
-                    End If
+            AttribNameString = "tier_price_data"
+            AttribNameArray = AttribNameString.Split(",")
 
-                    Dim Updated As Boolean = False
-                    Dim DefaultSore As Boolean = True
-                    Dim CurStore As String = Nothing
-                    Dim FoOBJ As New List(Of PartDescription)
-                    For Each item As PartDescription In ProductDescription
-                        If CurStore <> item.store Then
-                            CurStore = item.store
-                            Dim curIndex As Integer = item.CurIndex
+            attributes.additional_attributes = AttribNameArray
 
-                            'Dim prodid As Integer = 0
-                            If Not IsNothing(ProductDescription.FindAll(Function(x) x.store.Equals(item.store.Trim))) Then
-                                FoOBJ = ProductDescription.FindAll(Function(x) x.store.Equals(item.store.Trim))
-                            End If
+            Dim cpre As catalogProductReturnEntity = MageHandler.catalogProductInfo(SessionId, ProductId, storeView, attributes, identifierType)
+            Dim TierPrice_Data As String = cpre.additional_attributes(0).value
 
-                            TierPrice = New catalogProductTierPriceEntity
+            Dim TierPrice As Magento_API_Parameters.Mage_Api.catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
+            Dim TierPrice_Grid As String = JsonConvert.SerializeObject(TierPrice)
 
-                            For ix = 0 To FoOBJ(0).description.Split("|").Length - 1
-                                'TierPrice(ix).qty = FoOBJ(0).description.Split("|")(ix).Split(",")(0)
-                            Next
+            'Insert into the database
+            Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.NewRow()
+            newProductsRow("product_id") = ProductId
 
+            newProductsRow("sku") = dr.Item("sku")
+            newProductsRow("type") = dr.Item("type")
+            newProductsRow("name") = dr.Item("name")
+            newProductsRow("website_ids") = dr.Item("website_ids")
+            newProductsRow("store") = storeView
+            newProductsRow("dbContext") = "PROD"
+            newProductsRow("TierPriceData") = TierPrice_Data
+            newProductsRow("TierPriceGrid") = TierPrice_Grid
+            newProductsRow("ImportDate") = Now()
 
+            Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.Rows.Add(newProductsRow)
 
-
-
-
-
-                            TierPrice.qty = 100
-                            TierPrice.price = 1.23
-
-                            'productdata = New catalogProductCreateEntity
-                            'For x As Integer = 0 To FoOBJ.Count - 1
-                            '    'Debug.WriteLine("Store  {3} Type {4}   SKU  {0} , ProductId {1} Description  {2}", FoOBJ(x).productId, 0, FoOBJ(x).description, FoOBJ(x).store, FoOBJ(x).type)
-                            '    Select Case FoOBJ(x).type.ToLower
-                            '        Case "description"
-                            '            productdata.description = FoOBJ(x).description
-                            '        Case "short description"
-                            '            productdata.short_description = FoOBJ(x).description
-                            '        Case "name"
-                            '            productdata.name = FoOBJ(x).description
-                            '    End Select
-                            'Next
-
-                            'do it once for Default
-                            If DefaultSore Then
-                                Magento_TierPricWrite(TierPrice, item.productId, CurStore, MagentoType, Updated)
-                                'Magento_DescriptionWrite(productdata, item.productId, "", MagentoType, Updated)
-                                DefaultSore = False
-                            End If
-                            'Magento_DescriptionWrite(productdata, item.productId, CurStore, MagentoType, Updated)
-                            Magento_TierPricWrite(TierPrice, item.productId, CurStore, MagentoType, Updated)
-
-                        End If
-
-                    Next
-
-                    For Each Index As ProductIndex In ProductIndex
-                        ProdAll(Index.CurIndex).Item("DateUpdated") = Now()
-                        ProdAll(Index.CurIndex).Item("Result") = Updated
-                        ProdAll(Index.CurIndex).Item("InUpdateUniverse") = Not Updated
-                        Debug.WriteLine(ProdAll(Index.CurIndex).Item("store"))
-                    Next
-SKIP_Prod:
-
-
-                Next
-            Catch ex As Exception
-                Api_Para.WriteEventToLog("Error", "GetProductsToUpdate_B4 Update DB", ex.Message, StopwatchLocal, Guid.Parse(TransactionID_Current), ControlRoot_Current)
-            End Try
-
-            Magento_catalogProductUpdate_da.Update(Magento_Store_ds.Magento_catalogProductUpdate)
+            Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
 
         Catch ex As Exception
-            Api_Para.WriteEventToLog("Error", "GetProductsToUpdate", ex.Message, StopwatchLocal, Guid.Parse(TransactionID_Current), ControlRoot_Current)
+
         End Try
 
-        Api_Para.WriteEventToLog("Info", "GetProductsToUpdate", "COMPLETED", StopwatchLocal, Guid.Parse(TransactionID_Current), ControlRoot_Current)
+    End Sub
+
+    Public Class TierPriceLevels
+        Public Property website As String
+        Public Property price As Decimal
+        Public Property customer_group_id As String
+        Public Property qty As Integer
+
+    End Class
+
+
+    Private Sub UpdatePrices(ByVal CurrentSessionID As String, ByVal ProductId As Integer)
+        'array of product ID
+        'Array of Tier prices - from a string
+        Dim txtFileName As String = "Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\json3.json"
+
+
+        Dim txtFileText As String
+        ' The StreamReader must be defined outside of the Try-Catch block
+        '   in order to reference it in the Finally block.
+        Dim myStreamReader As StreamReader
+
+        ' Ensure that the creation of the new StreamReader is wrapped in a 
+        '   Try-Catch block, since an invalid filename could have been used.
+        Try
+            ' Create a StreamReader using a Shared (static) File class.
+            myStreamReader = File.OpenText(txtFileName)
+            ' Read the entire file in one pass, and add the contents to 
+            '   txtFileText text box.
+            txtFileText = myStreamReader.ReadToEnd()
+        Catch exc As Exception
+            ' Show the exception to the user.
+            MsgBox("File could not be opened or read." + vbCrLf +
+                "Please verify that the filename is correct, " +
+                "and that you have read permissions for the desired " +
+                "directory." + vbCrLf + vbCrLf + "Exception: " + exc.Message)
+        Finally
+            ' Close the object if it has been created.
+            If Not myStreamReader Is Nothing Then
+                myStreamReader.Close()
+            End If
+        End Try
+
+        'get the json extract into the tire price data
+        'txtFileText = txtFileText.Replace("vbCrLf", "")
+        'Dim reader As JsonTextReader = New JsonTextReader(New StringReader(txtFileName))
+
+        'Dim FileData As StreamReader = File.OpenText(txtFileName)
+
+        'Dim reader As JsonTextReader = New JsonTextReader(FileData)
+
+        'Dim TP As New TierPriceLevels
+        'Dim deserializedProduct As List(Of TierPriceLevels) = JsonConvert.DeserializeObject(TP)(txtFileText)
+
+        'Dim json As String = File.ReadAllText("Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\TierPrice.json")
+        'Dim o As JObject = JObject.Parse(json)
+
+        'For Each x As Object In o
+        '    'Debug.Print(JsonConvert.DeserializeObject(Of TierPriceLevels)(x.ToString))
+        '    Debug.Print(x.ToString)
+        '    JsonConvert.DeserializeObject(Of TierPriceLevels)(x.ToString)
+        'Next
+
+        Dim tp As New List(Of TierPriceLevels)
+        tp.Add(New TierPriceLevels() With {
+            .customer_group_id = "32000",
+            .price = "1.09",
+            .qty = "150.0000",
+            .website = "mapleleaf_usd"
+                    })
+
+        tp.Add(New TierPriceLevels() With {
+            .customer_group_id = "32000",
+            .price = "1.03",
+            .qty = "250.0000",
+            .website = "mapleleaf_usd"
+        })
+
+        tp.Add(New TierPriceLevels() With {
+            .customer_group_id = "32000",
+            .price = "0.99",
+            .qty = "500.0000",
+            .website = "mapleleaf_usd"
+        })
+
+        tp.Add(New TierPriceLevels() With {
+            .customer_group_id = "32000",
+            .price = "0.90",
+            .qty = "1000.0000",
+            .website = "mapleleaf_usd"
+        })
+
+
+        'Dim TierPrice As catalogProductTierPriceEntity() = catalogProductTierPriceEntity()
+        'TierPrice = New catalogProductTierPriceEntity()
+
+        Dim TierPrice As Magento_API_Parameters.Mage_Api.catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
+
+        'Dim catalogProductCustomOptionInfo_t As catalogProductCustomOptionInfoEntity = MageHandler.catalogProductCustomOptionInfo(SessionId, OptionID, store_name)
+        'Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
+
+        Dim strserialize As String = JsonConvert.SerializeObject(tp)
+        Dim strserialize_Source As String = JsonConvert.SerializeObject(TierPrice)
+        'Dim tp_New = JsonConvert.DeserializeObject(Of List(Of TierPriceLevels))(strserialize)
+
+        Dim tp_New = JsonConvert.DeserializeObject(Of List(Of catalogProductTierPriceEntity))(strserialize)
+
+        'For Each tpl As TierPriceLevels In tp_New
+        '    TierPrice(0).qty = tpl.price_qty
+        '    TierPrice(0).price = tpl.price
+        '    TierPrice(0).customer_group_id = tpl.cust_group
+        '    TierPrice(0).website = tpl.website_id
+
+        'Next
+        Dim TierPrice_List As List(Of catalogProductTierPriceEntity) = TierPrice.ToList
+
+        TierPrice_List.AddRange(tp_New)
+
+        'Dim a As List(Of String) = ("One,Two").Split(",").ToList
+        'a.Add("Three")
+
+        ' I need to ADD a new range of values per Custom group per site...
+        For i As Integer = 0 To TierPrice_List.Count - 1
+            Debug.Print("Web Site {0}, Qty_Inc {1}, Group_Id {2}", TierPrice_List(i).website, TierPrice_List(i).qty, TierPrice_List(i).customer_group_id)
+        Next
+
+        Dim strserialize_complete As String = JsonConvert.SerializeObject(TierPrice_List)
+        Stop
+        'Try
+        '    MageHandler.catalogProductAttributeTierPriceUpdate(CurrentSessionID, ProductId, tp_New.ToArray, 1)
+        'Catch ex As Exception
+
+        'End Try
+        StopwatchLocal = New Stopwatch()
+        StopwatchLocal.Start()
+
+        Dim CurStore As String = "en_us"
+        Dim Updated As Boolean = False
+        Dim KeyName As String = Nothing
+        Dim KeyValue As String = Nothing
+        MagentoType = "configurable"
+
+        productdata = New catalogProductCreateEntity
+
+        Dim AdditionalAttributes As associativeEntity() = New associativeEntity(0) {}
+        Dim setup_feeAdditionalAttribute As New associativeEntity()
+        KeyName = "tier_price_data"
+        'KeyName = CStr(ProdList.Rows(id).Item("name")) ' "setup_fee"
+        'Dim SetupFee_Current As Decimal = CDec(ProdList.Rows(id).Item("value"))
+        'KeyValue = CStr(SetupFee_Current)
+        KeyValue = txtFileText 'strserialize 'strserialize_complete
+
+        setup_feeAdditionalAttribute.key = KeyName
+        setup_feeAdditionalAttribute.value = KeyValue
+
+        Debug.WriteLine("Key Name {0} :  {1}", KeyName, KeyValue)
+        AdditionalAttributes(0) = setup_feeAdditionalAttribute
+
+        Dim AdditionalAttributesEntity As New catalogProductAdditionalAttributesEntity()
+        AdditionalAttributesEntity.single_data = AdditionalAttributes
+        productdata.additional_attributes = AdditionalAttributesEntity
+
+        Dim id As Integer = 0
+        Dim RowFilter As String = "TEST"
+
+        Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Entering Store {4}", MagentoType, id, StopwatchLocal.Elapsed, ProductId, CurStore)
+        'Magento_DescriptionWrite(productdata, ProductId, CurStore, MagentoType, Updated)
+        Debug.WriteLine("Type {0}  Count {1}  Time {2}  SKU {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, RowFilter, CurStore)
+
+        'From the synch table
+
+
+        'Try
+        '    Try
+        'ProductByFamilyDistinct_da.Fill(Magento_Store_ds.ProductByFamilyDistinct, ERP_type)
+
+        'Dim ProdUnique As DataTable = Magento_Store_ds.ProductByFamilyDistinct ' Mage_API_Store_DS.ProductUpdate_distinct
+
+        'Dim ProdList As DataTable = Magento_Store_ds.Magento_catalogProductUpdate
+
+        'Dim ProdAll As DataView = ProdList.DefaultView
+        'Dim RowFilter As String = Nothing
+        'ProdAll.Sort = "store ASC"
+
+
+        'For id As Integer = 0 To ProdUnique.Rows.Count - 1 'figure out the sku 'separate by store/description type
+        '    RowFilter = "sku='" & ProdUnique.Rows(id).Item("sku") & "'"
+        '    ProdAll.RowFilter = RowFilter 'we have 4 or more rows we need to group by store
+
+        '    Dim ProductDescription = New List(Of PartDescription)
+        '    Dim ProductIndex As New List(Of ProductIndex)
+
+        '    For ip As Integer = 0 To ProdAll.Count - 1
+        '        'select a store
+        '        Dim ProductId As Integer = GetProductId(ProdAll(ip).Item("sku"))
+        '        Dim NewDescription As String = ProdAll(ip).Item("value")
+        '        Dim DescriptionType As String = ProdAll(ip).Item("name")
+        '        Dim store As String = ProdAll(ip).Item("store")
+        '        If ProductId <> 0 Then
+        '            AddToPartDescription(ProductDescription, ProductId, store, DescriptionType, NewDescription, ip)
+        '            AddToProductIndex(ProductIndex, ip)
+        '        End If
+
+        '    Next
+        '    If ProductDescription.Count = 0 Then
+        '        GoTo SKIP_Prod
+        '    End If
+
+        '    Dim Updated As Boolean = False
+        '    Dim DefaultSore As Boolean = True
+        '    Dim CurStore As String = Nothing
+        '    Dim FoOBJ As New List(Of PartDescription)
+        '    For Each item As PartDescription In ProductDescription
+        '        If CurStore <> item.store Then
+        '            CurStore = item.store
+        '            Dim curIndex As Integer = item.CurIndex
+
+        '            'Dim prodid As Integer = 0
+        '            If Not IsNothing(ProductDescription.FindAll(Function(x) x.store.Equals(item.store.Trim))) Then
+        '                FoOBJ = ProductDescription.FindAll(Function(x) x.store.Equals(item.store.Trim))
+        '            End If
+
+
+
+
+        '            For ix = 0 To FoOBJ(0).description.Split("|").Length - 1
+        '                'TierPrice(ix).qty = FoOBJ(0).description.Split("|")(ix).Split(",")(0)
+        '            Next
+
+
+
+
+
+
+
+
+
+        'productdata = New catalogProductCreateEntity
+        'For x As Integer = 0 To FoOBJ.Count - 1
+        '    'Debug.WriteLine("Store  {3} Type {4}   SKU  {0} , ProductId {1} Description  {2}", FoOBJ(x).productId, 0, FoOBJ(x).description, FoOBJ(x).store, FoOBJ(x).type)
+        '    Select Case FoOBJ(x).type.ToLower
+        '        Case "description"
+        '            productdata.description = FoOBJ(x).description
+        '        Case "short description"
+        '            productdata.short_description = FoOBJ(x).description
+        '        Case "name"
+        '            productdata.name = FoOBJ(x).description
+        '    End Select
+        'Next
+
+        'do it once for Default
+        '                If DefaultSore Then
+        '                    Magento_TierPricWrite(TierPrice, item.productId, CurStore, MagentoType, Updated)
+        '                    'Magento_DescriptionWrite(productdata, item.productId, "", MagentoType, Updated)
+        '                    DefaultSore = False
+        '                End If
+        '                'Magento_DescriptionWrite(productdata, item.productId, CurStore, MagentoType, Updated)
+        '                Magento_TierPricWrite(TierPrice, item.productId, CurStore, MagentoType, Updated)
+
+        '                End If
+
+        '                Next
+
+        '                For Each Index As ProductIndex In ProductIndex
+        '                    ProdAll(Index.CurIndex).Item("DateUpdated") = Now()
+        '                    ProdAll(Index.CurIndex).Item("Result") = Updated
+        '                    ProdAll(Index.CurIndex).Item("InUpdateUniverse") = Not Updated
+        '                    Debug.WriteLine(ProdAll(Index.CurIndex).Item("store"))
+        '                Next
+        'SKIP_Prod:
+
+
+        '                Next
+        '            Catch ex As Exception
+        '                Api_Para.WriteEventToLog("Error", "GetProductsToUpdate_B4 Update DB", ex.Message, StopwatchLocal, Guid.Parse(TransactionID_Current), ControlRoot_Current)
+        '            End Try
+
+        '            Magento_catalogProductUpdate_da.Update(Magento_Store_ds.Magento_catalogProductUpdate)
+
+        '        Catch ex As Exception
+        '            Api_Para.WriteEventToLog("Error", "GetProductsToUpdate", ex.Message, StopwatchLocal, Guid.Parse(TransactionID_Current), ControlRoot_Current)
+        '        End Try
+
+        '        Api_Para.WriteEventToLog("Info", "GetProductsToUpdate", "COMPLETED", StopwatchLocal, Guid.Parse(TransactionID_Current), ControlRoot_Current)
     End Sub
 
 

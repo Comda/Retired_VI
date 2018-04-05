@@ -13,4 +13,17 @@ Module PrivateMethods
 
         Return prodid
     End Function
+
+    Public Sub InitializeSQLVariables(ByVal dbConnection As SqlClient.SqlConnection)
+
+        Magento_ProductCatalogImport_TierPrice_da = New Magento_StoreTableAdapters.Magento_ProductCatalogImport_TierPriceTableAdapter
+        Magento_ProductCatalog_TierPrice_QA_da = New Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QATableAdapter
+        Magento_ProductCatalog_TierPrice_QA_da.Connection = dbConnection
+        Magento_ProductCatalogImport_TierPrice_da.Connection = dbConnection
+        Magento_Store_ds = New Magento_Store
+
+        Magento_ProductCatalogImport_TierPrice_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport_TierPrice)
+
+
+    End Sub
 End Module

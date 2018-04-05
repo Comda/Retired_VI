@@ -75,10 +75,10 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\bin\Debug\Magen
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\bin\Debug\Magento_API_Parameters.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\bin\Debug\Magento_API_Parameters.pdb
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\bin\Debug\Magento_API_Parameters.xml
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.vbprojResolveAssemblyReference.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.Resources.resources
-Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.vbproj.GenerateResource.Cache
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.vbproj.GenerateResource.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.vbproj.CoreCompileInputs.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.pdb
-Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_Parameters\obj\Debug\Magento_API_Parameters.vbprojResolveAssemblyReference.cache

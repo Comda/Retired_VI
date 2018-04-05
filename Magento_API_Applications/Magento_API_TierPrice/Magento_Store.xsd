@@ -2,9 +2,11 @@
 <xs:schema id="Magento_Store" targetNamespace="http://tempuri.org/Magento_Store.xsd" xmlns:mstns="http://tempuri.org/Magento_Store.xsd" xmlns="http://tempuri.org/Magento_Store.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="API_StoreConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="API_StoreConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Magento_API_TierPrice.My.MySettings.GlobalReference.Default.API_StoreConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="API_StoreConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="API_StoreConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Magento_API_TierPrice.My.MySettings.GlobalReference.Default.API_StoreConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="API_StoreConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="API_StoreConnectionString2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Magento_API_TierPrice.My.MySettings.GlobalReference.Default.API_StoreConnectionString2" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Magento_catalogProductUpdateTableAdapter" GeneratorDataComponentClassName="Magento_catalogProductUpdateTableAdapter" Name="Magento_catalogProductUpdate" UserDataComponentName="Magento_catalogProductUpdateTableAdapter">
@@ -299,6 +301,139 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Magento_ProductCatalogImport_TierPriceTableAdapter" GeneratorDataComponentClassName="Magento_ProductCatalogImport_TierPriceTableAdapter" Name="Magento_ProductCatalogImport_TierPrice" UserDataComponentName="Magento_ProductCatalogImport_TierPriceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="API_StoreConnectionString1 (MySettings)" DbObjectName="API_Store.Magento_API.Magento_ProductCatalogImport" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT
+       name,
+       product_id,
+       sku,
+       type,
+       website_ids,
+       store
+FROM Magento_API.Magento_ProductCatalogImport
+WHERE type = 'configurable'
+      AND store IN ( 'en_ca', 'en_us' );</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="product_id" DataSetColumn="product_id" />
+              <Mapping SourceColumn="store" DataSetColumn="store" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="sku" DataSetColumn="sku" />
+              <Mapping SourceColumn="type" DataSetColumn="type" />
+              <Mapping SourceColumn="website_ids" DataSetColumn="website_ids" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Magento_ProductCatalog_TierPrice_QATableAdapter" GeneratorDataComponentClassName="Magento_ProductCatalog_TierPrice_QATableAdapter" Name="Magento_ProductCatalog_TierPrice_QA" UserDataComponentName="Magento_ProductCatalog_TierPrice_QATableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="API_StoreConnectionString2 (MySettings)" DbObjectName="API_Store.Magento_API.Magento_ProductCatalog_TierPrice_QA" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Magento_API].[Magento_ProductCatalog_TierPrice_QA] WHERE (([Id] = @Original_Id) AND ((@IsNull_product_id = 1 AND [product_id] IS NULL) OR ([product_id] = @Original_product_id)) AND ((@IsNull_sku = 1 AND [sku] IS NULL) OR ([sku] = @Original_sku)) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_website_ids = 1 AND [website_ids] IS NULL) OR ([website_ids] = @Original_website_ids)) AND ((@IsNull_store = 1 AND [store] IS NULL) OR ([store] = @Original_store)) AND ((@IsNull_ImportDate = 1 AND [ImportDate] IS NULL) OR ([ImportDate] = @Original_ImportDate)) AND ((@IsNull_dbContext = 1 AND [dbContext] IS NULL) OR ([dbContext] = @Original_dbContext)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_product_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="product_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_product_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="product_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_sku" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="sku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_website_ids" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="website_ids" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_website_ids" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="website_ids" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="store" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_store" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="store" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ImportDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ImportDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime2" Direction="Input" ParameterName="@Original_ImportDate" Precision="0" ProviderType="DateTime2" Scale="0" Size="0" SourceColumn="ImportDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_dbContext" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dbContext" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_dbContext" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="dbContext" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Magento_API].[Magento_ProductCatalog_TierPrice_QA] ([name], [product_id], [sku], [type], [website_ids], [store], [TierPriceData], [TierPriceGrid], [ImportDate], [dbContext]) VALUES (@name, @product_id, @sku, @type, @website_ids, @store, @TierPriceData, @TierPriceGrid, @ImportDate, @dbContext);
+SELECT Id, name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext FROM Magento_API.Magento_ProductCatalog_TierPrice_QA WHERE (Id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@product_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="product_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@sku" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="sku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@website_ids" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="website_ids" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@store" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="store" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TierPriceData" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TierPriceData" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TierPriceGrid" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TierPriceGrid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime2" Direction="Input" ParameterName="@ImportDate" Precision="0" ProviderType="DateTime2" Scale="0" Size="0" SourceColumn="ImportDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@dbContext" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="dbContext" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Id, name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext FROM Magento_API.Magento_ProductCatalog_TierPrice_QA
+where ( product_id = @product_id ) or (TierPriceData = '')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="product_id" ColumnName="product_id" DataSourceName="API_Store.Magento_API.Magento_ProductCatalog_TierPrice_QA" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@product_id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="product_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Magento_API].[Magento_ProductCatalog_TierPrice_QA] SET [name] = @name, [product_id] = @product_id, [sku] = @sku, [type] = @type, [website_ids] = @website_ids, [store] = @store, [TierPriceData] = @TierPriceData, [TierPriceGrid] = @TierPriceGrid, [ImportDate] = @ImportDate, [dbContext] = @dbContext WHERE (([Id] = @Original_Id) AND ((@IsNull_product_id = 1 AND [product_id] IS NULL) OR ([product_id] = @Original_product_id)) AND ((@IsNull_sku = 1 AND [sku] IS NULL) OR ([sku] = @Original_sku)) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_website_ids = 1 AND [website_ids] IS NULL) OR ([website_ids] = @Original_website_ids)) AND ((@IsNull_store = 1 AND [store] IS NULL) OR ([store] = @Original_store)) AND ((@IsNull_ImportDate = 1 AND [ImportDate] IS NULL) OR ([ImportDate] = @Original_ImportDate)) AND ((@IsNull_dbContext = 1 AND [dbContext] IS NULL) OR ([dbContext] = @Original_dbContext)));
+SELECT Id, name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext FROM Magento_API.Magento_ProductCatalog_TierPrice_QA WHERE (Id = @Id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@product_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="product_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@sku" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="sku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@website_ids" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="website_ids" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@store" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="store" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TierPriceData" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TierPriceData" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TierPriceGrid" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TierPriceGrid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime2" Direction="Input" ParameterName="@ImportDate" Precision="0" ProviderType="DateTime2" Scale="0" Size="0" SourceColumn="ImportDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@dbContext" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="dbContext" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_product_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="product_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_product_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="product_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_sku" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="sku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_website_ids" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="website_ids" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_website_ids" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="website_ids" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="store" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_store" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="store" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ImportDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ImportDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime2" Direction="Input" ParameterName="@Original_ImportDate" Precision="0" ProviderType="DateTime2" Scale="0" Size="0" SourceColumn="ImportDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_dbContext" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dbContext" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_dbContext" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="dbContext" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Id" ColumnName="Id" DataSourceName="API_Store.Magento_API.Magento_ProductCatalog_TierPrice_QA" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="product_id" DataSetColumn="product_id" />
+              <Mapping SourceColumn="sku" DataSetColumn="sku" />
+              <Mapping SourceColumn="type" DataSetColumn="type" />
+              <Mapping SourceColumn="website_ids" DataSetColumn="website_ids" />
+              <Mapping SourceColumn="store" DataSetColumn="store" />
+              <Mapping SourceColumn="TierPriceData" DataSetColumn="TierPriceData" />
+              <Mapping SourceColumn="TierPriceGrid" DataSetColumn="TierPriceGrid" />
+              <Mapping SourceColumn="ImportDate" DataSetColumn="ImportDate" />
+              <Mapping SourceColumn="dbContext" DataSetColumn="dbContext" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -307,7 +442,7 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
   <xs:element name="Magento_Store" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Magento_Store" msprop:Generator_UserDSName="Magento_Store">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Magento_catalogProductUpdate" msprop:Generator_TableClassName="Magento_catalogProductUpdateDataTable" msprop:Generator_TableVarName="tableMagento_catalogProductUpdate" msprop:Generator_TablePropName="Magento_catalogProductUpdate" msprop:Generator_RowDeletingName="Magento_catalogProductUpdateRowDeleting" msprop:Generator_RowChangingName="Magento_catalogProductUpdateRowChanging" msprop:Generator_RowEvHandlerName="Magento_catalogProductUpdateRowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_catalogProductUpdateRowDeleted" msprop:Generator_UserTableName="Magento_catalogProductUpdate" msprop:Generator_RowChangedName="Magento_catalogProductUpdateRowChanged" msprop:Generator_RowEvArgName="Magento_catalogProductUpdateRowChangeEvent" msprop:Generator_RowClassName="Magento_catalogProductUpdateRow">
+        <xs:element name="Magento_catalogProductUpdate" msprop:Generator_TableClassName="Magento_catalogProductUpdateDataTable" msprop:Generator_TableVarName="tableMagento_catalogProductUpdate" msprop:Generator_RowChangedName="Magento_catalogProductUpdateRowChanged" msprop:Generator_TablePropName="Magento_catalogProductUpdate" msprop:Generator_RowDeletingName="Magento_catalogProductUpdateRowDeleting" msprop:Generator_RowChangingName="Magento_catalogProductUpdateRowChanging" msprop:Generator_RowEvHandlerName="Magento_catalogProductUpdateRowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_catalogProductUpdateRowDeleted" msprop:Generator_RowClassName="Magento_catalogProductUpdateRow" msprop:Generator_UserTableName="Magento_catalogProductUpdate" msprop:Generator_RowEvArgName="Magento_catalogProductUpdateRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PayloadDataID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPayloadDataID" msprop:Generator_ColumnPropNameInRow="PayloadDataID" msprop:Generator_ColumnPropNameInTable="PayloadDataIDColumn" msprop:Generator_UserColumnName="PayloadDataID" type="xs:int" />
@@ -354,7 +489,7 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProductUpdate_distinct" msprop:Generator_TableClassName="ProductUpdate_distinctDataTable" msprop:Generator_TableVarName="tableProductUpdate_distinct" msprop:Generator_TablePropName="ProductUpdate_distinct" msprop:Generator_RowDeletingName="ProductUpdate_distinctRowDeleting" msprop:Generator_RowChangingName="ProductUpdate_distinctRowChanging" msprop:Generator_RowEvHandlerName="ProductUpdate_distinctRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductUpdate_distinctRowDeleted" msprop:Generator_UserTableName="ProductUpdate_distinct" msprop:Generator_RowChangedName="ProductUpdate_distinctRowChanged" msprop:Generator_RowEvArgName="ProductUpdate_distinctRowChangeEvent" msprop:Generator_RowClassName="ProductUpdate_distinctRow">
+        <xs:element name="ProductUpdate_distinct" msprop:Generator_TableClassName="ProductUpdate_distinctDataTable" msprop:Generator_TableVarName="tableProductUpdate_distinct" msprop:Generator_RowChangedName="ProductUpdate_distinctRowChanged" msprop:Generator_TablePropName="ProductUpdate_distinct" msprop:Generator_RowDeletingName="ProductUpdate_distinctRowDeleting" msprop:Generator_RowChangingName="ProductUpdate_distinctRowChanging" msprop:Generator_RowEvHandlerName="ProductUpdate_distinctRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductUpdate_distinctRowDeleted" msprop:Generator_RowClassName="ProductUpdate_distinctRow" msprop:Generator_UserTableName="ProductUpdate_distinct" msprop:Generator_RowEvArgName="ProductUpdate_distinctRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" minOccurs="0">
@@ -367,7 +502,7 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProductByFamilyDistinct" msprop:Generator_TableClassName="ProductByFamilyDistinctDataTable" msprop:Generator_TableVarName="tableProductByFamilyDistinct" msprop:Generator_TablePropName="ProductByFamilyDistinct" msprop:Generator_RowDeletingName="ProductByFamilyDistinctRowDeleting" msprop:Generator_RowChangingName="ProductByFamilyDistinctRowChanging" msprop:Generator_RowEvHandlerName="ProductByFamilyDistinctRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductByFamilyDistinctRowDeleted" msprop:Generator_UserTableName="ProductByFamilyDistinct" msprop:Generator_RowChangedName="ProductByFamilyDistinctRowChanged" msprop:Generator_RowEvArgName="ProductByFamilyDistinctRowChangeEvent" msprop:Generator_RowClassName="ProductByFamilyDistinctRow">
+        <xs:element name="ProductByFamilyDistinct" msprop:Generator_TableClassName="ProductByFamilyDistinctDataTable" msprop:Generator_TableVarName="tableProductByFamilyDistinct" msprop:Generator_RowChangedName="ProductByFamilyDistinctRowChanged" msprop:Generator_TablePropName="ProductByFamilyDistinct" msprop:Generator_RowDeletingName="ProductByFamilyDistinctRowDeleting" msprop:Generator_RowChangingName="ProductByFamilyDistinctRowChanging" msprop:Generator_RowEvHandlerName="ProductByFamilyDistinctRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductByFamilyDistinctRowDeleted" msprop:Generator_RowClassName="ProductByFamilyDistinctRow" msprop:Generator_UserTableName="ProductByFamilyDistinct" msprop:Generator_RowEvArgName="ProductByFamilyDistinctRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sku" msprop:Generator_ColumnVarNameInTable="columnsku" msprop:Generator_ColumnPropNameInRow="sku" msprop:Generator_ColumnPropNameInTable="skuColumn" msprop:Generator_UserColumnName="sku">
@@ -380,7 +515,7 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Magento_ProductCatalogMatch" msprop:Generator_TableClassName="Magento_ProductCatalogMatchDataTable" msprop:Generator_TableVarName="tableMagento_ProductCatalogMatch" msprop:Generator_TablePropName="Magento_ProductCatalogMatch" msprop:Generator_RowDeletingName="Magento_ProductCatalogMatchRowDeleting" msprop:Generator_RowChangingName="Magento_ProductCatalogMatchRowChanging" msprop:Generator_RowEvHandlerName="Magento_ProductCatalogMatchRowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_ProductCatalogMatchRowDeleted" msprop:Generator_UserTableName="Magento_ProductCatalogMatch" msprop:Generator_RowChangedName="Magento_ProductCatalogMatchRowChanged" msprop:Generator_RowEvArgName="Magento_ProductCatalogMatchRowChangeEvent" msprop:Generator_RowClassName="Magento_ProductCatalogMatchRow">
+        <xs:element name="Magento_ProductCatalogMatch" msprop:Generator_TableClassName="Magento_ProductCatalogMatchDataTable" msprop:Generator_TableVarName="tableMagento_ProductCatalogMatch" msprop:Generator_RowChangedName="Magento_ProductCatalogMatchRowChanged" msprop:Generator_TablePropName="Magento_ProductCatalogMatch" msprop:Generator_RowDeletingName="Magento_ProductCatalogMatchRowDeleting" msprop:Generator_RowChangingName="Magento_ProductCatalogMatchRowChanging" msprop:Generator_RowEvHandlerName="Magento_ProductCatalogMatchRowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_ProductCatalogMatchRowDeleted" msprop:Generator_RowClassName="Magento_ProductCatalogMatchRow" msprop:Generator_UserTableName="Magento_ProductCatalogMatch" msprop:Generator_RowEvArgName="Magento_ProductCatalogMatchRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="product_id" msprop:Generator_ColumnVarNameInTable="columnproduct_id" msprop:Generator_ColumnPropNameInRow="product_id" msprop:Generator_ColumnPropNameInTable="product_idColumn" msprop:Generator_UserColumnName="product_id" type="xs:int" />
@@ -401,7 +536,7 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Magento_ProductCatalogImport" msprop:Generator_TableClassName="Magento_ProductCatalogImportDataTable" msprop:Generator_TableVarName="tableMagento_ProductCatalogImport" msprop:Generator_TablePropName="Magento_ProductCatalogImport" msprop:Generator_RowDeletingName="Magento_ProductCatalogImportRowDeleting" msprop:Generator_RowChangingName="Magento_ProductCatalogImportRowChanging" msprop:Generator_RowEvHandlerName="Magento_ProductCatalogImportRowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_ProductCatalogImportRowDeleted" msprop:Generator_UserTableName="Magento_ProductCatalogImport" msprop:Generator_RowChangedName="Magento_ProductCatalogImportRowChanged" msprop:Generator_RowEvArgName="Magento_ProductCatalogImportRowChangeEvent" msprop:Generator_RowClassName="Magento_ProductCatalogImportRow">
+        <xs:element name="Magento_ProductCatalogImport" msprop:Generator_TableClassName="Magento_ProductCatalogImportDataTable" msprop:Generator_TableVarName="tableMagento_ProductCatalogImport" msprop:Generator_RowChangedName="Magento_ProductCatalogImportRowChanged" msprop:Generator_TablePropName="Magento_ProductCatalogImport" msprop:Generator_RowDeletingName="Magento_ProductCatalogImportRowDeleting" msprop:Generator_RowChangingName="Magento_ProductCatalogImportRowChanging" msprop:Generator_RowEvHandlerName="Magento_ProductCatalogImportRowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_ProductCatalogImportRowDeleted" msprop:Generator_RowClassName="Magento_ProductCatalogImportRow" msprop:Generator_UserTableName="Magento_ProductCatalogImport" msprop:Generator_RowEvArgName="Magento_ProductCatalogImportRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -469,6 +604,113 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Magento_ProductCatalogImport_TierPrice" msprop:Generator_TableClassName="Magento_ProductCatalogImport_TierPriceDataTable" msprop:Generator_TableVarName="tableMagento_ProductCatalogImport_TierPrice" msprop:Generator_TablePropName="Magento_ProductCatalogImport_TierPrice" msprop:Generator_RowDeletingName="Magento_ProductCatalogImport_TierPriceRowDeleting" msprop:Generator_RowChangingName="Magento_ProductCatalogImport_TierPriceRowChanging" msprop:Generator_RowEvHandlerName="Magento_ProductCatalogImport_TierPriceRowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_ProductCatalogImport_TierPriceRowDeleted" msprop:Generator_UserTableName="Magento_ProductCatalogImport_TierPrice" msprop:Generator_RowChangedName="Magento_ProductCatalogImport_TierPriceRowChanged" msprop:Generator_RowEvArgName="Magento_ProductCatalogImport_TierPriceRowChangeEvent" msprop:Generator_RowClassName="Magento_ProductCatalogImport_TierPriceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="product_id" msprop:Generator_ColumnVarNameInTable="columnproduct_id" msprop:Generator_ColumnPropNameInRow="product_id" msprop:Generator_ColumnPropNameInTable="product_idColumn" msprop:Generator_UserColumnName="product_id" type="xs:int" minOccurs="0" />
+              <xs:element name="store" msprop:Generator_ColumnVarNameInTable="columnstore" msprop:Generator_ColumnPropNameInRow="store" msprop:Generator_ColumnPropNameInTable="storeColumn" msprop:Generator_UserColumnName="store" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sku" msprop:Generator_ColumnVarNameInTable="columnsku" msprop:Generator_ColumnPropNameInRow="sku" msprop:Generator_ColumnPropNameInTable="skuColumn" msprop:Generator_UserColumnName="sku" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="website_ids" msprop:Generator_ColumnVarNameInTable="columnwebsite_ids" msprop:Generator_ColumnPropNameInRow="website_ids" msprop:Generator_ColumnPropNameInTable="website_idsColumn" msprop:Generator_UserColumnName="website_ids" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Magento_ProductCatalog_TierPrice_QA" msprop:Generator_TableClassName="Magento_ProductCatalog_TierPrice_QADataTable" msprop:Generator_TableVarName="tableMagento_ProductCatalog_TierPrice_QA" msprop:Generator_TablePropName="Magento_ProductCatalog_TierPrice_QA" msprop:Generator_RowDeletingName="Magento_ProductCatalog_TierPrice_QARowDeleting" msprop:Generator_RowChangingName="Magento_ProductCatalog_TierPrice_QARowChanging" msprop:Generator_RowEvHandlerName="Magento_ProductCatalog_TierPrice_QARowChangeEventHandler" msprop:Generator_RowDeletedName="Magento_ProductCatalog_TierPrice_QARowDeleted" msprop:Generator_UserTableName="Magento_ProductCatalog_TierPrice_QA" msprop:Generator_RowChangedName="Magento_ProductCatalog_TierPrice_QARowChanged" msprop:Generator_RowEvArgName="Magento_ProductCatalog_TierPrice_QARowChangeEvent" msprop:Generator_RowClassName="Magento_ProductCatalog_TierPrice_QARow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_id" msprop:Generator_ColumnVarNameInTable="columnproduct_id" msprop:Generator_ColumnPropNameInRow="product_id" msprop:Generator_ColumnPropNameInTable="product_idColumn" msprop:Generator_UserColumnName="product_id" type="xs:int" minOccurs="0" />
+              <xs:element name="sku" msprop:Generator_ColumnVarNameInTable="columnsku" msprop:Generator_ColumnPropNameInRow="sku" msprop:Generator_ColumnPropNameInTable="skuColumn" msprop:Generator_UserColumnName="sku" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="website_ids" msprop:Generator_ColumnVarNameInTable="columnwebsite_ids" msprop:Generator_ColumnPropNameInRow="website_ids" msprop:Generator_ColumnPropNameInTable="website_idsColumn" msprop:Generator_UserColumnName="website_ids" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="store" msprop:Generator_ColumnVarNameInTable="columnstore" msprop:Generator_ColumnPropNameInRow="store" msprop:Generator_ColumnPropNameInTable="storeColumn" msprop:Generator_UserColumnName="store" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TierPriceData" msprop:Generator_ColumnVarNameInTable="columnTierPriceData" msprop:Generator_ColumnPropNameInRow="TierPriceData" msprop:Generator_ColumnPropNameInTable="TierPriceDataColumn" msprop:Generator_UserColumnName="TierPriceData" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TierPriceGrid" msprop:Generator_ColumnVarNameInTable="columnTierPriceGrid" msprop:Generator_ColumnPropNameInRow="TierPriceGrid" msprop:Generator_ColumnPropNameInTable="TierPriceGridColumn" msprop:Generator_UserColumnName="TierPriceGrid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ImportDate" msprop:Generator_ColumnVarNameInTable="columnImportDate" msprop:Generator_ColumnPropNameInRow="ImportDate" msprop:Generator_ColumnPropNameInTable="ImportDateColumn" msprop:Generator_UserColumnName="ImportDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="dbContext" msprop:Generator_ColumnVarNameInTable="columndbContext" msprop:Generator_ColumnPropNameInRow="dbContext" msprop:Generator_ColumnPropNameInTable="dbContextColumn" msprop:Generator_UserColumnName="dbContext" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -477,6 +719,10 @@ SELECT Id, category_ids, name, product_id, [set], sku, type, website_ids, store,
     </xs:unique>
     <xs:unique name="Magento_ProductCatalogImport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Magento_ProductCatalogImport" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Magento_ProductCatalog_TierPrice_QA_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Magento_ProductCatalog_TierPrice_QA" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
   </xs:element>

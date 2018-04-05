@@ -116,8 +116,9 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\bin\Debug\Ma
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\bin\Debug\Magento_API_Parameters.XmlSerializers.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.vbprojResolveAssemblyReference.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.Resources.resources
-Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.vbproj.GenerateResource.Cache
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.vbproj.GenerateResource.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.vbproj.CoreCompileInputs.cache
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.vbproj.CopyComplete
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.pdb
