@@ -20,9 +20,11 @@ Module PrivateMethods
         Magento_ProductCatalog_TierPrice_QA_da = New Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QATableAdapter
         Magento_ProductCatalog_TierPrice_QA_da.Connection = dbConnection
         Magento_ProductCatalogImport_TierPrice_da.Connection = dbConnection
+        Magento_ProductCatalog_TierPrice_QA_Compare_da = New Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
+        Magento_ProductCatalog_TierPrice_QA_Compare_da.Connection = dbConnection
         Magento_Store_ds = New Magento_Store
 
-        Magento_ProductCatalogImport_TierPrice_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport_TierPrice)
+
 
 
     End Sub

@@ -11,7 +11,7 @@ Module PrivateProperties
 
     Friend WithEvents Magento_ProductCatalogImport_TierPrice_da As Magento_StoreTableAdapters.Magento_ProductCatalogImport_TierPriceTableAdapter
     Friend WithEvents Magento_ProductCatalog_TierPrice_QA_da As Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QATableAdapter
-
+    Friend WithEvents Magento_ProductCatalog_TierPrice_QA_Compare_da As Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
     Friend WithEvents Magento_Store_ds As Magento_Store
 
 #End Region

@@ -194,9 +194,12 @@ Public Class Form1
         Dim init As New Magento_API_Parameters.Initialize
         init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
         If init.CurrentSessionID.Length > 0 Then
-            ' Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID)
+            'Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID)
 
-            Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, True)
+            ' Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, True)
+
+            'Compare
+            Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, 1)
         End If
         MessageBox.Show("done TIER PRICING")
     End Sub

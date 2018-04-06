@@ -122,3 +122,5 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Ma
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\obj\Debug\Magento_API_CustomOptions.pdb
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\bin\Debug\Newtonsoft.Json.dll
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_CustomOptions\bin\Debug\Newtonsoft.Json.xml

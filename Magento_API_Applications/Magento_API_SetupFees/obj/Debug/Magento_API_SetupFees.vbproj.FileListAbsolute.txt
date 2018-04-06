@@ -93,3 +93,5 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magent
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.pdb
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\bin\Debug\Newtonsoft.Json.dll
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\bin\Debug\Newtonsoft.Json.xml

@@ -267,3 +267,4 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Deb
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.exe
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.pdb
+Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\bin\Debug\Magento_API_TierPrice.XmlSerializers.dll

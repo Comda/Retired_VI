@@ -92,6 +92,11 @@
       <SqlPermissionSet>UNSAFE</SqlPermissionSet>
       <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
     </Reference>
+    <Reference Include="Magento_API_TierPrice.XmlSerializers">
+      <HintPath>..\Magento_API_TierPrice\bin\Debug\Magento_API_TierPrice.XmlSerializers.dll</HintPath>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Magento_Synchronize_ERP.vb" />
@@ -124,6 +129,14 @@
     <ProjectReference Include="..\Magento_API_CustomOptions\Magento_API_CustomOptions.vbproj">
       <Name>Magento_API_CustomOptions</Name>
       <Project>{2ddd28e8-51b4-4154-bae4-b84b9a16b504}</Project>
+      <Private>True</Private>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </ProjectReference>
+    <ProjectReference Include="..\Magento_API_TierPrice\Magento_API_TierPrice.vbproj">
+      <Name>Magento_API_TierPrice</Name>
+      <Project>{f7444f29-a16e-4aae-8746-a534627fdcc9}</Project>
       <Private>True</Private>
       <IsModelAware>True</IsModelAware>
       <GenerateSqlClrDdl>True</GenerateSqlClrDdl>

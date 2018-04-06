@@ -5,6 +5,48 @@ Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Public Class ChangeTierPrices
+    Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String, ByVal CompareAll As Integer)
+
+
+        InitializeSQLVariables(dbConnection)
+
+        SessionId = CurrentSessionID
+
+        Magento_ProductCatalog_TierPrice_QA_Compare_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA_Compare)
+
+        Dim ProductId As Integer
+        Dim storeView As String
+
+
+        Dim Prd As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA_Compare
+
+        For iPrd As Integer = 0 To Prd.Rows.Count - 1
+            ProductId = CInt(Prd.Rows(iPrd).Item("product_id"))
+            storeView = CStr(Prd.Rows(iPrd).Item("store"))
+            Dim dr As DataRow = Prd.Rows(iPrd)
+            If Not CheckDBnull(dr.Item("TierPriceGrid")) Then
+                If Not CheckDBnull(dr.Item("TierPriceData")) Then
+                    Dim NewTierPrice As String = CreateTierPriceData(SessionId, ProductId, storeView, dr)
+                    dr.Item("TierPriceData_Created") = NewTierPrice
+                    If Not CheckDBnull(NewTierPrice) Then
+                        If NewTierPrice.ToLower.Equals(CStr(dr.Item("TierPriceData")).ToLower) Then
+                            dr.Item("Compared") = 1
+                        End If
+                    End If
+                End If
+            End If
+
+        Next
+
+        Magento_ProductCatalog_TierPrice_QA_Compare_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA_Compare)
+
+    End Sub
+    Private Function CheckDBnull(ByVal testVar As Object) As Boolean
+
+        Return IsDBNull(testVar) Or IsNothing(testVar)
+
+
+    End Function
     'ByVal ERP_type As String, ByVal MagentoType As String, catalogProduct_temp As List(Of catalogProductEntity),
     Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String)
 
@@ -18,6 +60,7 @@ Public Class ChangeTierPrices
         'Magento_catalogProductUpdate_da.Connection = dbConnection
 
         'Magento_catalogProductUpdate_da.Fill(Magento_Store_ds.Magento_catalogProductUpdate, ERP_type)
+        Magento_ProductCatalogImport_TierPrice_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport_TierPrice)
 
         SessionId = CurrentSessionID
         'catalogProduct = catalogProduct_temp
@@ -67,7 +110,7 @@ Public Class ChangeTierPrices
             storeView = CStr(Prd.Rows(iPrd).Item("store"))
             Dim dr As DataRow = Prd.Rows(iPrd)
             Dim NewTierPrice As String = CreateTierPriceData(SessionId, ProductId, storeView, dr)
-            UpdateTierPriceData(CurrentSessionID, ProductId, NewTierPrice, storeView)
+            UpdateTierPriceData(CurrentSessionID, ProductId, NewTierPrice, storeView, dr)
         Next
 
 
@@ -83,87 +126,100 @@ Public Class ChangeTierPrices
     End Class
     Private Function CreateTierPriceData(ByVal SessionId As String, ByVal ProductId As Integer, ByVal storeView As String, ByVal dr As DataRow) As String
 
-        Dim TierPriceGrid As String = CStr(dr.Item("TierPriceGrid"))
-        '"website_id":"1"
-        '"all_groups""1"
-        '"cust_group":"32000"
-
-        '{"32000-50":{"website_id":"1","all_groups":"1","price":"6.95","cust_group":"32000","price_qty":"50.0000","website_price":"6.95"}}
-        Dim t_Grid_all = New List(Of RootObject)
-        t_Grid_all = JsonConvert.DeserializeObject(Of List(Of RootObject))(TierPriceGrid)
-        'find all the levels
-        'select by store
-        Dim t_Grid_Store = New List(Of RootObject)
-
-
-        Dim website As String = Nothing
-        Select Case storeView
-            Case "en_ca"
-                website = "mapleleaf_cad"
-            Case "en_us"
-                website = "mapleleaf_usd"
-        End Select
-
-        Dim tierPseudo_string As New List(Of TierPseudo)
-
-        t_Grid_Store.AddRange(t_Grid_all.Where(Function(x) x.website = website).ToList)
-
-        Dim itp As Integer = 0
-
-
-        For Each tp As RootObject In t_Grid_Store
-            'Debug.Print(tp.qty)
-            ' need to fill the pseudo
-
-            Dim website_id As String = "1"
-            Dim all_groups As String = "1"
-            Dim cust_group As String = "32000"
-            Dim Root As String = cust_group & "-" & tp.qty
-            Dim price As String = Math.Round(tp.price, 2)
-            Dim price_qty As String = tp.qty.ToString("f4")
-            Dim website_price As String = Math.Round(tp.price, 2)
-
-            AddToTierPseudo_List(tierPseudo_string,
-                                Root,
-                                website_id,
-                                all_groups,
-                                cust_group,
-                                price,
-                                price_qty,
-                                website_price)
-
-        Next
-
-
-        'we need to format the pseudo... can we use serialize? by list row and catenate?
-        itp = 0
         Dim TierPriceBuilt As String = Nothing
+        Try
 
 
-        For Each tp As TierPseudo In tierPseudo_string
-            Dim setOUT As String = JsonConvert.SerializeObject(tp)
-            'Debug.Print(setOUT)
-            If itp = 0 Then
-                'the values in tierPseudo_string FIRST row must be adjusted
-                setOUT = setOUT.Replace("""Root"":", "")
-                setOUT = setOUT.Replace(",""website_id""", ":{""website_id""")
-                TierPriceBuilt = TierPriceBuilt & setOUT
-                Debug.Print(setOUT)
+            Dim TierPriceGrid As String = CStr(dr.Item("TierPriceGrid"))
+            If TierPriceGrid.Length < 10 Then
+                Return TierPriceBuilt
             End If
+            '"website_id":"1"
+            '"all_groups""1"
+            '"cust_group":"32000"
+
+            '{"32000-50":{"website_id":"1","all_groups":"1","price":"6.95","cust_group":"32000","price_qty":"50.0000","website_price":"6.95"}}
+            Dim t_Grid_all = New List(Of RootObject)
+            t_Grid_all = JsonConvert.DeserializeObject(Of List(Of RootObject))(TierPriceGrid)
+            'find all the levels
+            'select by store
+            Dim t_Grid_Store = New List(Of RootObject)
 
 
-            If itp > 0 Then
-                'the values in tierPseudo_string SECOND and AFTER rows must be adjusted
-                setOUT = setOUT.Replace("{""Root"":", ",")
-                setOUT = setOUT.Replace(",""website_id""", ":{""website_id""")
-                TierPriceBuilt = TierPriceBuilt & setOUT
-                Debug.Print(setOUT)
-            End If
+            Dim website As String = Nothing
+            Select Case storeView
+                Case "en_ca"
+                    website = "mapleleaf_cad"
+                Case "en_us"
+                    website = "mapleleaf_usd"
+            End Select
 
-            itp = itp + 1
-        Next
+            Dim tierPseudo_string As New List(Of TierPseudo)
 
-        TierPriceBuilt = TierPriceBuilt & "}"
+            t_Grid_Store.AddRange(t_Grid_all.Where(Function(x) x.website = website).ToList)
+
+            Dim itp As Integer = 0
+
+
+            For Each tp As RootObject In t_Grid_Store
+                'Debug.Print(tp.qty)
+                ' need to fill the pseudo
+
+                Dim website_id As String = "1"
+                Dim all_groups As String = "1"
+                Dim cust_group As String = "32000"
+                Dim Root As String = cust_group & "-" & tp.qty
+                Dim price As String = Math.Round(tp.price, 2)
+                Dim price_qty As String = tp.qty.ToString("f4")
+                Dim website_price As String = Math.Round(tp.price, 2)
+
+                AddToTierPseudo_List(tierPseudo_string,
+                                    Root,
+                                    website_id,
+                                    all_groups,
+                                    cust_group,
+                                    price,
+                                    price_qty,
+                                    website_price)
+
+            Next
+
+
+            'we need to format the pseudo... can we use serialize? by list row and catenate?
+            itp = 0
+            TierPriceBuilt = ""
+
+
+            For Each tp As TierPseudo In tierPseudo_string
+                Dim setOUT As String = JsonConvert.SerializeObject(tp)
+                'Debug.Print(setOUT)
+                If itp = 0 Then
+                    'the values in tierPseudo_string FIRST row must be adjusted
+                    setOUT = setOUT.Replace("""Root"":", "")
+                    setOUT = setOUT.Replace(",""website_id""", ":{""website_id""")
+                    TierPriceBuilt = TierPriceBuilt & setOUT
+                    Debug.Print(setOUT)
+                End If
+
+
+                If itp > 0 Then
+                    'the values in tierPseudo_string SECOND and AFTER rows must be adjusted
+                    setOUT = setOUT.Replace("{""Root"":", ",")
+                    setOUT = setOUT.Replace(",""website_id""", ":{""website_id""")
+                    TierPriceBuilt = TierPriceBuilt & setOUT
+                    Debug.Print(setOUT)
+                End If
+
+                itp = itp + 1
+            Next
+
+            TierPriceBuilt = TierPriceBuilt & "}"
+
+
+        Catch ex As Exception
+            Throw New System.Exception(ex.Message)
+        End Try
+
         Return TierPriceBuilt
 
         Debug.Print(TierPriceBuilt)
@@ -180,41 +236,54 @@ Public Class ChangeTierPrices
 
 
     End Function
-    Private Sub UpdateTierPriceData(ByVal CurrentSessionID As String, ByVal ProductId As Integer, ByVal TierPriceBuilt As String, ByVal CurStore As String)
+    Private Sub UpdateTierPriceData(ByVal CurrentSessionID As String, ByVal ProductId As Integer, ByVal TierPriceBuilt As String, ByVal CurStore As String, ByVal dr As DataRow)
         StopwatchLocal = New Stopwatch()
         StopwatchLocal.Start()
+        Try
 
-        'Dim CurStore As String = "en_us"
-        Dim Updated As Boolean = False
-        Dim KeyName As String = Nothing
-        Dim KeyValue As String = Nothing
 
-        MagentoType = "configurable"
+            'Dim CurStore As String = "en_us"
+            Dim Updated As Boolean = False
+            Dim KeyName As String = Nothing
+            Dim KeyValue As String = Nothing
 
-        productdata = New catalogProductCreateEntity
+            MagentoType = "configurable"
 
-        Dim AdditionalAttributes As associativeEntity() = New associativeEntity(0) {}
-        Dim setup_feeAdditionalAttribute As New associativeEntity()
-        KeyName = "tier_price_data"
+            productdata = New catalogProductCreateEntity
 
-        KeyValue = TierPriceBuilt
+            Dim AdditionalAttributes As associativeEntity() = New associativeEntity(0) {}
+            Dim setup_feeAdditionalAttribute As New associativeEntity()
+            KeyName = "tier_price_data"
 
-        setup_feeAdditionalAttribute.key = KeyName
-        setup_feeAdditionalAttribute.value = KeyValue
+            KeyValue = TierPriceBuilt
 
-        'Debug.WriteLine("Key Name {0} :  {1}", KeyName, KeyValue)
-        AdditionalAttributes(0) = setup_feeAdditionalAttribute
+            setup_feeAdditionalAttribute.key = KeyName
+            setup_feeAdditionalAttribute.value = KeyValue
 
-        Dim AdditionalAttributesEntity As New catalogProductAdditionalAttributesEntity()
-        AdditionalAttributesEntity.single_data = AdditionalAttributes
-        productdata.additional_attributes = AdditionalAttributesEntity
+            'Debug.WriteLine("Key Name {0} :  {1}", KeyName, KeyValue)
+            AdditionalAttributes(0) = setup_feeAdditionalAttribute
 
-        Dim id As Integer = 0
-        Dim RowFilter As String = "TEST"
+            Dim AdditionalAttributesEntity As New catalogProductAdditionalAttributesEntity()
+            AdditionalAttributesEntity.single_data = AdditionalAttributes
+            productdata.additional_attributes = AdditionalAttributesEntity
 
-        Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Entering Store {4}", MagentoType, id, StopwatchLocal.Elapsed, ProductId, CurStore)
-        Magento_DescriptionWrite(productdata, ProductId, CurStore, MagentoType, Updated)
-        Debug.WriteLine("Type {0}  Count {1}  Time {2}  SKU {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, RowFilter, CurStore)
+            Dim id As Integer = 0
+            Dim RowFilter As String = "TEST"
+
+            Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Entering Store {4}", MagentoType, id, StopwatchLocal.Elapsed, ProductId, CurStore)
+            Magento_DescriptionWrite(productdata, ProductId, CurStore, MagentoType, Updated)
+            Debug.WriteLine("Type {0}  Count {1}  Time {2}  SKU {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, RowFilter, CurStore)
+        Catch ex As Exception
+
+        End Try
+        Try
+            dr.Item("Processed") = Now()
+            Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
+        Catch ex As Exception
+
+        End Try
+
+
 
     End Sub
     Private Sub AddToTierPseudo_List(ByRef tierPseudo_string As List(Of TierPseudo),
@@ -278,6 +347,21 @@ Public Class ChangeTierPrices
 
             Dim TierPrice As Magento_API_Parameters.Mage_Api.catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
             Dim TierPrice_Grid As String = JsonConvert.SerializeObject(TierPrice)
+
+            'ICS  notes if TierPrice_Grid has no values for the store then treat it as blank.
+
+            Dim website As String = Nothing
+            Select Case storeView
+                Case "en_ca"
+                    website = "mapleleaf_cad"
+                Case "en_us"
+                    website = "mapleleaf_usd"
+            End Select
+
+            If TierPrice_Grid.IndexOf(website) = -1 Then
+                TierPrice_Grid = ""
+
+            End If
 
             'Insert into the database
             Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.NewRow()

@@ -107,3 +107,5 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_UpdateNameDescription\obj\
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_UpdateNameDescription\obj\Debug\Magento_API_UpdateNameDescription.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_UpdateNameDescription\obj\Debug\Magento_API_UpdateNameDescription.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_UpdateNameDescription\obj\Debug\Magento_API_UpdateNameDescription.pdb
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_UpdateNameDescription\bin\Debug\Newtonsoft.Json.dll
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_UpdateNameDescription\bin\Debug\Newtonsoft.Json.xml
