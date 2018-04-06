@@ -16,12 +16,14 @@ Module PrivateMethods
 
     Public Sub InitializeSQLVariables(ByVal dbConnection As SqlClient.SqlConnection)
 
-        Magento_ProductCatalogImport_TierPrice_da = New Magento_StoreTableAdapters.Magento_ProductCatalogImport_TierPriceTableAdapter
+
         Magento_ProductCatalog_TierPrice_QA_da = New Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QATableAdapter
         Magento_ProductCatalog_TierPrice_QA_da.Connection = dbConnection
-        Magento_ProductCatalogImport_TierPrice_da.Connection = dbConnection
+
         Magento_ProductCatalog_TierPrice_QA_Compare_da = New Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
         Magento_ProductCatalog_TierPrice_QA_Compare_da.Connection = dbConnection
+        Magento_ProductCatalog_TierPrice_Universe_GET_da = New Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_Universe_GETTableAdapter
+        Magento_ProductCatalog_TierPrice_Universe_GET_da.Connection = dbConnection
         Magento_Store_ds = New Magento_Store
 
 

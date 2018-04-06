@@ -9,9 +9,10 @@ Module PrivateProperties
     Friend WithEvents ProductUpdate_distinct_da As Magento_StoreTableAdapters.ProductUpdate_distinctTableAdapter
     Friend WithEvents ProductByFamilyDistinct_da As Magento_StoreTableAdapters.ProductByFamilyDistinctTableAdapter
 
-    Friend WithEvents Magento_ProductCatalogImport_TierPrice_da As Magento_StoreTableAdapters.Magento_ProductCatalogImport_TierPriceTableAdapter
+
     Friend WithEvents Magento_ProductCatalog_TierPrice_QA_da As Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QATableAdapter
     Friend WithEvents Magento_ProductCatalog_TierPrice_QA_Compare_da As Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
+    Friend WithEvents Magento_ProductCatalog_TierPrice_Universe_GET_da As Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_Universe_GETTableAdapter
     Friend WithEvents Magento_Store_ds As Magento_Store
 
 #End Region

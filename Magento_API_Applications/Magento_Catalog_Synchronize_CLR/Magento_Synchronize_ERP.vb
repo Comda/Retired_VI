@@ -69,7 +69,13 @@ Partial Public Class StoredProcedures
                     'Compare
                     Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, 1)
                 End If
-
+            Case "TIER_PRICE_DATA"
+                Dim init As New Magento_API_Parameters.Initialize
+                init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
+                If init.CurrentSessionID.Length > 0 Then
+                    Dim CreateTierPrice As Boolean = True
+                    Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice)
+                End If
         End Select
 
     End Sub

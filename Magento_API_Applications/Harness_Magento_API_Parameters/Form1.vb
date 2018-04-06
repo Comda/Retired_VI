@@ -183,24 +183,26 @@ Public Class Form1
         Dim API_ID As String = Me.tb_API_ID.Text ' "sophie"
         Dim Action As String = "UPDATE CATALOG"
         Dim ControlRoot As String = Action.ToUpper   'Me.tb_ControlRoot.Text ' "GetProductCatalog"
-        Dim TransactionID As String = Guid.NewGuid().ToString
+        Dim TransactionID As String = Nothing
         Dim ConnectionString As String = "Data Source=COCAPIINTERNAL\prod,1433;Initial Catalog=API_Store;Persist Security Info=True;User ID=sa;Password=apiprod2015"
         Dim dbContext As String = "WEB_DEMAC"
         Dim dbcon As New SqlClient.SqlConnection
         dbcon.ConnectionString = ConnectionString
-
+        Dim CreateTierPrice As Boolean = True
         Dim MagentoType As String = Nothing
-
+        TransactionID = Guid.Parse("5511256D-BFA7-447B-94DC-EB9D97182255").ToString
         Dim init As New Magento_API_Parameters.Initialize
         init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
         If init.CurrentSessionID.Length > 0 Then
-            'Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID)
+
+            Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice)
 
             ' Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, True)
 
             'Compare
-            Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, 1)
+            'Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, 1)
         End If
         MessageBox.Show("done TIER PRICING")
     End Sub
 End Class
+' Guid.Parse("5511256D-BFA7-447B-94DC-EB9D97182255").ToString - -Guid.NewGuid().ToString
