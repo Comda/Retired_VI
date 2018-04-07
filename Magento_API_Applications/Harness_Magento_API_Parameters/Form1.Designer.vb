@@ -37,7 +37,8 @@ Partial Class Form1
         Me.b_SynchOptions = New System.Windows.Forms.Button()
         Me.b_SetUp = New System.Windows.Forms.Button()
         Me.B_LikeCLR = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.b_TierPricingUPDATEMagento = New System.Windows.Forms.Button()
+        Me.b_TierPricingQATableONLY = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -161,28 +162,38 @@ Partial Class Form1
         '
         'B_LikeCLR
         '
-        Me.B_LikeCLR.Location = New System.Drawing.Point(242, 105)
+        Me.B_LikeCLR.Location = New System.Drawing.Point(345, 70)
         Me.B_LikeCLR.Name = "B_LikeCLR"
         Me.B_LikeCLR.Size = New System.Drawing.Size(222, 23)
         Me.B_LikeCLR.TabIndex = 16
         Me.B_LikeCLR.Text = "Like CLR"
         Me.B_LikeCLR.UseVisualStyleBackColor = True
         '
-        'Button2
+        'b_TierPricingUPDATEMagento
         '
-        Me.Button2.Location = New System.Drawing.Point(376, 205)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 17
-        Me.Button2.Text = "Tier Pricing"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.b_TierPricingUPDATEMagento.Location = New System.Drawing.Point(247, 167)
+        Me.b_TierPricingUPDATEMagento.Name = "b_TierPricingUPDATEMagento"
+        Me.b_TierPricingUPDATEMagento.Size = New System.Drawing.Size(148, 42)
+        Me.b_TierPricingUPDATEMagento.TabIndex = 17
+        Me.b_TierPricingUPDATEMagento.Text = "Tier Pricing UPDATE Magento"
+        Me.b_TierPricingUPDATEMagento.UseVisualStyleBackColor = True
+        '
+        'b_TierPricingQATableONLY
+        '
+        Me.b_TierPricingQATableONLY.Location = New System.Drawing.Point(247, 123)
+        Me.b_TierPricingQATableONLY.Name = "b_TierPricingQATableONLY"
+        Me.b_TierPricingQATableONLY.Size = New System.Drawing.Size(148, 23)
+        Me.b_TierPricingQATableONLY.TabIndex = 18
+        Me.b_TierPricingQATableONLY.Text = "Tier Pricing QA Table ONLY"
+        Me.b_TierPricingQATableONLY.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(771, 320)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.b_TierPricingQATableONLY)
+        Me.Controls.Add(Me.b_TierPricingUPDATEMagento)
         Me.Controls.Add(Me.B_LikeCLR)
         Me.Controls.Add(Me.b_SetUp)
         Me.Controls.Add(Me.b_SynchOptions)
@@ -220,5 +231,6 @@ Partial Class Form1
     Friend WithEvents b_SynchOptions As Button
     Friend WithEvents b_SetUp As Button
     Friend WithEvents B_LikeCLR As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents b_TierPricingUPDATEMagento As Button
+    Friend WithEvents b_TierPricingQATableONLY As Button
 End Class
