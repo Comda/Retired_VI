@@ -5,6 +5,7 @@ Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Public Class ChangeTierPrices
+
 #Region "Instance Creation"
 #Region "Create Tier Price and Update Magento"
     Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String, ByVal TransactionID As Guid, ByVal CreateTierPrice As Boolean)
@@ -14,6 +15,7 @@ Public Class ChangeTierPrices
         '                               Option 2 Products in the Magento_catalogProductUpdate 
 
         'in all events current table will be updated with a unique ID
+        CreatePriceData = CreateTierPrice
 
         SessionId = CurrentSessionID
 
@@ -27,12 +29,13 @@ Public Class ChangeTierPrices
         Dim storeView As String
         Dim TransID As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_Universe_GET
 
+
         Dim TransactionID_v As DataView = New DataView(TransID)
         Dim TransactionID_dt As DataTable = TransactionID_v.ToTable(True, "TransactionID")
         For iTrans As Integer = 0 To TransactionID_dt.Rows.Count - 1
 
             Dim TransactionID_Filter As String
-            TransactionID_Filter = "TransactionID ='" & TransactionID_dt.Rows(0).Item("TransactionID").ToString & "'"
+            TransactionID_Filter = "TransactionID ='" & TransactionID_dt.Rows(iTrans).Item("TransactionID").ToString & "'"
 
             Dim foundRows() As DataRow
             ' Use the Select method to find all rows matching the filter.
@@ -49,15 +52,39 @@ Public Class ChangeTierPrices
                 Dim dr As DataRow = Prd.Rows(iPrd)
                 GetPrices(SessionId, ProductId, storeView, dr)
             Next
-            If CreateTierPrice Then
-                Magento_ProductCatalog_TierPrice_QA_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA, TransactionID)
-                Prd = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA
+
+        Next
+
+
+        If CreateTierPrice Then
+
+            For iTrans As Integer = 0 To TransactionID_dt.Rows.Count - 1
+
+                Dim TransactionID_Filter As String
+                TransactionID_Filter = "TransactionID ='" & TransactionID_dt.Rows(0).Item("TransactionID").ToString & "'"
+
+                Dim foundRows() As DataRow
+                ' Use the Select method to find all rows matching the filter.
+                foundRows = TransID.Select(TransactionID_Filter)
+
+                Magento_ProductCatalog_TierPrice_QA_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA, TransactionID_dt.Rows(0).Item("TransactionID"))
+
+                Dim Prd As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA
                 For iPrd = 0 To Prd.Rows.Count - 1
                     Dim dr As DataRow = Prd.Rows(iPrd)
-                    UpdateMagentoTierPriceData(SessionId, dr)
+
+                    If dr.Item("Compared") = 0 Then
+                        If Not CheckDBnull(dr.Item("TierPriceGrid")) Then
+                            If dr.Item("TierPriceGrid").ToString.Length > 10 Then
+                                UpdateMagentoTierPriceData(SessionId, dr)
+                            End If
+                        End If
+                    End If
                 Next
-            End If
-        Next
+            Next
+        End If
+
+
     End Sub
 #End Region
 #Region "Unused NEW sub"
@@ -141,6 +168,8 @@ Public Class ChangeTierPrices
             '"cust_group":"32000"
 
             '{"32000-50":{"website_id":"1","all_groups":"1","price":"6.95","cust_group":"32000","price_qty":"50.0000","website_price":"6.95"}}
+            'If TierPriceGrid.Length > 10 Then Stop
+
             Dim t_Grid_all = New List(Of RootObject)
             t_Grid_all = JsonConvert.DeserializeObject(Of List(Of RootObject))(TierPriceGrid)
             'find all the levels
@@ -244,16 +273,21 @@ Public Class ChangeTierPrices
         StopwatchLocal = New Stopwatch()
         StopwatchLocal.Start()
 
-        Dim ProductId As Integer
-        Dim TierPriceBuilt As String
-        Dim CurStore As String
+        Dim ProductId As Integer = 0
+        Dim TierPriceBuilt As String = ""
+        Dim CurStore As String = Nothing
         Dim Updated As Boolean = False
 
         Try
 
             ProductId = dr.Item("product_id")
             CurStore = dr.Item("store")
-            TierPriceBuilt = dr.Item("TierPriceData_Created")
+            If Not CheckDBnull(dr.Item("TierPriceData_Created")) Then
+                TierPriceBuilt = dr.Item("TierPriceData_Created")
+            Else
+                GoTo NoUpdate
+            End If
+
 
 
             Dim KeyName As String = Nothing
@@ -284,7 +318,7 @@ Public Class ChangeTierPrices
 
             'Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Entering Store {4}", MagentoType, id, StopwatchLocal.Elapsed, ProductId, CurStore)
             Magento_DescriptionWrite(productdata, ProductId, CurStore, MagentoType, Updated)
-            ' Debug.WriteLine("Type {0}  Count {1}  Time {2}  SKU {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, RowFilter, CurStore)
+            Debug.WriteLine("Type {0}  Count {1}  Time {2}  SKU {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, RowFilter, CurStore)
         Catch ex As Exception
             'Throw New System.Exception(ex.Message)
         End Try
@@ -298,7 +332,7 @@ Public Class ChangeTierPrices
         Catch ex As Exception
             'Throw New System.Exception(ex.Message)
         End Try
-
+NoUpdate:
 
 
     End Sub
@@ -345,10 +379,14 @@ Public Class ChangeTierPrices
 
     Private Sub GetPrices(ByVal SessionId As String, ByVal ProductId As Integer, ByVal storeView As String, ByVal dr As DataRow)
 
+        Dim identifierType As String = "configurable"
+        Dim NewTierPrice As String = Nothing
+        Dim Compare As Boolean
+        Dim TierPrice_Data As String = Nothing
+        Dim TierPrice_Grid As String = Nothing
+
         Try
 
-
-            Dim identifierType As String = "configurable"
 
             Dim attributes As catalogProductRequestAttributes
             attributes = New catalogProductRequestAttributes
@@ -362,10 +400,10 @@ Public Class ChangeTierPrices
             attributes.additional_attributes = AttribNameArray
 
             Dim cpre As catalogProductReturnEntity = MageHandler.catalogProductInfo(SessionId, ProductId, storeView, attributes, identifierType)
-            Dim TierPrice_Data As String = cpre.additional_attributes(0).value
+            TierPrice_Data = cpre.additional_attributes(0).value
 
-            Dim TierPrice As Magento_API_Parameters.Mage_Api.catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
-            Dim TierPrice_Grid As String = JsonConvert.SerializeObject(TierPrice)
+            Dim TierPrice As catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
+            TierPrice_Grid = JsonConvert.SerializeObject(TierPrice)
 
             'ICS  notes if TierPrice_Grid has no values for the store then treat it as blank.
 
@@ -379,24 +417,35 @@ Public Class ChangeTierPrices
 
             If TierPrice_Grid.IndexOf(website) = -1 Then
                 TierPrice_Grid = ""
+                            End If
 
-            End If
-            Dim NewTierPrice As String = Nothing
-            Dim Compare As Boolean
 
             If Not CheckDBnull(TierPrice_Grid) Then
-                If Not CheckDBnull(TierPrice_Data) Then
-                    NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
-                    If Not CheckDBnull(NewTierPrice) Then
+                'If Not CheckDBnull(TierPrice_Data) Then
+                NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
+                If Not CheckDBnull(NewTierPrice) Then
+                    If Not CheckDBnull(TierPrice_Data) Then
                         If NewTierPrice.ToLower.Equals(TierPrice_Data.ToLower) Then
                             Compare = 1
                         End If
                     End If
                 End If
-            End If
+                    'End If
+                End If
+        Catch ex As Exception
+            'Throw New System.Exception(ex.Message)
+        End Try
+        'Insert into the database
+        Dim Processed As Date
+        If CreatePriceData Then
+            Processed = Now()
+        End If
+        Try
 
-            'Insert into the database
-            Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.NewRow()
+
+            Dim newProductsRow = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.NewRow()
+
+
             newProductsRow("product_id") = ProductId
 
             newProductsRow("sku") = dr.Item("sku")
@@ -412,13 +461,13 @@ Public Class ChangeTierPrices
             newProductsRow("TransactionID") = dr.Item("TransactionID")
             newProductsRow("TierPriceData_Created") = NewTierPrice
             newProductsRow("OriginalTransactionID") = dr.Item("OriginalTransactionID")
-
+            'newProductsRow("Processed") = Processed
             Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.Rows.Add(newProductsRow)
 
             Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
 
         Catch ex As Exception
-            'Throw New System.Exception(ex.Message)
+
         End Try
 
     End Sub

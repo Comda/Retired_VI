@@ -49,6 +49,7 @@ Module PrivateProperties
     Public Property CurrentConnection As SqlConnection
 
     Public Property ERP_type As String
+    Public Property CreatePriceData As Boolean
 
 
 
