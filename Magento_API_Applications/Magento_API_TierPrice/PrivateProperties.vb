@@ -50,6 +50,7 @@ Module PrivateProperties
 
     Public Property ERP_type As String
     Public Property CreatePriceData As Boolean
+    Public Property Status As String
 
 
 

@@ -2199,6 +2199,10 @@ Partial Public Class Magento_Store
         
         Private columnOriginalTransactionID As Global.System.Data.DataColumn
         
+        Private columnStatus As Global.System.Data.DataColumn
+        
+        Private columnStatusDateTime As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -2363,6 +2367,22 @@ Partial Public Class Magento_Store
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property StatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStatus
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property StatusDateTimeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStatusDateTime
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2399,9 +2419,26 @@ Partial Public Class Magento_Store
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddMagento_ProductCatalog_TierPrice_QARow(ByVal name As String, ByVal product_id As Integer, ByVal sku As String, ByVal type As String, ByVal website_ids As String, ByVal store As String, ByVal TierPriceData As String, ByVal TierPriceGrid As String, ByVal ImportDate As Date, ByVal dbContext As String, ByVal Processed As Date, ByVal TierPriceData_Created As String, ByVal Compared As Boolean, ByVal TransactionID As System.Guid, ByVal OriginalTransactionID As System.Guid) As Magento_ProductCatalog_TierPrice_QARow
+        Public Overloads Function AddMagento_ProductCatalog_TierPrice_QARow( _
+                    ByVal name As String,  _
+                    ByVal product_id As Integer,  _
+                    ByVal sku As String,  _
+                    ByVal type As String,  _
+                    ByVal website_ids As String,  _
+                    ByVal store As String,  _
+                    ByVal TierPriceData As String,  _
+                    ByVal TierPriceGrid As String,  _
+                    ByVal ImportDate As Date,  _
+                    ByVal dbContext As String,  _
+                    ByVal Processed As Date,  _
+                    ByVal TierPriceData_Created As String,  _
+                    ByVal Compared As Boolean,  _
+                    ByVal TransactionID As System.Guid,  _
+                    ByVal OriginalTransactionID As System.Guid,  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Date) As Magento_ProductCatalog_TierPrice_QARow
             Dim rowMagento_ProductCatalog_TierPrice_QARow As Magento_ProductCatalog_TierPrice_QARow = CType(Me.NewRow,Magento_ProductCatalog_TierPrice_QARow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, OriginalTransactionID}
+            Dim columnValuesArray() As Object = New Object() {Nothing, name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, OriginalTransactionID, Status, StatusDateTime}
             rowMagento_ProductCatalog_TierPrice_QARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowMagento_ProductCatalog_TierPrice_QARow)
             Return rowMagento_ProductCatalog_TierPrice_QARow
@@ -2446,6 +2483,8 @@ Partial Public Class Magento_Store
             Me.columnCompared = MyBase.Columns("Compared")
             Me.columnTransactionID = MyBase.Columns("TransactionID")
             Me.columnOriginalTransactionID = MyBase.Columns("OriginalTransactionID")
+            Me.columnStatus = MyBase.Columns("Status")
+            Me.columnStatusDateTime = MyBase.Columns("StatusDateTime")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2483,6 +2522,10 @@ Partial Public Class Magento_Store
             MyBase.Columns.Add(Me.columnTransactionID)
             Me.columnOriginalTransactionID = New Global.System.Data.DataColumn("OriginalTransactionID", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOriginalTransactionID)
+            Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStatus)
+            Me.columnStatusDateTime = New Global.System.Data.DataColumn("StatusDateTime", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStatusDateTime)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
             Me.columnId.AutoIncrement = true
             Me.columnId.AutoIncrementSeed = -1
@@ -2500,6 +2543,7 @@ Partial Public Class Magento_Store
             Me.columndbContext.MaxLength = 100
             Me.columnTierPriceData_Created.MaxLength = 2147483647
             Me.columnTransactionID.AllowDBNull = false
+            Me.columnStatus.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4423,6 +4467,38 @@ Partial Public Class Magento_Store
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Status() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'Magento_ProductCatalog_TierPrice_QA' is D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property StatusDateTime() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'StatusDateTime' in table 'Magento_ProductCatalog_TierPrice_"& _ 
+                            "QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsnameNull() As Boolean
             Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.nameColumn)
         End Function
@@ -4587,6 +4663,30 @@ Partial Public Class Magento_Store
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetOriginalTransactionIDNull()
             Me(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsStatusNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetStatusNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsStatusDateTimeNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetStatusDateTimeNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -7625,6 +7725,8 @@ Namespace Magento_StoreTableAdapters
             tableMapping.ColumnMappings.Add("Compared", "Compared")
             tableMapping.ColumnMappings.Add("TransactionID", "TransactionID")
             tableMapping.ColumnMappings.Add("OriginalTransactionID", "OriginalTransactionID")
+            tableMapping.ColumnMappings.Add("Status", "Status")
+            tableMapping.ColumnMappings.Add("StatusDateTime", "StatusDateTime")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -7641,7 +7743,9 @@ Namespace Magento_StoreTableAdapters
                 "sNull_Compared = 1 AND [Compared] IS NULL) OR ([Compared] = @Original_Compared))"& _ 
                 " AND ([TransactionID] = @Original_TransactionID) AND ((@IsNull_OriginalTransacti"& _ 
                 "onID = 1 AND [OriginalTransactionID] IS NULL) OR ([OriginalTransactionID] = @Ori"& _ 
-                "ginal_OriginalTransactionID)))"
+                "ginal_OriginalTransactionID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR "& _ 
+                "([Status] = @Original_Status)) AND ((@IsNull_StatusDateTime = 1 AND [StatusDateT"& _ 
+                "ime] IS NULL) OR ([StatusDateTime] = @Original_StatusDateTime)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -7665,19 +7769,23 @@ Namespace Magento_StoreTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StatusDateTime", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Magento_API].[Magento_ProductCatalog_TierPrice_QA] ([name], [product"& _ 
                 "_id], [sku], [type], [website_ids], [store], [TierPriceData], [TierPriceGrid], ["& _ 
                 "ImportDate], [dbContext], [Processed], [TierPriceData_Created], [Compared], [Tra"& _ 
-                "nsactionID], [OriginalTransactionID]) VALUES (@name, @product_id, @sku, @type, @"& _ 
-                "website_ids, @store, @TierPriceData, @TierPriceGrid, @ImportDate, @dbContext, @P"& _ 
-                "rocessed, @TierPriceData_Created, @Compared, @TransactionID, @OriginalTransactio"& _ 
-                "nID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, name, product_id, sku, type, website_ids, store, TierPriceData"& _ 
-                ", TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compar"& _ 
-                "ed, TransactionID, OriginalTransactionID FROM Magento_API.Magento_ProductCatalog"& _ 
-                "_TierPrice_QA WHERE (Id = SCOPE_IDENTITY()) AND (TransactionID = @TransactionID)"& _ 
-                ""
+                "nsactionID], [OriginalTransactionID], [Status], [StatusDateTime]) VALUES (@name,"& _ 
+                " @product_id, @sku, @type, @website_ids, @store, @TierPriceData, @TierPriceGrid,"& _ 
+                " @ImportDate, @dbContext, @Processed, @TierPriceData_Created, @Compared, @Transa"& _ 
+                "ctionID, @OriginalTransactionID, @Status, @StatusDateTime);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, name, pr"& _ 
+                "oduct_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDat"& _ 
+                "e, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, Origina"& _ 
+                "lTransactionID, Status, StatusDateTime FROM Magento_API.Magento_ProductCatalog_T"& _ 
+                "ierPrice_QA WHERE (Id = SCOPE_IDENTITY()) AND (TransactionID = @TransactionID)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -7694,6 +7802,8 @@ Namespace Magento_StoreTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Compared", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Magento_API].[Magento_ProductCatalog_TierPrice_QA] SET [name] = @name, [p"& _ 
@@ -7702,23 +7812,26 @@ Namespace Magento_StoreTableAdapters
                 "rPriceGrid, [ImportDate] = @ImportDate, [dbContext] = @dbContext, [Processed] = "& _ 
                 "@Processed, [TierPriceData_Created] = @TierPriceData_Created, [Compared] = @Comp"& _ 
                 "ared, [TransactionID] = @TransactionID, [OriginalTransactionID] = @OriginalTrans"& _ 
-                "actionID WHERE (([Id] = @Original_Id) AND ((@IsNull_product_id = 1 AND [product_"& _ 
-                "id] IS NULL) OR ([product_id] = @Original_product_id)) AND ((@IsNull_sku = 1 AND"& _ 
-                " [sku] IS NULL) OR ([sku] = @Original_sku)) AND ((@IsNull_type = 1 AND [type] IS"& _ 
-                " NULL) OR ([type] = @Original_type)) AND ((@IsNull_website_ids = 1 AND [website_"& _ 
-                "ids] IS NULL) OR ([website_ids] = @Original_website_ids)) AND ((@IsNull_store = "& _ 
-                "1 AND [store] IS NULL) OR ([store] = @Original_store)) AND ((@IsNull_ImportDate "& _ 
-                "= 1 AND [ImportDate] IS NULL) OR ([ImportDate] = @Original_ImportDate)) AND ((@I"& _ 
-                "sNull_dbContext = 1 AND [dbContext] IS NULL) OR ([dbContext] = @Original_dbConte"& _ 
-                "xt)) AND ((@IsNull_Processed = 1 AND [Processed] IS NULL) OR ([Processed] = @Ori"& _ 
-                "ginal_Processed)) AND ((@IsNull_Compared = 1 AND [Compared] IS NULL) OR ([Compar"& _ 
-                "ed] = @Original_Compared)) AND ([TransactionID] = @Original_TransactionID) AND ("& _ 
-                "(@IsNull_OriginalTransactionID = 1 AND [OriginalTransactionID] IS NULL) OR ([Ori"& _ 
-                "ginalTransactionID] = @Original_OriginalTransactionID)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, name, prod"& _ 
-                "uct_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate,"& _ 
-                " dbContext, Processed, TierPriceData_Created, Compared, TransactionID, OriginalT"& _ 
-                "ransactionID FROM Magento_API.Magento_ProductCatalog_TierPrice_QA WHERE (Id = @I"& _ 
-                "d) AND (TransactionID = @TransactionID)"
+                "actionID, [Status] = @Status, [StatusDateTime] = @StatusDateTime WHERE (([Id] = "& _ 
+                "@Original_Id) AND ((@IsNull_product_id = 1 AND [product_id] IS NULL) OR ([produc"& _ 
+                "t_id] = @Original_product_id)) AND ((@IsNull_sku = 1 AND [sku] IS NULL) OR ([sku"& _ 
+                "] = @Original_sku)) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Ori"& _ 
+                "ginal_type)) AND ((@IsNull_website_ids = 1 AND [website_ids] IS NULL) OR ([websi"& _ 
+                "te_ids] = @Original_website_ids)) AND ((@IsNull_store = 1 AND [store] IS NULL) O"& _ 
+                "R ([store] = @Original_store)) AND ((@IsNull_ImportDate = 1 AND [ImportDate] IS "& _ 
+                "NULL) OR ([ImportDate] = @Original_ImportDate)) AND ((@IsNull_dbContext = 1 AND "& _ 
+                "[dbContext] IS NULL) OR ([dbContext] = @Original_dbContext)) AND ((@IsNull_Proce"& _ 
+                "ssed = 1 AND [Processed] IS NULL) OR ([Processed] = @Original_Processed)) AND (("& _ 
+                "@IsNull_Compared = 1 AND [Compared] IS NULL) OR ([Compared] = @Original_Compared"& _ 
+                ")) AND ([TransactionID] = @Original_TransactionID) AND ((@IsNull_OriginalTransac"& _ 
+                "tionID = 1 AND [OriginalTransactionID] IS NULL) OR ([OriginalTransactionID] = @O"& _ 
+                "riginal_OriginalTransactionID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) O"& _ 
+                "R ([Status] = @Original_Status)) AND ((@IsNull_StatusDateTime = 1 AND [StatusDat"& _ 
+                "eTime] IS NULL) OR ([StatusDateTime] = @Original_StatusDateTime)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, "& _ 
+                "name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, I"& _ 
+                "mportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID,"& _ 
+                " OriginalTransactionID, Status, StatusDateTime FROM Magento_API.Magento_ProductC"& _ 
+                "atalog_TierPrice_QA WHERE (Id = @Id) AND (TransactionID = @TransactionID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -7735,6 +7848,8 @@ Namespace Magento_StoreTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Compared", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -7757,6 +7872,10 @@ Namespace Magento_StoreTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StatusDateTime", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -7775,8 +7894,9 @@ Namespace Magento_StoreTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Id, name, product_id, sku, type, website_ids, store, TierPriceData,"& _ 
                 " TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compare"& _ 
-                "d, TransactionID, OriginalTransactionID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Magento_API.Magento_Pro"& _ 
-                "ductCatalog_TierPrice_QA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (TransactionID = @TransactionID)"
+                "d, TransactionID, OriginalTransactionID, Status, StatusDateTime"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
+                " Magento_API.Magento_ProductCatalog_TierPrice_QA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (TransactionID = "& _ 
+                "@TransactionID)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 16, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -7839,7 +7959,7 @@ Namespace Magento_StoreTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Id As Integer, ByVal Original_product_id As Global.System.Nullable(Of Integer), ByVal Original_sku As String, ByVal Original_type As String, ByVal Original_website_ids As String, ByVal Original_store As String, ByVal Original_ImportDate As Global.System.Nullable(Of Date), ByVal Original_dbContext As String, ByVal Original_Processed As Global.System.Nullable(Of Date), ByVal Original_Compared As Global.System.Nullable(Of Boolean), ByVal Original_TransactionID As System.Guid, ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Id As Integer, ByVal Original_product_id As Global.System.Nullable(Of Integer), ByVal Original_sku As String, ByVal Original_type As String, ByVal Original_website_ids As String, ByVal Original_store As String, ByVal Original_ImportDate As Global.System.Nullable(Of Date), ByVal Original_dbContext As String, ByVal Original_Processed As Global.System.Nullable(Of Date), ByVal Original_Compared As Global.System.Nullable(Of Boolean), ByVal Original_TransactionID As System.Guid, ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid), ByVal Original_Status As String, ByVal Original_StatusDateTime As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
             If (Original_product_id.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -7912,6 +8032,20 @@ Namespace Magento_StoreTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(20).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
+            If (Original_Status Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(Original_Status,String)
+            End If
+            If (Original_StatusDateTime.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(Original_StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7931,7 +8065,24 @@ Namespace Magento_StoreTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal name As String, ByVal product_id As Global.System.Nullable(Of Integer), ByVal sku As String, ByVal type As String, ByVal website_ids As String, ByVal store As String, ByVal TierPriceData As String, ByVal TierPriceGrid As String, ByVal ImportDate As Global.System.Nullable(Of Date), ByVal dbContext As String, ByVal Processed As Global.System.Nullable(Of Date), ByVal TierPriceData_Created As String, ByVal Compared As Global.System.Nullable(Of Boolean), ByVal TransactionID As System.Guid, ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid)) As Integer
+        Public Overloads Overridable Function Insert( _
+                    ByVal name As String,  _
+                    ByVal product_id As Global.System.Nullable(Of Integer),  _
+                    ByVal sku As String,  _
+                    ByVal type As String,  _
+                    ByVal website_ids As String,  _
+                    ByVal store As String,  _
+                    ByVal TierPriceData As String,  _
+                    ByVal TierPriceGrid As String,  _
+                    ByVal ImportDate As Global.System.Nullable(Of Date),  _
+                    ByVal dbContext As String,  _
+                    ByVal Processed As Global.System.Nullable(Of Date),  _
+                    ByVal TierPriceData_Created As String,  _
+                    ByVal Compared As Global.System.Nullable(Of Boolean),  _
+                    ByVal TransactionID As System.Guid,  _
+                    ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Global.System.Nullable(Of Date)) As Integer
             If (name Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -8003,6 +8154,16 @@ Namespace Magento_StoreTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
+            If (Status Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(Status,String)
+            End If
+            If (StatusDateTime.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8038,6 +8199,8 @@ Namespace Magento_StoreTableAdapters
                     ByVal Compared As Global.System.Nullable(Of Boolean),  _
                     ByVal TransactionID As System.Guid,  _
                     ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Global.System.Nullable(Of Date),  _
                     ByVal Original_Id As Integer,  _
                     ByVal Original_product_id As Global.System.Nullable(Of Integer),  _
                     ByVal Original_sku As String,  _
@@ -8050,6 +8213,8 @@ Namespace Magento_StoreTableAdapters
                     ByVal Original_Compared As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_TransactionID As System.Guid,  _
                     ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Original_Status As String,  _
+                    ByVal Original_StatusDateTime As Global.System.Nullable(Of Date),  _
                     ByVal Id As Integer) As Integer
             If (name Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -8122,79 +8287,103 @@ Namespace Magento_StoreTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Id,Integer)
-            If (Original_product_id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_product_id.Value,Integer)
+            If (Status Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Status,String)
             End If
-            If (Original_sku Is Nothing) Then
+            If (StatusDateTime.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Id,Integer)
+            If (Original_product_id.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_product_id.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_sku,String)
             End If
-            If (Original_type Is Nothing) Then
+            If (Original_sku Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_type,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_sku,String)
             End If
-            If (Original_website_ids Is Nothing) Then
+            If (Original_type Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_website_ids,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_type,String)
             End If
-            If (Original_store Is Nothing) Then
+            If (Original_website_ids Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_store,String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_website_ids,String)
             End If
-            If (Original_ImportDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_ImportDate.Value,Date)
-            Else
+            If (Original_store Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_store,String)
             End If
-            If (Original_dbContext Is Nothing) Then
+            If (Original_ImportDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ImportDate.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_dbContext,String)
             End If
-            If (Original_Processed.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_Processed.Value,Date)
-            Else
+            If (Original_dbContext Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_dbContext,String)
             End If
-            If (Original_Compared.HasValue = true) Then
+            If (Original_Processed.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Compared.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Processed.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_TransactionID,System.Guid)
-            If (Original_OriginalTransactionID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_OriginalTransactionID.Value,System.Guid)
+            If (Original_Compared.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_Compared.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_TransactionID,System.Guid)
+            If (Original_OriginalTransactionID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_OriginalTransactionID.Value,System.Guid)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Status Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_Status,String)
+            End If
+            If (Original_StatusDateTime.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8230,6 +8419,8 @@ Namespace Magento_StoreTableAdapters
                     ByVal Compared As Global.System.Nullable(Of Boolean),  _
                     ByVal TransactionID As System.Guid,  _
                     ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Global.System.Nullable(Of Date),  _
                     ByVal Original_Id As Integer,  _
                     ByVal Original_product_id As Global.System.Nullable(Of Integer),  _
                     ByVal Original_sku As String,  _
@@ -8241,8 +8432,10 @@ Namespace Magento_StoreTableAdapters
                     ByVal Original_Processed As Global.System.Nullable(Of Date),  _
                     ByVal Original_Compared As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_TransactionID As System.Guid,  _
-                    ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid)) As Integer
-            Return Me.Update(name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, OriginalTransactionID, Original_Id, Original_product_id, Original_sku, Original_type, Original_website_ids, Original_store, Original_ImportDate, Original_dbContext, Original_Processed, Original_Compared, Original_TransactionID, Original_OriginalTransactionID, Original_Id)
+                    ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Original_Status As String,  _
+                    ByVal Original_StatusDateTime As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, OriginalTransactionID, Status, StatusDateTime, Original_Id, Original_product_id, Original_sku, Original_type, Original_website_ids, Original_store, Original_ImportDate, Original_dbContext, Original_Processed, Original_Compared, Original_TransactionID, Original_OriginalTransactionID, Original_Status, Original_StatusDateTime, Original_Id)
         End Function
     End Class
     

@@ -6,6 +6,7 @@ Imports Newtonsoft.Json.Linq
 
 Public Class ChangeTierPrices
 
+
 #Region "Instance Creation"
 #Region "Create Tier Price and Update Magento"
     Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String, ByVal TransactionID As Guid, ByVal CreateTierPrice As Boolean)
@@ -50,7 +51,9 @@ Public Class ChangeTierPrices
                 ProductId = CInt(Prd.Rows(iPrd).Item("product_id"))
                 storeView = CStr(Prd.Rows(iPrd).Item("store"))
                 Dim dr As DataRow = Prd.Rows(iPrd)
-                GetPrices(SessionId, ProductId, storeView, dr)
+                Status = "Get Prices"
+                GetPrices(SessionId, ProductId, storeView, dr, Status)
+
             Next
 
         Next
@@ -72,13 +75,9 @@ Public Class ChangeTierPrices
                 Dim Prd As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA
                 For iPrd = 0 To Prd.Rows.Count - 1
                     Dim dr As DataRow = Prd.Rows(iPrd)
-
-                    If dr.Item("Compared") = 0 Then
-                        If Not CheckDBnull(dr.Item("TierPriceGrid")) Then
-                            If dr.Item("TierPriceGrid").ToString.Length > 10 Then
-                                UpdateMagentoTierPriceData(SessionId, dr)
-                            End If
-                        End If
+                    'only run for rows where comprae is 0 and PRICE GRID EXISTS
+                    If dr.Item("Compared") = 0 And dr.Item("Status") = "PRICE GRID EXISTS" Then
+                        UpdateMagentoTierPriceData(SessionId, dr)
                     End If
                 Next
             Next
@@ -282,11 +281,13 @@ Public Class ChangeTierPrices
 
             ProductId = dr.Item("product_id")
             CurStore = dr.Item("store")
-            If Not CheckDBnull(dr.Item("TierPriceData_Created")) Then
-                TierPriceBuilt = dr.Item("TierPriceData_Created")
-            Else
-                GoTo NoUpdate
-            End If
+
+
+            'If Not CheckDBnull(dr.Item("TierPriceData_Created")) Then
+            '    TierPriceBuilt = dr.Item("TierPriceData_Created")
+            'Else
+            '    GoTo NoUpdate
+            'End If
 
 
 
@@ -323,10 +324,21 @@ Public Class ChangeTierPrices
             'Throw New System.Exception(ex.Message)
         End Try
         Try
+            Dim tier_price_data As String = Nothing
             If Updated Then
                 dr.Item("Processed") = Now()
+                'we want to check if Price data is in 
+                tier_price_data = CheckForPriceData(SessionId, ProductId, CurStore, dr, Status)
+                If CheckDBnull(tier_price_data) Then
+                    Status = "Tier_Price_Data NOT FOUND"
+                Else
+                    Status = "Tier_Price_Data  UPDATED"
+                    dr.Item("Compared") = 1
+                End If
+            Else
+                Status = "Tier_Price_Data NOT UPDATED"
             End If
-
+            dr.Item("Status") = Status
             Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
 
         Catch ex As Exception
@@ -376,8 +388,81 @@ NoUpdate:
     End Sub
 #End Region
 #Region "Get Prices From Grid"
+    Private Function CheckForPriceData(ByVal SessionId As String, ByVal ProductId As Integer, ByVal storeView As String, ByVal dr As DataRow, ByVal Status As String) As String
 
-    Private Sub GetPrices(ByVal SessionId As String, ByVal ProductId As Integer, ByVal storeView As String, ByVal dr As DataRow)
+        Dim identifierType As String = "configurable"
+        Dim NewTierPrice As String = Nothing
+        'Dim Compare As Boolean
+        Dim TierPrice_Data As String = Nothing
+        Dim TierPrice_Grid As String = Nothing
+
+        Try
+
+
+            Dim attributes As catalogProductRequestAttributes
+            attributes = New catalogProductRequestAttributes
+
+            Dim AttribNameString As String
+            Dim AttribNameArray() As String
+
+            AttribNameString = "tier_price_data"
+            AttribNameArray = AttribNameString.Split(",")
+
+            attributes.additional_attributes = AttribNameArray
+
+            Dim cpre As catalogProductReturnEntity = MageHandler.catalogProductInfo(SessionId, ProductId, storeView, attributes, identifierType)
+            TierPrice_Data = cpre.additional_attributes(0).value
+
+            'Dim TierPrice As catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
+            'TierPrice_Grid = JsonConvert.SerializeObject(TierPrice)
+
+            'Status = "PRICE GRID EXISTS"
+
+            If CheckDBnull(TierPrice_Data) Then
+                Status = "NO PRICE DATA"
+            End If
+
+            If TierPrice_Data.Length < 10 Then
+                UpdateMagentoTierPriceData(SessionId, dr)
+                Status = "NO PRICE DATA"
+            End If
+
+            'Dim website As String = Nothing
+            'Select Case storeView
+            '    Case "en_ca"
+            '        website = "mapleleaf_cad"
+            '    Case "en_us"
+            '        website = "mapleleaf_usd"
+            'End Select
+
+            'If TierPrice_Grid.IndexOf(website) = -1 Then
+            '    TierPrice_Grid = ""
+            'End If
+
+
+            'If Not CheckDBnull(TierPrice_Grid) Then
+            '    'If Not CheckDBnull(TierPrice_Data) Then
+            '    NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
+            '    If Not CheckDBnull(NewTierPrice) Then
+            '        If Not CheckDBnull(TierPrice_Data) Then
+            '            If NewTierPrice.ToLower.Equals(TierPrice_Data.ToLower) Then
+            '                Compare = 1
+            '            End If
+            '        End If
+            '    End If
+            '    'End If
+            'End If
+        Catch ex As Exception
+            Dim maxLength As Integer = Math.Min(ex.Message.Length, 200)
+            Dim ErrMess As String = ex.Message.Substring(0, maxLength)
+            Status = ErrMess
+            'Throw New System.Exception(ex.Message)
+        End Try
+
+        Return TierPrice_Data
+    End Function
+
+    Private Sub GetPrices(ByVal SessionId As String, ByVal ProductId As Integer, ByVal storeView As String, ByVal dr As DataRow, ByVal Status As String)
 
         Dim identifierType As String = "configurable"
         Dim NewTierPrice As String = Nothing
@@ -405,6 +490,16 @@ NoUpdate:
             Dim TierPrice As catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
             TierPrice_Grid = JsonConvert.SerializeObject(TierPrice)
 
+            Status = "PRICE GRID EXISTS"
+
+            If CheckDBnull(TierPrice_Grid) Then
+                Status = "NO PRICE GRID"
+            End If
+
+            If TierPrice_Grid.Length < 10 Then
+                'UpdateMagentoTierPriceData(SessionId, dr)
+                Status = "NO PRICE GRID"
+            End If
             'ICS  notes if TierPrice_Grid has no values for the store then treat it as blank.
 
             Dim website As String = Nothing
@@ -416,30 +511,36 @@ NoUpdate:
             End Select
 
             If TierPrice_Grid.IndexOf(website) = -1 Then
-                TierPrice_Grid = ""
-                            End If
+                Status = "PRICE GRID EXISTS - NO VALID STORE"
+            End If
 
 
             If Not CheckDBnull(TierPrice_Grid) Then
-                'If Not CheckDBnull(TierPrice_Data) Then
-                NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
-                If Not CheckDBnull(NewTierPrice) Then
-                    If Not CheckDBnull(TierPrice_Data) Then
-                        If NewTierPrice.ToLower.Equals(TierPrice_Data.ToLower) Then
-                            Compare = 1
+                If TierPrice_Grid.Length > 10 Then
+                    'If Not CheckDBnull(TierPrice_Data) Then
+                    NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
+                    If Not CheckDBnull(NewTierPrice) Then
+                        If Not CheckDBnull(TierPrice_Data) Then
+                            If NewTierPrice.ToLower.Equals(TierPrice_Data.ToLower) Then
+                                Compare = 1
+                                Status = "PRICE GRID EXISTS"
+                            End If
                         End If
                     End If
-                End If
+                    End If
                     'End If
                 End If
         Catch ex As Exception
+            Dim maxLength As Integer = Math.Min(ex.Message.Length, 200)
+            Dim ErrMess As String = ex.Message.Substring(0, maxLength)
+            Status = ErrMess
             'Throw New System.Exception(ex.Message)
         End Try
         'Insert into the database
-        Dim Processed As Date
-        If CreatePriceData Then
-            Processed = Now()
-        End If
+        'Dim Processed As Date
+        'If CreatePriceData Then
+        '    Processed = Now()
+        'End If
         Try
 
 
@@ -461,11 +562,12 @@ NoUpdate:
             newProductsRow("TransactionID") = dr.Item("TransactionID")
             newProductsRow("TierPriceData_Created") = NewTierPrice
             newProductsRow("OriginalTransactionID") = dr.Item("OriginalTransactionID")
-            'newProductsRow("Processed") = Processed
+            newProductsRow("Status") = Status
+            newProductsRow("StatusDateTime") = Now
             Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.Rows.Add(newProductsRow)
 
             Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
-
+            Status = ""
         Catch ex As Exception
 
         End Try

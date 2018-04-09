@@ -218,7 +218,7 @@ Public Class Form1
         dbcon.ConnectionString = ConnectionString
         Dim CreateTierPrice As Boolean = False
         Dim MagentoType As String = Nothing
-        TransactionID = Guid.Parse("ddf82698-6061-43bd-b9c4-0085ef954280").ToString
+        TransactionID = Guid.Parse("791c0469-20f1-4fc7-82f1-dbb86a7bfd49").ToString
         Dim init As New Magento_API_Parameters.Initialize
         init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
         If init.CurrentSessionID.Length > 0 Then
@@ -242,7 +242,7 @@ Public Class Form1
         dbcon.ConnectionString = ConnectionString
         Dim CreateTierPrice As Boolean = True
         Dim MagentoType As String = Nothing
-        TransactionID = Guid.Parse("ddf82698-6061-43bd-b9c4-0085ef954280").ToString
+        TransactionID = Guid.Parse("f24adfec-4dbc-4185-9cad-96b69a934c0d").ToString
         Dim init As New Magento_API_Parameters.Initialize
         init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
         If init.CurrentSessionID.Length > 0 Then
