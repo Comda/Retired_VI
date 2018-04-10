@@ -33,6 +33,8 @@ Public Class ChangeTierPrices
 
         Dim TransactionID_v As DataView = New DataView(TransID)
         Dim TransactionID_dt As DataTable = TransactionID_v.ToTable(True, "TransactionID")
+
+
         For iTrans As Integer = 0 To TransactionID_dt.Rows.Count - 1
 
             Dim TransactionID_Filter As String
@@ -44,8 +46,6 @@ Public Class ChangeTierPrices
 
             Dim Prd As DataTable
             Prd = foundRows.CopyToDataTable()
-
-
 
             For iPrd As Integer = 0 To Prd.Rows.Count - 1
                 ProductId = CInt(Prd.Rows(iPrd).Item("product_id"))
@@ -60,19 +60,20 @@ Public Class ChangeTierPrices
 
 
         If CreateTierPrice Then
+            Dim TransactionID_Filter As String = Nothing
 
             For iTrans As Integer = 0 To TransactionID_dt.Rows.Count - 1
 
-                Dim TransactionID_Filter As String
-                TransactionID_Filter = "TransactionID ='" & TransactionID_dt.Rows(0).Item("TransactionID").ToString & "'"
+                TransactionID_Filter = "TransactionID ='" & TransactionID_dt.Rows(iTrans).Item("TransactionID").ToString & "'"
 
                 Dim foundRows() As DataRow
                 ' Use the Select method to find all rows matching the filter.
                 foundRows = TransID.Select(TransactionID_Filter)
-
-                Magento_ProductCatalog_TierPrice_QA_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA, TransactionID_dt.Rows(0).Item("TransactionID"))
+                Dim CurTransactionID As Guid = foundRows(0).Item("TransactionID")
+                Magento_ProductCatalog_TierPrice_QA_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA, CurTransactionID)
 
                 Dim Prd As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA
+
                 For iPrd = 0 To Prd.Rows.Count - 1
                     Dim dr As DataRow = Prd.Rows(iPrd)
                     'only run for rows where comprae is 0 and PRICE GRID EXISTS
@@ -273,7 +274,7 @@ Public Class ChangeTierPrices
         StopwatchLocal.Start()
 
         Dim ProductId As Integer = 0
-        Dim TierPriceBuilt As String = ""
+        Dim TierPriceBuilt As String = dr.Item("TierPriceData_Created")
         Dim CurStore As String = Nothing
         Dim Updated As Boolean = False
 
@@ -515,21 +516,19 @@ NoUpdate:
             End If
 
 
-            If Not CheckDBnull(TierPrice_Grid) Then
-                If TierPrice_Grid.Length > 10 Then
-                    'If Not CheckDBnull(TierPrice_Data) Then
-                    NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
-                    If Not CheckDBnull(NewTierPrice) Then
+            If Status = "PRICE GRID EXISTS" Then
+                NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
+                If Not CheckDBnull(NewTierPrice) Then
                         If Not CheckDBnull(TierPrice_Data) Then
-                            If NewTierPrice.ToLower.Equals(TierPrice_Data.ToLower) Then
-                                Compare = 1
-                                Status = "PRICE GRID EXISTS"
-                            End If
+                        If NewTierPrice.ToLower.Equals(TierPrice_Data.ToLower) Then
+                            Compare = 1
+                        Else
+                            Compare = 0
                         End If
                     End If
                     End If
-                    'End If
                 End If
+
         Catch ex As Exception
             Dim maxLength As Integer = Math.Min(ex.Message.Length, 200)
             Dim ErrMess As String = ex.Message.Substring(0, maxLength)
