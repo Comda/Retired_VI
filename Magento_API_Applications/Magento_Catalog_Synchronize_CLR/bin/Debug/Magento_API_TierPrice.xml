@@ -67,6 +67,16 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Magento_API_TierPrice.Magento_Store.GetTierPricesFromERPDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Magento_API_TierPrice.Magento_Store.ProductFeedData_Buffer_DELETEDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Magento_API_TierPrice.Magento_Store.Magento_catalogProductUpdateRow">
 <summary>
 Represents strongly named DataRow class.
@@ -103,6 +113,16 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Magento_API_TierPrice.Magento_Store.Magento_ProductCatalog_TierPrice_Universe_GETRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Magento_API_TierPrice.Magento_Store.GetTierPricesFromERPRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Magento_API_TierPrice.Magento_Store.ProductFeedData_Buffer_DELETERow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -147,6 +167,16 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:Magento_API_TierPrice.Magento_Store.GetTierPricesFromERPRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Magento_API_TierPrice.Magento_Store.ProductFeedData_Buffer_DELETERowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:Magento_API_TierPrice.Magento_StoreTableAdapters.Magento_catalogProductUpdateTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -183,6 +213,16 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:Magento_API_TierPrice.Magento_StoreTableAdapters.Magento_ProductCatalog_TierPrice_Universe_GETTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Magento_API_TierPrice.Magento_StoreTableAdapters.GetTierPricesFromERPTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Magento_API_TierPrice.Magento_StoreTableAdapters.ProductFeedData_Buffer_DELETETableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

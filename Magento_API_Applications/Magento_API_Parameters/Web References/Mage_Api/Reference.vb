@@ -23501,7 +23501,9 @@ Namespace Mage_Api
      System.ComponentModel.DesignerCategoryAttribute("code"),  _
      System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
     Partial Public Class catalogProductTierPriceEntity
-        
+        Implements IEquatable(Of catalogProductTierPriceEntity)
+        Implements IComparable(Of catalogProductTierPriceEntity)
+
         Private customer_group_idField As String
         
         Private websiteField As String
@@ -23575,8185 +23577,8193 @@ Namespace Mage_Api
                 Me.priceFieldSpecified = value
             End Set
         End Property
+
+        Public Function Equals(other As catalogProductTierPriceEntity) As Boolean Implements IEquatable(Of catalogProductTierPriceEntity).Equals
+            Throw New NotImplementedException()
+        End Function
+
+        Public Function CompareTo(other As catalogProductTierPriceEntity) As Integer Implements IComparable(Of catalogProductTierPriceEntity).CompareTo
+            Throw New NotImplementedException()
+        End Function
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogProductReturnEntity
-        
+
         Private product_idField As String
-        
+
         Private skuField As String
-        
+
         Private setField As String
-        
+
         Private typeField As String
-        
+
         Private categoriesField() As String
-        
+
         Private websitesField() As String
-        
+
         Private created_atField As String
-        
+
         Private updated_atField As String
-        
+
         Private type_idField As String
-        
+
         Private nameField As String
-        
+
         Private descriptionField As String
-        
+
         Private short_descriptionField As String
-        
+
         Private weightField As String
-        
+
         Private statusField As String
-        
+
         Private url_keyField As String
-        
+
         Private url_pathField As String
-        
+
         Private visibilityField As String
-        
+
         Private category_idsField() As String
-        
+
         Private website_idsField() As String
-        
+
         Private has_optionsField As String
-        
+
         Private gift_message_availableField As String
-        
+
         Private priceField As String
-        
+
         Private special_priceField As String
-        
+
         Private special_from_dateField As String
-        
+
         Private special_to_dateField As String
-        
+
         Private tax_class_idField As String
-        
+
         Private tier_priceField() As catalogProductTierPriceEntity
-        
+
         Private meta_titleField As String
-        
+
         Private meta_keywordField As String
-        
+
         Private meta_descriptionField As String
-        
+
         Private custom_designField As String
-        
+
         Private custom_layout_updateField As String
-        
+
         Private options_containerField As String
-        
+
         Private additional_attributesField() As associativeEntity
-        
+
         '''<remarks/>
         Public Property product_id() As String
             Get
                 Return Me.product_idField
             End Get
             Set
-                Me.product_idField = value
+                Me.product_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property sku() As String
             Get
                 Return Me.skuField
             End Get
             Set
-                Me.skuField = value
+                Me.skuField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property [set]() As String
             Get
                 Return Me.setField
             End Get
             Set
-                Me.setField = value
+                Me.setField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property type() As String
             Get
                 Return Me.typeField
             End Get
             Set
-                Me.typeField = value
+                Me.typeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property categories() As String()
             Get
                 Return Me.categoriesField
             End Get
             Set
-                Me.categoriesField = value
+                Me.categoriesField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property websites() As String()
             Get
                 Return Me.websitesField
             End Get
             Set
-                Me.websitesField = value
+                Me.websitesField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property created_at() As String
             Get
                 Return Me.created_atField
             End Get
             Set
-                Me.created_atField = value
+                Me.created_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property updated_at() As String
             Get
                 Return Me.updated_atField
             End Get
             Set
-                Me.updated_atField = value
+                Me.updated_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property type_id() As String
             Get
                 Return Me.type_idField
             End Get
             Set
-                Me.type_idField = value
+                Me.type_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property description() As String
             Get
                 Return Me.descriptionField
             End Get
             Set
-                Me.descriptionField = value
+                Me.descriptionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property short_description() As String
             Get
                 Return Me.short_descriptionField
             End Get
             Set
-                Me.short_descriptionField = value
+                Me.short_descriptionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property weight() As String
             Get
                 Return Me.weightField
             End Get
             Set
-                Me.weightField = value
+                Me.weightField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property status() As String
             Get
                 Return Me.statusField
             End Get
             Set
-                Me.statusField = value
+                Me.statusField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property url_key() As String
             Get
                 Return Me.url_keyField
             End Get
             Set
-                Me.url_keyField = value
+                Me.url_keyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property url_path() As String
             Get
                 Return Me.url_pathField
             End Get
             Set
-                Me.url_pathField = value
+                Me.url_pathField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property visibility() As String
             Get
                 Return Me.visibilityField
             End Get
             Set
-                Me.visibilityField = value
+                Me.visibilityField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property category_ids() As String()
             Get
                 Return Me.category_idsField
             End Get
             Set
-                Me.category_idsField = value
+                Me.category_idsField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property website_ids() As String()
             Get
                 Return Me.website_idsField
             End Get
             Set
-                Me.website_idsField = value
+                Me.website_idsField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property has_options() As String
             Get
                 Return Me.has_optionsField
             End Get
             Set
-                Me.has_optionsField = value
+                Me.has_optionsField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property gift_message_available() As String
             Get
                 Return Me.gift_message_availableField
             End Get
             Set
-                Me.gift_message_availableField = value
+                Me.gift_message_availableField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property price() As String
             Get
                 Return Me.priceField
             End Get
             Set
-                Me.priceField = value
+                Me.priceField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property special_price() As String
             Get
                 Return Me.special_priceField
             End Get
             Set
-                Me.special_priceField = value
+                Me.special_priceField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property special_from_date() As String
             Get
                 Return Me.special_from_dateField
             End Get
             Set
-                Me.special_from_dateField = value
+                Me.special_from_dateField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property special_to_date() As String
             Get
                 Return Me.special_to_dateField
             End Get
             Set
-                Me.special_to_dateField = value
+                Me.special_to_dateField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property tax_class_id() As String
             Get
                 Return Me.tax_class_idField
             End Get
             Set
-                Me.tax_class_idField = value
+                Me.tax_class_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property tier_price() As catalogProductTierPriceEntity()
             Get
                 Return Me.tier_priceField
             End Get
             Set
-                Me.tier_priceField = value
+                Me.tier_priceField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_title() As String
             Get
                 Return Me.meta_titleField
             End Get
             Set
-                Me.meta_titleField = value
+                Me.meta_titleField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_keyword() As String
             Get
                 Return Me.meta_keywordField
             End Get
             Set
-                Me.meta_keywordField = value
+                Me.meta_keywordField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_description() As String
             Get
                 Return Me.meta_descriptionField
             End Get
             Set
-                Me.meta_descriptionField = value
+                Me.meta_descriptionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design() As String
             Get
                 Return Me.custom_designField
             End Get
             Set
-                Me.custom_designField = value
+                Me.custom_designField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_layout_update() As String
             Get
                 Return Me.custom_layout_updateField
             End Get
             Set
-                Me.custom_layout_updateField = value
+                Me.custom_layout_updateField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property options_container() As String
             Get
                 Return Me.options_containerField
             End Get
             Set
-                Me.options_containerField = value
+                Me.options_containerField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property additional_attributes() As associativeEntity()
             Get
                 Return Me.additional_attributesField
             End Get
             Set
-                Me.additional_attributesField = value
+                Me.additional_attributesField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogProductRequestAttributes
-        
+
         Private attributesField() As String
-        
+
         Private additional_attributesField() As String
-        
+
         '''<remarks/>
         Public Property attributes() As String()
             Get
                 Return Me.attributesField
             End Get
             Set
-                Me.attributesField = value
+                Me.attributesField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property additional_attributes() As String()
             Get
                 Return Me.additional_attributesField
             End Get
             Set
-                Me.additional_attributesField = value
+                Me.additional_attributesField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogProductEntity
-        
+
         Private product_idField As String
-        
+
         Private skuField As String
-        
+
         Private nameField As String
-        
+
         Private setField As String
-        
+
         Private typeField As String
-        
+
         Private category_idsField() As String
-        
+
         Private website_idsField() As String
-        
+
         '''<remarks/>
         Public Property product_id() As String
             Get
                 Return Me.product_idField
             End Get
             Set
-                Me.product_idField = value
+                Me.product_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property sku() As String
             Get
                 Return Me.skuField
             End Get
             Set
-                Me.skuField = value
+                Me.skuField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property [set]() As String
             Get
                 Return Me.setField
             End Get
             Set
-                Me.setField = value
+                Me.setField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property type() As String
             Get
                 Return Me.typeField
             End Get
             Set
-                Me.typeField = value
+                Me.typeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property category_ids() As String()
             Get
                 Return Me.category_idsField
             End Get
             Set
-                Me.category_idsField = value
+                Me.category_idsField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property website_ids() As String()
             Get
                 Return Me.website_idsField
             End Get
             Set
-                Me.website_idsField = value
+                Me.website_idsField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogAttributeEntity
-        
+
         Private attribute_idField As Integer
-        
+
         Private attribute_idFieldSpecified As Boolean
-        
+
         Private codeField As String
-        
+
         Private typeField As String
-        
+
         Private requiredField As String
-        
+
         Private scopeField As String
-        
+
         '''<remarks/>
         Public Property attribute_id() As Integer
             Get
                 Return Me.attribute_idField
             End Get
             Set
-                Me.attribute_idField = value
+                Me.attribute_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property attribute_idSpecified() As Boolean
             Get
                 Return Me.attribute_idFieldSpecified
             End Get
             Set
-                Me.attribute_idFieldSpecified = value
+                Me.attribute_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property code() As String
             Get
                 Return Me.codeField
             End Get
             Set
-                Me.codeField = value
+                Me.codeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property type() As String
             Get
                 Return Me.typeField
             End Get
             Set
-                Me.typeField = value
+                Me.typeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property required() As String
             Get
                 Return Me.requiredField
             End Get
             Set
-                Me.requiredField = value
+                Me.requiredField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property scope() As String
             Get
                 Return Me.scopeField
             End Get
             Set
-                Me.scopeField = value
+                Me.scopeField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogAssignedProduct
-        
+
         Private product_idField As Integer
-        
+
         Private typeField As String
-        
+
         Private setField As Integer
-        
+
         Private skuField As String
-        
+
         Private positionField As Integer
-        
+
         '''<remarks/>
         Public Property product_id() As Integer
             Get
                 Return Me.product_idField
             End Get
             Set
-                Me.product_idField = value
+                Me.product_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property type() As String
             Get
                 Return Me.typeField
             End Get
             Set
-                Me.typeField = value
+                Me.typeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property [set]() As Integer
             Get
                 Return Me.setField
             End Get
             Set
-                Me.setField = value
+                Me.setField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property sku() As String
             Get
                 Return Me.skuField
             End Get
             Set
-                Me.skuField = value
+                Me.skuField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property position() As Integer
             Get
                 Return Me.positionField
             End Get
             Set
-                Me.positionField = value
+                Me.positionField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogCategoryEntityCreate
-        
+
         Private nameField As String
-        
+
         Private is_activeField As Integer
-        
+
         Private is_activeFieldSpecified As Boolean
-        
+
         Private positionField As Integer
-        
+
         Private positionFieldSpecified As Boolean
-        
+
         Private available_sort_byField() As String
-        
+
         Private custom_designField As String
-        
+
         Private custom_design_applyField As Integer
-        
+
         Private custom_design_applyFieldSpecified As Boolean
-        
+
         Private custom_design_fromField As String
-        
+
         Private custom_design_toField As String
-        
+
         Private custom_layout_updateField As String
-        
+
         Private default_sort_byField As String
-        
+
         Private descriptionField As String
-        
+
         Private display_modeField As String
-        
+
         Private is_anchorField As Integer
-        
+
         Private is_anchorFieldSpecified As Boolean
-        
+
         Private landing_pageField As Integer
-        
+
         Private landing_pageFieldSpecified As Boolean
-        
+
         Private meta_descriptionField As String
-        
+
         Private meta_keywordsField As String
-        
+
         Private meta_titleField As String
-        
+
         Private page_layoutField As String
-        
+
         Private url_keyField As String
-        
+
         Private include_in_menuField As Integer
-        
+
         Private include_in_menuFieldSpecified As Boolean
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_active() As Integer
             Get
                 Return Me.is_activeField
             End Get
             Set
-                Me.is_activeField = value
+                Me.is_activeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property is_activeSpecified() As Boolean
             Get
                 Return Me.is_activeFieldSpecified
             End Get
             Set
-                Me.is_activeFieldSpecified = value
+                Me.is_activeFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property position() As Integer
             Get
                 Return Me.positionField
             End Get
             Set
-                Me.positionField = value
+                Me.positionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property positionSpecified() As Boolean
             Get
                 Return Me.positionFieldSpecified
             End Get
             Set
-                Me.positionFieldSpecified = value
+                Me.positionFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property available_sort_by() As String()
             Get
                 Return Me.available_sort_byField
             End Get
             Set
-                Me.available_sort_byField = value
+                Me.available_sort_byField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design() As String
             Get
                 Return Me.custom_designField
             End Get
             Set
-                Me.custom_designField = value
+                Me.custom_designField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design_apply() As Integer
             Get
                 Return Me.custom_design_applyField
             End Get
             Set
-                Me.custom_design_applyField = value
+                Me.custom_design_applyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property custom_design_applySpecified() As Boolean
             Get
                 Return Me.custom_design_applyFieldSpecified
             End Get
             Set
-                Me.custom_design_applyFieldSpecified = value
+                Me.custom_design_applyFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design_from() As String
             Get
                 Return Me.custom_design_fromField
             End Get
             Set
-                Me.custom_design_fromField = value
+                Me.custom_design_fromField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design_to() As String
             Get
                 Return Me.custom_design_toField
             End Get
             Set
-                Me.custom_design_toField = value
+                Me.custom_design_toField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_layout_update() As String
             Get
                 Return Me.custom_layout_updateField
             End Get
             Set
-                Me.custom_layout_updateField = value
+                Me.custom_layout_updateField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property default_sort_by() As String
             Get
                 Return Me.default_sort_byField
             End Get
             Set
-                Me.default_sort_byField = value
+                Me.default_sort_byField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property description() As String
             Get
                 Return Me.descriptionField
             End Get
             Set
-                Me.descriptionField = value
+                Me.descriptionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property display_mode() As String
             Get
                 Return Me.display_modeField
             End Get
             Set
-                Me.display_modeField = value
+                Me.display_modeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_anchor() As Integer
             Get
                 Return Me.is_anchorField
             End Get
             Set
-                Me.is_anchorField = value
+                Me.is_anchorField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property is_anchorSpecified() As Boolean
             Get
                 Return Me.is_anchorFieldSpecified
             End Get
             Set
-                Me.is_anchorFieldSpecified = value
+                Me.is_anchorFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property landing_page() As Integer
             Get
                 Return Me.landing_pageField
             End Get
             Set
-                Me.landing_pageField = value
+                Me.landing_pageField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property landing_pageSpecified() As Boolean
             Get
                 Return Me.landing_pageFieldSpecified
             End Get
             Set
-                Me.landing_pageFieldSpecified = value
+                Me.landing_pageFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_description() As String
             Get
                 Return Me.meta_descriptionField
             End Get
             Set
-                Me.meta_descriptionField = value
+                Me.meta_descriptionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_keywords() As String
             Get
                 Return Me.meta_keywordsField
             End Get
             Set
-                Me.meta_keywordsField = value
+                Me.meta_keywordsField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_title() As String
             Get
                 Return Me.meta_titleField
             End Get
             Set
-                Me.meta_titleField = value
+                Me.meta_titleField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property page_layout() As String
             Get
                 Return Me.page_layoutField
             End Get
             Set
-                Me.page_layoutField = value
+                Me.page_layoutField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property url_key() As String
             Get
                 Return Me.url_keyField
             End Get
             Set
-                Me.url_keyField = value
+                Me.url_keyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property include_in_menu() As Integer
             Get
                 Return Me.include_in_menuField
             End Get
             Set
-                Me.include_in_menuField = value
+                Me.include_in_menuField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property include_in_menuSpecified() As Boolean
             Get
                 Return Me.include_in_menuFieldSpecified
             End Get
             Set
-                Me.include_in_menuFieldSpecified = value
+                Me.include_in_menuFieldSpecified = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogCategoryInfo
-        
+
         Private category_idField As String
-        
+
         Private is_activeField As Integer
-        
+
         Private positionField As String
-        
+
         Private levelField As String
-        
+
         Private parent_idField As String
-        
+
         Private all_childrenField As String
-        
+
         Private childrenField As String
-        
+
         Private created_atField As String
-        
+
         Private updated_atField As String
-        
+
         Private nameField As String
-        
+
         Private url_keyField As String
-        
+
         Private descriptionField As String
-        
+
         Private meta_titleField As String
-        
+
         Private meta_keywordsField As String
-        
+
         Private meta_descriptionField As String
-        
+
         Private pathField As String
-        
+
         Private url_pathField As String
-        
+
         Private children_countField As Integer
-        
+
         Private children_countFieldSpecified As Boolean
-        
+
         Private display_modeField As String
-        
+
         Private is_anchorField As Integer
-        
+
         Private is_anchorFieldSpecified As Boolean
-        
+
         Private available_sort_byField() As String
-        
+
         Private custom_designField As String
-        
+
         Private custom_design_applyField As String
-        
+
         Private custom_design_fromField As String
-        
+
         Private custom_design_toField As String
-        
+
         Private page_layoutField As String
-        
+
         Private custom_layout_updateField As String
-        
+
         Private default_sort_byField As String
-        
+
         Private landing_pageField As Integer
-        
+
         Private landing_pageFieldSpecified As Boolean
-        
+
         '''<remarks/>
         Public Property category_id() As String
             Get
                 Return Me.category_idField
             End Get
             Set
-                Me.category_idField = value
+                Me.category_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_active() As Integer
             Get
                 Return Me.is_activeField
             End Get
             Set
-                Me.is_activeField = value
+                Me.is_activeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property position() As String
             Get
                 Return Me.positionField
             End Get
             Set
-                Me.positionField = value
+                Me.positionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property level() As String
             Get
                 Return Me.levelField
             End Get
             Set
-                Me.levelField = value
+                Me.levelField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property parent_id() As String
             Get
                 Return Me.parent_idField
             End Get
             Set
-                Me.parent_idField = value
+                Me.parent_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property all_children() As String
             Get
                 Return Me.all_childrenField
             End Get
             Set
-                Me.all_childrenField = value
+                Me.all_childrenField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property children() As String
             Get
                 Return Me.childrenField
             End Get
             Set
-                Me.childrenField = value
+                Me.childrenField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property created_at() As String
             Get
                 Return Me.created_atField
             End Get
             Set
-                Me.created_atField = value
+                Me.created_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property updated_at() As String
             Get
                 Return Me.updated_atField
             End Get
             Set
-                Me.updated_atField = value
+                Me.updated_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property url_key() As String
             Get
                 Return Me.url_keyField
             End Get
             Set
-                Me.url_keyField = value
+                Me.url_keyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property description() As String
             Get
                 Return Me.descriptionField
             End Get
             Set
-                Me.descriptionField = value
+                Me.descriptionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_title() As String
             Get
                 Return Me.meta_titleField
             End Get
             Set
-                Me.meta_titleField = value
+                Me.meta_titleField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_keywords() As String
             Get
                 Return Me.meta_keywordsField
             End Get
             Set
-                Me.meta_keywordsField = value
+                Me.meta_keywordsField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property meta_description() As String
             Get
                 Return Me.meta_descriptionField
             End Get
             Set
-                Me.meta_descriptionField = value
+                Me.meta_descriptionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property path() As String
             Get
                 Return Me.pathField
             End Get
             Set
-                Me.pathField = value
+                Me.pathField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property url_path() As String
             Get
                 Return Me.url_pathField
             End Get
             Set
-                Me.url_pathField = value
+                Me.url_pathField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property children_count() As Integer
             Get
                 Return Me.children_countField
             End Get
             Set
-                Me.children_countField = value
+                Me.children_countField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property children_countSpecified() As Boolean
             Get
                 Return Me.children_countFieldSpecified
             End Get
             Set
-                Me.children_countFieldSpecified = value
+                Me.children_countFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property display_mode() As String
             Get
                 Return Me.display_modeField
             End Get
             Set
-                Me.display_modeField = value
+                Me.display_modeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_anchor() As Integer
             Get
                 Return Me.is_anchorField
             End Get
             Set
-                Me.is_anchorField = value
+                Me.is_anchorField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property is_anchorSpecified() As Boolean
             Get
                 Return Me.is_anchorFieldSpecified
             End Get
             Set
-                Me.is_anchorFieldSpecified = value
+                Me.is_anchorFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property available_sort_by() As String()
             Get
                 Return Me.available_sort_byField
             End Get
             Set
-                Me.available_sort_byField = value
+                Me.available_sort_byField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design() As String
             Get
                 Return Me.custom_designField
             End Get
             Set
-                Me.custom_designField = value
+                Me.custom_designField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design_apply() As String
             Get
                 Return Me.custom_design_applyField
             End Get
             Set
-                Me.custom_design_applyField = value
+                Me.custom_design_applyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design_from() As String
             Get
                 Return Me.custom_design_fromField
             End Get
             Set
-                Me.custom_design_fromField = value
+                Me.custom_design_fromField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_design_to() As String
             Get
                 Return Me.custom_design_toField
             End Get
             Set
-                Me.custom_design_toField = value
+                Me.custom_design_toField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property page_layout() As String
             Get
                 Return Me.page_layoutField
             End Get
             Set
-                Me.page_layoutField = value
+                Me.page_layoutField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property custom_layout_update() As String
             Get
                 Return Me.custom_layout_updateField
             End Get
             Set
-                Me.custom_layout_updateField = value
+                Me.custom_layout_updateField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property default_sort_by() As String
             Get
                 Return Me.default_sort_byField
             End Get
             Set
-                Me.default_sort_byField = value
+                Me.default_sort_byField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property landing_page() As Integer
             Get
                 Return Me.landing_pageField
             End Get
             Set
-                Me.landing_pageField = value
+                Me.landing_pageField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property landing_pageSpecified() As Boolean
             Get
                 Return Me.landing_pageFieldSpecified
             End Get
             Set
-                Me.landing_pageFieldSpecified = value
+                Me.landing_pageFieldSpecified = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogCategoryEntityNoChildren
-        
+
         Private category_idField As Integer
-        
+
         Private parent_idField As Integer
-        
+
         Private nameField As String
-        
+
         Private is_activeField As Integer
-        
+
         Private positionField As Integer
-        
+
         Private levelField As Integer
-        
+
         '''<remarks/>
         Public Property category_id() As Integer
             Get
                 Return Me.category_idField
             End Get
             Set
-                Me.category_idField = value
+                Me.category_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property parent_id() As Integer
             Get
                 Return Me.parent_idField
             End Get
             Set
-                Me.parent_idField = value
+                Me.parent_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_active() As Integer
             Get
                 Return Me.is_activeField
             End Get
             Set
-                Me.is_activeField = value
+                Me.is_activeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property position() As Integer
             Get
                 Return Me.positionField
             End Get
             Set
-                Me.positionField = value
+                Me.positionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property level() As Integer
             Get
                 Return Me.levelField
             End Get
             Set
-                Me.levelField = value
+                Me.levelField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogCategoryEntity
-        
+
         Private category_idField As Integer
-        
+
         Private parent_idField As Integer
-        
+
         Private nameField As String
-        
+
         Private is_activeField As Integer
-        
+
         Private positionField As Integer
-        
+
         Private levelField As Integer
-        
+
         Private childrenField() As catalogCategoryEntity
-        
+
         '''<remarks/>
         Public Property category_id() As Integer
             Get
                 Return Me.category_idField
             End Get
             Set
-                Me.category_idField = value
+                Me.category_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property parent_id() As Integer
             Get
                 Return Me.parent_idField
             End Get
             Set
-                Me.parent_idField = value
+                Me.parent_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_active() As Integer
             Get
                 Return Me.is_activeField
             End Get
             Set
-                Me.is_activeField = value
+                Me.is_activeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property position() As Integer
             Get
                 Return Me.positionField
             End Get
             Set
-                Me.positionField = value
+                Me.positionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property level() As Integer
             Get
                 Return Me.levelField
             End Get
             Set
-                Me.levelField = value
+                Me.levelField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property children() As catalogCategoryEntity()
             Get
                 Return Me.childrenField
             End Get
             Set
-                Me.childrenField = value
+                Me.childrenField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class catalogCategoryTree
-        
+
         Private category_idField As Integer
-        
+
         Private parent_idField As Integer
-        
+
         Private nameField As String
-        
+
         Private positionField As Integer
-        
+
         Private levelField As Integer
-        
+
         Private childrenField() As catalogCategoryEntity
-        
+
         '''<remarks/>
         Public Property category_id() As Integer
             Get
                 Return Me.category_idField
             End Get
             Set
-                Me.category_idField = value
+                Me.category_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property parent_id() As Integer
             Get
                 Return Me.parent_idField
             End Get
             Set
-                Me.parent_idField = value
+                Me.parent_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property position() As Integer
             Get
                 Return Me.positionField
             End Get
             Set
-                Me.positionField = value
+                Me.positionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property level() As Integer
             Get
                 Return Me.levelField
             End Get
             Set
-                Me.levelField = value
+                Me.levelField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property children() As catalogCategoryEntity()
             Get
                 Return Me.childrenField
             End Get
             Set
-                Me.childrenField = value
+                Me.childrenField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class customerAddressEntityCreate
-        
+
         Private cityField As String
-        
+
         Private companyField As String
-        
+
         Private country_idField As String
-        
+
         Private faxField As String
-        
+
         Private firstnameField As String
-        
+
         Private lastnameField As String
-        
+
         Private middlenameField As String
-        
+
         Private postcodeField As String
-        
+
         Private prefixField As String
-        
+
         Private region_idField As Integer
-        
+
         Private region_idFieldSpecified As Boolean
-        
+
         Private regionField As String
-        
+
         Private streetField() As String
-        
+
         Private suffixField As String
-        
+
         Private telephoneField As String
-        
+
         Private is_default_billingField As Boolean
-        
+
         Private is_default_billingFieldSpecified As Boolean
-        
+
         Private is_default_shippingField As Boolean
-        
+
         Private is_default_shippingFieldSpecified As Boolean
-        
+
         '''<remarks/>
         Public Property city() As String
             Get
                 Return Me.cityField
             End Get
             Set
-                Me.cityField = value
+                Me.cityField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property company() As String
             Get
                 Return Me.companyField
             End Get
             Set
-                Me.companyField = value
+                Me.companyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property country_id() As String
             Get
                 Return Me.country_idField
             End Get
             Set
-                Me.country_idField = value
+                Me.country_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property fax() As String
             Get
                 Return Me.faxField
             End Get
             Set
-                Me.faxField = value
+                Me.faxField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property firstname() As String
             Get
                 Return Me.firstnameField
             End Get
             Set
-                Me.firstnameField = value
+                Me.firstnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property lastname() As String
             Get
                 Return Me.lastnameField
             End Get
             Set
-                Me.lastnameField = value
+                Me.lastnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property middlename() As String
             Get
                 Return Me.middlenameField
             End Get
             Set
-                Me.middlenameField = value
+                Me.middlenameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property postcode() As String
             Get
                 Return Me.postcodeField
             End Get
             Set
-                Me.postcodeField = value
+                Me.postcodeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property prefix() As String
             Get
                 Return Me.prefixField
             End Get
             Set
-                Me.prefixField = value
+                Me.prefixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property region_id() As Integer
             Get
                 Return Me.region_idField
             End Get
             Set
-                Me.region_idField = value
+                Me.region_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property region_idSpecified() As Boolean
             Get
                 Return Me.region_idFieldSpecified
             End Get
             Set
-                Me.region_idFieldSpecified = value
+                Me.region_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property region() As String
             Get
                 Return Me.regionField
             End Get
             Set
-                Me.regionField = value
+                Me.regionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property street() As String()
             Get
                 Return Me.streetField
             End Get
             Set
-                Me.streetField = value
+                Me.streetField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property suffix() As String
             Get
                 Return Me.suffixField
             End Get
             Set
-                Me.suffixField = value
+                Me.suffixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property telephone() As String
             Get
                 Return Me.telephoneField
             End Get
             Set
-                Me.telephoneField = value
+                Me.telephoneField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_default_billing() As Boolean
             Get
                 Return Me.is_default_billingField
             End Get
             Set
-                Me.is_default_billingField = value
+                Me.is_default_billingField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property is_default_billingSpecified() As Boolean
             Get
                 Return Me.is_default_billingFieldSpecified
             End Get
             Set
-                Me.is_default_billingFieldSpecified = value
+                Me.is_default_billingFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_default_shipping() As Boolean
             Get
                 Return Me.is_default_shippingField
             End Get
             Set
-                Me.is_default_shippingField = value
+                Me.is_default_shippingField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property is_default_shippingSpecified() As Boolean
             Get
                 Return Me.is_default_shippingFieldSpecified
             End Get
             Set
-                Me.is_default_shippingFieldSpecified = value
+                Me.is_default_shippingFieldSpecified = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class customerAddressEntityItem
-        
+
         Private customer_address_idField As Integer
-        
+
         Private customer_address_idFieldSpecified As Boolean
-        
+
         Private created_atField As String
-        
+
         Private updated_atField As String
-        
+
         Private increment_idField As String
-        
+
         Private cityField As String
-        
+
         Private companyField As String
-        
+
         Private country_idField As String
-        
+
         Private faxField As String
-        
+
         Private firstnameField As String
-        
+
         Private lastnameField As String
-        
+
         Private middlenameField As String
-        
+
         Private postcodeField As String
-        
+
         Private prefixField As String
-        
+
         Private regionField As String
-        
+
         Private region_idField As Integer
-        
+
         Private region_idFieldSpecified As Boolean
-        
+
         Private streetField As String
-        
+
         Private suffixField As String
-        
+
         Private telephoneField As String
-        
+
         Private is_default_billingField As Boolean
-        
+
         Private is_default_billingFieldSpecified As Boolean
-        
+
         Private is_default_shippingField As Boolean
-        
+
         Private is_default_shippingFieldSpecified As Boolean
-        
+
         '''<remarks/>
         Public Property customer_address_id() As Integer
             Get
                 Return Me.customer_address_idField
             End Get
             Set
-                Me.customer_address_idField = value
+                Me.customer_address_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property customer_address_idSpecified() As Boolean
             Get
                 Return Me.customer_address_idFieldSpecified
             End Get
             Set
-                Me.customer_address_idFieldSpecified = value
+                Me.customer_address_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property created_at() As String
             Get
                 Return Me.created_atField
             End Get
             Set
-                Me.created_atField = value
+                Me.created_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property updated_at() As String
             Get
                 Return Me.updated_atField
             End Get
             Set
-                Me.updated_atField = value
+                Me.updated_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property increment_id() As String
             Get
                 Return Me.increment_idField
             End Get
             Set
-                Me.increment_idField = value
+                Me.increment_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property city() As String
             Get
                 Return Me.cityField
             End Get
             Set
-                Me.cityField = value
+                Me.cityField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property company() As String
             Get
                 Return Me.companyField
             End Get
             Set
-                Me.companyField = value
+                Me.companyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property country_id() As String
             Get
                 Return Me.country_idField
             End Get
             Set
-                Me.country_idField = value
+                Me.country_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property fax() As String
             Get
                 Return Me.faxField
             End Get
             Set
-                Me.faxField = value
+                Me.faxField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property firstname() As String
             Get
                 Return Me.firstnameField
             End Get
             Set
-                Me.firstnameField = value
+                Me.firstnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property lastname() As String
             Get
                 Return Me.lastnameField
             End Get
             Set
-                Me.lastnameField = value
+                Me.lastnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property middlename() As String
             Get
                 Return Me.middlenameField
             End Get
             Set
-                Me.middlenameField = value
+                Me.middlenameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property postcode() As String
             Get
                 Return Me.postcodeField
             End Get
             Set
-                Me.postcodeField = value
+                Me.postcodeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property prefix() As String
             Get
                 Return Me.prefixField
             End Get
             Set
-                Me.prefixField = value
+                Me.prefixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property region() As String
             Get
                 Return Me.regionField
             End Get
             Set
-                Me.regionField = value
+                Me.regionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property region_id() As Integer
             Get
                 Return Me.region_idField
             End Get
             Set
-                Me.region_idField = value
+                Me.region_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property region_idSpecified() As Boolean
             Get
                 Return Me.region_idFieldSpecified
             End Get
             Set
-                Me.region_idFieldSpecified = value
+                Me.region_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property street() As String
             Get
                 Return Me.streetField
             End Get
             Set
-                Me.streetField = value
+                Me.streetField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property suffix() As String
             Get
                 Return Me.suffixField
             End Get
             Set
-                Me.suffixField = value
+                Me.suffixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property telephone() As String
             Get
                 Return Me.telephoneField
             End Get
             Set
-                Me.telephoneField = value
+                Me.telephoneField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_default_billing() As Boolean
             Get
                 Return Me.is_default_billingField
             End Get
             Set
-                Me.is_default_billingField = value
+                Me.is_default_billingField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property is_default_billingSpecified() As Boolean
             Get
                 Return Me.is_default_billingFieldSpecified
             End Get
             Set
-                Me.is_default_billingFieldSpecified = value
+                Me.is_default_billingFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_default_shipping() As Boolean
             Get
                 Return Me.is_default_shippingField
             End Get
             Set
-                Me.is_default_shippingField = value
+                Me.is_default_shippingField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property is_default_shippingSpecified() As Boolean
             Get
                 Return Me.is_default_shippingFieldSpecified
             End Get
             Set
-                Me.is_default_shippingFieldSpecified = value
+                Me.is_default_shippingFieldSpecified = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class customerGroupEntity
-        
+
         Private customer_group_idField As Integer
-        
+
         Private customer_group_codeField As String
-        
+
         '''<remarks/>
         Public Property customer_group_id() As Integer
             Get
                 Return Me.customer_group_idField
             End Get
             Set
-                Me.customer_group_idField = value
+                Me.customer_group_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property customer_group_code() As String
             Get
                 Return Me.customer_group_codeField
             End Get
             Set
-                Me.customer_group_codeField = value
+                Me.customer_group_codeField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class customerCustomerEntityToCreate
-        
+
         Private customer_idField As Integer
-        
+
         Private customer_idFieldSpecified As Boolean
-        
+
         Private emailField As String
-        
+
         Private firstnameField As String
-        
+
         Private lastnameField As String
-        
+
         Private middlenameField As String
-        
+
         Private passwordField As String
-        
+
         Private website_idField As Integer
-        
+
         Private website_idFieldSpecified As Boolean
-        
+
         Private store_idField As Integer
-        
+
         Private store_idFieldSpecified As Boolean
-        
+
         Private group_idField As Integer
-        
+
         Private group_idFieldSpecified As Boolean
-        
+
         Private prefixField As String
-        
+
         Private suffixField As String
-        
+
         Private dobField As String
-        
+
         Private taxvatField As String
-        
+
         Private genderField As Integer
-        
+
         Private genderFieldSpecified As Boolean
-        
+
         '''<remarks/>
         Public Property customer_id() As Integer
             Get
                 Return Me.customer_idField
             End Get
             Set
-                Me.customer_idField = value
+                Me.customer_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property customer_idSpecified() As Boolean
             Get
                 Return Me.customer_idFieldSpecified
             End Get
             Set
-                Me.customer_idFieldSpecified = value
+                Me.customer_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property email() As String
             Get
                 Return Me.emailField
             End Get
             Set
-                Me.emailField = value
+                Me.emailField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property firstname() As String
             Get
                 Return Me.firstnameField
             End Get
             Set
-                Me.firstnameField = value
+                Me.firstnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property lastname() As String
             Get
                 Return Me.lastnameField
             End Get
             Set
-                Me.lastnameField = value
+                Me.lastnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property middlename() As String
             Get
                 Return Me.middlenameField
             End Get
             Set
-                Me.middlenameField = value
+                Me.middlenameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property password() As String
             Get
                 Return Me.passwordField
             End Get
             Set
-                Me.passwordField = value
+                Me.passwordField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property website_id() As Integer
             Get
                 Return Me.website_idField
             End Get
             Set
-                Me.website_idField = value
+                Me.website_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property website_idSpecified() As Boolean
             Get
                 Return Me.website_idFieldSpecified
             End Get
             Set
-                Me.website_idFieldSpecified = value
+                Me.website_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property store_id() As Integer
             Get
                 Return Me.store_idField
             End Get
             Set
-                Me.store_idField = value
+                Me.store_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property store_idSpecified() As Boolean
             Get
                 Return Me.store_idFieldSpecified
             End Get
             Set
-                Me.store_idFieldSpecified = value
+                Me.store_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property group_id() As Integer
             Get
                 Return Me.group_idField
             End Get
             Set
-                Me.group_idField = value
+                Me.group_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property group_idSpecified() As Boolean
             Get
                 Return Me.group_idFieldSpecified
             End Get
             Set
-                Me.group_idFieldSpecified = value
+                Me.group_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property prefix() As String
             Get
                 Return Me.prefixField
             End Get
             Set
-                Me.prefixField = value
+                Me.prefixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property suffix() As String
             Get
                 Return Me.suffixField
             End Get
             Set
-                Me.suffixField = value
+                Me.suffixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property dob() As String
             Get
                 Return Me.dobField
             End Get
             Set
-                Me.dobField = value
+                Me.dobField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property taxvat() As String
             Get
                 Return Me.taxvatField
             End Get
             Set
-                Me.taxvatField = value
+                Me.taxvatField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property gender() As Integer
             Get
                 Return Me.genderField
             End Get
             Set
-                Me.genderField = value
+                Me.genderField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property genderSpecified() As Boolean
             Get
                 Return Me.genderFieldSpecified
             End Get
             Set
-                Me.genderFieldSpecified = value
+                Me.genderFieldSpecified = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class customerCustomerEntity
-        
+
         Private customer_idField As Integer
-        
+
         Private customer_idFieldSpecified As Boolean
-        
+
         Private created_atField As String
-        
+
         Private updated_atField As String
-        
+
         Private increment_idField As String
-        
+
         Private store_idField As Integer
-        
+
         Private store_idFieldSpecified As Boolean
-        
+
         Private website_idField As Integer
-        
+
         Private website_idFieldSpecified As Boolean
-        
+
         Private created_inField As String
-        
+
         Private emailField As String
-        
+
         Private firstnameField As String
-        
+
         Private middlenameField As String
-        
+
         Private lastnameField As String
-        
+
         Private group_idField As Integer
-        
+
         Private group_idFieldSpecified As Boolean
-        
+
         Private prefixField As String
-        
+
         Private suffixField As String
-        
+
         Private dobField As String
-        
+
         Private taxvatField As String
-        
+
         Private confirmationField As Boolean
-        
+
         Private confirmationFieldSpecified As Boolean
-        
+
         Private password_hashField As String
-        
+
         '''<remarks/>
         Public Property customer_id() As Integer
             Get
                 Return Me.customer_idField
             End Get
             Set
-                Me.customer_idField = value
+                Me.customer_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property customer_idSpecified() As Boolean
             Get
                 Return Me.customer_idFieldSpecified
             End Get
             Set
-                Me.customer_idFieldSpecified = value
+                Me.customer_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property created_at() As String
             Get
                 Return Me.created_atField
             End Get
             Set
-                Me.created_atField = value
+                Me.created_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property updated_at() As String
             Get
                 Return Me.updated_atField
             End Get
             Set
-                Me.updated_atField = value
+                Me.updated_atField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property increment_id() As String
             Get
                 Return Me.increment_idField
             End Get
             Set
-                Me.increment_idField = value
+                Me.increment_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property store_id() As Integer
             Get
                 Return Me.store_idField
             End Get
             Set
-                Me.store_idField = value
+                Me.store_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property store_idSpecified() As Boolean
             Get
                 Return Me.store_idFieldSpecified
             End Get
             Set
-                Me.store_idFieldSpecified = value
+                Me.store_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property website_id() As Integer
             Get
                 Return Me.website_idField
             End Get
             Set
-                Me.website_idField = value
+                Me.website_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property website_idSpecified() As Boolean
             Get
                 Return Me.website_idFieldSpecified
             End Get
             Set
-                Me.website_idFieldSpecified = value
+                Me.website_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property created_in() As String
             Get
                 Return Me.created_inField
             End Get
             Set
-                Me.created_inField = value
+                Me.created_inField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property email() As String
             Get
                 Return Me.emailField
             End Get
             Set
-                Me.emailField = value
+                Me.emailField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property firstname() As String
             Get
                 Return Me.firstnameField
             End Get
             Set
-                Me.firstnameField = value
+                Me.firstnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property middlename() As String
             Get
                 Return Me.middlenameField
             End Get
             Set
-                Me.middlenameField = value
+                Me.middlenameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property lastname() As String
             Get
                 Return Me.lastnameField
             End Get
             Set
-                Me.lastnameField = value
+                Me.lastnameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property group_id() As Integer
             Get
                 Return Me.group_idField
             End Get
             Set
-                Me.group_idField = value
+                Me.group_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property group_idSpecified() As Boolean
             Get
                 Return Me.group_idFieldSpecified
             End Get
             Set
-                Me.group_idFieldSpecified = value
+                Me.group_idFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property prefix() As String
             Get
                 Return Me.prefixField
             End Get
             Set
-                Me.prefixField = value
+                Me.prefixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property suffix() As String
             Get
                 Return Me.suffixField
             End Get
             Set
-                Me.suffixField = value
+                Me.suffixField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property dob() As String
             Get
                 Return Me.dobField
             End Get
             Set
-                Me.dobField = value
+                Me.dobField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property taxvat() As String
             Get
                 Return Me.taxvatField
             End Get
             Set
-                Me.taxvatField = value
+                Me.taxvatField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property confirmation() As Boolean
             Get
                 Return Me.confirmationField
             End Get
             Set
-                Me.confirmationField = value
+                Me.confirmationField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.SoapIgnoreAttribute()>  _
+        <System.Xml.Serialization.SoapIgnoreAttribute()>
         Public Property confirmationSpecified() As Boolean
             Get
                 Return Me.confirmationFieldSpecified
             End Get
             Set
-                Me.confirmationFieldSpecified = value
+                Me.confirmationFieldSpecified = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property password_hash() As String
             Get
                 Return Me.password_hashField
             End Get
             Set
-                Me.password_hashField = value
+                Me.password_hashField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class complexFilter
-        
+
         Private keyField As String
-        
+
         Private valueField As associativeEntity
-        
+
         '''<remarks/>
         Public Property key() As String
             Get
                 Return Me.keyField
             End Get
             Set
-                Me.keyField = value
+                Me.keyField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property value() As associativeEntity
             Get
                 Return Me.valueField
             End Get
             Set
-                Me.valueField = value
+                Me.valueField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class filters
-        
+
         Private filterField() As associativeEntity
-        
+
         Private complex_filterField() As complexFilter
-        
+
         '''<remarks/>
         Public Property filter() As associativeEntity()
             Get
                 Return Me.filterField
             End Get
             Set
-                Me.filterField = value
+                Me.filterField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property complex_filter() As complexFilter()
             Get
                 Return Me.complex_filterField
             End Get
             Set
-                Me.complex_filterField = value
+                Me.complex_filterField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class directoryRegionEntity
-        
+
         Private region_idField As String
-        
+
         Private codeField As String
-        
+
         Private nameField As String
-        
+
         '''<remarks/>
         Public Property region_id() As String
             Get
                 Return Me.region_idField
             End Get
             Set
-                Me.region_idField = value
+                Me.region_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property code() As String
             Get
                 Return Me.codeField
             End Get
             Set
-                Me.codeField = value
+                Me.codeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class directoryCountryEntity
-        
+
         Private country_idField As String
-        
+
         Private iso2_codeField As String
-        
+
         Private iso3_codeField As String
-        
+
         Private nameField As String
-        
+
         '''<remarks/>
         Public Property country_id() As String
             Get
                 Return Me.country_idField
             End Get
             Set
-                Me.country_idField = value
+                Me.country_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property iso2_code() As String
             Get
                 Return Me.iso2_codeField
             End Get
             Set
-                Me.iso2_codeField = value
+                Me.iso2_codeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property iso3_code() As String
             Get
                 Return Me.iso3_codeField
             End Get
             Set
-                Me.iso3_codeField = value
+                Me.iso3_codeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class magentoInfoEntity
-        
+
         Private magento_versionField As String
-        
+
         Private magento_editionField As String
-        
+
         '''<remarks/>
         Public Property magento_version() As String
             Get
                 Return Me.magento_versionField
             End Get
             Set
-                Me.magento_versionField = value
+                Me.magento_versionField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property magento_edition() As String
             Get
                 Return Me.magento_editionField
             End Get
             Set
-                Me.magento_editionField = value
+                Me.magento_editionField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class storeEntity
-        
+
         Private store_idField As Integer
-        
+
         Private codeField As String
-        
+
         Private website_idField As Integer
-        
+
         Private group_idField As Integer
-        
+
         Private nameField As String
-        
+
         Private sort_orderField As Integer
-        
+
         Private is_activeField As Integer
-        
+
         '''<remarks/>
         Public Property store_id() As Integer
             Get
                 Return Me.store_idField
             End Get
             Set
-                Me.store_idField = value
+                Me.store_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property code() As String
             Get
                 Return Me.codeField
             End Get
             Set
-                Me.codeField = value
+                Me.codeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property website_id() As Integer
             Get
                 Return Me.website_idField
             End Get
             Set
-                Me.website_idField = value
+                Me.website_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property group_id() As Integer
             Get
                 Return Me.group_idField
             End Get
             Set
-                Me.group_idField = value
+                Me.group_idField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property name() As String
             Get
                 Return Me.nameField
             End Get
             Set
-                Me.nameField = value
+                Me.nameField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property sort_order() As Integer
             Get
                 Return Me.sort_orderField
             End Get
             Set
-                Me.sort_orderField = value
+                Me.sort_orderField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property is_active() As Integer
             Get
                 Return Me.is_activeField
             End Get
             Set
-                Me.is_activeField = value
+                Me.is_activeField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),  _
-     System.SerializableAttribute(),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0"),
+     System.SerializableAttribute(),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code"),
+     System.Xml.Serialization.SoapTypeAttribute([Namespace]:="urn:Magento")>
     Partial Public Class existsFaltureEntity
-        
+
         Private codeField As String
-        
+
         Private messageField As String
-        
+
         '''<remarks/>
         Public Property code() As String
             Get
                 Return Me.codeField
             End Get
             Set
-                Me.codeField = value
+                Me.codeField = Value
             End Set
         End Property
-        
+
         '''<remarks/>
         Public Property message() As String
             Get
                 Return Me.messageField
             End Get
             Set
-                Me.messageField = value
+                Me.messageField = Value
             End Set
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub endSessionCompletedEventHandler(ByVal sender As Object, ByVal e As endSessionCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class endSessionCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub loginCompletedEventHandler(ByVal sender As Object, ByVal e As loginCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class loginCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub startSessionCompletedEventHandler(ByVal sender As Object, ByVal e As startSessionCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class startSessionCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub resourcesCompletedEventHandler(ByVal sender As Object, ByVal e As resourcesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class resourcesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As apiEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),apiEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), apiEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub globalFaultsCompletedEventHandler(ByVal sender As Object, ByVal e As globalFaultsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class globalFaultsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As existsFaltureEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),existsFaltureEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), existsFaltureEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub resourceFaultsCompletedEventHandler(ByVal sender As Object, ByVal e As resourceFaultsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class resourceFaultsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As existsFaltureEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),existsFaltureEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), existsFaltureEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub storeListCompletedEventHandler(ByVal sender As Object, ByVal e As storeListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class storeListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As storeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),storeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), storeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub storeInfoCompletedEventHandler(ByVal sender As Object, ByVal e As storeInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class storeInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As storeEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),storeEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), storeEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub magentoInfoCompletedEventHandler(ByVal sender As Object, ByVal e As magentoInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class magentoInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As magentoInfoEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),magentoInfoEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), magentoInfoEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub directoryCountryListCompletedEventHandler(ByVal sender As Object, ByVal e As directoryCountryListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class directoryCountryListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As directoryCountryEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),directoryCountryEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), directoryCountryEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub directoryRegionListCompletedEventHandler(ByVal sender As Object, ByVal e As directoryRegionListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class directoryRegionListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As directoryRegionEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),directoryRegionEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), directoryRegionEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerCustomerListCompletedEventHandler(ByVal sender As Object, ByVal e As customerCustomerListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerCustomerListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As customerCustomerEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),customerCustomerEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), customerCustomerEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerCustomerCreateCompletedEventHandler(ByVal sender As Object, ByVal e As customerCustomerCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerCustomerCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerCustomerInfoCompletedEventHandler(ByVal sender As Object, ByVal e As customerCustomerInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerCustomerInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As customerCustomerEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),customerCustomerEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), customerCustomerEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerCustomerUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As customerCustomerUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerCustomerUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerCustomerDeleteCompletedEventHandler(ByVal sender As Object, ByVal e As customerCustomerDeleteCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerCustomerDeleteCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerGroupListCompletedEventHandler(ByVal sender As Object, ByVal e As customerGroupListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerGroupListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As customerGroupEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),customerGroupEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), customerGroupEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerAddressListCompletedEventHandler(ByVal sender As Object, ByVal e As customerAddressListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerAddressListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As customerAddressEntityItem()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),customerAddressEntityItem())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), customerAddressEntityItem())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerAddressCreateCompletedEventHandler(ByVal sender As Object, ByVal e As customerAddressCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerAddressCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerAddressInfoCompletedEventHandler(ByVal sender As Object, ByVal e As customerAddressInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerAddressInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As customerAddressEntityItem
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),customerAddressEntityItem)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), customerAddressEntityItem)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerAddressUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As customerAddressUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerAddressUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub customerAddressDeleteCompletedEventHandler(ByVal sender As Object, ByVal e As customerAddressDeleteCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class customerAddressDeleteCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryCurrentStoreCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryCurrentStoreCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryCurrentStoreCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryTreeCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryTreeCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryTreeCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogCategoryTree
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogCategoryTree)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogCategoryTree)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryLevelCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryLevelCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryLevelCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogCategoryEntityNoChildren()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogCategoryEntityNoChildren())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogCategoryEntityNoChildren())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogCategoryInfo
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogCategoryInfo)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogCategoryInfo)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryCreateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryMoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryMoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryMoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryDeleteCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryDeleteCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryDeleteCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryAssignedProductsCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryAssignedProductsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryAssignedProductsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogAssignedProduct()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogAssignedProduct())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogAssignedProduct())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryAssignProductCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryAssignProductCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryAssignProductCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryUpdateProductCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryUpdateProductCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryUpdateProductCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryRemoveProductCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryRemoveProductCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryRemoveProductCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryAttributeCurrentStoreCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryAttributeCurrentStoreCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryAttributeCurrentStoreCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryAttributeListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryAttributeListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryAttributeListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogAttributeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogAttributeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogAttributeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogCategoryAttributeOptionsCompletedEventHandler(ByVal sender As Object, ByVal e As catalogCategoryAttributeOptionsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogCategoryAttributeOptionsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogAttributeOptionEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogAttributeOptionEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogAttributeOptionEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCurrentStoreCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCurrentStoreCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCurrentStoreCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductReturnEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductReturnEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductReturnEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCreateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductMultiUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductMultiUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductMultiUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductSetSpecialPriceCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductSetSpecialPriceCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductSetSpecialPriceCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductGetSpecialPriceCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductGetSpecialPriceCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductGetSpecialPriceCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductSpecialPriceReturnEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductSpecialPriceReturnEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductSpecialPriceReturnEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductDeleteCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductDeleteCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductDeleteCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeCurrentStoreCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeCurrentStoreCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeCurrentStoreCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductListOfAdditionalAttributesCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductListOfAdditionalAttributesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductListOfAdditionalAttributesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogAttributeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogAttributeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogAttributeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogAttributeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogAttributeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogAttributeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeOptionsCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeOptionsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeOptionsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogAttributeOptionEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogAttributeOptionEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogAttributeOptionEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetCreateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductAttributeSetEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductAttributeSetEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductAttributeSetEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetAttributeAddCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetAttributeAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetAttributeAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetAttributeRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetAttributeRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetAttributeRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetGroupAddCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetGroupAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetGroupAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetGroupRenameCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetGroupRenameCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetGroupRenameCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeSetGroupRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeSetGroupRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeSetGroupRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeTypesCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeTypesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeTypesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogAttributeOptionEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogAttributeOptionEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogAttributeOptionEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeCreateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductAttributeEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductAttributeEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductAttributeEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeAddOptionCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeAddOptionCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeAddOptionCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeRemoveOptionCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeRemoveOptionCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeRemoveOptionCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductTypeListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductTypeListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductTypeListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductTypeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductTypeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductTypeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeTierPriceInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeTierPriceInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeTierPriceInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductTierPriceEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductTierPriceEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductTierPriceEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeTierPriceUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeTierPriceUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeTierPriceUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeMediaCurrentStoreCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeMediaCurrentStoreCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeMediaCurrentStoreCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeMediaListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeMediaListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeMediaListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductImageEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductImageEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductImageEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeMediaInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeMediaInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeMediaInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductImageEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductImageEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductImageEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeMediaTypesCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeMediaTypesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeMediaTypesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductAttributeMediaTypeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductAttributeMediaTypeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductAttributeMediaTypeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeMediaCreateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeMediaCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeMediaCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeMediaUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeMediaUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeMediaUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductAttributeMediaRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductAttributeMediaRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductAttributeMediaRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductLinkListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductLinkListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductLinkListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductLinkEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductLinkEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductLinkEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductLinkAssignCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductLinkAssignCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductLinkAssignCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductLinkUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductLinkUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductLinkUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductLinkRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductLinkRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductLinkRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductLinkTypesCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductLinkTypesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductLinkTypesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductLinkAttributesCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductLinkAttributesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductLinkAttributesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductLinkAttributeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductLinkAttributeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductLinkAttributeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionAddCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionTypesCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionTypesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionTypesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductCustomOptionTypesEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductCustomOptionTypesEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductCustomOptionTypesEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductCustomOptionInfoEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductCustomOptionInfoEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductCustomOptionInfoEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductCustomOptionListEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductCustomOptionListEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductCustomOptionListEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionValueInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionValueInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionValueInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductCustomOptionValueInfoEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductCustomOptionValueInfoEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductCustomOptionValueInfoEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionValueListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionValueListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionValueListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductCustomOptionValueListEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductCustomOptionValueListEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductCustomOptionValueListEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionValueAddCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionValueAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionValueAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionValueUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionValueUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionValueUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductCustomOptionValueRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductCustomOptionValueRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductCustomOptionValueRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderListCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderListEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderListEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderListEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInfoCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderAddCommentCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderAddCommentCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderAddCommentCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderHoldCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderHoldCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderHoldCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderUnholdCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderUnholdCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderUnholdCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderCancelCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderCancelCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderCancelCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentListCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderShipmentEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderShipmentEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderShipmentEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentInfoCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderShipmentEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderShipmentEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderShipmentEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentCreateCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentAddCommentCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentAddCommentCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentAddCommentCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentAddTrackCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentAddTrackCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentAddTrackCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentSendInfoCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentSendInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentSendInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentRemoveTrackCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentRemoveTrackCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentRemoveTrackCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderShipmentGetCarriersCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderShipmentGetCarriersCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderShipmentGetCarriersCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As associativeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),associativeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), associativeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInvoiceListCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInvoiceListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInvoiceListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderInvoiceEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderInvoiceEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderInvoiceEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInvoiceInfoCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInvoiceInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInvoiceInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderInvoiceEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderInvoiceEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderInvoiceEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInvoiceCreateCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInvoiceCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInvoiceCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInvoiceAddCommentCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInvoiceAddCommentCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInvoiceAddCommentCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInvoiceCaptureCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInvoiceCaptureCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInvoiceCaptureCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInvoiceVoidCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInvoiceVoidCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInvoiceVoidCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderInvoiceCancelCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderInvoiceCancelCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderInvoiceCancelCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderCreditmemoListCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderCreditmemoListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderCreditmemoListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderCreditmemoEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderCreditmemoEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderCreditmemoEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderCreditmemoInfoCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderCreditmemoInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderCreditmemoInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As salesOrderCreditmemoEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),salesOrderCreditmemoEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), salesOrderCreditmemoEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderCreditmemoCreateCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderCreditmemoCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderCreditmemoCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderCreditmemoAddCommentCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderCreditmemoAddCommentCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderCreditmemoAddCommentCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub salesOrderCreditmemoCancelCompletedEventHandler(ByVal sender As Object, ByVal e As salesOrderCreditmemoCancelCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class salesOrderCreditmemoCancelCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogInventoryStockItemListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogInventoryStockItemListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogInventoryStockItemListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogInventoryStockItemEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogInventoryStockItemEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogInventoryStockItemEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogInventoryStockItemUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogInventoryStockItemUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogInventoryStockItemUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogInventoryStockItemMultiUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogInventoryStockItemMultiUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogInventoryStockItemMultiUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartCreateCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartInfoCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As shoppingCartInfoEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),shoppingCartInfoEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), shoppingCartInfoEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartOrderCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartOrderCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartOrderCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartTotalsCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartTotalsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartTotalsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As shoppingCartTotalsEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),shoppingCartTotalsEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), shoppingCartTotalsEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartLicenseCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartLicenseCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartLicenseCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As shoppingCartLicenseEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),shoppingCartLicenseEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), shoppingCartLicenseEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartProductAddCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartProductAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartProductAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartProductUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartProductUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartProductUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartProductRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartProductRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartProductRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartProductListCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartProductListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartProductListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartProductMoveToCustomerQuoteCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartProductMoveToCustomerQuoteCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartProductMoveToCustomerQuoteCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartCustomerSetCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartCustomerSetCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartCustomerSetCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartCustomerAddressesCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartCustomerAddressesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartCustomerAddressesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartShippingMethodCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartShippingMethodCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartShippingMethodCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartShippingListCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartShippingListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartShippingListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As shoppingCartShippingMethodEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),shoppingCartShippingMethodEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), shoppingCartShippingMethodEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartPaymentMethodCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartPaymentMethodCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartPaymentMethodCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartPaymentListCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartPaymentListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartPaymentListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As shoppingCartPaymentMethodResponseEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),shoppingCartPaymentMethodResponseEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), shoppingCartPaymentMethodResponseEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartCouponAddCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartCouponAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartCouponAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartCouponRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartCouponRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartCouponRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductTagListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductTagListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductTagListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductTagListEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductTagListEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductTagListEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductTagInfoCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductTagInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductTagInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductTagInfoEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductTagInfoEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductTagInfoEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductTagAddCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductTagAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductTagAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As associativeEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),associativeEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), associativeEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductTagUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductTagUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductTagUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductTagRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductTagRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductTagRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftMessageSetForQuoteCompletedEventHandler(ByVal sender As Object, ByVal e As giftMessageSetForQuoteCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftMessageSetForQuoteCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As giftMessageResponse
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),giftMessageResponse)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), giftMessageResponse)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftMessageSetForQuoteItemCompletedEventHandler(ByVal sender As Object, ByVal e As giftMessageSetForQuoteItemCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftMessageSetForQuoteItemCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As giftMessageResponse
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),giftMessageResponse)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), giftMessageResponse)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftMessageSetForQuoteProductCompletedEventHandler(ByVal sender As Object, ByVal e As giftMessageSetForQuoteProductCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftMessageSetForQuoteProductCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As giftMessageResponse()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),giftMessageResponse())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), giftMessageResponse())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductDownloadableLinkAddCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductDownloadableLinkAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductDownloadableLinkAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductDownloadableLinkListCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductDownloadableLinkListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductDownloadableLinkListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductDownloadableLinkInfoEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductDownloadableLinkInfoEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductDownloadableLinkInfoEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub catalogProductDownloadableLinkRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As catalogProductDownloadableLinkRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class catalogProductDownloadableLinkRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetAllProductsInfoCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetAllProductsInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetAllProductsInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As catalogProductReturnEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),catalogProductReturnEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), catalogProductReturnEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiSetConfigurableRelationsCompletedEventHandler(ByVal sender As Object, ByVal e As superapiSetConfigurableRelationsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiSetConfigurableRelationsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiUpdateStockCompletedEventHandler(ByVal sender As Object, ByVal e As superapiUpdateStockCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiUpdateStockCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetConfigurableRelationsCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetConfigurableRelationsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetConfigurableRelationsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetConfigurableCiCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetConfigurableCiCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetConfigurableCiCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetConfigurableCdCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetConfigurableCdCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetConfigurableCdCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiSalesOrderEditCompletedEventHandler(ByVal sender As Object, ByVal e As superapiSalesOrderEditCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiSalesOrderEditCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiSalesOrderReAuthorizeCompletedEventHandler(ByVal sender As Object, ByVal e As superapiSalesOrderReAuthorizeCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiSalesOrderReAuthorizeCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiSalesOrderGetLastTransIdCompletedEventHandler(ByVal sender As Object, ByVal e As superapiSalesOrderGetLastTransIdCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiSalesOrderGetLastTransIdCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiExecuteRawSqlCompletedEventHandler(ByVal sender As Object, ByVal e As superapiExecuteRawSqlCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiExecuteRawSqlCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetRegistryCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetRegistryCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetRegistryCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiCreateRegistryCompletedEventHandler(ByVal sender As Object, ByVal e As superapiCreateRegistryCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiCreateRegistryCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiListRegistriesCompletedEventHandler(ByVal sender As Object, ByVal e As superapiListRegistriesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiListRegistriesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As registryEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),registryEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), registryEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetRegistryItemsCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetRegistryItemsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetRegistryItemsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As registryItemEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),registryItemEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), registryItemEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiAddRegistryItemsCompletedEventHandler(ByVal sender As Object, ByVal e As superapiAddRegistryItemsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiAddRegistryItemsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiUpdateHasCompletedEventHandler(ByVal sender As Object, ByVal e As superapiUpdateHasCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiUpdateHasCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiUpdateWantsCompletedEventHandler(ByVal sender As Object, ByVal e As superapiUpdateWantsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiUpdateWantsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetDeletedRegistryItemsCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetDeletedRegistryItemsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetDeletedRegistryItemsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As registryDeletedItemEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),registryDeletedItemEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), registryDeletedItemEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiDeleteRegistryItemCompletedEventHandler(ByVal sender As Object, ByVal e As superapiDeleteRegistryItemCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiDeleteRegistryItemCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetAttributeListOptionsCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetAttributeListOptionsCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetAttributeListOptionsCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetProductImageCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetProductImageCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetProductImageCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiSetConfigurableRelationsWithAttributePricesCompletedEventHandler(ByVal sender As Object, ByVal e As superapiSetConfigurableRelationsWithAttributePricesCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiSetConfigurableRelationsWithAttributePricesCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Integer
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Integer)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Integer)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiMediaAddFileCompletedEventHandler(ByVal sender As Object, ByVal e As superapiMediaAddFileCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiMediaAddFileCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub superapiGetSalesOrderItemImageCompletedEventHandler(ByVal sender As Object, ByVal e As superapiGetSalesOrderItemImageCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class superapiGetSalesOrderItemImageCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub enterpriseCustomerbalanceBalanceCompletedEventHandler(ByVal sender As Object, ByVal e As enterpriseCustomerbalanceBalanceCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class enterpriseCustomerbalanceBalanceCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub enterpriseCustomerbalanceHistoryCompletedEventHandler(ByVal sender As Object, ByVal e As enterpriseCustomerbalanceHistoryCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class enterpriseCustomerbalanceHistoryCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As enterpriseCustomerbalanceHistoryItemEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),enterpriseCustomerbalanceHistoryItemEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), enterpriseCustomerbalanceHistoryItemEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartCustomerbalanceSetAmountCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartCustomerbalanceSetAmountCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartCustomerbalanceSetAmountCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Single
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Single)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Single)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartCustomerbalanceRemoveAmountCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartCustomerbalanceRemoveAmountCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartCustomerbalanceRemoveAmountCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftcardAccountCreateCompletedEventHandler(ByVal sender As Object, ByVal e As giftcardAccountCreateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftcardAccountCreateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As String
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), String)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftcardAccountUpdateCompletedEventHandler(ByVal sender As Object, ByVal e As giftcardAccountUpdateCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftcardAccountUpdateCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftcardAccountRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As giftcardAccountRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftcardAccountRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftcardAccountListCompletedEventHandler(ByVal sender As Object, ByVal e As giftcardAccountListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftcardAccountListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As giftcardAccountEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),giftcardAccountEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), giftcardAccountEntity())
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftcardAccountInfoCompletedEventHandler(ByVal sender As Object, ByVal e As giftcardAccountInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftcardAccountInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As giftcardAccountEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),giftcardAccountEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), giftcardAccountEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftcardCustomerInfoCompletedEventHandler(ByVal sender As Object, ByVal e As giftcardCustomerInfoCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftcardCustomerInfoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As giftcardCustomerEntity
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),giftcardCustomerEntity)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), giftcardCustomerEntity)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub giftcardCustomerRedeemCompletedEventHandler(ByVal sender As Object, ByVal e As giftcardCustomerRedeemCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class giftcardCustomerRedeemCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartGiftcardAddCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartGiftcardAddCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartGiftcardAddCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartGiftcardRemoveCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartGiftcardRemoveCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartGiftcardRemoveCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As Boolean
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),Boolean)
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), Boolean)
             End Get
         End Property
     End Class
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")>
     Public Delegate Sub shoppingCartGiftcardListCompletedEventHandler(ByVal sender As Object, ByVal e As shoppingCartGiftcardListCompletedEventArgs)
-    
+
     '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0"),
+     System.Diagnostics.DebuggerStepThroughAttribute(),
+     System.ComponentModel.DesignerCategoryAttribute("code")>
     Partial Public Class shoppingCartGiftcardListCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As enterpriseGiftcardaccountListEntity()
             Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),enterpriseGiftcardaccountListEntity())
+                Me.RaiseExceptionIfNecessary()
+                Return CType(Me.results(0), enterpriseGiftcardaccountListEntity())
             End Get
         End Property
     End Class

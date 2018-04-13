@@ -35,11 +35,15 @@ Partial Public Class Magento_Store
     
     Private tableMagento_ProductCatalogImport As Magento_ProductCatalogImportDataTable
     
-    Private tableMagento_ProductCatalog_TierPrice_QA As Magento_ProductCatalog_TierPrice_QADataTable
-    
     Private tableMagento_ProductCatalog_TierPrice_QA_Compare As Magento_ProductCatalog_TierPrice_QA_CompareDataTable
     
     Private tableMagento_ProductCatalog_TierPrice_Universe_GET As Magento_ProductCatalog_TierPrice_Universe_GETDataTable
+    
+    Private tableProductFeedData_Buffer_DELETE As ProductFeedData_Buffer_DELETEDataTable
+    
+    Private tableGetTierPricesFromERP As GetTierPricesFromERPDataTable
+    
+    Private tableMagento_ProductCatalog_TierPrice_QA As Magento_ProductCatalog_TierPrice_QADataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -85,14 +89,20 @@ Partial Public Class Magento_Store
             If (Not (ds.Tables("Magento_ProductCatalogImport")) Is Nothing) Then
                 MyBase.Tables.Add(New Magento_ProductCatalogImportDataTable(ds.Tables("Magento_ProductCatalogImport")))
             End If
-            If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_QA")) Is Nothing) Then
-                MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_QADataTable(ds.Tables("Magento_ProductCatalog_TierPrice_QA")))
-            End If
             If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_QA_Compare")) Is Nothing) Then
                 MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_QA_CompareDataTable(ds.Tables("Magento_ProductCatalog_TierPrice_QA_Compare")))
             End If
             If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_Universe_GET")) Is Nothing) Then
                 MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_Universe_GETDataTable(ds.Tables("Magento_ProductCatalog_TierPrice_Universe_GET")))
+            End If
+            If (Not (ds.Tables("ProductFeedData_Buffer_DELETE")) Is Nothing) Then
+                MyBase.Tables.Add(New ProductFeedData_Buffer_DELETEDataTable(ds.Tables("ProductFeedData_Buffer_DELETE")))
+            End If
+            If (Not (ds.Tables("GetTierPricesFromERP")) Is Nothing) Then
+                MyBase.Tables.Add(New GetTierPricesFromERPDataTable(ds.Tables("GetTierPricesFromERP")))
+            End If
+            If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_QA")) Is Nothing) Then
+                MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_QADataTable(ds.Tables("Magento_ProductCatalog_TierPrice_QA")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -165,16 +175,6 @@ Partial Public Class Magento_Store
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Magento_ProductCatalog_TierPrice_QA() As Magento_ProductCatalog_TierPrice_QADataTable
-        Get
-            Return Me.tableMagento_ProductCatalog_TierPrice_QA
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property Magento_ProductCatalog_TierPrice_QA_Compare() As Magento_ProductCatalog_TierPrice_QA_CompareDataTable
         Get
             Return Me.tableMagento_ProductCatalog_TierPrice_QA_Compare
@@ -188,6 +188,36 @@ Partial Public Class Magento_Store
     Public ReadOnly Property Magento_ProductCatalog_TierPrice_Universe_GET() As Magento_ProductCatalog_TierPrice_Universe_GETDataTable
         Get
             Return Me.tableMagento_ProductCatalog_TierPrice_Universe_GET
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property ProductFeedData_Buffer_DELETE() As ProductFeedData_Buffer_DELETEDataTable
+        Get
+            Return Me.tableProductFeedData_Buffer_DELETE
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property GetTierPricesFromERP() As GetTierPricesFromERPDataTable
+        Get
+            Return Me.tableGetTierPricesFromERP
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Magento_ProductCatalog_TierPrice_QA() As Magento_ProductCatalog_TierPrice_QADataTable
+        Get
+            Return Me.tableMagento_ProductCatalog_TierPrice_QA
         End Get
     End Property
     
@@ -273,14 +303,20 @@ Partial Public Class Magento_Store
             If (Not (ds.Tables("Magento_ProductCatalogImport")) Is Nothing) Then
                 MyBase.Tables.Add(New Magento_ProductCatalogImportDataTable(ds.Tables("Magento_ProductCatalogImport")))
             End If
-            If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_QA")) Is Nothing) Then
-                MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_QADataTable(ds.Tables("Magento_ProductCatalog_TierPrice_QA")))
-            End If
             If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_QA_Compare")) Is Nothing) Then
                 MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_QA_CompareDataTable(ds.Tables("Magento_ProductCatalog_TierPrice_QA_Compare")))
             End If
             If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_Universe_GET")) Is Nothing) Then
                 MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_Universe_GETDataTable(ds.Tables("Magento_ProductCatalog_TierPrice_Universe_GET")))
+            End If
+            If (Not (ds.Tables("ProductFeedData_Buffer_DELETE")) Is Nothing) Then
+                MyBase.Tables.Add(New ProductFeedData_Buffer_DELETEDataTable(ds.Tables("ProductFeedData_Buffer_DELETE")))
+            End If
+            If (Not (ds.Tables("GetTierPricesFromERP")) Is Nothing) Then
+                MyBase.Tables.Add(New GetTierPricesFromERPDataTable(ds.Tables("GetTierPricesFromERP")))
+            End If
+            If (Not (ds.Tables("Magento_ProductCatalog_TierPrice_QA")) Is Nothing) Then
+                MyBase.Tables.Add(New Magento_ProductCatalog_TierPrice_QADataTable(ds.Tables("Magento_ProductCatalog_TierPrice_QA")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -344,12 +380,6 @@ Partial Public Class Magento_Store
                 Me.tableMagento_ProductCatalogImport.InitVars
             End If
         End If
-        Me.tableMagento_ProductCatalog_TierPrice_QA = CType(MyBase.Tables("Magento_ProductCatalog_TierPrice_QA"),Magento_ProductCatalog_TierPrice_QADataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableMagento_ProductCatalog_TierPrice_QA) Is Nothing) Then
-                Me.tableMagento_ProductCatalog_TierPrice_QA.InitVars
-            End If
-        End If
         Me.tableMagento_ProductCatalog_TierPrice_QA_Compare = CType(MyBase.Tables("Magento_ProductCatalog_TierPrice_QA_Compare"),Magento_ProductCatalog_TierPrice_QA_CompareDataTable)
         If (initTable = true) Then
             If (Not (Me.tableMagento_ProductCatalog_TierPrice_QA_Compare) Is Nothing) Then
@@ -360,6 +390,24 @@ Partial Public Class Magento_Store
         If (initTable = true) Then
             If (Not (Me.tableMagento_ProductCatalog_TierPrice_Universe_GET) Is Nothing) Then
                 Me.tableMagento_ProductCatalog_TierPrice_Universe_GET.InitVars
+            End If
+        End If
+        Me.tableProductFeedData_Buffer_DELETE = CType(MyBase.Tables("ProductFeedData_Buffer_DELETE"),ProductFeedData_Buffer_DELETEDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableProductFeedData_Buffer_DELETE) Is Nothing) Then
+                Me.tableProductFeedData_Buffer_DELETE.InitVars
+            End If
+        End If
+        Me.tableGetTierPricesFromERP = CType(MyBase.Tables("GetTierPricesFromERP"),GetTierPricesFromERPDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableGetTierPricesFromERP) Is Nothing) Then
+                Me.tableGetTierPricesFromERP.InitVars
+            End If
+        End If
+        Me.tableMagento_ProductCatalog_TierPrice_QA = CType(MyBase.Tables("Magento_ProductCatalog_TierPrice_QA"),Magento_ProductCatalog_TierPrice_QADataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableMagento_ProductCatalog_TierPrice_QA) Is Nothing) Then
+                Me.tableMagento_ProductCatalog_TierPrice_QA.InitVars
             End If
         End If
     End Sub
@@ -382,12 +430,16 @@ Partial Public Class Magento_Store
         MyBase.Tables.Add(Me.tableMagento_ProductCatalogMatch)
         Me.tableMagento_ProductCatalogImport = New Magento_ProductCatalogImportDataTable()
         MyBase.Tables.Add(Me.tableMagento_ProductCatalogImport)
-        Me.tableMagento_ProductCatalog_TierPrice_QA = New Magento_ProductCatalog_TierPrice_QADataTable()
-        MyBase.Tables.Add(Me.tableMagento_ProductCatalog_TierPrice_QA)
         Me.tableMagento_ProductCatalog_TierPrice_QA_Compare = New Magento_ProductCatalog_TierPrice_QA_CompareDataTable()
         MyBase.Tables.Add(Me.tableMagento_ProductCatalog_TierPrice_QA_Compare)
         Me.tableMagento_ProductCatalog_TierPrice_Universe_GET = New Magento_ProductCatalog_TierPrice_Universe_GETDataTable()
         MyBase.Tables.Add(Me.tableMagento_ProductCatalog_TierPrice_Universe_GET)
+        Me.tableProductFeedData_Buffer_DELETE = New ProductFeedData_Buffer_DELETEDataTable()
+        MyBase.Tables.Add(Me.tableProductFeedData_Buffer_DELETE)
+        Me.tableGetTierPricesFromERP = New GetTierPricesFromERPDataTable()
+        MyBase.Tables.Add(Me.tableGetTierPricesFromERP)
+        Me.tableMagento_ProductCatalog_TierPrice_QA = New Magento_ProductCatalog_TierPrice_QADataTable()
+        MyBase.Tables.Add(Me.tableMagento_ProductCatalog_TierPrice_QA)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -422,12 +474,6 @@ Partial Public Class Magento_Store
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Private Function ShouldSerializeMagento_ProductCatalog_TierPrice_QA() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Function ShouldSerializeMagento_ProductCatalog_TierPrice_QA_Compare() As Boolean
         Return false
     End Function
@@ -435,6 +481,24 @@ Partial Public Class Magento_Store
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Function ShouldSerializeMagento_ProductCatalog_TierPrice_Universe_GET() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Function ShouldSerializeProductFeedData_Buffer_DELETE() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Function ShouldSerializeGetTierPricesFromERP() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Function ShouldSerializeMagento_ProductCatalog_TierPrice_QA() As Boolean
         Return false
     End Function
     
@@ -512,13 +576,19 @@ Partial Public Class Magento_Store
     Public Delegate Sub Magento_ProductCatalogImportRowChangeEventHandler(ByVal sender As Object, ByVal e As Magento_ProductCatalogImportRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Delegate Sub Magento_ProductCatalog_TierPrice_QARowChangeEventHandler(ByVal sender As Object, ByVal e As Magento_ProductCatalog_TierPrice_QARowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub Magento_ProductCatalog_TierPrice_QA_CompareRowChangeEventHandler(ByVal sender As Object, ByVal e As Magento_ProductCatalog_TierPrice_QA_CompareRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub Magento_ProductCatalog_TierPrice_Universe_GETRowChangeEventHandler(ByVal sender As Object, ByVal e As Magento_ProductCatalog_TierPrice_Universe_GETRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Delegate Sub ProductFeedData_Buffer_DELETERowChangeEventHandler(ByVal sender As Object, ByVal e As ProductFeedData_Buffer_DELETERowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Delegate Sub GetTierPricesFromERPRowChangeEventHandler(ByVal sender As Object, ByVal e As GetTierPricesFromERPRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Delegate Sub Magento_ProductCatalog_TierPrice_QARowChangeEventHandler(ByVal sender As Object, ByVal e As Magento_ProductCatalog_TierPrice_QARowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -2164,520 +2234,6 @@ Partial Public Class Magento_Store
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class Magento_ProductCatalog_TierPrice_QADataTable
-        Inherits Global.System.Data.TypedTableBase(Of Magento_ProductCatalog_TierPrice_QARow)
-        
-        Private columnId As Global.System.Data.DataColumn
-        
-        Private columnname As Global.System.Data.DataColumn
-        
-        Private columnproduct_id As Global.System.Data.DataColumn
-        
-        Private columnsku As Global.System.Data.DataColumn
-        
-        Private columntype As Global.System.Data.DataColumn
-        
-        Private columnwebsite_ids As Global.System.Data.DataColumn
-        
-        Private columnstore As Global.System.Data.DataColumn
-        
-        Private columnTierPriceData As Global.System.Data.DataColumn
-        
-        Private columnTierPriceGrid As Global.System.Data.DataColumn
-        
-        Private columnImportDate As Global.System.Data.DataColumn
-        
-        Private columndbContext As Global.System.Data.DataColumn
-        
-        Private columnProcessed As Global.System.Data.DataColumn
-        
-        Private columnTierPriceData_Created As Global.System.Data.DataColumn
-        
-        Private columnCompared As Global.System.Data.DataColumn
-        
-        Private columnTransactionID As Global.System.Data.DataColumn
-        
-        Private columnOriginalTransactionID As Global.System.Data.DataColumn
-        
-        Private columnStatus As Global.System.Data.DataColumn
-        
-        Private columnStatusDateTime As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "Magento_ProductCatalog_TierPrice_QA"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property nameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnname
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property product_idColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnproduct_id
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property skuColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnsku
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property typeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntype
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property website_idsColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnwebsite_ids
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property storeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnstore
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property TierPriceDataColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTierPriceData
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property TierPriceGridColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTierPriceGrid
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ImportDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnImportDate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property dbContextColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndbContext
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ProcessedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnProcessed
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property TierPriceData_CreatedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTierPriceData_Created
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ComparedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCompared
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property TransactionIDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTransactionID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property OriginalTransactionIDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnOriginalTransactionID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property StatusColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnStatus
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property StatusDateTimeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnStatusDateTime
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As Magento_ProductCatalog_TierPrice_QARow
-            Get
-                Return CType(Me.Rows(index),Magento_ProductCatalog_TierPrice_QARow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event Magento_ProductCatalog_TierPrice_QARowChanging As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event Magento_ProductCatalog_TierPrice_QARowChanged As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event Magento_ProductCatalog_TierPrice_QARowDeleting As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event Magento_ProductCatalog_TierPrice_QARowDeleted As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Sub AddMagento_ProductCatalog_TierPrice_QARow(ByVal row As Magento_ProductCatalog_TierPrice_QARow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddMagento_ProductCatalog_TierPrice_QARow( _
-                    ByVal name As String,  _
-                    ByVal product_id As Integer,  _
-                    ByVal sku As String,  _
-                    ByVal type As String,  _
-                    ByVal website_ids As String,  _
-                    ByVal store As String,  _
-                    ByVal TierPriceData As String,  _
-                    ByVal TierPriceGrid As String,  _
-                    ByVal ImportDate As Date,  _
-                    ByVal dbContext As String,  _
-                    ByVal Processed As Date,  _
-                    ByVal TierPriceData_Created As String,  _
-                    ByVal Compared As Boolean,  _
-                    ByVal TransactionID As System.Guid,  _
-                    ByVal OriginalTransactionID As System.Guid,  _
-                    ByVal Status As String,  _
-                    ByVal StatusDateTime As Date) As Magento_ProductCatalog_TierPrice_QARow
-            Dim rowMagento_ProductCatalog_TierPrice_QARow As Magento_ProductCatalog_TierPrice_QARow = CType(Me.NewRow,Magento_ProductCatalog_TierPrice_QARow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, OriginalTransactionID, Status, StatusDateTime}
-            rowMagento_ProductCatalog_TierPrice_QARow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowMagento_ProductCatalog_TierPrice_QARow)
-            Return rowMagento_ProductCatalog_TierPrice_QARow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindById(ByVal Id As Integer) As Magento_ProductCatalog_TierPrice_QARow
-            Return CType(Me.Rows.Find(New Object() {Id}),Magento_ProductCatalog_TierPrice_QARow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As Magento_ProductCatalog_TierPrice_QADataTable = CType(MyBase.Clone,Magento_ProductCatalog_TierPrice_QADataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New Magento_ProductCatalog_TierPrice_QADataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnId = MyBase.Columns("Id")
-            Me.columnname = MyBase.Columns("name")
-            Me.columnproduct_id = MyBase.Columns("product_id")
-            Me.columnsku = MyBase.Columns("sku")
-            Me.columntype = MyBase.Columns("type")
-            Me.columnwebsite_ids = MyBase.Columns("website_ids")
-            Me.columnstore = MyBase.Columns("store")
-            Me.columnTierPriceData = MyBase.Columns("TierPriceData")
-            Me.columnTierPriceGrid = MyBase.Columns("TierPriceGrid")
-            Me.columnImportDate = MyBase.Columns("ImportDate")
-            Me.columndbContext = MyBase.Columns("dbContext")
-            Me.columnProcessed = MyBase.Columns("Processed")
-            Me.columnTierPriceData_Created = MyBase.Columns("TierPriceData_Created")
-            Me.columnCompared = MyBase.Columns("Compared")
-            Me.columnTransactionID = MyBase.Columns("TransactionID")
-            Me.columnOriginalTransactionID = MyBase.Columns("OriginalTransactionID")
-            Me.columnStatus = MyBase.Columns("Status")
-            Me.columnStatusDateTime = MyBase.Columns("StatusDateTime")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnId)
-            Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnname)
-            Me.columnproduct_id = New Global.System.Data.DataColumn("product_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnproduct_id)
-            Me.columnsku = New Global.System.Data.DataColumn("sku", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnsku)
-            Me.columntype = New Global.System.Data.DataColumn("type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntype)
-            Me.columnwebsite_ids = New Global.System.Data.DataColumn("website_ids", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnwebsite_ids)
-            Me.columnstore = New Global.System.Data.DataColumn("store", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnstore)
-            Me.columnTierPriceData = New Global.System.Data.DataColumn("TierPriceData", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTierPriceData)
-            Me.columnTierPriceGrid = New Global.System.Data.DataColumn("TierPriceGrid", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTierPriceGrid)
-            Me.columnImportDate = New Global.System.Data.DataColumn("ImportDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnImportDate)
-            Me.columndbContext = New Global.System.Data.DataColumn("dbContext", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndbContext)
-            Me.columnProcessed = New Global.System.Data.DataColumn("Processed", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProcessed)
-            Me.columnTierPriceData_Created = New Global.System.Data.DataColumn("TierPriceData_Created", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTierPriceData_Created)
-            Me.columnCompared = New Global.System.Data.DataColumn("Compared", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCompared)
-            Me.columnTransactionID = New Global.System.Data.DataColumn("TransactionID", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTransactionID)
-            Me.columnOriginalTransactionID = New Global.System.Data.DataColumn("OriginalTransactionID", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnOriginalTransactionID)
-            Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnStatus)
-            Me.columnStatusDateTime = New Global.System.Data.DataColumn("StatusDateTime", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnStatusDateTime)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
-            Me.columnId.AutoIncrement = true
-            Me.columnId.AutoIncrementSeed = -1
-            Me.columnId.AutoIncrementStep = -1
-            Me.columnId.AllowDBNull = false
-            Me.columnId.ReadOnly = true
-            Me.columnId.Unique = true
-            Me.columnname.MaxLength = 2147483647
-            Me.columnsku.MaxLength = 100
-            Me.columntype.MaxLength = 50
-            Me.columnwebsite_ids.MaxLength = 200
-            Me.columnstore.MaxLength = 50
-            Me.columnTierPriceData.MaxLength = 2147483647
-            Me.columnTierPriceGrid.MaxLength = 2147483647
-            Me.columndbContext.MaxLength = 100
-            Me.columnTierPriceData_Created.MaxLength = 2147483647
-            Me.columnTransactionID.AllowDBNull = false
-            Me.columnStatus.MaxLength = 100
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function NewMagento_ProductCatalog_TierPrice_QARow() As Magento_ProductCatalog_TierPrice_QARow
-            Return CType(Me.NewRow,Magento_ProductCatalog_TierPrice_QARow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New Magento_ProductCatalog_TierPrice_QARow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(Magento_ProductCatalog_TierPrice_QARow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowChangedEvent) Is Nothing) Then
-                RaiseEvent Magento_ProductCatalog_TierPrice_QARowChanged(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowChangingEvent) Is Nothing) Then
-                RaiseEvent Magento_ProductCatalog_TierPrice_QARowChanging(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowDeletedEvent) Is Nothing) Then
-                RaiseEvent Magento_ProductCatalog_TierPrice_QARowDeleted(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowDeletingEvent) Is Nothing) Then
-                RaiseEvent Magento_ProductCatalog_TierPrice_QARowDeleting(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub RemoveMagento_ProductCatalog_TierPrice_QARow(ByVal row As Magento_ProductCatalog_TierPrice_QARow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As Magento_Store = New Magento_Store()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "Magento_ProductCatalog_TierPrice_QADataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class Magento_ProductCatalog_TierPrice_QA_CompareDataTable
         Inherits Global.System.Data.TypedTableBase(Of Magento_ProductCatalog_TierPrice_QA_CompareRow)
         
@@ -3465,6 +3021,1159 @@ Partial Public Class Magento_Store
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class ProductFeedData_Buffer_DELETEDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ProductFeedData_Buffer_DELETERow)
+        
+        Private columnTransactionID As Global.System.Data.DataColumn
+        
+        Private columnsku As Global.System.Data.DataColumn
+        
+        Private columnelement_name As Global.System.Data.DataColumn
+        
+        Private columnvalue As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "ProductFeedData_Buffer_DELETE"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TransactionIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTransactionID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property skuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsku
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property element_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnelement_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property valueColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvalue
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As ProductFeedData_Buffer_DELETERow
+            Get
+                Return CType(Me.Rows(index),ProductFeedData_Buffer_DELETERow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event ProductFeedData_Buffer_DELETERowChanging As ProductFeedData_Buffer_DELETERowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event ProductFeedData_Buffer_DELETERowChanged As ProductFeedData_Buffer_DELETERowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event ProductFeedData_Buffer_DELETERowDeleting As ProductFeedData_Buffer_DELETERowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event ProductFeedData_Buffer_DELETERowDeleted As ProductFeedData_Buffer_DELETERowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Sub AddProductFeedData_Buffer_DELETERow(ByVal row As ProductFeedData_Buffer_DELETERow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function AddProductFeedData_Buffer_DELETERow(ByVal TransactionID As System.Guid, ByVal sku As String, ByVal element_name As String, ByVal value As String) As ProductFeedData_Buffer_DELETERow
+            Dim rowProductFeedData_Buffer_DELETERow As ProductFeedData_Buffer_DELETERow = CType(Me.NewRow,ProductFeedData_Buffer_DELETERow)
+            Dim columnValuesArray() As Object = New Object() {TransactionID, sku, element_name, value}
+            rowProductFeedData_Buffer_DELETERow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowProductFeedData_Buffer_DELETERow)
+            Return rowProductFeedData_Buffer_DELETERow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As ProductFeedData_Buffer_DELETEDataTable = CType(MyBase.Clone,ProductFeedData_Buffer_DELETEDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New ProductFeedData_Buffer_DELETEDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnTransactionID = MyBase.Columns("TransactionID")
+            Me.columnsku = MyBase.Columns("sku")
+            Me.columnelement_name = MyBase.Columns("element_name")
+            Me.columnvalue = MyBase.Columns("value")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnTransactionID = New Global.System.Data.DataColumn("TransactionID", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTransactionID)
+            Me.columnsku = New Global.System.Data.DataColumn("sku", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsku)
+            Me.columnelement_name = New Global.System.Data.DataColumn("element_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnelement_name)
+            Me.columnvalue = New Global.System.Data.DataColumn("value", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvalue)
+            Me.columnTransactionID.AllowDBNull = false
+            Me.columnsku.MaxLength = 50
+            Me.columnelement_name.MaxLength = 50
+            Me.columnvalue.MaxLength = 2147483647
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function NewProductFeedData_Buffer_DELETERow() As ProductFeedData_Buffer_DELETERow
+            Return CType(Me.NewRow,ProductFeedData_Buffer_DELETERow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New ProductFeedData_Buffer_DELETERow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(ProductFeedData_Buffer_DELETERow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.ProductFeedData_Buffer_DELETERowChangedEvent) Is Nothing) Then
+                RaiseEvent ProductFeedData_Buffer_DELETERowChanged(Me, New ProductFeedData_Buffer_DELETERowChangeEvent(CType(e.Row,ProductFeedData_Buffer_DELETERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.ProductFeedData_Buffer_DELETERowChangingEvent) Is Nothing) Then
+                RaiseEvent ProductFeedData_Buffer_DELETERowChanging(Me, New ProductFeedData_Buffer_DELETERowChangeEvent(CType(e.Row,ProductFeedData_Buffer_DELETERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.ProductFeedData_Buffer_DELETERowDeletedEvent) Is Nothing) Then
+                RaiseEvent ProductFeedData_Buffer_DELETERowDeleted(Me, New ProductFeedData_Buffer_DELETERowChangeEvent(CType(e.Row,ProductFeedData_Buffer_DELETERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.ProductFeedData_Buffer_DELETERowDeletingEvent) Is Nothing) Then
+                RaiseEvent ProductFeedData_Buffer_DELETERowDeleting(Me, New ProductFeedData_Buffer_DELETERowChangeEvent(CType(e.Row,ProductFeedData_Buffer_DELETERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub RemoveProductFeedData_Buffer_DELETERow(ByVal row As ProductFeedData_Buffer_DELETERow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As Magento_Store = New Magento_Store()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "ProductFeedData_Buffer_DELETEDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class GetTierPricesFromERPDataTable
+        Inherits Global.System.Data.TypedTableBase(Of GetTierPricesFromERPRow)
+        
+        Private columnsku As Global.System.Data.DataColumn
+        
+        Private columnstore As Global.System.Data.DataColumn
+        
+        Private columnmin_qty As Global.System.Data.DataColumn
+        
+        Private columnstore_price As Global.System.Data.DataColumn
+        
+        Private columncustomer_group As Global.System.Data.DataColumn
+        
+        Private columnsequence As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "GetTierPricesFromERP"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property skuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsku
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property storeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstore
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property min_qtyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmin_qty
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property store_priceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstore_price
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property customer_groupColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncustomer_group
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property sequenceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsequence
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As GetTierPricesFromERPRow
+            Get
+                Return CType(Me.Rows(index),GetTierPricesFromERPRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event GetTierPricesFromERPRowChanging As GetTierPricesFromERPRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event GetTierPricesFromERPRowChanged As GetTierPricesFromERPRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event GetTierPricesFromERPRowDeleting As GetTierPricesFromERPRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event GetTierPricesFromERPRowDeleted As GetTierPricesFromERPRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Sub AddGetTierPricesFromERPRow(ByVal row As GetTierPricesFromERPRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function AddGetTierPricesFromERPRow(ByVal sku As String, ByVal store As String, ByVal min_qty As Decimal, ByVal store_price As Decimal, ByVal customer_group As String, ByVal sequence As Integer) As GetTierPricesFromERPRow
+            Dim rowGetTierPricesFromERPRow As GetTierPricesFromERPRow = CType(Me.NewRow,GetTierPricesFromERPRow)
+            Dim columnValuesArray() As Object = New Object() {sku, store, min_qty, store_price, customer_group, sequence}
+            rowGetTierPricesFromERPRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowGetTierPricesFromERPRow)
+            Return rowGetTierPricesFromERPRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindByskustoremin_qty(ByVal sku As String, ByVal store As String, ByVal min_qty As Decimal) As GetTierPricesFromERPRow
+            Return CType(Me.Rows.Find(New Object() {sku, store, min_qty}),GetTierPricesFromERPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As GetTierPricesFromERPDataTable = CType(MyBase.Clone,GetTierPricesFromERPDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New GetTierPricesFromERPDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnsku = MyBase.Columns("sku")
+            Me.columnstore = MyBase.Columns("store")
+            Me.columnmin_qty = MyBase.Columns("min_qty")
+            Me.columnstore_price = MyBase.Columns("store_price")
+            Me.columncustomer_group = MyBase.Columns("customer_group")
+            Me.columnsequence = MyBase.Columns("sequence")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnsku = New Global.System.Data.DataColumn("sku", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsku)
+            Me.columnstore = New Global.System.Data.DataColumn("store", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstore)
+            Me.columnmin_qty = New Global.System.Data.DataColumn("min_qty", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmin_qty)
+            Me.columnstore_price = New Global.System.Data.DataColumn("store_price", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstore_price)
+            Me.columncustomer_group = New Global.System.Data.DataColumn("customer_group", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncustomer_group)
+            Me.columnsequence = New Global.System.Data.DataColumn("sequence", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsequence)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnsku, Me.columnstore, Me.columnmin_qty}, true))
+            Me.columnsku.AllowDBNull = false
+            Me.columnsku.MaxLength = 50
+            Me.columnstore.AllowDBNull = false
+            Me.columnstore.MaxLength = 50
+            Me.columnmin_qty.AllowDBNull = false
+            Me.columncustomer_group.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function NewGetTierPricesFromERPRow() As GetTierPricesFromERPRow
+            Return CType(Me.NewRow,GetTierPricesFromERPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New GetTierPricesFromERPRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(GetTierPricesFromERPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.GetTierPricesFromERPRowChangedEvent) Is Nothing) Then
+                RaiseEvent GetTierPricesFromERPRowChanged(Me, New GetTierPricesFromERPRowChangeEvent(CType(e.Row,GetTierPricesFromERPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.GetTierPricesFromERPRowChangingEvent) Is Nothing) Then
+                RaiseEvent GetTierPricesFromERPRowChanging(Me, New GetTierPricesFromERPRowChangeEvent(CType(e.Row,GetTierPricesFromERPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.GetTierPricesFromERPRowDeletedEvent) Is Nothing) Then
+                RaiseEvent GetTierPricesFromERPRowDeleted(Me, New GetTierPricesFromERPRowChangeEvent(CType(e.Row,GetTierPricesFromERPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.GetTierPricesFromERPRowDeletingEvent) Is Nothing) Then
+                RaiseEvent GetTierPricesFromERPRowDeleting(Me, New GetTierPricesFromERPRowChangeEvent(CType(e.Row,GetTierPricesFromERPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub RemoveGetTierPricesFromERPRow(ByVal row As GetTierPricesFromERPRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As Magento_Store = New Magento_Store()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "GetTierPricesFromERPDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class Magento_ProductCatalog_TierPrice_QADataTable
+        Inherits Global.System.Data.TypedTableBase(Of Magento_ProductCatalog_TierPrice_QARow)
+        
+        Private columnId As Global.System.Data.DataColumn
+        
+        Private columnSKU As Global.System.Data.DataColumn
+        
+        Private columnSKU_Name As Global.System.Data.DataColumn
+        
+        Private columnMagento_product_id As Global.System.Data.DataColumn
+        
+        Private columnMagento_type As Global.System.Data.DataColumn
+        
+        Private columnMagento_website_ids As Global.System.Data.DataColumn
+        
+        Private columnMagento_store As Global.System.Data.DataColumn
+        
+        Private columnMagento_TierPriceGrid As Global.System.Data.DataColumn
+        
+        Private columnMagento_TierPriceData As Global.System.Data.DataColumn
+        
+        Private columnTierPriceData_Created_From_MagentoGRID As Global.System.Data.DataColumn
+        
+        Private columnTierPriceGrid_Created_From_ERP_PriceTier As Global.System.Data.DataColumn
+        
+        Private columnIssue As Global.System.Data.DataColumn
+        
+        Private columnStatus As Global.System.Data.DataColumn
+        
+        Private columnStatusDateTime As Global.System.Data.DataColumn
+        
+        Private columnProcessed As Global.System.Data.DataColumn
+        
+        Private columnImportDate As Global.System.Data.DataColumn
+        
+        Private columndbContext As Global.System.Data.DataColumn
+        
+        Private columnOriginalTransactionID As Global.System.Data.DataColumn
+        
+        Private columnTransactionID As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Magento_ProductCatalog_TierPrice_QA"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property SKUColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSKU
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property SKU_NameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSKU_Name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Magento_product_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMagento_product_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Magento_typeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMagento_type
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Magento_website_idsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMagento_website_ids
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Magento_storeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMagento_store
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Magento_TierPriceGridColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMagento_TierPriceGrid
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Magento_TierPriceDataColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMagento_TierPriceData
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TierPriceData_Created_From_MagentoGRIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTierPriceData_Created_From_MagentoGRID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TierPriceGrid_Created_From_ERP_PriceTierColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTierPriceGrid_Created_From_ERP_PriceTier
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property IssueColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIssue
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property StatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStatus
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property StatusDateTimeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStatusDateTime
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property ProcessedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProcessed
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property ImportDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnImportDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property dbContextColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndbContext
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property OriginalTransactionIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOriginalTransactionID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TransactionIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTransactionID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Magento_ProductCatalog_TierPrice_QARow
+            Get
+                Return CType(Me.Rows(index),Magento_ProductCatalog_TierPrice_QARow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event Magento_ProductCatalog_TierPrice_QARowChanging As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event Magento_ProductCatalog_TierPrice_QARowChanged As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event Magento_ProductCatalog_TierPrice_QARowDeleting As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event Magento_ProductCatalog_TierPrice_QARowDeleted As Magento_ProductCatalog_TierPrice_QARowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Sub AddMagento_ProductCatalog_TierPrice_QARow(ByVal row As Magento_ProductCatalog_TierPrice_QARow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function AddMagento_ProductCatalog_TierPrice_QARow( _
+                    ByVal SKU As String,  _
+                    ByVal SKU_Name As String,  _
+                    ByVal Magento_product_id As Integer,  _
+                    ByVal Magento_type As String,  _
+                    ByVal Magento_website_ids As String,  _
+                    ByVal Magento_store As String,  _
+                    ByVal Magento_TierPriceGrid As String,  _
+                    ByVal Magento_TierPriceData As String,  _
+                    ByVal TierPriceData_Created_From_MagentoGRID As String,  _
+                    ByVal TierPriceGrid_Created_From_ERP_PriceTier As String,  _
+                    ByVal Issue As Boolean,  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Date,  _
+                    ByVal Processed As Date,  _
+                    ByVal ImportDate As Date,  _
+                    ByVal dbContext As String,  _
+                    ByVal OriginalTransactionID As System.Guid,  _
+                    ByVal TransactionID As System.Guid) As Magento_ProductCatalog_TierPrice_QARow
+            Dim rowMagento_ProductCatalog_TierPrice_QARow As Magento_ProductCatalog_TierPrice_QARow = CType(Me.NewRow,Magento_ProductCatalog_TierPrice_QARow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, SKU, SKU_Name, Magento_product_id, Magento_type, Magento_website_ids, Magento_store, Magento_TierPriceGrid, Magento_TierPriceData, TierPriceData_Created_From_MagentoGRID, TierPriceGrid_Created_From_ERP_PriceTier, Issue, Status, StatusDateTime, Processed, ImportDate, dbContext, OriginalTransactionID, TransactionID}
+            rowMagento_ProductCatalog_TierPrice_QARow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowMagento_ProductCatalog_TierPrice_QARow)
+            Return rowMagento_ProductCatalog_TierPrice_QARow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindByIdTransactionID(ByVal Id As Integer, ByVal TransactionID As System.Guid) As Magento_ProductCatalog_TierPrice_QARow
+            Return CType(Me.Rows.Find(New Object() {Id, TransactionID}),Magento_ProductCatalog_TierPrice_QARow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As Magento_ProductCatalog_TierPrice_QADataTable = CType(MyBase.Clone,Magento_ProductCatalog_TierPrice_QADataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New Magento_ProductCatalog_TierPrice_QADataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnId = MyBase.Columns("Id")
+            Me.columnSKU = MyBase.Columns("SKU")
+            Me.columnSKU_Name = MyBase.Columns("SKU_Name")
+            Me.columnMagento_product_id = MyBase.Columns("Magento_product_id")
+            Me.columnMagento_type = MyBase.Columns("Magento_type")
+            Me.columnMagento_website_ids = MyBase.Columns("Magento_website_ids")
+            Me.columnMagento_store = MyBase.Columns("Magento_store")
+            Me.columnMagento_TierPriceGrid = MyBase.Columns("Magento_TierPriceGrid")
+            Me.columnMagento_TierPriceData = MyBase.Columns("Magento_TierPriceData")
+            Me.columnTierPriceData_Created_From_MagentoGRID = MyBase.Columns("TierPriceData_Created_From_MagentoGRID")
+            Me.columnTierPriceGrid_Created_From_ERP_PriceTier = MyBase.Columns("TierPriceGrid_Created_From_ERP_PriceTier")
+            Me.columnIssue = MyBase.Columns("Issue")
+            Me.columnStatus = MyBase.Columns("Status")
+            Me.columnStatusDateTime = MyBase.Columns("StatusDateTime")
+            Me.columnProcessed = MyBase.Columns("Processed")
+            Me.columnImportDate = MyBase.Columns("ImportDate")
+            Me.columndbContext = MyBase.Columns("dbContext")
+            Me.columnOriginalTransactionID = MyBase.Columns("OriginalTransactionID")
+            Me.columnTransactionID = MyBase.Columns("TransactionID")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnId)
+            Me.columnSKU = New Global.System.Data.DataColumn("SKU", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSKU)
+            Me.columnSKU_Name = New Global.System.Data.DataColumn("SKU_Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSKU_Name)
+            Me.columnMagento_product_id = New Global.System.Data.DataColumn("Magento_product_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMagento_product_id)
+            Me.columnMagento_type = New Global.System.Data.DataColumn("Magento_type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMagento_type)
+            Me.columnMagento_website_ids = New Global.System.Data.DataColumn("Magento_website_ids", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMagento_website_ids)
+            Me.columnMagento_store = New Global.System.Data.DataColumn("Magento_store", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMagento_store)
+            Me.columnMagento_TierPriceGrid = New Global.System.Data.DataColumn("Magento_TierPriceGrid", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMagento_TierPriceGrid)
+            Me.columnMagento_TierPriceData = New Global.System.Data.DataColumn("Magento_TierPriceData", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMagento_TierPriceData)
+            Me.columnTierPriceData_Created_From_MagentoGRID = New Global.System.Data.DataColumn("TierPriceData_Created_From_MagentoGRID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTierPriceData_Created_From_MagentoGRID)
+            Me.columnTierPriceGrid_Created_From_ERP_PriceTier = New Global.System.Data.DataColumn("TierPriceGrid_Created_From_ERP_PriceTier", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTierPriceGrid_Created_From_ERP_PriceTier)
+            Me.columnIssue = New Global.System.Data.DataColumn("Issue", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIssue)
+            Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStatus)
+            Me.columnStatusDateTime = New Global.System.Data.DataColumn("StatusDateTime", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStatusDateTime)
+            Me.columnProcessed = New Global.System.Data.DataColumn("Processed", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProcessed)
+            Me.columnImportDate = New Global.System.Data.DataColumn("ImportDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnImportDate)
+            Me.columndbContext = New Global.System.Data.DataColumn("dbContext", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndbContext)
+            Me.columnOriginalTransactionID = New Global.System.Data.DataColumn("OriginalTransactionID", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOriginalTransactionID)
+            Me.columnTransactionID = New Global.System.Data.DataColumn("TransactionID", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTransactionID)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId, Me.columnTransactionID}, true))
+            Me.columnId.AutoIncrement = true
+            Me.columnId.AutoIncrementSeed = -1
+            Me.columnId.AutoIncrementStep = -1
+            Me.columnId.AllowDBNull = false
+            Me.columnId.ReadOnly = true
+            Me.columnSKU.MaxLength = 100
+            Me.columnSKU_Name.MaxLength = 2147483647
+            Me.columnMagento_type.MaxLength = 50
+            Me.columnMagento_website_ids.MaxLength = 200
+            Me.columnMagento_store.MaxLength = 50
+            Me.columnMagento_TierPriceGrid.MaxLength = 2147483647
+            Me.columnMagento_TierPriceData.MaxLength = 2147483647
+            Me.columnTierPriceData_Created_From_MagentoGRID.MaxLength = 2147483647
+            Me.columnTierPriceGrid_Created_From_ERP_PriceTier.MaxLength = 2147483647
+            Me.columnStatus.MaxLength = 100
+            Me.columndbContext.MaxLength = 100
+            Me.columnTransactionID.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function NewMagento_ProductCatalog_TierPrice_QARow() As Magento_ProductCatalog_TierPrice_QARow
+            Return CType(Me.NewRow,Magento_ProductCatalog_TierPrice_QARow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New Magento_ProductCatalog_TierPrice_QARow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(Magento_ProductCatalog_TierPrice_QARow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowChangedEvent) Is Nothing) Then
+                RaiseEvent Magento_ProductCatalog_TierPrice_QARowChanged(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowChangingEvent) Is Nothing) Then
+                RaiseEvent Magento_ProductCatalog_TierPrice_QARowChanging(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowDeletedEvent) Is Nothing) Then
+                RaiseEvent Magento_ProductCatalog_TierPrice_QARowDeleted(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.Magento_ProductCatalog_TierPrice_QARowDeletingEvent) Is Nothing) Then
+                RaiseEvent Magento_ProductCatalog_TierPrice_QARowDeleting(Me, New Magento_ProductCatalog_TierPrice_QARowChangeEvent(CType(e.Row,Magento_ProductCatalog_TierPrice_QARow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub RemoveMagento_ProductCatalog_TierPrice_QARow(ByVal row As Magento_ProductCatalog_TierPrice_QARow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As Magento_Store = New Magento_Store()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "Magento_ProductCatalog_TierPrice_QADataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class Magento_catalogProductUpdateRow
@@ -4207,492 +4916,6 @@ Partial Public Class Magento_Store
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class Magento_ProductCatalog_TierPrice_QARow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableMagento_ProductCatalog_TierPrice_QA As Magento_ProductCatalog_TierPrice_QADataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableMagento_ProductCatalog_TierPrice_QA = CType(Me.Table,Magento_ProductCatalog_TierPrice_QADataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Id() As Integer
-            Get
-                Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.IdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.IdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property name() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.nameColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'name' in table 'Magento_ProductCatalog_TierPrice_QA' is DBN"& _ 
-                            "ull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.nameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property product_id() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.product_idColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'product_id' in table 'Magento_ProductCatalog_TierPrice_QA' "& _ 
-                            "is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.product_idColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property sku() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.skuColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'sku' in table 'Magento_ProductCatalog_TierPrice_QA' is DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.skuColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property type() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.typeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'type' in table 'Magento_ProductCatalog_TierPrice_QA' is DBN"& _ 
-                            "ull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.typeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property website_ids() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.website_idsColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'website_ids' in table 'Magento_ProductCatalog_TierPrice_QA'"& _ 
-                            " is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.website_idsColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property store() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.storeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'store' in table 'Magento_ProductCatalog_TierPrice_QA' is DB"& _ 
-                            "Null.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.storeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property TierPriceData() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceDataColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TierPriceData' in table 'Magento_ProductCatalog_TierPrice_Q"& _ 
-                            "A' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceDataColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property TierPriceGrid() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGridColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TierPriceGrid' in table 'Magento_ProductCatalog_TierPrice_Q"& _ 
-                            "A' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGridColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ImportDate() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ImportDate' in table 'Magento_ProductCatalog_TierPrice_QA' "& _ 
-                            "is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property dbContext() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dbContext' in table 'Magento_ProductCatalog_TierPrice_QA' i"& _ 
-                            "s DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Processed() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Processed' in table 'Magento_ProductCatalog_TierPrice_QA' i"& _ 
-                            "s DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property TierPriceData_Created() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_CreatedColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TierPriceData_Created' in table 'Magento_ProductCatalog_Tie"& _ 
-                            "rPrice_QA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_CreatedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Compared() As Boolean
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ComparedColumn),Boolean)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Compared' in table 'Magento_ProductCatalog_TierPrice_QA' is"& _ 
-                            " DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ComparedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property TransactionID() As System.Guid
-            Get
-                Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TransactionIDColumn),Global.System.Guid)
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TransactionIDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property OriginalTransactionID() As System.Guid
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn),Global.System.Guid)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'OriginalTransactionID' in table 'Magento_ProductCatalog_Tie"& _ 
-                            "rPrice_QA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Status() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'Magento_ProductCatalog_TierPrice_QA' is D"& _ 
-                            "BNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property StatusDateTime() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'StatusDateTime' in table 'Magento_ProductCatalog_TierPrice_"& _ 
-                            "QA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsnameNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.nameColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetnameNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.nameColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isproduct_idNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.product_idColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setproduct_idNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.product_idColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsskuNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.skuColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetskuNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.skuColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IstypeNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.typeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SettypeNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.typeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Iswebsite_idsNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.website_idsColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setwebsite_idsNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.website_idsColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsstoreNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.storeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetstoreNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.storeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsTierPriceDataNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceDataColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetTierPriceDataNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceDataColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsTierPriceGridNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGridColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetTierPriceGridNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGridColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsImportDateNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetImportDateNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsdbContextNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetdbContextNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsProcessedNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetProcessedNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsTierPriceData_CreatedNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_CreatedColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetTierPriceData_CreatedNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_CreatedColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsComparedNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.ComparedColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetComparedNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ComparedColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsOriginalTransactionIDNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetOriginalTransactionIDNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsStatusNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetStatusNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsStatusDateTimeNull() As Boolean
-            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetStatusDateTimeNull()
-            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
     Partial Public Class Magento_ProductCatalog_TierPrice_QA_CompareRow
         Inherits Global.System.Data.DataRow
         
@@ -5322,6 +5545,759 @@ Partial Public Class Magento_Store
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class ProductFeedData_Buffer_DELETERow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableProductFeedData_Buffer_DELETE As ProductFeedData_Buffer_DELETEDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableProductFeedData_Buffer_DELETE = CType(Me.Table,ProductFeedData_Buffer_DELETEDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TransactionID() As System.Guid
+            Get
+                Return CType(Me(Me.tableProductFeedData_Buffer_DELETE.TransactionIDColumn),Global.System.Guid)
+            End Get
+            Set
+                Me(Me.tableProductFeedData_Buffer_DELETE.TransactionIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property sku() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableProductFeedData_Buffer_DELETE.skuColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sku' in table 'ProductFeedData_Buffer_DELETE' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProductFeedData_Buffer_DELETE.skuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property element_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableProductFeedData_Buffer_DELETE.element_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'element_name' in table 'ProductFeedData_Buffer_DELETE' is D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProductFeedData_Buffer_DELETE.element_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property value() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableProductFeedData_Buffer_DELETE.valueColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'value' in table 'ProductFeedData_Buffer_DELETE' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProductFeedData_Buffer_DELETE.valueColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsskuNull() As Boolean
+            Return Me.IsNull(Me.tableProductFeedData_Buffer_DELETE.skuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetskuNull()
+            Me(Me.tableProductFeedData_Buffer_DELETE.skuColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Iselement_nameNull() As Boolean
+            Return Me.IsNull(Me.tableProductFeedData_Buffer_DELETE.element_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setelement_nameNull()
+            Me(Me.tableProductFeedData_Buffer_DELETE.element_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsvalueNull() As Boolean
+            Return Me.IsNull(Me.tableProductFeedData_Buffer_DELETE.valueColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetvalueNull()
+            Me(Me.tableProductFeedData_Buffer_DELETE.valueColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class GetTierPricesFromERPRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableGetTierPricesFromERP As GetTierPricesFromERPDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableGetTierPricesFromERP = CType(Me.Table,GetTierPricesFromERPDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property sku() As String
+            Get
+                Return CType(Me(Me.tableGetTierPricesFromERP.skuColumn),String)
+            End Get
+            Set
+                Me(Me.tableGetTierPricesFromERP.skuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property store() As String
+            Get
+                Return CType(Me(Me.tableGetTierPricesFromERP.storeColumn),String)
+            End Get
+            Set
+                Me(Me.tableGetTierPricesFromERP.storeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property min_qty() As Decimal
+            Get
+                Return CType(Me(Me.tableGetTierPricesFromERP.min_qtyColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableGetTierPricesFromERP.min_qtyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property store_price() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableGetTierPricesFromERP.store_priceColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'store_price' in table 'GetTierPricesFromERP' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGetTierPricesFromERP.store_priceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property customer_group() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGetTierPricesFromERP.customer_groupColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'customer_group' in table 'GetTierPricesFromERP' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGetTierPricesFromERP.customer_groupColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property sequence() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGetTierPricesFromERP.sequenceColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sequence' in table 'GetTierPricesFromERP' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGetTierPricesFromERP.sequenceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Isstore_priceNull() As Boolean
+            Return Me.IsNull(Me.tableGetTierPricesFromERP.store_priceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setstore_priceNull()
+            Me(Me.tableGetTierPricesFromERP.store_priceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Iscustomer_groupNull() As Boolean
+            Return Me.IsNull(Me.tableGetTierPricesFromERP.customer_groupColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setcustomer_groupNull()
+            Me(Me.tableGetTierPricesFromERP.customer_groupColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IssequenceNull() As Boolean
+            Return Me.IsNull(Me.tableGetTierPricesFromERP.sequenceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetsequenceNull()
+            Me(Me.tableGetTierPricesFromERP.sequenceColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class Magento_ProductCatalog_TierPrice_QARow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableMagento_ProductCatalog_TierPrice_QA As Magento_ProductCatalog_TierPrice_QADataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableMagento_ProductCatalog_TierPrice_QA = CType(Me.Table,Magento_ProductCatalog_TierPrice_QADataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Id() As Integer
+            Get
+                Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.IdColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.IdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property SKU() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.SKUColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKU' in table 'Magento_ProductCatalog_TierPrice_QA' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.SKUColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property SKU_Name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.SKU_NameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKU_Name' in table 'Magento_ProductCatalog_TierPrice_QA' is"& _ 
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.SKU_NameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Magento_product_id() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_product_idColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Magento_product_id' in table 'Magento_ProductCatalog_TierPr"& _ 
+                            "ice_QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_product_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Magento_type() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_typeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Magento_type' in table 'Magento_ProductCatalog_TierPrice_QA"& _ 
+                            "' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_typeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Magento_website_ids() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_website_idsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Magento_website_ids' in table 'Magento_ProductCatalog_TierP"& _ 
+                            "rice_QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_website_idsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Magento_store() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_storeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Magento_store' in table 'Magento_ProductCatalog_TierPrice_Q"& _ 
+                            "A' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_storeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Magento_TierPriceGrid() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceGridColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Magento_TierPriceGrid' in table 'Magento_ProductCatalog_Tie"& _ 
+                            "rPrice_QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceGridColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Magento_TierPriceData() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceDataColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Magento_TierPriceData' in table 'Magento_ProductCatalog_Tie"& _ 
+                            "rPrice_QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceDataColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TierPriceData_Created_From_MagentoGRID() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_Created_From_MagentoGRIDColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TierPriceData_Created_From_MagentoGRID' in table 'Magento_P"& _ 
+                            "roductCatalog_TierPrice_QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_Created_From_MagentoGRIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TierPriceGrid_Created_From_ERP_PriceTier() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGrid_Created_From_ERP_PriceTierColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TierPriceGrid_Created_From_ERP_PriceTier' in table 'Magento"& _ 
+                            "_ProductCatalog_TierPrice_QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGrid_Created_From_ERP_PriceTierColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Issue() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.IssueColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Issue' in table 'Magento_ProductCatalog_TierPrice_QA' is DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.IssueColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Status() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'Magento_ProductCatalog_TierPrice_QA' is D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property StatusDateTime() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'StatusDateTime' in table 'Magento_ProductCatalog_TierPrice_"& _ 
+                            "QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Processed() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Processed' in table 'Magento_ProductCatalog_TierPrice_QA' i"& _ 
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ImportDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ImportDate' in table 'Magento_ProductCatalog_TierPrice_QA' "& _ 
+                            "is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property dbContext() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'dbContext' in table 'Magento_ProductCatalog_TierPrice_QA' i"& _ 
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property OriginalTransactionID() As System.Guid
+            Get
+                Try 
+                    Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn),Global.System.Guid)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OriginalTransactionID' in table 'Magento_ProductCatalog_Tie"& _ 
+                            "rPrice_QA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TransactionID() As System.Guid
+            Get
+                Return CType(Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TransactionIDColumn),Global.System.Guid)
+            End Get
+            Set
+                Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TransactionIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsSKUNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.SKUColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetSKUNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.SKUColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsSKU_NameNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.SKU_NameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetSKU_NameNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.SKU_NameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsMagento_product_idNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_product_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetMagento_product_idNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_product_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsMagento_typeNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_typeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetMagento_typeNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_typeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsMagento_website_idsNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_website_idsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetMagento_website_idsNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_website_idsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsMagento_storeNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_storeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetMagento_storeNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_storeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsMagento_TierPriceGridNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceGridColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetMagento_TierPriceGridNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceGridColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsMagento_TierPriceDataNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceDataColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetMagento_TierPriceDataNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.Magento_TierPriceDataColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTierPriceData_Created_From_MagentoGRIDNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_Created_From_MagentoGRIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTierPriceData_Created_From_MagentoGRIDNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceData_Created_From_MagentoGRIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTierPriceGrid_Created_From_ERP_PriceTierNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGrid_Created_From_ERP_PriceTierColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTierPriceGrid_Created_From_ERP_PriceTierNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.TierPriceGrid_Created_From_ERP_PriceTierColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsIssueNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.IssueColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetIssueNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.IssueColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsStatusNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetStatusNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsStatusDateTimeNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetStatusDateTimeNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.StatusDateTimeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsProcessedNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetProcessedNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ProcessedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsImportDateNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetImportDateNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.ImportDateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsdbContextNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetdbContextNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.dbContextColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsOriginalTransactionIDNull() As Boolean
+            Return Me.IsNull(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetOriginalTransactionIDNull()
+            Me(Me.tableMagento_ProductCatalog_TierPrice_QA.OriginalTransactionIDColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -5505,42 +6481,6 @@ Partial Public Class Magento_Store
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Class Magento_ProductCatalog_TierPrice_QARowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As Magento_ProductCatalog_TierPrice_QARow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New(ByVal row As Magento_ProductCatalog_TierPrice_QARow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Row() As Magento_ProductCatalog_TierPrice_QARow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Class Magento_ProductCatalog_TierPrice_QA_CompareRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -5595,6 +6535,114 @@ Partial Public Class Magento_Store
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property Row() As Magento_ProductCatalog_TierPrice_Universe_GETRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Class ProductFeedData_Buffer_DELETERowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As ProductFeedData_Buffer_DELETERow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal row As ProductFeedData_Buffer_DELETERow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Row() As ProductFeedData_Buffer_DELETERow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Class GetTierPricesFromERPRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As GetTierPricesFromERPRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal row As GetTierPricesFromERPRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Row() As GetTierPricesFromERPRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Class Magento_ProductCatalog_TierPrice_QARowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As Magento_ProductCatalog_TierPrice_QARow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal row As Magento_ProductCatalog_TierPrice_QARow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Row() As Magento_ProductCatalog_TierPrice_QARow
             Get
                 Return Me.eventRow
             End Get
@@ -7591,863 +8639,6 @@ Namespace Magento_StoreTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class Magento_ProductCatalog_TierPrice_QATableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Magento_ProductCatalog_TierPrice_QA"
-            tableMapping.ColumnMappings.Add("Id", "Id")
-            tableMapping.ColumnMappings.Add("name", "name")
-            tableMapping.ColumnMappings.Add("product_id", "product_id")
-            tableMapping.ColumnMappings.Add("sku", "sku")
-            tableMapping.ColumnMappings.Add("type", "type")
-            tableMapping.ColumnMappings.Add("website_ids", "website_ids")
-            tableMapping.ColumnMappings.Add("store", "store")
-            tableMapping.ColumnMappings.Add("TierPriceData", "TierPriceData")
-            tableMapping.ColumnMappings.Add("TierPriceGrid", "TierPriceGrid")
-            tableMapping.ColumnMappings.Add("ImportDate", "ImportDate")
-            tableMapping.ColumnMappings.Add("dbContext", "dbContext")
-            tableMapping.ColumnMappings.Add("Processed", "Processed")
-            tableMapping.ColumnMappings.Add("TierPriceData_Created", "TierPriceData_Created")
-            tableMapping.ColumnMappings.Add("Compared", "Compared")
-            tableMapping.ColumnMappings.Add("TransactionID", "TransactionID")
-            tableMapping.ColumnMappings.Add("OriginalTransactionID", "OriginalTransactionID")
-            tableMapping.ColumnMappings.Add("Status", "Status")
-            tableMapping.ColumnMappings.Add("StatusDateTime", "StatusDateTime")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Magento_API].[Magento_ProductCatalog_TierPrice_QA] WHERE (([Id] = @O"& _ 
-                "riginal_Id) AND ((@IsNull_product_id = 1 AND [product_id] IS NULL) OR ([product_"& _ 
-                "id] = @Original_product_id)) AND ((@IsNull_sku = 1 AND [sku] IS NULL) OR ([sku] "& _ 
-                "= @Original_sku)) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Origi"& _ 
-                "nal_type)) AND ((@IsNull_website_ids = 1 AND [website_ids] IS NULL) OR ([website"& _ 
-                "_ids] = @Original_website_ids)) AND ((@IsNull_store = 1 AND [store] IS NULL) OR "& _ 
-                "([store] = @Original_store)) AND ((@IsNull_ImportDate = 1 AND [ImportDate] IS NU"& _ 
-                "LL) OR ([ImportDate] = @Original_ImportDate)) AND ((@IsNull_dbContext = 1 AND [d"& _ 
-                "bContext] IS NULL) OR ([dbContext] = @Original_dbContext)) AND ((@IsNull_Process"& _ 
-                "ed = 1 AND [Processed] IS NULL) OR ([Processed] = @Original_Processed)) AND ((@I"& _ 
-                "sNull_Compared = 1 AND [Compared] IS NULL) OR ([Compared] = @Original_Compared))"& _ 
-                " AND ([TransactionID] = @Original_TransactionID) AND ((@IsNull_OriginalTransacti"& _ 
-                "onID = 1 AND [OriginalTransactionID] IS NULL) OR ([OriginalTransactionID] = @Ori"& _ 
-                "ginal_OriginalTransactionID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR "& _ 
-                "([Status] = @Original_Status)) AND ((@IsNull_StatusDateTime = 1 AND [StatusDateT"& _ 
-                "ime] IS NULL) OR ([StatusDateTime] = @Original_StatusDateTime)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_sku", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "sku", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_sku", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "sku", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "type", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "type", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_website_ids", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "website_ids", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "website_ids", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_store", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "store", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "store", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ImportDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dbContext", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Processed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Compared", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Compared", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StatusDateTime", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Magento_API].[Magento_ProductCatalog_TierPrice_QA] ([name], [product"& _ 
-                "_id], [sku], [type], [website_ids], [store], [TierPriceData], [TierPriceGrid], ["& _ 
-                "ImportDate], [dbContext], [Processed], [TierPriceData_Created], [Compared], [Tra"& _ 
-                "nsactionID], [OriginalTransactionID], [Status], [StatusDateTime]) VALUES (@name,"& _ 
-                " @product_id, @sku, @type, @website_ids, @store, @TierPriceData, @TierPriceGrid,"& _ 
-                " @ImportDate, @dbContext, @Processed, @TierPriceData_Created, @Compared, @Transa"& _ 
-                "ctionID, @OriginalTransactionID, @Status, @StatusDateTime);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, name, pr"& _ 
-                "oduct_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDat"& _ 
-                "e, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, Origina"& _ 
-                "lTransactionID, Status, StatusDateTime FROM Magento_API.Magento_ProductCatalog_T"& _ 
-                "ierPrice_QA WHERE (Id = SCOPE_IDENTITY()) AND (TransactionID = @TransactionID)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@sku", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "sku", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "type", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "website_ids", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "store", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceGrid", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceGrid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceData_Created", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceData_Created", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Compared", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [Magento_API].[Magento_ProductCatalog_TierPrice_QA] SET [name] = @name, [p"& _ 
-                "roduct_id] = @product_id, [sku] = @sku, [type] = @type, [website_ids] = @website"& _ 
-                "_ids, [store] = @store, [TierPriceData] = @TierPriceData, [TierPriceGrid] = @Tie"& _ 
-                "rPriceGrid, [ImportDate] = @ImportDate, [dbContext] = @dbContext, [Processed] = "& _ 
-                "@Processed, [TierPriceData_Created] = @TierPriceData_Created, [Compared] = @Comp"& _ 
-                "ared, [TransactionID] = @TransactionID, [OriginalTransactionID] = @OriginalTrans"& _ 
-                "actionID, [Status] = @Status, [StatusDateTime] = @StatusDateTime WHERE (([Id] = "& _ 
-                "@Original_Id) AND ((@IsNull_product_id = 1 AND [product_id] IS NULL) OR ([produc"& _ 
-                "t_id] = @Original_product_id)) AND ((@IsNull_sku = 1 AND [sku] IS NULL) OR ([sku"& _ 
-                "] = @Original_sku)) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Ori"& _ 
-                "ginal_type)) AND ((@IsNull_website_ids = 1 AND [website_ids] IS NULL) OR ([websi"& _ 
-                "te_ids] = @Original_website_ids)) AND ((@IsNull_store = 1 AND [store] IS NULL) O"& _ 
-                "R ([store] = @Original_store)) AND ((@IsNull_ImportDate = 1 AND [ImportDate] IS "& _ 
-                "NULL) OR ([ImportDate] = @Original_ImportDate)) AND ((@IsNull_dbContext = 1 AND "& _ 
-                "[dbContext] IS NULL) OR ([dbContext] = @Original_dbContext)) AND ((@IsNull_Proce"& _ 
-                "ssed = 1 AND [Processed] IS NULL) OR ([Processed] = @Original_Processed)) AND (("& _ 
-                "@IsNull_Compared = 1 AND [Compared] IS NULL) OR ([Compared] = @Original_Compared"& _ 
-                ")) AND ([TransactionID] = @Original_TransactionID) AND ((@IsNull_OriginalTransac"& _ 
-                "tionID = 1 AND [OriginalTransactionID] IS NULL) OR ([OriginalTransactionID] = @O"& _ 
-                "riginal_OriginalTransactionID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) O"& _ 
-                "R ([Status] = @Original_Status)) AND ((@IsNull_StatusDateTime = 1 AND [StatusDat"& _ 
-                "eTime] IS NULL) OR ([StatusDateTime] = @Original_StatusDateTime)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, "& _ 
-                "name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, I"& _ 
-                "mportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID,"& _ 
-                " OriginalTransactionID, Status, StatusDateTime FROM Magento_API.Magento_ProductC"& _ 
-                "atalog_TierPrice_QA WHERE (Id = @Id) AND (TransactionID = @TransactionID)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@sku", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "sku", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "type", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "website_ids", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "store", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceGrid", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceGrid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceData_Created", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceData_Created", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Compared", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "product_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_sku", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "sku", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_sku", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "sku", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "type", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "type", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_website_ids", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "website_ids", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "website_ids", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_store", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "store", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "store", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ImportDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dbContext", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Processed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Compared", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Compared", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Compared", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StatusDateTime", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Magento_API_TierPrice.My.MySettings.Default.API_StoreConnectionString2
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Id, name, product_id, sku, type, website_ids, store, TierPriceData,"& _ 
-                " TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compare"& _ 
-                "d, TransactionID, OriginalTransactionID, Status, StatusDateTime"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
-                " Magento_API.Magento_ProductCatalog_TierPrice_QA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (TransactionID = "& _ 
-                "@TransactionID)"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 16, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable, ByVal TransactionID As System.Guid) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(TransactionID,System.Guid)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal TransactionID As System.Guid) As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(TransactionID,System.Guid)
-            Dim dataTable As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable = New Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As Magento_Store) As Integer
-            Return Me.Adapter.Update(dataSet, "Magento_ProductCatalog_TierPrice_QA")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Id As Integer, ByVal Original_product_id As Global.System.Nullable(Of Integer), ByVal Original_sku As String, ByVal Original_type As String, ByVal Original_website_ids As String, ByVal Original_store As String, ByVal Original_ImportDate As Global.System.Nullable(Of Date), ByVal Original_dbContext As String, ByVal Original_Processed As Global.System.Nullable(Of Date), ByVal Original_Compared As Global.System.Nullable(Of Boolean), ByVal Original_TransactionID As System.Guid, ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid), ByVal Original_Status As String, ByVal Original_StatusDateTime As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
-            If (Original_product_id.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_product_id.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Original_sku Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_sku,String)
-            End If
-            If (Original_type Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_type,String)
-            End If
-            If (Original_website_ids Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_website_ids,String)
-            End If
-            If (Original_store Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_store,String)
-            End If
-            If (Original_ImportDate.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_ImportDate.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Original_dbContext Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_dbContext,String)
-            End If
-            If (Original_Processed.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Processed.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Compared.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Compared.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_TransactionID,System.Guid)
-            If (Original_OriginalTransactionID.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_OriginalTransactionID.Value,System.Guid)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Status Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(Original_Status,String)
-            End If
-            If (Original_StatusDateTime.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(Original_StatusDateTime.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal name As String,  _
-                    ByVal product_id As Global.System.Nullable(Of Integer),  _
-                    ByVal sku As String,  _
-                    ByVal type As String,  _
-                    ByVal website_ids As String,  _
-                    ByVal store As String,  _
-                    ByVal TierPriceData As String,  _
-                    ByVal TierPriceGrid As String,  _
-                    ByVal ImportDate As Global.System.Nullable(Of Date),  _
-                    ByVal dbContext As String,  _
-                    ByVal Processed As Global.System.Nullable(Of Date),  _
-                    ByVal TierPriceData_Created As String,  _
-                    ByVal Compared As Global.System.Nullable(Of Boolean),  _
-                    ByVal TransactionID As System.Guid,  _
-                    ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
-                    ByVal Status As String,  _
-                    ByVal StatusDateTime As Global.System.Nullable(Of Date)) As Integer
-            If (name Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(name,String)
-            End If
-            If (product_id.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(product_id.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (sku Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(sku,String)
-            End If
-            If (type Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(type,String)
-            End If
-            If (website_ids Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(website_ids,String)
-            End If
-            If (store Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(store,String)
-            End If
-            If (TierPriceData Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(TierPriceData,String)
-            End If
-            If (TierPriceGrid Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(TierPriceGrid,String)
-            End If
-            If (ImportDate.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(ImportDate.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (dbContext Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(dbContext,String)
-            End If
-            If (Processed.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Processed.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (TierPriceData_Created Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(TierPriceData_Created,String)
-            End If
-            If (Compared.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Compared.Value,Boolean)
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.InsertCommand.Parameters(13).Value = CType(TransactionID,System.Guid)
-            If (OriginalTransactionID.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(OriginalTransactionID.Value,System.Guid)
-            Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Status Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(Status,String)
-            End If
-            If (StatusDateTime.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(StatusDateTime.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal name As String,  _
-                    ByVal product_id As Global.System.Nullable(Of Integer),  _
-                    ByVal sku As String,  _
-                    ByVal type As String,  _
-                    ByVal website_ids As String,  _
-                    ByVal store As String,  _
-                    ByVal TierPriceData As String,  _
-                    ByVal TierPriceGrid As String,  _
-                    ByVal ImportDate As Global.System.Nullable(Of Date),  _
-                    ByVal dbContext As String,  _
-                    ByVal Processed As Global.System.Nullable(Of Date),  _
-                    ByVal TierPriceData_Created As String,  _
-                    ByVal Compared As Global.System.Nullable(Of Boolean),  _
-                    ByVal TransactionID As System.Guid,  _
-                    ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
-                    ByVal Status As String,  _
-                    ByVal StatusDateTime As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Id As Integer,  _
-                    ByVal Original_product_id As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_sku As String,  _
-                    ByVal Original_type As String,  _
-                    ByVal Original_website_ids As String,  _
-                    ByVal Original_store As String,  _
-                    ByVal Original_ImportDate As Global.System.Nullable(Of Date),  _
-                    ByVal Original_dbContext As String,  _
-                    ByVal Original_Processed As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Compared As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_TransactionID As System.Guid,  _
-                    ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
-                    ByVal Original_Status As String,  _
-                    ByVal Original_StatusDateTime As Global.System.Nullable(Of Date),  _
-                    ByVal Id As Integer) As Integer
-            If (name Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(name,String)
-            End If
-            If (product_id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(product_id.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (sku Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(sku,String)
-            End If
-            If (type Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(type,String)
-            End If
-            If (website_ids Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(website_ids,String)
-            End If
-            If (store Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(store,String)
-            End If
-            If (TierPriceData Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(TierPriceData,String)
-            End If
-            If (TierPriceGrid Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(TierPriceGrid,String)
-            End If
-            If (ImportDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ImportDate.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (dbContext Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(dbContext,String)
-            End If
-            If (Processed.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Processed.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (TierPriceData_Created Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(TierPriceData_Created,String)
-            End If
-            If (Compared.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Compared.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(TransactionID,System.Guid)
-            If (OriginalTransactionID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(OriginalTransactionID.Value,System.Guid)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Status,String)
-            End If
-            If (StatusDateTime.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(StatusDateTime.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Id,Integer)
-            If (Original_product_id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_product_id.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            End If
-            If (Original_sku Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_sku,String)
-            End If
-            If (Original_type Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_type,String)
-            End If
-            If (Original_website_ids Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_website_ids,String)
-            End If
-            If (Original_store Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_store,String)
-            End If
-            If (Original_ImportDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ImportDate.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            End If
-            If (Original_dbContext Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_dbContext,String)
-            End If
-            If (Original_Processed.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Processed.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Compared.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_Compared.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_TransactionID,System.Guid)
-            If (Original_OriginalTransactionID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_OriginalTransactionID.Value,System.Guid)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_Status,String)
-            End If
-            If (Original_StatusDateTime.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_StatusDateTime.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Id,Integer)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal name As String,  _
-                    ByVal product_id As Global.System.Nullable(Of Integer),  _
-                    ByVal sku As String,  _
-                    ByVal type As String,  _
-                    ByVal website_ids As String,  _
-                    ByVal store As String,  _
-                    ByVal TierPriceData As String,  _
-                    ByVal TierPriceGrid As String,  _
-                    ByVal ImportDate As Global.System.Nullable(Of Date),  _
-                    ByVal dbContext As String,  _
-                    ByVal Processed As Global.System.Nullable(Of Date),  _
-                    ByVal TierPriceData_Created As String,  _
-                    ByVal Compared As Global.System.Nullable(Of Boolean),  _
-                    ByVal TransactionID As System.Guid,  _
-                    ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
-                    ByVal Status As String,  _
-                    ByVal StatusDateTime As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Id As Integer,  _
-                    ByVal Original_product_id As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_sku As String,  _
-                    ByVal Original_type As String,  _
-                    ByVal Original_website_ids As String,  _
-                    ByVal Original_store As String,  _
-                    ByVal Original_ImportDate As Global.System.Nullable(Of Date),  _
-                    ByVal Original_dbContext As String,  _
-                    ByVal Original_Processed As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Compared As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_TransactionID As System.Guid,  _
-                    ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
-                    ByVal Original_Status As String,  _
-                    ByVal Original_StatusDateTime As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(name, product_id, sku, type, website_ids, store, TierPriceData, TierPriceGrid, ImportDate, dbContext, Processed, TierPriceData_Created, Compared, TransactionID, OriginalTransactionID, Status, StatusDateTime, Original_Id, Original_product_id, Original_sku, Original_type, Original_website_ids, Original_store, Original_ImportDate, Original_dbContext, Original_Processed, Original_Compared, Original_TransactionID, Original_OriginalTransactionID, Original_Status, Original_StatusDateTime, Original_Id)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
         Inherits Global.System.ComponentModel.Component
         
@@ -9336,6 +9527,1304 @@ Namespace Magento_StoreTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class ProductFeedData_Buffer_DELETETableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "ProductFeedData_Buffer_DELETE"
+            tableMapping.ColumnMappings.Add("TransactionID", "TransactionID")
+            tableMapping.ColumnMappings.Add("sku", "sku")
+            tableMapping.ColumnMappings.Add("element_name", "element_name")
+            tableMapping.ColumnMappings.Add("value", "value")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.Magento_API_TierPrice.My.MySettings.Default.ERP_SupportConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "api.ProductFeedData_Buffer_DELETE"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 16, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As Magento_Store.ProductFeedData_Buffer_DELETEDataTable, ByVal TransactionID As Global.System.Nullable(Of Global.System.Guid)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (TransactionID.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(TransactionID.Value,System.Guid)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal TransactionID As Global.System.Nullable(Of Global.System.Guid)) As Magento_Store.ProductFeedData_Buffer_DELETEDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (TransactionID.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(TransactionID.Value,System.Guid)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As Magento_Store.ProductFeedData_Buffer_DELETEDataTable = New Magento_Store.ProductFeedData_Buffer_DELETEDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class GetTierPricesFromERPTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "GetTierPricesFromERP"
+            tableMapping.ColumnMappings.Add("sku", "sku")
+            tableMapping.ColumnMappings.Add("store", "store")
+            tableMapping.ColumnMappings.Add("min_qty", "min_qty")
+            tableMapping.ColumnMappings.Add("store_price", "store_price")
+            tableMapping.ColumnMappings.Add("customer_group", "customer_group")
+            tableMapping.ColumnMappings.Add("sequence", "sequence")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.Magento_API_TierPrice.My.MySettings.Default.ERP_SupportConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "api.GetTierPricesFromERP"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ls_Family_MASTERNO", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Trace", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ErrorMessage", Global.System.Data.SqlDbType.VarChar, 500, Global.System.Data.ParameterDirection.InputOutput, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As Magento_Store.GetTierPricesFromERPDataTable, ByVal ls_Family_MASTERNO As String, ByVal Trace As String, ByRef ErrorMessage As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (ls_Family_MASTERNO Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ls_Family_MASTERNO,String)
+            End If
+            If (Trace Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Trace,String)
+            End If
+            If (ErrorMessage Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(ErrorMessage,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            If ((Me.Adapter.SelectCommand.Parameters(3).Value Is Nothing)  _
+                        OrElse (Me.Adapter.SelectCommand.Parameters(3).Value.GetType Is GetType(Global.System.DBNull))) Then
+                ErrorMessage = Nothing
+            Else
+                ErrorMessage = CType(Me.Adapter.SelectCommand.Parameters(3).Value,String)
+            End If
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal ls_Family_MASTERNO As String, ByVal Trace As String, ByRef ErrorMessage As String) As Magento_Store.GetTierPricesFromERPDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (ls_Family_MASTERNO Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ls_Family_MASTERNO,String)
+            End If
+            If (Trace Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Trace,String)
+            End If
+            If (ErrorMessage Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(ErrorMessage,String)
+            End If
+            Dim dataTable As Magento_Store.GetTierPricesFromERPDataTable = New Magento_Store.GetTierPricesFromERPDataTable()
+            Me.Adapter.Fill(dataTable)
+            If ((Me.Adapter.SelectCommand.Parameters(3).Value Is Nothing)  _
+                        OrElse (Me.Adapter.SelectCommand.Parameters(3).Value.GetType Is GetType(Global.System.DBNull))) Then
+                ErrorMessage = Nothing
+            Else
+                ErrorMessage = CType(Me.Adapter.SelectCommand.Parameters(3).Value,String)
+            End If
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class Magento_ProductCatalog_TierPrice_QATableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Magento_ProductCatalog_TierPrice_QA"
+            tableMapping.ColumnMappings.Add("Id", "Id")
+            tableMapping.ColumnMappings.Add("SKU", "SKU")
+            tableMapping.ColumnMappings.Add("SKU_Name", "SKU_Name")
+            tableMapping.ColumnMappings.Add("Magento_product_id", "Magento_product_id")
+            tableMapping.ColumnMappings.Add("Magento_type", "Magento_type")
+            tableMapping.ColumnMappings.Add("Magento_website_ids", "Magento_website_ids")
+            tableMapping.ColumnMappings.Add("Magento_store", "Magento_store")
+            tableMapping.ColumnMappings.Add("Magento_TierPriceGrid", "Magento_TierPriceGrid")
+            tableMapping.ColumnMappings.Add("Magento_TierPriceData", "Magento_TierPriceData")
+            tableMapping.ColumnMappings.Add("TierPriceData_Created_From_MagentoGRID", "TierPriceData_Created_From_MagentoGRID")
+            tableMapping.ColumnMappings.Add("TierPriceGrid_Created_From_ERP_PriceTier", "TierPriceGrid_Created_From_ERP_PriceTier")
+            tableMapping.ColumnMappings.Add("Issue", "Issue")
+            tableMapping.ColumnMappings.Add("Status", "Status")
+            tableMapping.ColumnMappings.Add("StatusDateTime", "StatusDateTime")
+            tableMapping.ColumnMappings.Add("Processed", "Processed")
+            tableMapping.ColumnMappings.Add("ImportDate", "ImportDate")
+            tableMapping.ColumnMappings.Add("dbContext", "dbContext")
+            tableMapping.ColumnMappings.Add("OriginalTransactionID", "OriginalTransactionID")
+            tableMapping.ColumnMappings.Add("TransactionID", "TransactionID")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Magento_API].[Magento_ProductCatalog_TierPrice_QA] WHERE (([Id] = @O"& _ 
+                "riginal_Id) AND ((@IsNull_SKU = 1 AND [SKU] IS NULL) OR ([SKU] = @Original_SKU))"& _ 
+                " AND ((@IsNull_Magento_product_id = 1 AND [Magento_product_id] IS NULL) OR ([Mag"& _ 
+                "ento_product_id] = @Original_Magento_product_id)) AND ((@IsNull_Magento_type = 1"& _ 
+                " AND [Magento_type] IS NULL) OR ([Magento_type] = @Original_Magento_type)) AND ("& _ 
+                "(@IsNull_Magento_website_ids = 1 AND [Magento_website_ids] IS NULL) OR ([Magento"& _ 
+                "_website_ids] = @Original_Magento_website_ids)) AND ((@IsNull_Magento_store = 1 "& _ 
+                "AND [Magento_store] IS NULL) OR ([Magento_store] = @Original_Magento_store)) AND"& _ 
+                " ((@IsNull_Issue = 1 AND [Issue] IS NULL) OR ([Issue] = @Original_Issue)) AND (("& _ 
+                "@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ("& _ 
+                "(@IsNull_StatusDateTime = 1 AND [StatusDateTime] IS NULL) OR ([StatusDateTime] ="& _ 
+                " @Original_StatusDateTime)) AND ((@IsNull_Processed = 1 AND [Processed] IS NULL)"& _ 
+                " OR ([Processed] = @Original_Processed)) AND ((@IsNull_ImportDate = 1 AND [Impor"& _ 
+                "tDate] IS NULL) OR ([ImportDate] = @Original_ImportDate)) AND ((@IsNull_dbContex"& _ 
+                "t = 1 AND [dbContext] IS NULL) OR ([dbContext] = @Original_dbContext)) AND ((@Is"& _ 
+                "Null_OriginalTransactionID = 1 AND [OriginalTransactionID] IS NULL) OR ([Origina"& _ 
+                "lTransactionID] = @Original_OriginalTransactionID)) AND ([TransactionID] = @Orig"& _ 
+                "inal_TransactionID))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SKU", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SKU", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_product_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_product_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_type", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_type", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_website_ids", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_website_ids", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_website_ids", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_store", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_store", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_store", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Issue", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Issue", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Issue", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Issue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StatusDateTime", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Processed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ImportDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dbContext", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Magento_API].[Magento_ProductCatalog_TierPrice_QA] ([SKU], [SKU_Name"& _ 
+                "], [Magento_product_id], [Magento_type], [Magento_website_ids], [Magento_store],"& _ 
+                " [Magento_TierPriceGrid], [Magento_TierPriceData], [TierPriceData_Created_From_M"& _ 
+                "agentoGRID], [TierPriceGrid_Created_From_ERP_PriceTier], [Issue], [Status], [Sta"& _ 
+                "tusDateTime], [Processed], [ImportDate], [dbContext], [OriginalTransactionID], ["& _ 
+                "TransactionID]) VALUES (@SKU, @SKU_Name, @Magento_product_id, @Magento_type, @Ma"& _ 
+                "gento_website_ids, @Magento_store, @Magento_TierPriceGrid, @Magento_TierPriceDat"& _ 
+                "a, @TierPriceData_Created_From_MagentoGRID, @TierPriceGrid_Created_From_ERP_Pric"& _ 
+                "eTier, @Issue, @Status, @StatusDateTime, @Processed, @ImportDate, @dbContext, @O"& _ 
+                "riginalTransactionID, @TransactionID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, SKU, SKU_Name, Magento_produc"& _ 
+                "t_id, Magento_type, Magento_website_ids, Magento_store, Magento_TierPriceGrid, M"& _ 
+                "agento_TierPriceData, TierPriceData_Created_From_MagentoGRID, TierPriceGrid_Crea"& _ 
+                "ted_From_ERP_PriceTier, Issue, Status, StatusDateTime, Processed, ImportDate, db"& _ 
+                "Context, OriginalTransactionID, TransactionID FROM Magento_API.Magento_ProductCa"& _ 
+                "talog_TierPrice_QA WHERE (Id = SCOPE_IDENTITY()) AND (TransactionID = @Transacti"& _ 
+                "onID)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SKU", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SKU_Name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU_Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_type", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_website_ids", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_store", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_TierPriceGrid", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_TierPriceGrid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_TierPriceData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_TierPriceData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceData_Created_From_MagentoGRID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceData_Created_From_MagentoGRID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceGrid_Created_From_ERP_PriceTier", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceGrid_Created_From_ERP_PriceTier", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Issue", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Issue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Magento_API].[Magento_ProductCatalog_TierPrice_QA] SET [SKU] = @SKU, [SKU"& _ 
+                "_Name] = @SKU_Name, [Magento_product_id] = @Magento_product_id, [Magento_type] ="& _ 
+                " @Magento_type, [Magento_website_ids] = @Magento_website_ids, [Magento_store] = "& _ 
+                "@Magento_store, [Magento_TierPriceGrid] = @Magento_TierPriceGrid, [Magento_TierP"& _ 
+                "riceData] = @Magento_TierPriceData, [TierPriceData_Created_From_MagentoGRID] = @"& _ 
+                "TierPriceData_Created_From_MagentoGRID, [TierPriceGrid_Created_From_ERP_PriceTie"& _ 
+                "r] = @TierPriceGrid_Created_From_ERP_PriceTier, [Issue] = @Issue, [Status] = @St"& _ 
+                "atus, [StatusDateTime] = @StatusDateTime, [Processed] = @Processed, [ImportDate]"& _ 
+                " = @ImportDate, [dbContext] = @dbContext, [OriginalTransactionID] = @OriginalTra"& _ 
+                "nsactionID, [TransactionID] = @TransactionID WHERE (([Id] = @Original_Id) AND (("& _ 
+                "@IsNull_SKU = 1 AND [SKU] IS NULL) OR ([SKU] = @Original_SKU)) AND ((@IsNull_Mag"& _ 
+                "ento_product_id = 1 AND [Magento_product_id] IS NULL) OR ([Magento_product_id] ="& _ 
+                " @Original_Magento_product_id)) AND ((@IsNull_Magento_type = 1 AND [Magento_type"& _ 
+                "] IS NULL) OR ([Magento_type] = @Original_Magento_type)) AND ((@IsNull_Magento_w"& _ 
+                "ebsite_ids = 1 AND [Magento_website_ids] IS NULL) OR ([Magento_website_ids] = @O"& _ 
+                "riginal_Magento_website_ids)) AND ((@IsNull_Magento_store = 1 AND [Magento_store"& _ 
+                "] IS NULL) OR ([Magento_store] = @Original_Magento_store)) AND ((@IsNull_Issue ="& _ 
+                " 1 AND [Issue] IS NULL) OR ([Issue] = @Original_Issue)) AND ((@IsNull_Status = 1"& _ 
+                " AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_StatusDat"& _ 
+                "eTime = 1 AND [StatusDateTime] IS NULL) OR ([StatusDateTime] = @Original_StatusD"& _ 
+                "ateTime)) AND ((@IsNull_Processed = 1 AND [Processed] IS NULL) OR ([Processed] ="& _ 
+                " @Original_Processed)) AND ((@IsNull_ImportDate = 1 AND [ImportDate] IS NULL) OR"& _ 
+                " ([ImportDate] = @Original_ImportDate)) AND ((@IsNull_dbContext = 1 AND [dbConte"& _ 
+                "xt] IS NULL) OR ([dbContext] = @Original_dbContext)) AND ((@IsNull_OriginalTrans"& _ 
+                "actionID = 1 AND [OriginalTransactionID] IS NULL) OR ([OriginalTransactionID] = "& _ 
+                "@Original_OriginalTransactionID)) AND ([TransactionID] = @Original_TransactionID"& _ 
+                "));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, SKU, SKU_Name, Magento_product_id, Magento_type, Magento_website"& _ 
+                "_ids, Magento_store, Magento_TierPriceGrid, Magento_TierPriceData, TierPriceData"& _ 
+                "_Created_From_MagentoGRID, TierPriceGrid_Created_From_ERP_PriceTier, Issue, Stat"& _ 
+                "us, StatusDateTime, Processed, ImportDate, dbContext, OriginalTransactionID, Tra"& _ 
+                "nsactionID FROM Magento_API.Magento_ProductCatalog_TierPrice_QA WHERE (Id = @Id)"& _ 
+                " AND (TransactionID = @TransactionID)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SKU", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SKU_Name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU_Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_type", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_website_ids", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_store", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_TierPriceGrid", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_TierPriceGrid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Magento_TierPriceData", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_TierPriceData", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceData_Created_From_MagentoGRID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceData_Created_From_MagentoGRID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TierPriceGrid_Created_From_ERP_PriceTier", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TierPriceGrid_Created_From_ERP_PriceTier", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Issue", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Issue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SKU", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SKU", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SKU", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_product_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_product_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_type", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_type", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_type", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_website_ids", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_website_ids", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_website_ids", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_website_ids", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Magento_store", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_store", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Magento_store", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Magento_store", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Issue", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Issue", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Issue", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Issue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StatusDateTime", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StatusDateTime", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusDateTime", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Processed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Processed", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Processed", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ImportDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ImportDate", Global.System.Data.SqlDbType.DateTime2, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dbContext", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dbContext", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dbContext", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.Magento_API_TierPrice.My.MySettings.Default.API_StoreConnectionString2
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT Id, SKU, SKU_Name, Magento_product_id, Magento_type, Magento_website_ids, "& _ 
+                "Magento_store, Magento_TierPriceGrid, Magento_TierPriceData, TierPriceData_Creat"& _ 
+                "ed_From_MagentoGRID, TierPriceGrid_Created_From_ERP_PriceTier, Issue, Status, St"& _ 
+                "atusDateTime, Processed, ImportDate, dbContext, OriginalTransactionID, Transacti"& _ 
+                "onID FROM Magento_API.Magento_ProductCatalog_TierPrice_QA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Transac"& _ 
+                "tionID = @TransactionID)"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransactionID", Global.System.Data.SqlDbType.UniqueIdentifier, 16, Global.System.Data.ParameterDirection.Input, 0, 0, "TransactionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable, ByVal TransactionID As System.Guid) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(TransactionID,System.Guid)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal TransactionID As System.Guid) As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(TransactionID,System.Guid)
+            Dim dataTable As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable = New Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As Magento_Store.Magento_ProductCatalog_TierPrice_QADataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As Magento_Store) As Integer
+            Return Me.Adapter.Update(dataSet, "Magento_ProductCatalog_TierPrice_QA")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_Id As Integer, ByVal Original_SKU As String, ByVal Original_Magento_product_id As Global.System.Nullable(Of Integer), ByVal Original_Magento_type As String, ByVal Original_Magento_website_ids As String, ByVal Original_Magento_store As String, ByVal Original_Issue As Global.System.Nullable(Of Boolean), ByVal Original_Status As String, ByVal Original_StatusDateTime As Global.System.Nullable(Of Date), ByVal Original_Processed As Global.System.Nullable(Of Date), ByVal Original_ImportDate As Global.System.Nullable(Of Date), ByVal Original_dbContext As String, ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid), ByVal Original_TransactionID As System.Guid) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
+            If (Original_SKU Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_SKU,String)
+            End If
+            If (Original_Magento_product_id.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Magento_product_id.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Magento_type Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Magento_type,String)
+            End If
+            If (Original_Magento_website_ids Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Magento_website_ids,String)
+            End If
+            If (Original_Magento_store Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Magento_store,String)
+            End If
+            If (Original_Issue.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Issue.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Status Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Status,String)
+            End If
+            If (Original_StatusDateTime.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Processed.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Processed.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ImportDate.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_ImportDate.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dbContext Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_dbContext,String)
+            End If
+            If (Original_OriginalTransactionID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_OriginalTransactionID.Value,System.Guid)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(25).Value = CType(Original_TransactionID,System.Guid)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert( _
+                    ByVal SKU As String,  _
+                    ByVal SKU_Name As String,  _
+                    ByVal Magento_product_id As Global.System.Nullable(Of Integer),  _
+                    ByVal Magento_type As String,  _
+                    ByVal Magento_website_ids As String,  _
+                    ByVal Magento_store As String,  _
+                    ByVal Magento_TierPriceGrid As String,  _
+                    ByVal Magento_TierPriceData As String,  _
+                    ByVal TierPriceData_Created_From_MagentoGRID As String,  _
+                    ByVal TierPriceGrid_Created_From_ERP_PriceTier As String,  _
+                    ByVal Issue As Global.System.Nullable(Of Boolean),  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Global.System.Nullable(Of Date),  _
+                    ByVal Processed As Global.System.Nullable(Of Date),  _
+                    ByVal ImportDate As Global.System.Nullable(Of Date),  _
+                    ByVal dbContext As String,  _
+                    ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal TransactionID As System.Guid) As Integer
+            If (SKU Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(SKU,String)
+            End If
+            If (SKU_Name Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(SKU_Name,String)
+            End If
+            If (Magento_product_id.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Magento_product_id.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Magento_type Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Magento_type,String)
+            End If
+            If (Magento_website_ids Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Magento_website_ids,String)
+            End If
+            If (Magento_store Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Magento_store,String)
+            End If
+            If (Magento_TierPriceGrid Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Magento_TierPriceGrid,String)
+            End If
+            If (Magento_TierPriceData Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Magento_TierPriceData,String)
+            End If
+            If (TierPriceData_Created_From_MagentoGRID Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(TierPriceData_Created_From_MagentoGRID,String)
+            End If
+            If (TierPriceGrid_Created_From_ERP_PriceTier Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(TierPriceGrid_Created_From_ERP_PriceTier,String)
+            End If
+            If (Issue.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Issue.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Status Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Status,String)
+            End If
+            If (StatusDateTime.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Processed.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Processed.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (ImportDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(ImportDate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (dbContext Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(dbContext,String)
+            End If
+            If (OriginalTransactionID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(OriginalTransactionID.Value,System.Guid)
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(17).Value = CType(TransactionID,System.Guid)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal SKU As String,  _
+                    ByVal SKU_Name As String,  _
+                    ByVal Magento_product_id As Global.System.Nullable(Of Integer),  _
+                    ByVal Magento_type As String,  _
+                    ByVal Magento_website_ids As String,  _
+                    ByVal Magento_store As String,  _
+                    ByVal Magento_TierPriceGrid As String,  _
+                    ByVal Magento_TierPriceData As String,  _
+                    ByVal TierPriceData_Created_From_MagentoGRID As String,  _
+                    ByVal TierPriceGrid_Created_From_ERP_PriceTier As String,  _
+                    ByVal Issue As Global.System.Nullable(Of Boolean),  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Global.System.Nullable(Of Date),  _
+                    ByVal Processed As Global.System.Nullable(Of Date),  _
+                    ByVal ImportDate As Global.System.Nullable(Of Date),  _
+                    ByVal dbContext As String,  _
+                    ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal TransactionID As System.Guid,  _
+                    ByVal Original_Id As Integer,  _
+                    ByVal Original_SKU As String,  _
+                    ByVal Original_Magento_product_id As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Magento_type As String,  _
+                    ByVal Original_Magento_website_ids As String,  _
+                    ByVal Original_Magento_store As String,  _
+                    ByVal Original_Issue As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Status As String,  _
+                    ByVal Original_StatusDateTime As Global.System.Nullable(Of Date),  _
+                    ByVal Original_Processed As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ImportDate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_dbContext As String,  _
+                    ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Original_TransactionID As System.Guid,  _
+                    ByVal Id As Integer) As Integer
+            If (SKU Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(SKU,String)
+            End If
+            If (SKU_Name Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(SKU_Name,String)
+            End If
+            If (Magento_product_id.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Magento_product_id.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Magento_type Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Magento_type,String)
+            End If
+            If (Magento_website_ids Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Magento_website_ids,String)
+            End If
+            If (Magento_store Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Magento_store,String)
+            End If
+            If (Magento_TierPriceGrid Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Magento_TierPriceGrid,String)
+            End If
+            If (Magento_TierPriceData Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Magento_TierPriceData,String)
+            End If
+            If (TierPriceData_Created_From_MagentoGRID Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(TierPriceData_Created_From_MagentoGRID,String)
+            End If
+            If (TierPriceGrid_Created_From_ERP_PriceTier Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(TierPriceGrid_Created_From_ERP_PriceTier,String)
+            End If
+            If (Issue.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Issue.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Status Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Status,String)
+            End If
+            If (StatusDateTime.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Processed.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Processed.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (ImportDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(ImportDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (dbContext Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(dbContext,String)
+            End If
+            If (OriginalTransactionID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(OriginalTransactionID.Value,System.Guid)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(TransactionID,System.Guid)
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Id,Integer)
+            If (Original_SKU Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_SKU,String)
+            End If
+            If (Original_Magento_product_id.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Magento_product_id.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Magento_type Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Magento_type,String)
+            End If
+            If (Original_Magento_website_ids Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_Magento_website_ids,String)
+            End If
+            If (Original_Magento_store Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_Magento_store,String)
+            End If
+            If (Original_Issue.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_Issue.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Status Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_Status,String)
+            End If
+            If (Original_StatusDateTime.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_StatusDateTime.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Processed.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_Processed.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ImportDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_ImportDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dbContext Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_dbContext,String)
+            End If
+            If (Original_OriginalTransactionID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_OriginalTransactionID.Value,System.Guid)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_TransactionID,System.Guid)
+            Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Id,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal SKU As String,  _
+                    ByVal SKU_Name As String,  _
+                    ByVal Magento_product_id As Global.System.Nullable(Of Integer),  _
+                    ByVal Magento_type As String,  _
+                    ByVal Magento_website_ids As String,  _
+                    ByVal Magento_store As String,  _
+                    ByVal Magento_TierPriceGrid As String,  _
+                    ByVal Magento_TierPriceData As String,  _
+                    ByVal TierPriceData_Created_From_MagentoGRID As String,  _
+                    ByVal TierPriceGrid_Created_From_ERP_PriceTier As String,  _
+                    ByVal Issue As Global.System.Nullable(Of Boolean),  _
+                    ByVal Status As String,  _
+                    ByVal StatusDateTime As Global.System.Nullable(Of Date),  _
+                    ByVal Processed As Global.System.Nullable(Of Date),  _
+                    ByVal ImportDate As Global.System.Nullable(Of Date),  _
+                    ByVal dbContext As String,  _
+                    ByVal OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Original_Id As Integer,  _
+                    ByVal Original_SKU As String,  _
+                    ByVal Original_Magento_product_id As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Magento_type As String,  _
+                    ByVal Original_Magento_website_ids As String,  _
+                    ByVal Original_Magento_store As String,  _
+                    ByVal Original_Issue As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Status As String,  _
+                    ByVal Original_StatusDateTime As Global.System.Nullable(Of Date),  _
+                    ByVal Original_Processed As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ImportDate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_dbContext As String,  _
+                    ByVal Original_OriginalTransactionID As Global.System.Nullable(Of Global.System.Guid),  _
+                    ByVal Original_TransactionID As System.Guid) As Integer
+            Return Me.Update(SKU, SKU_Name, Magento_product_id, Magento_type, Magento_website_ids, Magento_store, Magento_TierPriceGrid, Magento_TierPriceData, TierPriceData_Created_From_MagentoGRID, TierPriceGrid_Created_From_ERP_PriceTier, Issue, Status, StatusDateTime, Processed, ImportDate, dbContext, OriginalTransactionID, Original_TransactionID, Original_Id, Original_SKU, Original_Magento_product_id, Original_Magento_type, Original_Magento_website_ids, Original_Magento_store, Original_Issue, Original_Status, Original_StatusDateTime, Original_Processed, Original_ImportDate, Original_dbContext, Original_OriginalTransactionID, Original_TransactionID, Original_Id)
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -9354,9 +10843,9 @@ Namespace Magento_StoreTableAdapters
         
         Private _magento_ProductCatalogImportTableAdapter As Magento_ProductCatalogImportTableAdapter
         
-        Private _magento_ProductCatalog_TierPrice_QATableAdapter As Magento_ProductCatalog_TierPrice_QATableAdapter
-        
         Private _magento_ProductCatalog_TierPrice_QA_CompareTableAdapter As Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
+        
+        Private _magento_ProductCatalog_TierPrice_QATableAdapter As Magento_ProductCatalog_TierPrice_QATableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -9420,12 +10909,12 @@ Namespace Magento_StoreTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property Magento_ProductCatalog_TierPrice_QATableAdapter() As Magento_ProductCatalog_TierPrice_QATableAdapter
+        Public Property Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter() As Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
             Get
-                Return Me._magento_ProductCatalog_TierPrice_QATableAdapter
+                Return Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
             End Get
             Set
-                Me._magento_ProductCatalog_TierPrice_QATableAdapter = value
+                Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter = value
             End Set
         End Property
         
@@ -9434,12 +10923,12 @@ Namespace Magento_StoreTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter() As Magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
+        Public Property Magento_ProductCatalog_TierPrice_QATableAdapter() As Magento_ProductCatalog_TierPrice_QATableAdapter
             Get
-                Return Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter
+                Return Me._magento_ProductCatalog_TierPrice_QATableAdapter
             End Get
             Set
-                Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter = value
+                Me._magento_ProductCatalog_TierPrice_QATableAdapter = value
             End Set
         End Property
         
@@ -9474,13 +10963,13 @@ Namespace Magento_StoreTableAdapters
                             AndAlso (Not (Me._magento_ProductCatalogImportTableAdapter.Connection) Is Nothing)) Then
                     Return Me._magento_ProductCatalogImportTableAdapter.Connection
                 End If
-                If ((Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection) Is Nothing)) Then
-                    Return Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection
-                End If
                 If ((Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Connection) Is Nothing)) Then
                     Return Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Connection
+                End If
+                If ((Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection) Is Nothing)) Then
+                    Return Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -9504,10 +10993,10 @@ Namespace Magento_StoreTableAdapters
                 If (Not (Me._magento_ProductCatalogImportTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
+                If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
+                If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -9548,21 +11037,21 @@ Namespace Magento_StoreTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._magento_ProductCatalog_TierPrice_QATableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA_Compare.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._magento_ProductCatalog_TierPrice_QATableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -9600,19 +11089,19 @@ Namespace Magento_StoreTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._magento_ProductCatalog_TierPrice_QATableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA_Compare.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._magento_ProductCatalog_TierPrice_QATableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -9626,19 +11115,19 @@ Namespace Magento_StoreTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As Magento_Store, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA_Compare.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._magento_ProductCatalog_TierPrice_QATableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Magento_ProductCatalog_TierPrice_QA_Compare.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -9722,13 +11211,13 @@ Namespace Magento_StoreTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection) = false)) Then
+            If ((Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Connection) = false)) Then
+            If ((Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -9791,15 +11280,6 @@ Namespace Magento_StoreTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._magento_ProductCatalogImportTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._magento_ProductCatalog_TierPrice_QATableAdapter, Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection)
-                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._magento_ProductCatalog_TierPrice_QATableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._magento_ProductCatalog_TierPrice_QATableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._magento_ProductCatalog_TierPrice_QATableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter, Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Connection)
                     Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -9807,6 +11287,15 @@ Namespace Magento_StoreTableAdapters
                     If Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._magento_ProductCatalog_TierPrice_QATableAdapter, Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection)
+                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._magento_ProductCatalog_TierPrice_QATableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._magento_ProductCatalog_TierPrice_QATableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._magento_ProductCatalog_TierPrice_QATableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -9881,13 +11370,13 @@ Namespace Magento_StoreTableAdapters
                     Me._magento_ProductCatalogImportTableAdapter.Connection = CType(revertConnections(Me._magento_ProductCatalogImportTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._magento_ProductCatalogImportTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
-                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection = CType(revertConnections(Me._magento_ProductCatalog_TierPrice_QATableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Transaction = Nothing
-                End If
                 If (Not (Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter) Is Nothing) Then
                     Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Connection = CType(revertConnections(Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._magento_ProductCatalog_TierPrice_QA_CompareTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._magento_ProductCatalog_TierPrice_QATableAdapter) Is Nothing) Then
+                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Connection = CType(revertConnections(Me._magento_ProductCatalog_TierPrice_QATableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._magento_ProductCatalog_TierPrice_QATableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

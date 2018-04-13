@@ -39,6 +39,7 @@ Partial Class Form1
         Me.B_LikeCLR = New System.Windows.Forms.Button()
         Me.b_TierPricingUPDATEMagento = New System.Windows.Forms.Button()
         Me.b_TierPricingQATableONLY = New System.Windows.Forms.Button()
+        Me.b_TierPriceGRIDQA = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -187,11 +188,21 @@ Partial Class Form1
         Me.b_TierPricingQATableONLY.Text = "Tier Pricing QA Table ONLY"
         Me.b_TierPricingQATableONLY.UseVisualStyleBackColor = True
         '
+        'b_TierPriceGRIDQA
+        '
+        Me.b_TierPriceGRIDQA.Location = New System.Drawing.Point(419, 123)
+        Me.b_TierPriceGRIDQA.Name = "b_TierPriceGRIDQA"
+        Me.b_TierPriceGRIDQA.Size = New System.Drawing.Size(148, 23)
+        Me.b_TierPriceGRIDQA.TabIndex = 19
+        Me.b_TierPriceGRIDQA.Text = "Tier Price GRID - QA"
+        Me.b_TierPriceGRIDQA.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(771, 320)
+        Me.Controls.Add(Me.b_TierPriceGRIDQA)
         Me.Controls.Add(Me.b_TierPricingQATableONLY)
         Me.Controls.Add(Me.b_TierPricingUPDATEMagento)
         Me.Controls.Add(Me.B_LikeCLR)
@@ -233,4 +244,5 @@ Partial Class Form1
     Friend WithEvents B_LikeCLR As Button
     Friend WithEvents b_TierPricingUPDATEMagento As Button
     Friend WithEvents b_TierPricingQATableONLY As Button
+    Friend WithEvents b_TierPriceGRIDQA As Button
 End Class

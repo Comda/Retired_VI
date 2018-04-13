@@ -86,6 +86,17 @@ Namespace My
                 Return CType(Me("API_StoreConnectionString2"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=comda_SQL;Initial Catalog=ERP_Support;Persist Security Info=True;User"& _ 
+            " ID=bpugroupdba;Password=15LoveCO!")>  _
+        Public ReadOnly Property ERP_SupportConnectionString() As String
+            Get
+                Return CType(Me("ERP_SupportConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

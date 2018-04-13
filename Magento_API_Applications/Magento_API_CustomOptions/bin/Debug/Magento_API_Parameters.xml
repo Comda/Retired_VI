@@ -42,6 +42,11 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Magento_API_Parameters.Magento_Store.Magento_ProductCatalogImport_ControlDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Magento_API_Parameters.Magento_Store.Magento_ProductCatalogImportRow">
 <summary>
 Represents strongly named DataRow class.
@@ -53,6 +58,11 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Magento_API_Parameters.Magento_Store.Magento_ProductCatalogImportMatchRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Magento_API_Parameters.Magento_Store.Magento_ProductCatalogImport_ControlRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -72,6 +82,11 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:Magento_API_Parameters.Magento_Store.Magento_ProductCatalogImport_ControlRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:Magento_API_Parameters.Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -83,6 +98,11 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:Magento_API_Parameters.Magento_StoreTableAdapters.Magento_ProductCatalogImportMatchTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Magento_API_Parameters.Magento_StoreTableAdapters.Magento_ProductCatalogImport_ControlTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

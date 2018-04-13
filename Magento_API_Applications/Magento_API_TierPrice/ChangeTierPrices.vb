@@ -9,6 +9,424 @@ Public Class ChangeTierPrices
 
 #Region "Instance Creation"
 #Region "Create Tier Price and Update Magento"
+    Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String, ByVal TransactionID As Guid, ByVal CreateTierPrice_DATA As Boolean, ByVal CreateTierPriceGRID As Boolean)
+        CreatePriceData = CreateTierPrice_DATA
+
+        SessionId = CurrentSessionID
+
+        MageHandler = New Mage_Api.MagentoService
+
+        InitializeSQLVariables(dbConnection)
+
+        Dim ERP_ConnectionString As String = "Data Source=comda_SQL;Initial Catalog=ERP_Support;Persist Security Info=True;User ID=bpugroupdba;Password=15LoveCO!"
+        Dim ERP_dbcon As New SqlClient.SqlConnection
+        ERP_dbcon.ConnectionString = ERP_ConnectionString
+
+        InitializeSQLVariables_ERP(ERP_dbcon)
+
+
+        'in all events current table will be updated with a unique ID
+        CreatePriceData = CreateTierPrice_DATA
+
+        SessionId = CurrentSessionID
+
+        'MageHandler = New Mage_Api.MagentoService
+        'InitializeSQLVariables(dbConnection)
+
+        Magento_ProductCatalog_TierPrice_Universe_GET_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_Universe_GET, TransactionID)
+
+
+        Dim ProductId As Integer
+        Dim storeView As String
+        Dim TransID As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_Universe_GET
+
+
+        Dim TransactionID_v As DataView = New DataView(TransID)
+        Dim TransactionID_dt As DataTable = TransactionID_v.ToTable(True, "TransactionID")
+
+        Dim TransactionID_Filter As String
+        For iTrans As Integer = 0 To TransactionID_dt.Rows.Count - 1
+
+
+            TransactionID_Filter = "TransactionID ='" & TransactionID_dt.Rows(iTrans).Item("TransactionID").ToString & "'"
+
+            Dim foundRows() As DataRow
+            ' Use the Select method to find all rows matching the filter.
+            foundRows = TransID.Select(TransactionID_Filter)
+
+            Dim Prd As DataTable
+            Prd = foundRows.CopyToDataTable()
+
+            For iPrd As Integer = 0 To Prd.Rows.Count - 1
+                ProductId = CInt(Prd.Rows(iPrd).Item("product_id"))
+                storeView = CStr(Prd.Rows(iPrd).Item("store"))
+                Dim dr As DataRow = Prd.Rows(iPrd)
+                Status = "Get GRID From ERP"
+                GetPrices(SessionId, ProductId, storeView, dr, Status)
+            Next
+        Next
+
+        'Dim TransactionID_Filter As String = Nothing
+
+        For iTrans As Integer = 0 To TransactionID_dt.Rows.Count - 1
+
+            TransactionID_Filter = "TransactionID ='" & TransactionID_dt.Rows(iTrans).Item("TransactionID").ToString & "'"
+
+            Dim foundRows() As DataRow
+            ' Use the Select method to find all rows matching the filter.
+            foundRows = TransID.Select(TransactionID_Filter)
+            Dim CurTransactionID As Guid = foundRows(0).Item("TransactionID")
+            Magento_ProductCatalog_TierPrice_QA_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA, CurTransactionID)
+
+            Dim Prd As DataTable = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA
+
+            For iPrd = 0 To Prd.Rows.Count - 1
+                Dim dr As DataRow = Prd.Rows(iPrd)
+                'only run for rows where comprae is 0 and PRICE GRID EXISTS
+                'If dr.Item("Issue") = 0 And dr.Item("Status") = "PRICE GRID EXISTS" Then
+                '    UpdateMagentoTierPriceData(SessionId, dr)
+                'End If
+
+
+
+
+
+                'Dim ProductId As Integer = 19571 ' 9633 ' 19571 ' 19364
+                'Dim storeView As String = "en_ca"
+                Dim website As String = Nothing
+
+
+
+                Dim identifierType As String = "configurable"
+                Dim NewTierPrice As String = Nothing
+                'Dim Compare As Boolean
+
+                Dim TierPrice_Data As String = Nothing
+                Dim TierPrice_Grid As String = Nothing
+
+                'Get some values from ERP
+                Dim SKU As String = dr.Item("SKU") ' "MG_W_CRPTRPCL_B"
+
+                GetTierPricesFromERP_da.Fill(Magento_Store_ds.GetTierPricesFromERP, SKU, "N", Nothing)
+
+                Dim TierPrices_ERP As DataTable = Magento_Store_ds.GetTierPricesFromERP
+
+                Dim TierPriceUpdate = New List(Of catalogProductTierPriceEntity)
+                Dim price As Decimal = 0
+                Dim customer_group_id As String = Nothing
+                Dim qty As String = Nothing
+
+
+                Dim StoreViewList As New List(Of String)(2)
+
+                StoreViewList.Add("en_ca")
+                StoreViewList.Add("en_us")
+
+                For Each storeV As Object In StoreViewList
+                    Debug.Print(storeV)
+
+                    Select Case storeV
+                        Case "en_ca"
+                            website = "mapleleaf_cad"
+                        Case "en_us"
+                            website = "mapleleaf_usd"
+                    End Select
+
+                    For iTP As Integer = 0 To TierPrices_ERP.Rows.Count - 1
+
+                        Dim Tp_Group As DataRow = TierPrices_ERP.Rows(iTP)
+                        If Tp_Group.Item("store") = storeV Then
+                            price = Tp_Group.Item("store_price")
+                            customer_group_id = "all" 'Tp_Group.Item("customer_group")
+                            qty = Tp_Group.Item("min_qty")
+                            Debug.Print("MinQuantity {0} store_price {1}  CustomerGroup {2}  ", qty, price, customer_group_id)
+
+                            AddTcatalogProductTierPriceEntity(TierPriceUpdate,
+                                    storeV,
+                                    customer_group_id,
+                                    qty,
+                                    price,
+                                    website)
+                        End If
+                    Next
+                Next
+
+                ''Dim TierPricesFromERP As List(Of DataRow) = Magento_Store_ds.GetTierPricesFromERP.AsEnumerable().ToList()
+                'Dim TierPricesFromERP As IEnumerable(Of DataRow) = Magento_Store_ds.GetTierPricesFromERP.AsEnumerable().ToList
+
+                ''Dim TierPricesFromERP_ByStore As Object = TierPricesFromERP.Where(Function(x) x.store_name = storeView).ToList
+                ''t_Grid_Store.AddRange(t_Grid_all.Where(Function(x) x.website = website).ToList)
+
+                'For Each Tier As Object In TierPricesFromERP
+                '    If Tier.element_name = "store_price" Then
+                '        Debug.Print("Price{0}", Tier.value)
+                '    End If
+                '    If Tier.element_name = "MinQuantity" Then
+                '        Debug.Print("MinQuantity{0}", Tier.value)
+                '    End If
+
+
+
+
+                'Next
+
+
+
+                Dim attributes As catalogProductRequestAttributes
+                attributes = New catalogProductRequestAttributes
+
+                Dim AttribNameString As String
+                Dim AttribNameArray() As String
+
+                AttribNameString = "tier_price_data"
+                AttribNameArray = AttribNameString.Split(",")
+
+                attributes.additional_attributes = AttribNameArray
+
+                Dim TierPriceUpdate_Ser As String = Nothing
+                For Each storeV As Object In StoreViewList
+
+
+                    Debug.Print(storeV)
+
+                    Select Case storeV
+                        Case "en_ca"
+                            website = "mapleleaf_cad"
+                        Case "en_us"
+                            website = "mapleleaf_usd"
+                    End Select
+
+
+                    'Data(Or PSEUDO JSON)
+                    Dim cpre As catalogProductReturnEntity = MageHandler.catalogProductInfo(SessionId, ProductId, storeV, attributes, identifierType)
+
+                    'Get the current GRID
+                    Dim TierPriceGRID As catalogProductTierPriceEntity() = MageHandler.catalogProductAttributeTierPriceInfo(SessionId, ProductId, 4)
+
+                    'Dim MageTierPriceGrid = TierPrice.ToList
+
+                    Dim MageTPG As JArray = JArray.Parse(JsonConvert.SerializeObject(TierPriceGRID))
+                    Dim MageTPG_sorted As JArray = New JArray(MageTPG.OrderBy(Function(obj) CStr(obj("website"))))
+
+
+                    Dim MageERP As JArray = JArray.Parse(JsonConvert.SerializeObject(TierPriceUpdate))
+                    Dim MageERP_sorted As JArray = New JArray(MageERP.OrderBy(Function(obj) CStr(obj("website"))))
+                    'MageTierPriceGrid.Sort()
+
+                    'TierPrice_Grid = JsonConvert.SerializeObject(MageTierPriceGrid)
+                    'Dim ERPTierPriceGrid = TierPriceUpdate
+                    'ERPTierPriceGrid.Sort()
+
+                    'TierPriceUpdate_Ser = JsonConvert.SerializeObject(ERPTierPriceGrid)
+
+                    Dim issue As Boolean = MageERP_sorted.ToString.Equals(MageTPG_sorted.ToString)
+
+                    dr.Item("Issue") = issue
+                    dr.Item("TierPriceGrid_Created_From_ERP_PriceTier") = MageERP_sorted.ToString
+                    dr.Item("Magento_TierPriceGrid") = MageTPG_sorted.ToString
+                    dr.Item("Status") = Status
+
+                Next
+                '
+                Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
+
+
+                'Dim TierPriceUpdate_ERP As catalogProductTierPriceEntity() = Nothing
+
+                'Dim TierPrice_Grid_Modified As String = TierPrice_Grid.Replace("mapleleaf_usd", "mapleleaf_cad")
+
+                ''deserialize modified
+                'Dim TierPrice_Grid_Mod_Serial As catalogProductTierPriceEntity() = JsonConvert.DeserializeObject(TierPrice_Grid_Modified, GetType(catalogProductTierPriceEntity()))
+
+                ''we need to combine both lists
+                ''TierPrice
+                ''TierPrice_Grid_Mod_Serial
+
+                'Dim TierPriceUpdate As catalogProductTierPriceEntity() = CombineTierPrices(TierPrice.ToList, TierPrice_Grid_Mod_Serial.ToList)
+
+                'Dim xx = MageHandler.catalogProductAttributeTierPriceUpdate(SessionId, ProductId, TierPriceUpdate_ERP, "configurable")
+
+
+
+                'Dim TierPrice_Grid_New As String = JsonConvert.SerializeObject(TierPriceUpdate)
+
+                ' Dim TierPriceBuilt As String = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
+
+                'UpdateTierPriceData_test(CurrentSessionID, ProductId, TierPriceBuilt, storeView)
+            Next
+        Next
+
+    End Sub
+
+    Private Sub AddTcatalogProductTierPriceEntity(ByRef catalogProductTierPriceEntity As List(Of catalogProductTierPriceEntity),
+                                            ByVal store_view As String,
+                                            ByVal customer_group_id As String,
+                                            ByVal qty As String,
+                                            ByVal price As Decimal,
+                                            ByVal website As String)
+
+        Try
+
+            catalogProductTierPriceEntity.Add(New catalogProductTierPriceEntity() With {
+                                                .customer_group_id = customer_group_id, .price = price,
+                                                .priceSpecified = True,
+                                                .qty = qty,
+                                                .qtySpecified = True,
+                                                .website = website
+                                              })
+        Catch ex As Exception
+            Api_Para.WriteEventToLog("Error", "AddTcatalogProductTierPriceEntity", ex.Message, StopwatchLocal, Guid.Parse(TransactionID_Current), ControlRoot_Current)
+        End Try
+
+    End Sub
+
+
+    Private Sub UpdateTierPriceData_test(ByVal CurrentSessionID As String, ByVal ProductId As Integer, ByVal TierPriceBuilt As String, ByVal CurStore As String)
+        StopwatchLocal = New Stopwatch()
+        StopwatchLocal.Start()
+        Dim dr As DataRow
+        Try
+
+
+            'Dim CurStore As String = "en_us"
+            Dim Updated As Boolean = False
+            Dim KeyName As String = Nothing
+            Dim KeyValue As String = Nothing
+
+            MagentoType = "configurable"
+
+            productdata = New catalogProductCreateEntity
+
+            Dim AdditionalAttributes As associativeEntity() = New associativeEntity(0) {}
+            Dim setup_feeAdditionalAttribute As New associativeEntity()
+            KeyName = "tier_price_data"
+
+            KeyValue = TierPriceBuilt
+
+            setup_feeAdditionalAttribute.key = KeyName
+            setup_feeAdditionalAttribute.value = KeyValue
+
+            'Debug.WriteLine("Key Name {0} :  {1}", KeyName, KeyValue)
+            AdditionalAttributes(0) = setup_feeAdditionalAttribute
+
+            Dim AdditionalAttributesEntity As New catalogProductAdditionalAttributesEntity()
+            AdditionalAttributesEntity.single_data = AdditionalAttributes
+            productdata.additional_attributes = AdditionalAttributesEntity
+
+            Dim id As Integer = 0
+            Dim RowFilter As String = "TEST"
+
+            Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Entering Store {4}", MagentoType, id, StopwatchLocal.Elapsed, ProductId, CurStore)
+            Magento_DescriptionWrite(productdata, ProductId, CurStore, MagentoType, Updated)
+            Debug.WriteLine("Type {0}  Count {1}  Time {2}  SKU {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, RowFilter, CurStore)
+        Catch ex As Exception
+
+        End Try
+        Try
+            'dr.Item("Processed") = Now()
+            'Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
+        Catch ex As Exception
+
+        End Try
+
+
+
+    End Sub
+
+    Private Function addTierPrices(ByVal prices As List(Of catalogProductTierPriceEntity)) As catalogProductTierPriceEntity()
+
+        Dim TierLenght As Integer = prices.Count - 1
+        Dim mageTierPrices As catalogProductTierPriceEntity() = New catalogProductTierPriceEntity(TierLenght) {}
+
+        Dim mageTierPrice As catalogProductTierPriceEntity
+        Dim i As Integer = 0
+        Try
+            For Each price As catalogProductTierPriceEntity In prices
+                mageTierPrice = New catalogProductTierPriceEntity()
+                mageTierPrice.website = price.website
+                mageTierPrice.customer_group_id = price.customer_group_id
+                mageTierPrice.qty = price.qty
+                mageTierPrice.price = CDbl(price.price)
+                mageTierPrices(i) = mageTierPrice
+                mageTierPrice.priceSpecified = True
+                mageTierPrice.qtySpecified = True
+                i += 1
+            Next
+        Catch ex As Exception
+
+        End Try
+        Return mageTierPrices
+    End Function
+
+    'Private Function addTierPrices(ByVal dr As DataRow, ByVal CountOfTier As Integer) As catalogProductTierPriceEntity()
+
+    '    Dim TierLenght As Integer = CountOfTier - 1
+    '    Dim mageTierPrices As catalogProductTierPriceEntity() = New catalogProductTierPriceEntity(TierLenght) {}
+
+    '    Dim mageTierPrice As catalogProductTierPriceEntity
+    '    Dim i As Integer = 0
+    '    Try
+    '        For 
+    '            mageTierPrice = New catalogProductTierPriceEntity()
+    '            mageTierPrice.website = price.website
+    '            mageTierPrice.customer_group_id = price.customer_group_id
+    '            mageTierPrice.qty = price.qty
+    '            mageTierPrice.price = CDbl(price.price)
+    '            mageTierPrices(i) = mageTierPrice
+    '            mageTierPrice.priceSpecified = True
+    '            mageTierPrice.qtySpecified = True
+    '            i += 1
+    '        Next
+    '    Catch ex As Exception
+
+    '    End Try
+    '    Return mageTierPrices
+    'End Function
+    Private Function CombineTierPrices(ByVal prices As List(Of catalogProductTierPriceEntity), ByVal prices2 As List(Of catalogProductTierPriceEntity)) As catalogProductTierPriceEntity()
+
+        Dim TierLenght As Integer = (prices.Count + prices2.Count - 1)
+        Dim mageTierPrices As catalogProductTierPriceEntity() = New catalogProductTierPriceEntity(TierLenght) {}
+
+        Dim mageTierPrice As catalogProductTierPriceEntity
+        Dim i As Integer = 0
+        Try
+            For Each price As catalogProductTierPriceEntity In prices
+                mageTierPrice = New catalogProductTierPriceEntity()
+                mageTierPrice.website = price.website
+                mageTierPrice.customer_group_id = price.customer_group_id
+                mageTierPrice.qty = price.qty
+                mageTierPrice.price = CDbl(price.price)
+                mageTierPrices(i) = mageTierPrice
+                mageTierPrice.priceSpecified = True
+                mageTierPrice.qtySpecified = True
+                i += 1
+            Next
+        Catch ex As Exception
+
+        End Try
+
+        Try
+            For Each price As catalogProductTierPriceEntity In prices2
+                mageTierPrice = New catalogProductTierPriceEntity()
+                mageTierPrice.website = price.website
+                mageTierPrice.customer_group_id = price.customer_group_id
+                mageTierPrice.qty = price.qty
+                mageTierPrice.price = CDbl(price.price)
+                mageTierPrices(i) = mageTierPrice
+                mageTierPrice.priceSpecified = True
+                mageTierPrice.qtySpecified = True
+                i += 1
+            Next
+        Catch ex As Exception
+
+        End Try
+
+
+
+        Return mageTierPrices
+    End Function
+
+
     Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String, ByVal TransactionID As Guid, ByVal CreateTierPrice As Boolean)
         'This NEW sub will upate Tier Prices based on Magento_catalogProductUpdate  where TansactionID select one, many or all Products to be updated
 
@@ -77,7 +495,7 @@ Public Class ChangeTierPrices
                 For iPrd = 0 To Prd.Rows.Count - 1
                     Dim dr As DataRow = Prd.Rows(iPrd)
                     'only run for rows where comprae is 0 and PRICE GRID EXISTS
-                    If dr.Item("Compared") = 0 And dr.Item("Status") = "PRICE GRID EXISTS" Then
+                    If dr.Item("Issue") = 0 And dr.Item("Status") = "PRICE GRID EXISTS" Then
                         UpdateMagentoTierPriceData(SessionId, dr)
                     End If
                 Next
@@ -512,22 +930,22 @@ NoUpdate:
             End Select
 
             If TierPrice_Grid.IndexOf(website) = -1 Then
-                Status = "PRICE GRID EXISTS - NO VALID STORE"
+                Status = "NO PRICE GRID"
             End If
 
 
             If Status = "PRICE GRID EXISTS" Then
                 NewTierPrice = CreateTierPriceData(SessionId, ProductId, storeView, TierPrice_Grid)
                 If Not CheckDBnull(NewTierPrice) Then
-                        If Not CheckDBnull(TierPrice_Data) Then
+                    If Not CheckDBnull(TierPrice_Data) Then
                         If NewTierPrice.ToLower.Equals(TierPrice_Data.ToLower) Then
                             Compare = 1
                         Else
                             Compare = 0
                         End If
                     End If
-                    End If
                 End If
+            End If
 
         Catch ex As Exception
             Dim maxLength As Integer = Math.Min(ex.Message.Length, 200)
@@ -546,23 +964,31 @@ NoUpdate:
             Dim newProductsRow = Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.NewRow()
 
 
-            newProductsRow("product_id") = ProductId
+            newProductsRow("Magento_product_id") = ProductId
 
-            newProductsRow("sku") = dr.Item("sku")
-            newProductsRow("type") = identifierType
-            newProductsRow("name") = dr.Item("name")
-            newProductsRow("website_ids") = dr.Item("website_ids")
-            newProductsRow("store") = storeView
+            newProductsRow("SKU") = dr.Item("sku")
+            newProductsRow("Magento_type") = identifierType
+            newProductsRow("SKU_Name") = dr.Item("name")
+            newProductsRow("Magento_website_ids") = dr.Item("website_ids")
+            newProductsRow("Magento_store") = storeView
+
+
             newProductsRow("dbContext") = "PROD"
-            newProductsRow("TierPriceData") = TierPrice_Data
-            newProductsRow("TierPriceGrid") = TierPrice_Grid
+
+
+            newProductsRow("Magento_TierPriceData") = TierPrice_Data
+            newProductsRow("Magento_TierPriceGrid") = TierPrice_Grid
+
             newProductsRow("ImportDate") = Now()
-            newProductsRow("Compared") = Compare
+
+            newProductsRow("Issue") = Compare
             newProductsRow("TransactionID") = dr.Item("TransactionID")
-            newProductsRow("TierPriceData_Created") = NewTierPrice
+            newProductsRow("TierPriceData_Created_From_MagentoGRID") = NewTierPrice
             newProductsRow("OriginalTransactionID") = dr.Item("OriginalTransactionID")
             newProductsRow("Status") = Status
             newProductsRow("StatusDateTime") = Now
+            newProductsRow("TierPriceGrid_Created_From_ERP_PriceTier") = ""
+
             Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA.Rows.Add(newProductsRow)
 
             Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)

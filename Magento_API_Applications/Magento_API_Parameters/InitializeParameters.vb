@@ -1,4 +1,5 @@
-﻿Imports Magento_API_Parameters.Mage_API
+﻿Imports Magento_API_Parameters.Mage_Api
+Imports System.Threading
 Public Class Initialize
     Public Property CurrentSessionID As String = Nothing
     Public Property catalogProduct As List(Of catalogProductEntity)
@@ -39,9 +40,262 @@ Public Class Initialize
         MatchTable_da = New Magento_StoreTableAdapters.Magento_ProductCatalogImportMatchTableAdapter
         MatchTable_da.Connection = dbConnection
 
+        Magento_ProductCatalogImport_Control_da = New Magento_StoreTableAdapters.Magento_ProductCatalogImport_ControlTableAdapter
+        Magento_ProductCatalogImport_Control_da.Connection = dbConnection
+
+
+        'ProductCatalogImport_Family = New Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+        'ProductCatalogImport_Child = New Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+        'ProductCatalogImport_Parent = New Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+
+
         MatchTable_da.Fill(Magento_Store_ds.Magento_ProductCatalogImportMatch)
 
     End Sub
+    '    Public Sub Catalog_Threads()
+
+    '        Dim SessionId As String = CurrentSessionID
+
+
+    '        Dim FamilyThread _
+    '           As New Threading.Thread(
+    '           AddressOf GetCurrentCatalog_Thread_Family)
+    '        FamilyThread.Start(SessionId)
+
+
+    '        Dim ParentThread _
+    '           As New Threading.Thread(
+    '           AddressOf GetCurrentCatalog_Thread_PARENT)
+    '        ParentThread.Start(SessionId)
+
+    '        Dim ChildThread _
+    '      As New Threading.Thread(
+    '      AddressOf GetCurrentCatalog_Thread_CHILD)
+    '        ChildThread.Start(SessionId)
+
+    '        If FamilyThread.ThreadState <> 0 And ParentThread.ThreadState <> 0 And ChildThread.ThreadState <> 0 Then
+    '            GoTo endProcesses
+    '        End If
+    'endProcesses:
+    '    End Sub
+    'Public Sub GetCurrentCatalog_Thread_CHILD(ByVal SessionId As String)
+
+    '    Dim ERP_Type As String = "CHILD"
+    '    Dim Filtres As New filters
+
+    '    Select Case ERP_Type.ToUpper
+    '        Case "FAMILY"
+    '            Filtres = addFilter(Filtres, "type", "eq", "grouped")
+    '            MagentoType = "grouped"
+    '        Case "CHILD"
+    '            Filtres = addFilter(Filtres, "type", "eq", "simple")
+    '            MagentoType = "simple"
+    '        Case "PARENT"
+    '            Filtres = addFilter(Filtres, "type", "eq", "configurable")
+    '            MagentoType = "configurable"
+    '    End Select
+
+    '    Dim ProductCatalogImport_Parent = New Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+    '    'Dim catalogProduct_temp = New List(Of catalogProductEntity)
+    '    Dim StoreView As String = Nothing
+    '    Try
+
+    '        For Each storeEntityItem As storeEntity In storeEntityTable
+    '            StoreView = storeEntityItem.code
+
+    '            'ServiceCall = "https://www.mapleleafpromostore.com/index.php/api/v2_soap/index/"
+
+    '            Dim catalogProductEntityTable() As catalogProductEntity = Nothing
+
+    '            Try
+    '                catalogProductEntityTable = MageHandler.catalogProductList(SessionId, Filtres, StoreView)
+
+    '            Catch ex As Exception
+    '                WriteEventToLog("Error", "GetCurrentCatalog: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '                Exit Sub
+    '            End Try
+
+    '            catalogProduct = catalogProductEntityTable.OrderBy(Function(o) o.sku).ToList()
+
+    '            'UploadCatalog(catalogProduct, StoreView)
+
+    '            For Each catalogProductEntityItem As catalogProductEntity In catalogProduct
+
+    '                Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogImport.NewRow()
+    '                newProductsRow("product_id") = catalogProductEntityItem.product_id
+    '                newProductsRow("option_id") = 0
+    '                newProductsRow("sku") = catalogProductEntityItem.sku
+    '                newProductsRow("type") = catalogProductEntityItem.type
+
+    '                newProductsRow("category_ids") = ReturnStringFromIds(catalogProductEntityItem.category_ids)
+    '                newProductsRow("name") = catalogProductEntityItem.name
+
+    '                newProductsRow("set") = catalogProductEntityItem.set
+
+    '                newProductsRow("website_ids") = ReturnStringFromIds(catalogProductEntityItem.website_ids)
+    '                newProductsRow("store") = StoreView
+    '                newProductsRow("dbContext") = dbContext
+
+
+    '                Magento_Store_ds.Magento_ProductCatalogImport.Rows.Add(newProductsRow)
+
+    '            Next
+    '            Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+
+    '        Next
+    '    Catch ex As Exception
+    '        WriteEventToLog("Error", "GetCurrentCatalog_Thread_Family: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '    End Try
+
+
+
+    'End Sub
+    'Public Sub GetCurrentCatalog_Thread_PARENT(ByVal SessionId As String)
+
+    '    Dim ERP_Type As String = "PARENT"
+    '    Dim Filtres As New filters
+
+    '    Select Case ERP_Type.ToUpper
+    '        Case "FAMILY"
+    '            Filtres = addFilter(Filtres, "type", "eq", "grouped")
+    '            MagentoType = "grouped"
+    '        Case "CHILD"
+    '            Filtres = addFilter(Filtres, "type", "eq", "simple")
+    '            MagentoType = "simple"
+    '        Case "PARENT"
+    '            Filtres = addFilter(Filtres, "type", "eq", "configurable")
+    '            MagentoType = "configurable"
+    '    End Select
+
+    '    Dim ProductCatalogImport_Parent = New Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+    '    'Dim catalogProduct_temp = New List(Of catalogProductEntity)
+    '    Dim StoreView As String = Nothing
+    '    Try
+
+    '        For Each storeEntityItem As storeEntity In storeEntityTable
+    '            StoreView = storeEntityItem.code
+
+    '            'ServiceCall = "https://www.mapleleafpromostore.com/index.php/api/v2_soap/index/"
+
+    '            Dim catalogProductEntityTable() As catalogProductEntity = Nothing
+
+    '            Try
+    '                catalogProductEntityTable = MageHandler.catalogProductList(SessionId, Filtres, StoreView)
+
+    '            Catch ex As Exception
+    '                WriteEventToLog("Error", "GetCurrentCatalog: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '                Exit Sub
+    '            End Try
+
+    '            catalogProduct = catalogProductEntityTable.OrderBy(Function(o) o.sku).ToList()
+
+    '            'UploadCatalog(catalogProduct, StoreView)
+
+    '            For Each catalogProductEntityItem As catalogProductEntity In catalogProduct
+
+    '                Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogImport.NewRow()
+    '                newProductsRow("product_id") = catalogProductEntityItem.product_id
+    '                newProductsRow("option_id") = 0
+    '                newProductsRow("sku") = catalogProductEntityItem.sku
+    '                newProductsRow("type") = catalogProductEntityItem.type
+
+    '                newProductsRow("category_ids") = ReturnStringFromIds(catalogProductEntityItem.category_ids)
+    '                newProductsRow("name") = catalogProductEntityItem.name
+
+    '                newProductsRow("set") = catalogProductEntityItem.set
+
+    '                newProductsRow("website_ids") = ReturnStringFromIds(catalogProductEntityItem.website_ids)
+    '                newProductsRow("store") = StoreView
+    '                newProductsRow("dbContext") = dbContext
+
+
+    '                Magento_Store_ds.Magento_ProductCatalogImport.Rows.Add(newProductsRow)
+
+    '            Next
+    '            Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+
+    '        Next
+    '    Catch ex As Exception
+    '        WriteEventToLog("Error", "GetCurrentCatalog_Thread_Family: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '    End Try
+
+
+
+    'End Sub
+    'Public Sub GetCurrentCatalog_Thread_Family(ByVal SessionId As String)
+
+    '    Dim ERP_Type As String = "FAMILY"
+    '    Dim Filtres As New filters
+
+    '    Select Case ERP_Type.ToUpper
+    '        Case "FAMILY"
+    '            Filtres = addFilter(Filtres, "type", "eq", "grouped")
+    '            MagentoType = "grouped"
+    '        Case "CHILD"
+    '            Filtres = addFilter(Filtres, "type", "eq", "simple")
+    '            MagentoType = "simple"
+    '        Case "PARENT"
+    '            Filtres = addFilter(Filtres, "type", "eq", "configurable")
+    '            MagentoType = "configurable"
+    '    End Select
+
+    '    Dim ProductCatalogImport_Family = New Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+    '    'Dim catalogProduct_temp = New List(Of catalogProductEntity)
+    '    Dim StoreView As String = Nothing
+    '    Try
+
+    '        For Each storeEntityItem As storeEntity In storeEntityTable
+    '            StoreView = storeEntityItem.code
+
+    '            'ServiceCall = "https://www.mapleleafpromostore.com/index.php/api/v2_soap/index/"
+
+    '            Dim catalogProductEntityTable() As catalogProductEntity = Nothing
+
+    '            Try
+    '                catalogProductEntityTable = MageHandler.catalogProductList(SessionId, Filtres, StoreView)
+
+    '            Catch ex As Exception
+    '                WriteEventToLog("Error", "GetCurrentCatalog: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '                Exit Sub
+    '            End Try
+
+    '            catalogProduct = catalogProductEntityTable.OrderBy(Function(o) o.sku).ToList()
+
+    '            'UploadCatalog(catalogProduct, StoreView)
+
+    '            For Each catalogProductEntityItem As catalogProductEntity In catalogProduct
+
+    '                Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogImport.NewRow()
+    '                newProductsRow("product_id") = catalogProductEntityItem.product_id
+    '                newProductsRow("option_id") = 0
+    '                newProductsRow("sku") = catalogProductEntityItem.sku
+    '                newProductsRow("type") = catalogProductEntityItem.type
+
+    '                newProductsRow("category_ids") = ReturnStringFromIds(catalogProductEntityItem.category_ids)
+    '                newProductsRow("name") = catalogProductEntityItem.name
+
+    '                newProductsRow("set") = catalogProductEntityItem.set
+
+    '                newProductsRow("website_ids") = ReturnStringFromIds(catalogProductEntityItem.website_ids)
+    '                newProductsRow("store") = StoreView
+    '                newProductsRow("dbContext") = dbContext
+
+
+    '                Magento_Store_ds.Magento_ProductCatalogImport.Rows.Add(newProductsRow)
+
+    '            Next
+    '            Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+
+    '        Next
+    '    Catch ex As Exception
+    '        WriteEventToLog("Error", "GetCurrentCatalog_Thread_Family: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '    End Try
+
+
+
+    'End Sub
+
+
     Public Sub GetCurrentCatalog(ByVal SessionId As String, ByVal ERP_Type As String, ByRef MagentoType As String)
         Dim Filtres As New filters
 
@@ -78,6 +332,8 @@ Public Class Initialize
 
                 catalogProduct = catalogProductEntityTable.OrderBy(Function(o) o.sku).ToList()
 
+
+                'UploadCatalogControl(catalogProduct, StoreView)
                 UploadCatalog(catalogProduct, StoreView)
 
                 'catalogProduct_temp.AddRange(catalogProductEntityTable.ToList)
@@ -89,6 +345,36 @@ Public Class Initialize
 
 
     End Sub
+    'Private Sub UploadCatalogControl(ByVal catalogProduct As List(Of catalogProductEntity), ByVal StoreView As String)
+    '    Try
+
+
+    '        For Each catalogProductEntityItem As catalogProductEntity In catalogProduct
+
+    '            Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogImport_Control.NewRow()
+    '            newProductsRow("product_id") = catalogProductEntityItem.product_id
+    '            'newProductsRow("option_id") = 0
+    '            newProductsRow("sku") = catalogProductEntityItem.sku
+    '            'newProductsRow("type") = catalogProductEntityItem.type
+
+    '            'newProductsRow("category_ids") = ReturnStringFromIds(catalogProductEntityItem.category_ids)
+    '            'newProductsRow("name") = catalogProductEntityItem.name
+
+    '            'newProductsRow("set") = catalogProductEntityItem.set
+
+    '            'newProductsRow("website_ids") = ReturnStringFromIds(catalogProductEntityItem.website_ids)
+    '            newProductsRow("store") = StoreView
+    '            newProductsRow("dbContext") = dbContext
+
+
+    '            Magento_Store_ds.Magento_ProductCatalogImport_Control.Rows.Add(newProductsRow)
+
+    '        Next
+    '    Catch ex As Exception
+
+    '    End Try
+    '    Magento_ProductCatalogImport_Control_da.Update(Magento_Store_ds.Magento_ProductCatalogImport_Control)
+    'End Sub
     Private Function GetOptionID(ByVal product_id As Integer, ByVal CurStore As String) As Integer
         'find the option
         Dim catalogProductCustomOptionListEntity_t As catalogProductCustomOptionListEntity()
@@ -104,7 +390,6 @@ Public Class Initialize
         Next
         Return OptionID
     End Function
-
 
     Private Sub UploadCatalog(ByVal catalogProduct As List(Of catalogProductEntity), ByVal StoreView As String)
 
@@ -194,6 +479,143 @@ Public Class Initialize
         End Try
 
     End Sub
+
+
+    '    Private Sub UploadCatalog(ByVal catalogProduct As List(Of catalogProductEntity), ByVal StoreView As String)
+    '        Try
+
+
+    '            For Each catalogProductEntityItem As catalogProductEntity In catalogProduct
+
+    '                Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogImport.NewRow()
+    '                newProductsRow("product_id") = catalogProductEntityItem.product_id
+    '                newProductsRow("option_id") = 0
+    '                newProductsRow("sku") = catalogProductEntityItem.sku
+    '                newProductsRow("type") = catalogProductEntityItem.type
+
+    '                newProductsRow("category_ids") = ReturnStringFromIds(catalogProductEntityItem.category_ids)
+    '                newProductsRow("name") = catalogProductEntityItem.name
+
+    '                newProductsRow("set") = catalogProductEntityItem.set
+
+    '                newProductsRow("website_ids") = ReturnStringFromIds(catalogProductEntityItem.website_ids)
+    '                newProductsRow("store") = StoreView
+    '                newProductsRow("dbContext") = dbContext
+
+
+    '                Magento_Store_ds.Magento_ProductCatalogImport.Rows.Add(newProductsRow)
+
+    '            Next
+    '        Catch ex As Exception
+
+    '        End Try
+
+    '        Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+
+
+    '        Exit Sub
+
+
+
+
+
+
+
+
+
+
+
+    '        'Magento_ProductCatalogMatch_da.Fill(Magento_Store_ds.Magento_ProductCatalogMatch)
+    '        Magento_Store_ds.Magento_ProductCatalogMatch.Clear()
+
+    '        'Try
+    '        For Each catalogProductEntityItem As catalogProductEntity In catalogProduct
+
+    '                Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogMatch.NewRow()
+    '                newProductsRow("product_id") = catalogProductEntityItem.product_id
+    '                newProductsRow("option_id") = 0
+    '                newProductsRow("sku") = catalogProductEntityItem.sku
+    '                newProductsRow("type") = catalogProductEntityItem.type
+
+    '                newProductsRow("category_ids") = ReturnStringFromIds(catalogProductEntityItem.category_ids)
+    '                newProductsRow("name") = catalogProductEntityItem.name
+
+    '                newProductsRow("set") = catalogProductEntityItem.set
+
+    '                newProductsRow("website_ids") = ReturnStringFromIds(catalogProductEntityItem.website_ids)
+    '                newProductsRow("store") = StoreView
+    '                newProductsRow("dbContext") = dbContext
+
+
+    '                Magento_Store_ds.Magento_ProductCatalogMatch.Rows.Add(newProductsRow)
+
+    '            Next
+
+    '            GoTo skipMatch
+
+    '            Dim relation As DataRelation = Magento_Store_ds.Magento_ProductCatalogMatch.ChildRelations(0)
+    '            Dim childRows() As DataRow
+
+    '            'For Each relation In Magento_Store_ds.Magento_ProductCatalogMatch.ChildRelations
+
+    '            For ix = Magento_Store_ds.Magento_ProductCatalogMatch.Rows.Count - 1 To 0 Step -1
+    '                If Not IsNothing(Magento_Store_ds.Magento_ProductCatalogMatch.Rows(ix).GetChildRows(relation)) Then
+    '                    childRows = Magento_Store_ds.Magento_ProductCatalogMatch.Rows(ix).GetChildRows(relation)
+
+    '                    If childRows.Count > 0 Then
+    '                        Magento_Store_ds.Magento_ProductCatalogMatch.Rows(ix).Delete()
+    '                    End If
+    '                End If
+    '            Next
+    '            ' Next relation
+    '            'now copy the NEW data 
+    '            Try
+    '                If Magento_Store_ds.Magento_ProductCatalogMatch.Rows.Count > 0 Then
+
+    '                    For Each rowx As DataRow In Magento_Store_ds.Magento_ProductCatalogMatch.Rows
+    '                        Dim OptionId As Integer = 0
+    '                        'we need to add the OptionID here based on store and productID
+    '                        If rowx.Item("type") = "configurable" And rowx.Item("name") <> "BLANK" Then
+    '                            OptionId = GetOptionID(rowx.Item("product_id"), StoreView)
+    '                        End If
+
+    '                        Dim ProductGUID As Guid = Guid.NewGuid
+    '                        Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogImport.NewRow()
+
+    '                        newProductsRow("category_ids") = rowx.Item("category_ids")
+    '                        newProductsRow("name") = rowx.Item("name")
+    '                        newProductsRow("product_id") = rowx.Item("product_id")
+    '                        newProductsRow("option_id") = OptionId
+    '                        newProductsRow("set") = rowx.Item("set")
+    '                        newProductsRow("sku") = rowx.Item("sku")
+    '                        newProductsRow("type") = rowx.Item("type")
+    '                        newProductsRow("website_ids") = rowx.Item("website_ids")
+    '                        newProductsRow("store") = StoreView
+
+    '                        'newProductsRow("ProductGUID") = ProductGUID
+    '                        newProductsRow("ImportDescription") = "SYSTEM_GEN"
+    '                        newProductsRow("ImportDate") = Now()
+    '                        newProductsRow("dbContext") = dbContext
+
+    '                        Magento_Store_ds.Magento_ProductCatalogImport.Rows.Add(newProductsRow)
+
+    '                    Next
+
+
+    '                Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+
+    '                End If
+    '            Catch ex As Exception
+    '                WriteEventToLog("Error", "CopyProductListToDatabase_a: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '            End Try
+    'skipMatch:
+    '        Try
+    '            Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+    '        Catch ex As Exception
+    '            WriteEventToLog("Error", "CopyProductListToDatabase_b: ", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+    '        End Try
+
+    '    End Sub
 
 
 #End Region

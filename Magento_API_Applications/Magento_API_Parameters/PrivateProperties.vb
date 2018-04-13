@@ -30,6 +30,12 @@ Module PrivateProperties
     Friend WithEvents Magento_ProductCatalogMatch_da As Magento_StoreTableAdapters.Magento_ProductCatalogMatchTableAdapter
     Friend WithEvents Magento_ProductCatalogImport_da As Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
     Friend WithEvents MatchTable_da As Magento_StoreTableAdapters.Magento_ProductCatalogImportMatchTableAdapter
+    Friend WithEvents Magento_ProductCatalogImport_Control_da As Magento_StoreTableAdapters.Magento_ProductCatalogImport_ControlTableAdapter
+
+    Friend WithEvents ProductCatalogImport_Family As Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+    Friend WithEvents ProductCatalogImport_Child As Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+    Friend WithEvents ProductCatalogImport_Parent As Magento_StoreTableAdapters.Magento_ProductCatalogImportTableAdapter
+
     Friend WithEvents Magento_Store_ds As Magento_Store
 
 #End Region
