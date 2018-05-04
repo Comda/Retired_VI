@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:ProductUpdateType" ZOrder="5" X="417" Y="265" Height="96" Width="261" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
     <Shape ID="DesignTable:ProductByFamilyDistinct" ZOrder="4" X="930" Y="221" Height="96" Width="287" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
-    <Shape ID="DesignTable:Magento_ProductCatalogImport" ZOrder="2" X="801" Y="480" Height="115" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:Magento_ProductCatalogImport" ZOrder="2" X="801" Y="480" Height="134" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:Magento_catalogProductUpdate" ZOrder="3" X="378" Y="391" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors>

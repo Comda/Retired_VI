@@ -41,13 +41,19 @@ Public Class UpdateDescription
 
         'GetProductsToUpdate("PARENT")
 
+        Try
 
-        If Magento_Store_ds.ProductUpdateType.Rows.Count > 0 Then
-            For i As Integer = 0 To Magento_Store_ds.ProductUpdateType.Rows.Count - 1
-                GetProductsToUpdate(Magento_Store_ds.ProductUpdateType.Rows(i).Item("type"), TransactionID)
-            Next
-        End If
 
+            If Magento_Store_ds.ProductUpdateType.Rows.Count > 0 Then
+                For i As Integer = 0 To Magento_Store_ds.ProductUpdateType.Rows.Count - 1
+                    GetProductsToUpdate(Magento_Store_ds.ProductUpdateType.Rows(i).Item("type"), TransactionID)
+                    'Magento_Store_ds.Magento_catalogProductUpdate.AcceptChanges()
+                    Magento_catalogProductUpdate_da.Update(Magento_Store_ds.Magento_catalogProductUpdate)
+                Next
+            End If
+        Catch ex As Exception
+
+        End Try
         Api_Para.WriteEventToLog("Info", "Synchronize Names/Description Completed", "", StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
 
 
@@ -70,6 +76,8 @@ Public Class UpdateDescription
             Try
                 ProductByFamilyDistinct_da.Fill(Magento_Store_ds.ProductByFamilyDistinct, ERP_Type, Guid.Parse(TransactionID))
                 Magento_catalogProductUpdate_da.Fill(Magento_Store_ds.Magento_catalogProductUpdate, ERP_Type, Guid.Parse(TransactionID))
+                Dim UpdateView As DataView = Magento_Store_ds.Magento_catalogProductUpdate.DefaultView
+
                 GetProductId()
 
                 Dim ProdUnique As DataTable = Magento_Store_ds.ProductByFamilyDistinct ' Mage_API_Store_DS.ProductUpdate_distinct
@@ -79,7 +87,8 @@ Public Class UpdateDescription
                 Dim RowFilter As String = Nothing
                 ProdAll.Sort = "store ASC"
 
-
+                'Magento_Store_ds.Magento_catalogProductUpdate.AcceptChanges()
+                'Magento_catalogProductUpdate_da.Update(Magento_Store_ds.Magento_catalogProductUpdate)
 
                 For id = 0 To ProdUnique.Rows.Count - 1 'figure out the sku 'separate by store/description type
                     RowFilter = "sku='" & ProdUnique.Rows(id).Item("sku") & "'"
@@ -200,8 +209,16 @@ Public Class UpdateDescription
                             '    DefaultSore = False
                             'End If
                             Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Entering Store {4}", MagentoType, id, StopwatchLocal.Elapsed, item.productId, CurStore)
-                                    Magento_DescriptionWrite(productdata, item.productId, CurStore, MagentoType, Updated)
-                                    Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, item.productId, CurStore)
+                            Magento_DescriptionWrite(productdata, item.productId, CurStore, MagentoType, Updated)
+                            Debug.WriteLine("Type {0}  Count {1}  Time {2}  ProdID {3}  Leaving Store {4}", MagentoType, id, StopwatchLocal.Elapsed, item.productId, CurStore)
+
+                            Dim RowFilterUpdate As String = Nothing
+                            RowFilterUpdate = "sku='" & ProdUnique.Rows(id).Item("sku") & "' and store='" & CurStore & "'"
+                            UpdateView.RowFilter = RowFilterUpdate
+                            Dim RowToUpdate As DataRowView = UpdateView(0)
+                            RowToUpdate.Item("Result") = Updated
+                            RowToUpdate.Item("InUpdateUniverse") = Not Updated
+                            RowToUpdate.Item("DateUpdated") = Now()
 
 
 skipDescription:
@@ -209,30 +226,35 @@ skipDescription:
 
                     Next
 Update_ERP:
+                    'We need a row from Magento_Store_ds.Magento_catalogProductUpdate to update
 
-                    For Each Index As ProductIndex In ProductIndex
-                        If Updated Then ProdAll(Index.CurIndex).Item("DateUpdated") = Now()
-                        ProdAll(Index.CurIndex).Item("Result") = Updated
-                        ProdAll(Index.CurIndex).Item("InUpdateUniverse") = Not Updated
-                        'Debug.WriteLine(ProdAll(Index.CurIndex).Item("store"))
-                        'Debug.WriteLine("Type {0}  Count {1}  Time {2}", MagentoType, id, Now())
-                    Next
+
+                    'For Each Index As ProductIndex In ProductIndex
+                    '    If Updated Then ProdAll(Index.CurIndex).Item("DateUpdated") = Now()
+                    '    ProdAll(Index.CurIndex).Item("Result") = Updated
+                    '    ProdAll(Index.CurIndex).Item("InUpdateUniverse") = Not Updated
+                    '    'Debug.WriteLine(ProdAll(Index.CurIndex).Item("store"))
+                    '    'Debug.WriteLine("Type {0}  Count {1}  Time {2}", MagentoType, id, Now())
+                    'Next
+
 SKIP_Prod:
 
 
                 Next
+                'Magento_Store_ds.Magento_catalogProductUpdate.AcceptChanges()
+                'Magento_catalogProductUpdate_da.Update(Magento_Store_ds.Magento_catalogProductUpdate)
             Catch ex As Exception
                 Debug.WriteLine("id {0} ip {1}", id, ip)
                 Api_Para.WriteEventToLog("Error", "GetProductsToUpdate_B4 Update DB", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
             End Try
 
-            Magento_catalogProductUpdate_da.Update(Magento_Store_ds.Magento_catalogProductUpdate)
+            '    Magento_catalogProductUpdate_da.Update(Magento_Store_ds.Magento_catalogProductUpdate)
 
         Catch ex As Exception
-            Api_Para.WriteEventToLog("Error", "GetProductsToUpdate", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+            '    Api_Para.WriteEventToLog("Error", "GetProductsToUpdate", ex.Message, StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
         End Try
 
-        Api_Para.WriteEventToLog("Info", "GetProductsToUpdate", "COMPLETED", StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
+        'Api_Para.WriteEventToLog("Info", "GetProductsToUpdate", "COMPLETED", StopwatchLocal, Guid.Parse(TransactionID), ControlRoot)
     End Sub
 
     Private Sub Magento_DescriptionWrite(ByVal productdata As catalogProductCreateEntity, ByVal productID As Integer, ByVal storeView As String, ByVal identifierType As String, ByRef Updated As Boolean)

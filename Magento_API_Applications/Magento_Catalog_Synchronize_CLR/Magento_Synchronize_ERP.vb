@@ -17,7 +17,9 @@ Partial Public Class StoredProcedures
         Dim dbcon As New SqlClient.SqlConnection
         dbcon.ConnectionString = ConnectionString
 
-        Select Case Action.ToUpper
+        Action = Action.ToUpper
+
+        Select Case Action
             Case "UPDATE CATALOG"
                 Dim MagentoType As String = Nothing
 
@@ -58,20 +60,45 @@ Partial Public Class StoredProcedures
                     Dim ps As New Magento_API_SetupFees.SetUpFees(dbcon, init.CurrentSessionID, TransactionID, ControlRoot)
                 End If
 
-            Case "TIER_PRICE_DATA_QA"
+            Case "MAGE_PRICE_DATA_COMPARE"
                 Dim init As New Magento_API_Parameters.Initialize
                 init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
                 If init.CurrentSessionID.Length > 0 Then
                     Dim CreateTierPrice As Boolean = False
-                    Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice)
+                    Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice, Action)
                 End If
-            Case "TIER_PRICE_DATA"
+            Case "MAGE_PRICE_DATA_UPDATE"
                 Dim init As New Magento_API_Parameters.Initialize
                 init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
                 If init.CurrentSessionID.Length > 0 Then
                     Dim CreateTierPrice As Boolean = True
-                    Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice)
+                    Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice, Action)
                 End If
+
+            Case "ERP_PRICING COMPARE"
+
+                Dim CreateTierPrice As Boolean = False
+                Dim CreateTierPriceGRID As Boolean = False
+
+
+                Dim init As New Magento_API_Parameters.Initialize
+                init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
+                If init.CurrentSessionID.Length > 0 Then
+                    Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice, CreateTierPriceGRID, Action)
+                End If
+            Case "ERP_PRICING UPLOAD"
+
+                Dim CreateTierPrice As Boolean = False
+                Dim CreateTierPriceGRID As Boolean = True
+
+
+                Dim init As New Magento_API_Parameters.Initialize
+                init.GetMagentoAPI_Credentials(UserID, API_ID, ControlRoot, TransactionID, dbContext)
+                If init.CurrentSessionID.Length > 0 Then
+                    Dim tp As New Magento_API_TierPrice.ChangeTierPrices(dbcon, init.CurrentSessionID, Guid.Parse(TransactionID), CreateTierPrice, CreateTierPriceGRID, Action)
+                End If
+
+
         End Select
 
     End Sub

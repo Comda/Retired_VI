@@ -40,6 +40,7 @@ Partial Class Form1
         Me.b_TierPricingUPDATEMagento = New System.Windows.Forms.Button()
         Me.b_TierPricingQATableONLY = New System.Windows.Forms.Button()
         Me.b_TierPriceGRIDQA = New System.Windows.Forms.Button()
+        Me.b_ERP_PRICING_UPLOAD = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -154,7 +155,7 @@ Partial Class Form1
         '
         'b_SetUp
         '
-        Me.b_SetUp.Location = New System.Drawing.Point(532, 205)
+        Me.b_SetUp.Location = New System.Drawing.Point(649, 70)
         Me.b_SetUp.Name = "b_SetUp"
         Me.b_SetUp.Size = New System.Drawing.Size(75, 23)
         Me.b_SetUp.TabIndex = 15
@@ -197,11 +198,21 @@ Partial Class Form1
         Me.b_TierPriceGRIDQA.Text = "Tier Price GRID - QA"
         Me.b_TierPriceGRIDQA.UseVisualStyleBackColor = True
         '
+        'b_ERP_PRICING_UPLOAD
+        '
+        Me.b_ERP_PRICING_UPLOAD.Location = New System.Drawing.Point(419, 167)
+        Me.b_ERP_PRICING_UPLOAD.Name = "b_ERP_PRICING_UPLOAD"
+        Me.b_ERP_PRICING_UPLOAD.Size = New System.Drawing.Size(148, 23)
+        Me.b_ERP_PRICING_UPLOAD.TabIndex = 20
+        Me.b_ERP_PRICING_UPLOAD.Text = "Tier Price GRID - Upload"
+        Me.b_ERP_PRICING_UPLOAD.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(771, 320)
+        Me.Controls.Add(Me.b_ERP_PRICING_UPLOAD)
         Me.Controls.Add(Me.b_TierPriceGRIDQA)
         Me.Controls.Add(Me.b_TierPricingQATableONLY)
         Me.Controls.Add(Me.b_TierPricingUPDATEMagento)
@@ -245,4 +256,5 @@ Partial Class Form1
     Friend WithEvents b_TierPricingUPDATEMagento As Button
     Friend WithEvents b_TierPricingQATableONLY As Button
     Friend WithEvents b_TierPriceGRIDQA As Button
+    Friend WithEvents b_ERP_PRICING_UPLOAD As Button
 End Class
