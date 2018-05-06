@@ -31,7 +31,7 @@ Public Class ChangeTierPrices
             'in all events current table will be updated with a unique ID
             CreatePriceData = CreateTierPrice_DATA
 
-            SessionId = CurrentSessionID
+            'SessionId = CurrentSessionID
 
 
             Magento_ProductCatalog_TierPrice_Universe_GET_da.Fill(Magento_Store_ds.Magento_ProductCatalog_TierPrice_Universe_GET, TransactionID, Action)
@@ -163,13 +163,17 @@ Public Class ChangeTierPrices
                     Dim MageERP_sorted As JArray = New JArray(MageERP.OrderBy(Function(obj) CStr(obj("website"))))
 
                     issue = MageERP_sorted.ToString.Equals(MageTPG_sorted.ToString)
-
-                    dr.Item("Issue") = issue
-                    dr.Item("TierPriceGrid_Created_From_ERP_PriceTier") = MageERP_sorted.ToString
-                    dr.Item("Magento_TierPriceGrid") = MageTPG_sorted.ToString
-                    dr.Item("Status") = Status
+                    Try
 
 
+                        dr.Item("Issue") = issue
+                        dr.Item("TierPriceGrid_Created_From_ERP_PriceTier") = MageERP_sorted.ToString
+                        dr.Item("Magento_TierPriceGrid") = MageTPG_sorted.ToString
+                        dr.Item("Status") = Status.Substring(0, Math.Min(100, Status.Length))
+
+                    Catch ex As Exception
+
+                    End Try
 
                     Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
 
@@ -788,7 +792,7 @@ skipRow:
             Else
                 Status = "Tier_Price_Data NOT UPDATED"
             End If
-            dr.Item("Status") = Status
+            dr.Item("Status") = Status.Substring(0, Math.Min(100, Status.Length))
             Magento_ProductCatalog_TierPrice_QA_da.Update(Magento_Store_ds.Magento_ProductCatalog_TierPrice_QA)
 
         Catch ex As Exception

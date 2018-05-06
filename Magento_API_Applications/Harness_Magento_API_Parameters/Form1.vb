@@ -322,7 +322,7 @@ Public Class Form1
         Dim CreateTierPrice As Boolean = False
         Dim CreateTierPriceGRID As Boolean = True
 
-        TransactionID = Guid.Parse("D380A2D2-73F6-40BA-BDBA-6EF3AC6AB507").ToString
+        TransactionID = Guid.Parse("3E042FE0-3CD3-4840-97E4-05D8E0C474A6").ToString
 
         '
 
