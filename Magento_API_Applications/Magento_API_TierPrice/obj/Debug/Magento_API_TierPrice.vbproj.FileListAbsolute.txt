@@ -117,7 +117,6 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\bin\Debug\Magent
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\bin\Debug\Magento_API_Parameters.dll.config
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\bin\Debug\Newtonsoft.Json.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\bin\Debug\Magento_API_Parameters.XmlSerializers.dll
-Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.vbprojResolveAssemblyReference.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.Resources.resources
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.vbproj.GenerateResource.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.vbproj.CoreCompileInputs.cache
@@ -125,3 +124,4 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magent
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.pdb
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_TierPrice\obj\Debug\Magento_API_TierPrice.vbprojAssemblyReference.cache

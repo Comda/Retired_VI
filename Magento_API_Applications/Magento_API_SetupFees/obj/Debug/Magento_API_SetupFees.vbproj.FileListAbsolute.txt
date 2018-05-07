@@ -87,7 +87,6 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\bin\Debug\Magent
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\bin\Debug\Magento_API_Parameters.dll.config
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\bin\Debug\Newtonsoft.Json.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\bin\Debug\Magento_API_Parameters.XmlSerializers.dll
-Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.vbprojResolveAssemblyReference.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.Resources.resources
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.vbproj.GenerateResource.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.vbproj.CoreCompileInputs.cache
@@ -95,3 +94,4 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magent
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.pdb
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_API_SetupFees\obj\Debug\Magento_API_SetupFees.vbprojAssemblyReference.cache

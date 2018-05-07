@@ -120,7 +120,6 @@ Public Class UpdateDescription
                         Dim store As String = ProdAll(ip).Item("store")
                         Dim sku As String = ProdAll(ip).Item("sku")
 
-
                         Dim rownull = ProdAll(ip).Item("sku_2")
 
                         If Not IsDBNull(rownull) Then
@@ -134,17 +133,19 @@ Public Class UpdateDescription
 
                         'End If
 
-
                         If ProductId <> 0 Then
                             AddToPartDescription(ProductDescription, ProductId, OptionId, store, DescriptionType, NewDescription, ip, sku, sku_2)
                             AddToProductIndex(ProductIndex, ip)
                         End If
 
                     Next
+
                     If ProductDescription.Count = 0 Then
                         GoTo SKIP_Prod
                     End If
+
                     Dim Updated As Boolean = False
+
                     If ProductDescription(0).type = "Imprint Location" Then
                         'execute option code and fall out
                         GetCatalogOptions(ProductDescription, Updated)
@@ -215,10 +216,17 @@ Public Class UpdateDescription
                             Dim RowFilterUpdate As String = Nothing
                             RowFilterUpdate = "sku='" & ProdUnique.Rows(id).Item("sku") & "' and store='" & CurStore & "'"
                             UpdateView.RowFilter = RowFilterUpdate
-                            Dim RowToUpdate As DataRowView = UpdateView(0)
-                            RowToUpdate.Item("Result") = Updated
-                            RowToUpdate.Item("InUpdateUniverse") = Not Updated
-                            RowToUpdate.Item("DateUpdated") = Now()
+                            For iRowToUpdate As Integer = 0 To UpdateView.Count - 1
+                                Dim RowToUpdate As DataRowView = UpdateView(iRowToUpdate)
+                                RowToUpdate.Item("Result") = Updated
+                                RowToUpdate.Item("InUpdateUniverse") = Not Updated
+                                If Updated Then
+                                    RowToUpdate.Item("DateUpdated") = Now()
+                                End If
+                            Next
+
+
+
 
 
 skipDescription:

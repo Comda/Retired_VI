@@ -213,7 +213,6 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\bin\De
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\bin\Debug\Magento_API_TierPrice.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\bin\Debug\Magento_API_TierPrice.dll.config
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\bin\Debug\Newtonsoft.Json.xml
-Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.sqlprojResolveAssemblyReference.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.sqlproj.CopyComplete
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.pdb
@@ -221,3 +220,4 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\De
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\refactor.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\postdeploy.sql
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\predeploy.sql
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.sqlprojAssemblyReference.cache
