@@ -259,7 +259,6 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\bin\Deb
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\bin\Debug\Magento_API_SetupFees.XmlSerializers.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\bin\Debug\Magento_API_TierPrice.XmlSerializers.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\bin\Debug\Magento_API_UpdateNameDescription.XmlSerializers.dll
-Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.vbprojResolveAssemblyReference.cache
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.Form1.resources
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.Resources.resources
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.vbproj.GenerateResource.cache
@@ -268,3 +267,4 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Deb
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.exe
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.xml
 Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.pdb
+Q:\COMDA_REPO\VI\Magento_API_Applications\Harness_Magento_API_Parameters\obj\Debug\Harness_Magento_API_Parameters.vbprojAssemblyReference.cache

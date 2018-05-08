@@ -1,6 +1,8 @@
 ﻿Imports Magento_API_Parameters.Mage_API
 
 Public Class UpdateDescription
+    Public Property UpdateView As DataView
+
     Public Sub New(ByVal dbConnection As SqlClient.SqlConnection, ByVal CurrentSessionID As String, ByVal TransactionID_Current As String, ByVal ControlRoot_Current As String)
         SessionId = CurrentSessionID
 
@@ -73,10 +75,11 @@ Public Class UpdateDescription
         Try
             Dim id As Integer = 0
             Dim ip As Integer = 0
+
             Try
                 ProductByFamilyDistinct_da.Fill(Magento_Store_ds.ProductByFamilyDistinct, ERP_Type, Guid.Parse(TransactionID))
                 Magento_catalogProductUpdate_da.Fill(Magento_Store_ds.Magento_catalogProductUpdate, ERP_Type, Guid.Parse(TransactionID))
-                Dim UpdateView As DataView = Magento_Store_ds.Magento_catalogProductUpdate.DefaultView
+                UpdateView = Magento_Store_ds.Magento_catalogProductUpdate.DefaultView
 
                 GetProductId()
 
@@ -108,6 +111,7 @@ Public Class UpdateDescription
                             ProductId = ProdAll(ip).Item("product_id")
                         End If
                         If ProductId = 0 Then GoTo SKIP_Prod
+                        'If ProductId = 19494 Then Stop
 
                         Dim OptionIDNull = ProdAll(ip).Item("option_id")
                         If Not IsDBNull(OptionIDNull) Then
@@ -434,6 +438,18 @@ SKIP_Prod:
 
                         Updated = MageHandler.catalogProductCustomOptionUpdate(SessionId, OptionID, data, CurStore)
                         Debug.WriteLine("store {0}", CurStore)
+
+                        Dim RowFilterUpdate As String = Nothing
+                        RowFilterUpdate = "sku='" & ERP_item.productId & "' and store='" & CurStore & "'"
+                        UpdateView.RowFilter = RowFilterUpdate
+                        For iRowToUpdate As Integer = 0 To UpdateView.Count - 1
+                            Dim RowToUpdate As DataRowView = UpdateView(iRowToUpdate)
+                            RowToUpdate.Item("Result") = Updated
+                            RowToUpdate.Item("InUpdateUniverse") = Not Updated
+                            If Updated Then
+                                RowToUpdate.Item("DateUpdated") = Now()
+                            End If
+                        Next
 
                     Next
 
