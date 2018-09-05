@@ -67,46 +67,11 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=JB-FAST\DEVEL_2016;Initial Catalog=API_Internal_SVS_CLR;Persist Secur"& _ 
-            "ity Info=True;User ID=sa;Pooling=False;MultipleActiveResultSets=False;Connect Ti"& _ 
-            "meout=60;Encrypt=False;TrustServerCertificate=True")>  _
-        Public ReadOnly Property COMDA_COM_Product_QA_ERP() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=jb-fast\devel_2016;Initial Catalog=API_Internal_SVS_CLR;User ID=sa;Pa"& _ 
+            "ssword=sophie")>  _
+        Public ReadOnly Property API_Internal_SVS_CLRConnectionString() As String
             Get
-                Return CType(Me("COMDA_COM_Product_QA_ERP"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=JB-FAST\DEVEL_2016;Initial Catalog=API_Internal_SVS_CLR;Persist Secur"& _ 
-            "ity Info=True;User ID=sa;Pooling=False;MultipleActiveResultSets=False;Connect Ti"& _ 
-            "meout=60;Encrypt=False;TrustServerCertificate=True")>  _
-        Public ReadOnly Property API_COMDA_COMConnectionString() As String
-            Get
-                Return CType(Me("API_COMDA_COMConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=COCAPIINTERNAL\TEST,2433;Initial Catalog=API_COMDA_COM;User ID=sa;Pas"& _ 
-            "sword=apitest2015")>  _
-        Public ReadOnly Property API_COMDA_COMConnectionString1() As String
-            Get
-                Return CType(Me("API_COMDA_COMConnectionString1"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=jb-fast\devel_2016;Initial Catalog=Api_Store;Persist Security Info=Tr"& _ 
-            "ue;User ID=sa;Password=sophie")>  _
-        Public ReadOnly Property Api_StoreConnectionString() As String
-            Get
-                Return CType(Me("Api_StoreConnectionString"),String)
+                Return CType(Me("API_Internal_SVS_CLRConnectionString"),String)
             End Get
         End Property
     End Class

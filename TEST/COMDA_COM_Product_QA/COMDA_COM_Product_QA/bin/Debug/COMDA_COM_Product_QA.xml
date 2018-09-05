@@ -27,7 +27,7 @@ COMDA_COM_Product_QA
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_ProductCatalogImportDataTable">
+<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_SOAP_RequestsDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -37,12 +37,12 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_SOAP_RequestsDataTable">
+<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_ProductCatalogImportDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_ProductCatalogImportRow">
+<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_SOAP_RequestsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -52,12 +52,12 @@ Represents strongly named DataRow class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_SOAP_RequestsRow">
+<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_ProductCatalogImportRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_ProductCatalogImportRowChangeEvent">
+<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_SOAP_RequestsRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -67,12 +67,12 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_SOAP_RequestsRowChangeEvent">
+<member name="T:COMDA_COM_Product_QA.MagentoStore.Magento_ProductCatalogImportRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStoreTableAdapters.Magento_ProductCatalogImportTableAdapter">
+<member name="T:COMDA_COM_Product_QA.MagentoStoreTableAdapters.Magento_SOAP_RequestsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -82,7 +82,7 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:COMDA_COM_Product_QA.MagentoStoreTableAdapters.Magento_SOAP_RequestsTableAdapter">
+<member name="T:COMDA_COM_Product_QA.MagentoStoreTableAdapters.Magento_ProductCatalogImportTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
