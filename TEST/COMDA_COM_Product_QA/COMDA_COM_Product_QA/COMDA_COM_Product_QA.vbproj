@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F632D1AB-FC8F-463B-98CB-827B1017CAE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>COMDA_COM_Product_QA</RootNamespace>
+    <AssemblyName>COMDA_COM_Product_QA</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>COMDA_COM_Product_QA.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>COMDA_COM_Product_QA.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseProducts.vb" />
+    <Compile Include="CommonMethods.vb" />
+    <Compile Include="DetailedProducts.vb" />
+    <Compile Include="MagentoStore.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MagentoStore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Magento_Login.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="CommonProperties.vb" />
+    <Compile Include="Web References\Magento_API\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="MagentoStore.xsc">
+      <DependentUpon>MagentoStore.xsd</DependentUpon>
+    </None>
+    <None Include="MagentoStore.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MagentoStore.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="MagentoStore.xss">
+      <DependentUpon>MagentoStore.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\Magento_API\apiEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\associativeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogAssignedProduct.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogAttributeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogAttributeOptionEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogCategoryEntityNoChildren.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogCategoryInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogCategoryTree.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogInventoryStockItemEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductAttributeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductAttributeMediaTypeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductAttributeSetEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductCustomOptionInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductCustomOptionListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductCustomOptionTypesEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductCustomOptionValueInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductCustomOptionValueListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductDownloadableLinkInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductImageEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductLinkAttributeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductLinkEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductReturnEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductSpecialPriceReturnEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductTagInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductTagListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductTierPriceEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\catalogProductTypeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\customerAddressEntityItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\customerCustomerEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\customerGroupEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\directoryCountryEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\directoryRegionEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\enterpriseCustomerbalanceHistoryItemEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\enterpriseGiftcardaccountListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\existsFaltureEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\giftcardAccountEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\giftcardCustomerEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\giftMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\Magento_API\Magento.wsdl" />
+    <None Include="Web References\Magento_API\magentoInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\Magento_API\registryDeletedItemEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\registryEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\registryItemEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\salesOrderCreditmemoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\salesOrderEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\salesOrderInvoiceEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\salesOrderListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\salesOrderShipmentEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\shoppingCartInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\shoppingCartLicenseEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\shoppingCartPaymentMethodResponseEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\shoppingCartShippingMethodEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\shoppingCartTotalsEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Magento_API\storeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\Magento_PROD_B4_Blog.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Magento_API\</RelPath>
+      <UpdateFromURL>Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\Magento_PROD_B4_Blog.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>COMDA_COM_Product_QA_Magento_API_MagentoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\x64\sgen.exe" $(TargetPath) /f</PostBuildEvent>
+  </PropertyGroup>
+</Project>
