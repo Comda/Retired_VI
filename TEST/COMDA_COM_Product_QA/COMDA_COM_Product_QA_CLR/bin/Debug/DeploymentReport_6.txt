@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [COMDA_COM_Product_QA_CLR] (Assembly)
+     Create
+       [COMDA_COM_Product_QA_CLR] (Assembly)
+
+** Supporting actions
+     Drop
+       [dbo].[MagentoSessionID_GET] (Function)
+       [dbo].[MagentoProducts_GET] (Procedure)
+     Create
+       [dbo].[MagentoSessionID_GET] (Function)
+       [dbo].[MagentoProducts_GET] (Procedure)

@@ -30,11 +30,11 @@ Public Class Form1
         tb_SessionID.Text = SessionId
 
         Dim dbConnection As New SqlConnection With {
-            .ConnectionString = "Data Source=JB-FAST\DEVEL_2016;Initial Catalog=API_Internal_SVS_CLR;Persist Security Info=True;User ID=sa;Password=sophie;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True"
+            .ConnectionString = "Data Source=cocapiinternal\test,2433;Initial Catalog=API_COMDA_COM;Persist Security Info=True;User ID=sa;Password=apitest2015" '"Data Source=JB-FAST\DEVEL_2016;Initial Catalog=API_Internal_SVS_CLR;Persist Security Info=True;User ID=sa;Password=sophie;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True"
         }
 
-        Dim ImportID As Guid = Guid.NewGuid()
-        Dim BasicCatalog As New BaseProducts(SessionId, dbConnection, ImportID)
+        Dim ImportID As Guid = Guid.Parse("DF14A094-CEE6-40B1-B651-963F549C69E0") '- -Guid.NewGuid()
+        'Dim BasicCatalog As New BaseProducts(SessionId, dbConnection, ImportID)
         Dim DetailedCatalog As New DetailedProducts(SessionId, dbConnection, ImportID)
 
         MessageBox.Show("DONE")

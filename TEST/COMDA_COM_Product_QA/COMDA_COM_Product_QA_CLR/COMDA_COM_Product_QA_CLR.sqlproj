@@ -85,4 +85,7 @@
       <SqlPermissionSet>UNSAFE</SqlPermissionSet>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="TEST_COMDA_COM_Product_QA_CLR.publish.xml" />
+  </ItemGroup>
 </Project>

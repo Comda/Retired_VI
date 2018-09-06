@@ -14,7 +14,7 @@ Public Class DetailedProducts
 
         InitializeSQLVariables(dbConnection)
 
-        Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID)
+        Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID, "API_CALL")
         Dim ProductData As DataTable = Magento_Store_ds.Magento_ProductCatalogImport
 
         Dim Category As String = "Catalog"

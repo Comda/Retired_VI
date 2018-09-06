@@ -3776,21 +3776,28 @@ Namespace MagentoStoreTableAdapters
             Me._commandCollection(0).CommandText = "SELECT        Id, category_ids, name, product_id, option_id, [set], sku, type, we"& _ 
                 "bsite_ids, store, Magento_Status, Magento_Product_Info, ImportDescription, Impor"& _ 
                 "tDate, dbContext, ImportID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Magento_API.Magento_ProductCatalogIm"& _ 
-                "port"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ImportID = @ImportID)"
+                "port"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ImportID = @ImportID) AND (ImportDescription = @ImportDescri"& _ 
+                "ption)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImportID", Global.System.Data.SqlDbType.UniqueIdentifier, 16, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImportDescription", Global.System.Data.SqlDbType.VarChar, 250, Global.System.Data.ParameterDirection.Input, 0, 0, "ImportDescription", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As MagentoStore.Magento_ProductCatalogImportDataTable, ByVal ImportID As Global.System.Nullable(Of Global.System.Guid)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As MagentoStore.Magento_ProductCatalogImportDataTable, ByVal ImportID As Global.System.Nullable(Of Global.System.Guid), ByVal ImportDescription As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (ImportID.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(ImportID.Value,System.Guid)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (ImportDescription Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ImportDescription,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -3803,12 +3810,17 @@ Namespace MagentoStoreTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal ImportID As Global.System.Nullable(Of Global.System.Guid)) As MagentoStore.Magento_ProductCatalogImportDataTable
+        Public Overloads Overridable Function GetData(ByVal ImportID As Global.System.Nullable(Of Global.System.Guid), ByVal ImportDescription As String) As MagentoStore.Magento_ProductCatalogImportDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (ImportID.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(ImportID.Value,System.Guid)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (ImportDescription Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ImportDescription,String)
             End If
             Dim dataTable As MagentoStore.Magento_ProductCatalogImportDataTable = New MagentoStore.Magento_ProductCatalogImportDataTable()
             Me.Adapter.Fill(dataTable)
