@@ -40,14 +40,18 @@ Public Class DetailedProducts
                 'If ProductId <> 1301 Then GoTo SKIP
 
                 Dim ResponseDoc As XDocument = XML_Request_catalogProductInfo(SessionID, ProductId, Status, doc)
+                If Not IsNothing(ResponseDoc) Then
+                    ProductData.Rows(i).Item("ImportDescription") = "UPDATED"
+                    ProductData.Rows(i).Item("Magento_Status") = Status
+                    ProductData.Rows(i).Item("Magento_Product_Info") = ResponseDoc
 
-                ProductData.Rows(i).Item("ImportDescription") = "UPDATED"
-                ProductData.Rows(i).Item("Magento_Status") = Status
-                ProductData.Rows(i).Item("Magento_Product_Info") = ResponseDoc
+                    Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
 
-                Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+                    GetCatalogOptions(SessionID, ProductId, store_name, sku, ImportID)
+                Else
+                    ProductData.Rows(i).Item("ImportDescription") = "NOT UPDATED"
+                End If
 
-                GetCatalogOptions(SessionID, ProductId, store_name, sku, ImportID)
 SKIP:
             Next
         End If
@@ -57,7 +61,7 @@ SKIP:
     Public Function XML_Request_catalogProductInfo(ByVal SessionID As String, ByVal ProductId As Integer, ByRef Status As Integer, ByVal doc As XDocument) As XDocument
         Dim ResponseDoc As XDocument = Nothing
         Try
-
+            Status = Nothing
             Using client = New WebClient()
 
                 'Dim doc As XDocument = XDocument.Load("C:\Users\jboyer\source\repos\request_catalogProductInfo.xml")
@@ -84,7 +88,8 @@ SKIP:
                 Next
             End Using
         Catch ex As Exception
-            Throw New Exception("XML_Request_catalogProductInfo : " & ex.Message)
+            'Error not trapped. ResponseDoc will be null and Sataus will be Nothing
+            'Throw New Exception("XML_Request_catalogProductInfo : " & ex.Message)
         End Try
 
         Return ResponseDoc
@@ -400,10 +405,8 @@ NextItem:
 
             'End If
         Catch ex As Exception
-            Throw New Exception("GetCatalogOptions : " & ex.Message)
+            'Throw New Exception("GetCatalogOptions : " & ex.Message)
         End Try
-
-
 
         Magento_ProductCatalogImport_SKU_Details_da.Update(Magento_Store_ds.Magento_ProductCatalogImport_SKU_Details)
     End Sub

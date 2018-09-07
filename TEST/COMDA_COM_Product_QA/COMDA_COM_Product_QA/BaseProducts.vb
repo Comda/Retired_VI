@@ -38,6 +38,7 @@ Public Class BaseProducts
                 catalogProductEntityTable = MageHandler.catalogProductList(SessionId, ChildFilter, StoreView)
 
             Catch ex As Exception
+                ' I need to get OUT because this is my baseFailing will mean NO data
                 Throw New Exception("GetCurrentCatalog : " & ex.Message)
             End Try
 
