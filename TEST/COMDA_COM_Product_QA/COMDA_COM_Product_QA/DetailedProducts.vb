@@ -15,6 +15,7 @@ Public Class DetailedProducts
         InitializeSQLVariables(dbConnection)
 
         Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID, "API_CALL")
+        'Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID, "UPDATED")
         Dim ProductData As DataTable = Magento_Store_ds.Magento_ProductCatalogImport
 
         Dim Category As String = "Catalog"
@@ -36,6 +37,8 @@ Public Class DetailedProducts
                 sku = ProductData.Rows(i).Item("sku").ToString
                 'Debug.Print("Sku {0}  Des: {1}", sku, ProductData.Rows(i).Item("name").ToString)
 
+                'If ProductId <> 1301 Then GoTo SKIP
+
                 Dim ResponseDoc As XDocument = XML_Request_catalogProductInfo(SessionID, ProductId, Status, doc)
 
                 ProductData.Rows(i).Item("ImportDescription") = "UPDATED"
@@ -45,7 +48,7 @@ Public Class DetailedProducts
                 Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
 
                 GetCatalogOptions(SessionID, ProductId, store_name, sku, ImportID)
-
+SKIP:
             Next
         End If
 
@@ -105,6 +108,9 @@ Public Class DetailedProducts
                 Dim Options_List_Color = New List(Of Options)
                 Dim Options_List_Size = New List(Of Options)
                 Dim Options_List_Other = New List(Of Options)
+                Dim OptionGroupList As New List(Of OptionGroup)
+                Dim SKU_BY_Order_List As New List(Of SKU_BY_Order)
+                'Dim SKU_BY_Order_List_2 As New List(Of SKU_BY_Order)
 
                 Dim name As String = Nothing
                 Dim product_id As Integer = ProductId
@@ -113,160 +119,291 @@ Public Class DetailedProducts
                 Dim option_sku As String = Nothing
                 Dim sku As String = Nothing
                 Dim ImportDescription As String = Nothing
+                Dim SortOrder As Integer = 0
 
                 'Dim dbContext As String = Nothing
 
                 For Each item As catalogProductCustomOptionListEntity In catalogProductCustomOptionListEntity_t
-                    option_id = item.option_id
-                    name = item.title
+                    'add the to Option Group...
+                    OptionGroupList.Add(New OptionGroup() With {
+                        .option_id = item.option_id,
+                        .name = item.title,
+                        .SortOrder = item.sort_order
+                    })
+
+                Next
+                'Sort the OptionGroup
+                OptionGroupList = OptionGroupList.OrderByDescending(Function(o) o.SortOrder).ToList()
+
+                'For eac OptionGroup, get the SKU. Sort 2 will catenate to Sort 1, one at a time. do we neeed by reverse sort order
+                For Each Opt As OptionGroup In OptionGroupList
+                    Dim OptionGroup_id As Integer = Opt.option_id
+                    Dim SortOrder_x As Integer = Opt.SortOrder
                     Try
-                        catalogProductCustomOptionInfo_t = MageHandler.catalogProductCustomOptionInfo(SessionID, option_id, store_name)
+                        catalogProductCustomOptionInfo_t = MageHandler.catalogProductCustomOptionInfo(SessionID, OptionGroup_id, store_name)
+                        'we now have have the Options by Sort order
+                        'We put them in a list and catenate all the skus
+                        Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
+                        Try
+                            For Each itemx As catalogProductCustomOptionAdditionalFieldsEntity In AdditionalFields
+                                'add to a list with sort order and sku
+                                'Debug.Print("Sort: {0}  SKU:   {1}", SortOrder_x, itemx.sku)
+                                SKU_BY_Order_List.Add(New SKU_BY_Order() With {
+                                    .option_sku = itemx.sku,
+                                    .SortOrder = SortOrder_x
+                    })
+
+                                'option_sku = option_sku & itemx.sku
+                            Next
+                        Catch ex As Exception
+
+                        End Try
                     Catch ex As Exception
-                        'No data SKIP
                         GoTo NextItem
                     End Try
 
-                    'Debug.Print("ID {0}  Option Title {1}", item.option_id, item.title)
-
-                    Select Case name.ToUpper
-                        Case "COLOR", "COLORS"
-                            Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
-                            For Each itemx As catalogProductCustomOptionAdditionalFieldsEntity In AdditionalFields
-                                Debug.WriteLine("SKU  {0}, Title {1}  ID {2} New SKU:  {3}", itemx.sku, item.title, itemx.value_id, Short_Sku & itemx.sku)
-
-                                name = item.title
-                                product_id = ProductId
-                                option_id = option_id
-                                base_sku = Short_Sku
-                                option_sku = itemx.sku
-                                sku = base_sku & option_sku
 
 
-                                AddRowToOptions(Options_List_Color,
-                                         name,
-                                         product_id,
-                                         option_id,
-                                         option_sku)
-
-                            Next
-                        Case "SIZE"
-                            Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
-                            For Each itemx As catalogProductCustomOptionAdditionalFieldsEntity In AdditionalFields
-                                Debug.WriteLine("SKU  {0}, Title {1}  ID {2} New SKU:  {3}", itemx.sku, item.title, itemx.value_id, Short_Sku & itemx.sku)
-
-                                name = item.title
-                                product_id = ProductId
-                                option_id = option_id
-                                base_sku = Short_Sku
-                                option_sku = itemx.sku
-                                sku = base_sku & option_sku
-
-
-                                AddRowToOptions(Options_List_Size,
-                                         name,
-                                         product_id,
-                                         option_id,
-                                         option_sku)
-
-                            Next
-                        Case Else
-                            Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
-                            For Each itemx As catalogProductCustomOptionAdditionalFieldsEntity In AdditionalFields
-                                Debug.WriteLine("SKU  {0}, Title {1}  ID {2} New SKU:  {3}", itemx.sku, item.title, itemx.value_id, Short_Sku & itemx.sku)
-
-                                name = item.title
-                                product_id = ProductId
-                                option_id = option_id
-                                base_sku = Short_Sku
-                                option_sku = itemx.sku
-                                sku = base_sku & option_sku
-
-
-                                AddRowToOptions(Options_List_Other,
-                                         name,
-                                         product_id,
-                                         option_id,
-                                         option_sku)
-
-                            Next
-
-                    End Select
 NextItem:
                 Next
 
+                Dim SKU_BY_Order_List_1 As New List(Of SKU_BY_Order)
+                SKU_BY_Order_List_1.AddRange(SKU_BY_Order_List.FindAll(Function(x) x.SortOrder = 1))
+
+                Dim SKU_BY_Order_List_2 As New List(Of SKU_BY_Order)
+                SKU_BY_Order_List_2.AddRange(SKU_BY_Order_List.FindAll(Function(x) x.SortOrder = 2))
+
+                Dim SKU_BY_Order_List_3 As New List(Of SKU_BY_Order)
+                SKU_BY_Order_List_2.AddRange(SKU_BY_Order_List.FindAll(Function(x) x.SortOrder = 3))
+
+                'Dim Final_SKU_Option As String = Nothing
+
+                name = "" 'opt.title
+                'product_id = ProductId
+                'option_id = option_id
+                base_sku = Short_Sku
+                option_sku = store_name
+                'sku = base_sku & option_sku
+
+                'we need to catenate all 2 to all 1
+                If SKU_BY_Order_List_1.Count > 0 Then
+                    For Each sku_1 In SKU_BY_Order_List_1
+                        If SKU_BY_Order_List_2.Count > 0 Then
+                            For Each sku_2 In SKU_BY_Order_List_2
+                                If SKU_BY_Order_List_3.Count > 0 Then
+                                    For Each sku_3 In SKU_BY_Order_List_3
+                                        Debug.Print(Short_Sku & sku_1.option_sku & sku_2.option_sku & sku_3.option_sku)
+                                        sku = Short_Sku & sku_1.option_sku & sku_2.option_sku & sku_3.option_sku
+                                        CatalogDetails_SET(
+                                                name,
+                                                product_id,
+                                                option_id,
+                                                base_sku,
+                                                option_sku,
+                                                sku,
+                                                ImportDescription,
+                                                ImportDate,
+                                                ImportID)
+                                    Next
+                                Else
+                                    Debug.Print(Short_Sku & sku_1.option_sku & sku_2.option_sku)
+                                    sku = Short_Sku & sku_1.option_sku & sku_2.option_sku
+                                    CatalogDetails_SET(
+                                            name,
+                                            product_id,
+                                            option_id,
+                                            base_sku,
+                                            option_sku,
+                                            sku,
+                                            ImportDescription,
+                                            ImportDate,
+                                            ImportID)
+                                End If
+                            Next
+                        Else
+                            Debug.Print(Short_Sku & sku_1.option_sku)
+                            sku = Short_Sku & sku_1.option_sku
+                            CatalogDetails_SET(
+                                    name,
+                                    product_id,
+                                    option_id,
+                                    base_sku,
+                                    option_sku,
+                                    sku,
+                                    ImportDescription,
+                                    ImportDate,
+                                    ImportID)
+                        End If
+
+
+                    Next
+                End If
+
+                '
+                'Stop
+
+                'SKU_BY_Order_List.Exists(Function(x) x.SortOrder = 2)
+
+                '            Dim query = SKU_BY_Order_List.GroupBy(Function(m) m.SortOrder).
+                'Select(Function(g) New MovieCategory With {
+                '    .Title = g.Key,
+                '    .Items = g.ToList()
+                '})
+
+                'Dim List2Count As Integer = SKU_BY_Order_List.Count(SortOrder >= SortOrder = 2)
+
+                'For i As Integer = 1 To SKU_BY_Order_List_Count
+
+                'Next
+
+
+
+
+                'Debug.WriteLine("SKU  {0}, ", option_sku)
+
+                'Debug.Print("ID {0}  Option Title {1}", item.option_id, item.title)
+
+                'Select Case name.ToUpper
+                '    Case "COLOR", "COLORS"
+                '        Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
+                '        For Each itemx As catalogProductCustomOptionAdditionalFieldsEntity In AdditionalFields
+                '            Debug.WriteLine("SKU  {0}, Title {1}  ID {2} New SKU:  {3}", itemx.sku, item.title, itemx.value_id, Short_Sku & itemx.sku)
+
+                '            name = item.title
+                '            product_id = ProductId
+                '            option_id = option_id
+                '            base_sku = Short_Sku
+                '            option_sku = itemx.sku
+                '            sku = base_sku & option_sku
+
+
+                '            AddRowToOptions(Options_List_Color,
+                '                     name,
+                '                     product_id,
+                '                     option_id,
+                '                     option_sku)
+
+                '        Next
+                '    Case "SIZE"
+                '        Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
+                '        For Each itemx As catalogProductCustomOptionAdditionalFieldsEntity In AdditionalFields
+                '            Debug.WriteLine("SKU  {0}, Title {1}  ID {2} New SKU:  {3}", itemx.sku, item.title, itemx.value_id, Short_Sku & itemx.sku)
+
+                '            name = item.title
+                '            product_id = ProductId
+                '            option_id = option_id
+                '            base_sku = Short_Sku
+                '            option_sku = itemx.sku
+                '            sku = base_sku & option_sku
+
+
+                '            AddRowToOptions(Options_List_Size,
+                '                     name,
+                '                     product_id,
+                '                     option_id,
+                '                     option_sku)
+
+                '        Next
+                '    Case Else
+                '        Dim AdditionalFields As catalogProductCustomOptionAdditionalFieldsEntity() = catalogProductCustomOptionInfo_t.additional_fields
+                '        For Each itemx As catalogProductCustomOptionAdditionalFieldsEntity In AdditionalFields
+                '            Debug.WriteLine("SKU  {0}, Title {1}  ID {2} New SKU:  {3}", itemx.sku, item.title, itemx.value_id, Short_Sku & itemx.sku)
+
+                '            name = item.title
+                '            product_id = ProductId
+                '            option_id = option_id
+                '            base_sku = Short_Sku
+                '            option_sku = itemx.sku
+                '            sku = base_sku & option_sku
+
+
+                '            AddRowToOptions(Options_List_Other,
+                '                     name,
+                '                     product_id,
+                '                     option_id,
+                '                     option_sku)
+
+                '        Next
+
+                'End Select
+
+
+
                 'If I have SIZE, I need to add Size + Colors as sku decoration...
 
-                If Options_List_Size.Count > 0 Then
-                    'catenate base_sku with option_sku. Add to sku list. Add each color.
+                'If Options_List_Size.Count > 0 Then
+                '    'catenate base_sku with option_sku. Add to sku list. Add each color.
 
-                    For Each Size As Options In Options_List_Size
-                        For Each Color As Options In Options_List_Color
-                            Debug.Print(base_sku & Size.option_sku & Color.option_sku)
-                            sku = base_sku & Size.option_sku & Color.option_sku
-                            CatalogDetails_SET(
-                                                    name,
-                                                    product_id,
-                                                    option_id,
-                                                    base_sku,
-                                                    option_sku,
-                                                    sku,
-                                                    ImportDescription,
-                                                    ImportDate,
-                                                    ImportID)
+                '    For Each Size As Options In Options_List_Size
+                '        For Each Color As Options In Options_List_Color
+                '            Debug.Print(base_sku & Size.option_sku & Color.option_sku)
+                '            sku = base_sku & Size.option_sku & Color.option_sku
+                '            CatalogDetails_SET(
+                '                                    name,
+                '                                    product_id,
+                '                                    option_id,
+                '                                    base_sku,
+                '                                    option_sku,
+                '                                    sku,
+                '                                    ImportDescription,
+                '                                    ImportDate,
+                '                                    ImportID)
 
-                        Next
-                    Next
+                '        Next
+                '    Next
 
-                Else
-                    'treat all options as post master code except the colors as above
-                    For Each opt As Options In Options_List_Color
-                        'name = opt.title
-                        'product_id = ProductId
-                        'option_id = option_id
-                        base_sku = Short_Sku
-                        option_sku = opt.option_sku
-                        sku = base_sku & option_sku
+                'Else
+                '    'treat all options as post master code except the colors as above
+                '    For Each opt As Options In Options_List_Color
+                '        'name = opt.title
+                '        'product_id = ProductId
+                '        'option_id = option_id
+                '        base_sku = Short_Sku
+                '        option_sku = opt.option_sku
+                '        sku = base_sku & option_sku
 
-                        CatalogDetails_SET(
-                                                     name,
-                                                     product_id,
-                                                     option_id,
-                                                     base_sku,
-                                                     option_sku,
-                                                     sku,
-                                                     ImportDescription,
-                                                     ImportDate,
-                                                     ImportID)
-                    Next
+                '        CatalogDetails_SET(
+                '                                     name,
+                '                                     product_id,
+                '                                     option_id,
+                '                                     base_sku,
+                '                                     option_sku,
+                '                                     sku,
+                '                                     ImportDescription,
+                '                                     ImportDate,
+                '                                     ImportID)
+                '    Next
 
-                    For Each opt As Options In Options_List_Other
-                        'name = opt.title
-                        'product_id = ProductId
-                        'option_id = option_id
-                        base_sku = Short_Sku
-                        option_sku = opt.option_sku
-                        sku = base_sku & option_sku
+                '    For Each opt As Options In Options_List_Other
+                '        'name = opt.title
+                '        'product_id = ProductId
+                '        'option_id = option_id
+                '        base_sku = Short_Sku
+                '        option_sku = opt.option_sku
+                '        sku = base_sku & option_sku
 
-                        CatalogDetails_SET(
-                                                     name,
-                                                     product_id,
-                                                     option_id,
-                                                     base_sku,
-                                                     option_sku,
-                                                     sku,
-                                                     ImportDescription,
-                                                     ImportDate,
-                                                     ImportID)
-                    Next
-
-
-                End If
+                '        CatalogDetails_SET(
+                '                                     name,
+                '                                     product_id,
+                '                                     option_id,
+                '                                     base_sku,
+                '                                     option_sku,
+                '                                     sku,
+                '                                     ImportDescription,
+                '                                     ImportDate,
+                '                                     ImportID)
+                '    Next
 
 
             End If
+
+
+            'End If
         Catch ex As Exception
             Throw New Exception("GetCatalogOptions : " & ex.Message)
         End Try
+
+
 
         Magento_ProductCatalogImport_SKU_Details_da.Update(Magento_Store_ds.Magento_ProductCatalogImport_SKU_Details)
     End Sub
@@ -319,6 +456,15 @@ NextItem:
         Public Property name As String
         Public Property product_id As Integer
         Public Property option_id As Integer
+        Public Property option_sku As String
+    End Class
+    Public Class OptionGroup
+        Public Property option_id As Integer
+        Public Property name As String
+        Public Property SortOrder As Integer
+    End Class
+    Public Class SKU_BY_Order
+        Public Property SortOrder As Integer
         Public Property option_sku As String
     End Class
 End Class
