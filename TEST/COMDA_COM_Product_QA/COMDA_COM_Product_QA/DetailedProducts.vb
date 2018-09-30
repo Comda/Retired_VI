@@ -11,51 +11,61 @@ Imports COMDA_COM_Product_QA.Magento_API
 
 Public Class DetailedProducts
     Public Sub New(ByVal SessionID As String, ByVal dbConnection As SqlConnection, ByVal ImportID As Guid)
+        Try
 
-        InitializeSQLVariables(dbConnection)
 
-        Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID, "API_CALL")
-        'Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID, "UPDATED")
-        Dim ProductData As DataTable = Magento_Store_ds.Magento_ProductCatalogImport
+            InitializeSQLVariables(dbConnection)
 
-        Dim Category As String = "Catalog"
-        Dim RequestName As String = "catalogProductInfo"
+            Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID, "API_CALL")
+            'Magento_ProductCatalogImport_da.Fill(Magento_Store_ds.Magento_ProductCatalogImport, ImportID, "UPDATED")
+            Dim ProductData As DataTable = Magento_Store_ds.Magento_ProductCatalogImport
+            'GoTo DetailsOnly
+            Dim Category As String = "Catalog"
+            Dim RequestName As String = "catalogProductInfo"
 
-        Magento_SOAP_Requests_da.Fill(Magento_Store_ds.Magento_SOAP_Requests, Category, RequestName)
+            Magento_SOAP_Requests_da.Fill(Magento_Store_ds.Magento_SOAP_Requests, Category, RequestName)
 
-        Dim doc As XDocument = XDocument.Parse(Magento_Store_ds.Magento_SOAP_Requests.Rows(0).Item("SOAPRequest"))
+            Dim doc As XDocument = XDocument.Parse(Magento_Store_ds.Magento_SOAP_Requests.Rows(0).Item("SOAPRequest"))
 
-        Dim ProductId As Integer = Nothing
-        Dim store_name As String = Nothing
-        Dim sku As String = Nothing
-        Dim Status As Integer = Nothing
+DetailsOnly:
+            Dim ProductId As Integer = Nothing
+            Dim store_name As String = Nothing
+            Dim sku As String = Nothing
+            Dim Status As Integer = Nothing
 
-        If ProductData.Rows.Count > 0 Then
-            For i As Integer = 0 To ProductData.Rows.Count - 1
-                ProductId = CInt(ProductData.Rows(i).Item("product_id"))
-                store_name = CStr(ProductData.Rows(i).Item("store"))
-                sku = ProductData.Rows(i).Item("sku").ToString
-                'Debug.Print("Sku {0}  Des: {1}", sku, ProductData.Rows(i).Item("name").ToString)
 
-                'If ProductId <> 1301 Then GoTo SKIP
+            If ProductData.Rows.Count > 0 Then
+                For i As Integer = 0 To ProductData.Rows.Count - 1
+                    ProductId = CInt(ProductData.Rows(i).Item("product_id"))
+                    store_name = CStr(ProductData.Rows(i).Item("store"))
+                    sku = ProductData.Rows(i).Item("sku").ToString
+                    'Debug.Print("Sku {0}  Des: {1}", sku, ProductData.Rows(i).Item("name").ToString)
 
-                Dim ResponseDoc As XDocument = XML_Request_catalogProductInfo(SessionID, ProductId, Status, doc)
-                If Not IsNothing(ResponseDoc) Then
-                    ProductData.Rows(i).Item("ImportDescription") = "UPDATED"
-                    ProductData.Rows(i).Item("Magento_Status") = Status
-                    ProductData.Rows(i).Item("Magento_Product_Info") = ResponseDoc
+                    'If ProductId <> 386 Then GoTo SKIP
 
-                    Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+                    Dim ResponseDoc As XDocument = XML_Request_catalogProductInfo(SessionID, ProductId, Status, doc)
+
+                    If Not IsNothing(ResponseDoc) Then
+                        ProductData.Rows(i).Item("ImportDescription") = "UPDATED"
+                        ProductData.Rows(i).Item("Magento_Status") = Status
+                        ProductData.Rows(i).Item("Magento_Product_Info") = ResponseDoc
+
+                        Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+
+                        GetCatalogOptions(SessionID, ProductId, store_name, sku, ImportID)
+                    Else
+                        ProductData.Rows(i).Item("ImportDescription") = "NOT UPDATED"
+                        ProductData.Rows(i).Item("Magento_Status") = 0
+                    End If
 
                     GetCatalogOptions(SessionID, ProductId, store_name, sku, ImportID)
-                Else
-                    ProductData.Rows(i).Item("ImportDescription") = "NOT UPDATED"
-                End If
 
 SKIP:
-            Next
-        End If
-
+                Next
+            End If
+        Catch ex As Exception
+            Throw New Exception("DetailedProducts : " & ex.Message)
+        End Try
     End Sub
 
     Public Function XML_Request_catalogProductInfo(ByVal SessionID As String, ByVal ProductId As Integer, ByRef Status As Integer, ByVal doc As XDocument) As XDocument
@@ -155,7 +165,8 @@ SKIP:
                                 'Debug.Print("Sort: {0}  SKU:   {1}", SortOrder_x, itemx.sku)
                                 SKU_BY_Order_List.Add(New SKU_BY_Order() With {
                                     .option_sku = itemx.sku,
-                                    .SortOrder = SortOrder_x
+                                    .SortOrder = SortOrder_x,
+                                    .title = Opt.name
                     })
 
                                 'option_sku = option_sku & itemx.sku
@@ -183,22 +194,27 @@ NextItem:
 
                 'Dim Final_SKU_Option As String = Nothing
 
-                name = "" 'opt.title
+                'name = "" 'opt.title
                 'product_id = ProductId
                 'option_id = option_id
                 base_sku = Short_Sku
-                option_sku = store_name
+                ImportDescription = store_name
                 'sku = base_sku & option_sku
 
                 'we need to catenate all 2 to all 1
                 If SKU_BY_Order_List_1.Count > 0 Then
                     For Each sku_1 In SKU_BY_Order_List_1
+                        option_id = sku_1.SortOrder
                         If SKU_BY_Order_List_2.Count > 0 Then
                             For Each sku_2 In SKU_BY_Order_List_2
+                                option_id = sku_2.SortOrder
                                 If SKU_BY_Order_List_3.Count > 0 Then
                                     For Each sku_3 In SKU_BY_Order_List_3
+                                        option_id = sku_3.SortOrder
                                         Debug.Print(Short_Sku & sku_1.option_sku & sku_2.option_sku & sku_3.option_sku)
+                                        name = sku_1.title & "|" & sku_2.title & "|" & sku_3.title
                                         sku = Short_Sku & sku_1.option_sku & sku_2.option_sku & sku_3.option_sku
+                                        option_sku = sku_1.option_sku & "|" & sku_2.option_sku & "|" & sku_3.option_sku
                                         CatalogDetails_SET(
                                                 name,
                                                 product_id,
@@ -213,6 +229,8 @@ NextItem:
                                 Else
                                     Debug.Print(Short_Sku & sku_1.option_sku & sku_2.option_sku)
                                     sku = Short_Sku & sku_1.option_sku & sku_2.option_sku
+                                    option_sku = sku_1.option_sku & "|" & sku_2.option_sku
+                                    name = sku_1.title & "|" & sku_2.title
                                     CatalogDetails_SET(
                                             name,
                                             product_id,
@@ -228,6 +246,8 @@ NextItem:
                         Else
                             Debug.Print(Short_Sku & sku_1.option_sku)
                             sku = Short_Sku & sku_1.option_sku
+                            option_sku = sku_1.option_sku & "|"
+                            name = sku_1.title & "|"
                             CatalogDetails_SET(
                                     name,
                                     product_id,
@@ -434,7 +454,7 @@ NextItem:
                                     ByVal base_sku As String,
                                     ByVal option_sku As String,
                                     ByVal sku As String,
-                                    ByVal ImportDescription As String,
+                                    ByVal store As String,
                                     ByVal ImportDate As Date,
                                     ByVal ImportID As Guid)
 
@@ -447,7 +467,7 @@ NextItem:
         newProductsRow("base_sku") = base_sku
         newProductsRow("option_sku") = option_sku
         newProductsRow("sku") = sku
-        newProductsRow("ImportDescription") = ImportDescription
+        newProductsRow("store") = store
         newProductsRow("ImportDate") = ImportDate
         newProductsRow("ImportID") = ImportID
 
@@ -469,5 +489,6 @@ NextItem:
     Public Class SKU_BY_Order
         Public Property SortOrder As Integer
         Public Property option_sku As String
+        Public Property title As String
     End Class
 End Class

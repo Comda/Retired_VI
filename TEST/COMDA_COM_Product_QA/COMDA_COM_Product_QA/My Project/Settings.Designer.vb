@@ -67,11 +67,22 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=jb-fast\devel_2016;Initial Catalog=API_Internal_SVS_CLR;User ID=sa;Pa"& _ 
-            "ssword=sophie")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=cocapiinternal\test;Initial Catalog=API_COMDA_COM;Persist Security In"& _ 
+            "fo=True;User ID=sa;Password=apitest2015")>  _
         Public ReadOnly Property API_Internal_SVS_CLRConnectionString() As String
             Get
                 Return CType(Me("API_Internal_SVS_CLRConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=cocapiinternal\test;Initial Catalog=API_COMDA_COM;Persist Security In"& _ 
+            "fo=True;User ID=sa;Password=apitest2015")>  _
+        Public ReadOnly Property API_COMDA_COMConnectionString() As String
+            Get
+                Return CType(Me("API_COMDA_COMConnectionString"),String)
             End Get
         End Property
     End Class

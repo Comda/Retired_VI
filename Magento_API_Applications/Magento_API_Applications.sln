@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_Parameters", "Magento_API_Parameters\Magento_API_Parameters.vbproj", "{7693478D-8694-4148-8AFC-6E5300AD1FCF}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Harness_Magento_API_Parameters", "Harness_Magento_API_Parameters\Harness_Magento_API_Parameters.vbproj", "{6EE53B42-1294-45DD-89AB-EAEC788B0574}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_TierPrice", "Magento_API_TierPrice\Magento_API_TierPrice.vbproj", "{F7444F29-A16E-4AAE-8746-A534627FDCC9}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6EE53B42-1294-45DD-89AB-EAEC788B0574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EE53B42-1294-45DD-89AB-EAEC788B0574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EE53B42-1294-45DD-89AB-EAEC788B0574}.Release|Any CPU.ActiveCfg = Release|Any CPU

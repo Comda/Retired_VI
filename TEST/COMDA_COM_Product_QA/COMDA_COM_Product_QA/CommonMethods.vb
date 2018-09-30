@@ -16,6 +16,10 @@ Module CommonMethods
 
         Magento_SOAP_Requests_da = New MagentoStoreTableAdapters.Magento_SOAP_RequestsTableAdapter With {
             .Connection = dbConnection
+            }
+
+        Magento_ProductCatalogPricesImport_da = New MagentoStoreTableAdapters.Magento_ProductCatalogPricesImportTableAdapter With {
+.Connection = dbConnection
         }
 
     End Sub
@@ -29,6 +33,7 @@ Module CommonMethods
             For Each catalogProductEntityItem As catalogProductEntity In catalogProduct
 
                 Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogImport.NewRow()
+
                 newProductsRow("product_id") = catalogProductEntityItem.product_id
                 newProductsRow("option_id") = 0
                 newProductsRow("sku") = catalogProductEntityItem.sku
@@ -53,7 +58,45 @@ Module CommonMethods
 
             Next
 
+
             Magento_ProductCatalogImport_da.Update(Magento_Store_ds.Magento_ProductCatalogImport)
+
+
+        Catch ex As Exception
+            Throw New Exception("UploadCatalog : " & ex.Message)
+        End Try
+    End Sub
+
+    Friend Sub UploadPrices(ByVal catalogProductPrices As List(Of catalogProductTierPriceEntity), ByVal StoreView As String, ByVal Product_ID As Integer, ByVal ImportID As Guid)
+
+        'Magento_ProductCatalogMatch_da.Fill(Magento_Store_ds.Magento_ProductCatalogMatch)
+        'Magento_Store_ds.Magento_ProductCatalogMatch.Clear()
+        Dim ImportDate As Date = Now()
+
+        Try
+            For Each Item As catalogProductTierPriceEntity In catalogProductPrices
+
+                Dim newProductsRow As DataRow = Magento_Store_ds.Magento_ProductCatalogPricesImport.NewRow()
+
+                newProductsRow("product_id") = Product_ID
+                newProductsRow("customer_group_idField") = Item.customer_group_id
+                newProductsRow("qtyField") = Item.qty
+                newProductsRow("priceField") = Item.price
+
+                newProductsRow("qtyFieldSpecified") = Item.qtySpecified
+                newProductsRow("priceFieldSpecified") = Item.priceSpecified
+                newProductsRow("websiteField") = Item.website
+                'newProductsRow("store") = StoreView
+
+                newProductsRow("ImportID") = ImportID
+                newProductsRow("ImportDescription") = "API_CALL"
+                newProductsRow("ImportDate") = ImportDate
+
+                Magento_Store_ds.Magento_ProductCatalogPricesImport.Rows.Add(newProductsRow)
+
+            Next
+            Magento_ProductCatalogPricesImport_da.Update(Magento_Store_ds.Magento_ProductCatalogPricesImport)
+
 
 
         Catch ex As Exception

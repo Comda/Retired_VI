@@ -30,6 +30,8 @@ Partial Class Form1
         Me.tb_SessionID = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.bBasicCatalog = New System.Windows.Forms.Button()
+        Me.b_Category = New System.Windows.Forms.Button()
+        Me.b_PricingGrid = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'tb_API_ID
@@ -100,11 +102,31 @@ Partial Class Form1
         Me.bBasicCatalog.Text = "Basic Catalog"
         Me.bBasicCatalog.UseVisualStyleBackColor = True
         '
+        'b_Category
+        '
+        Me.b_Category.Location = New System.Drawing.Point(634, 377)
+        Me.b_Category.Name = "b_Category"
+        Me.b_Category.Size = New System.Drawing.Size(102, 23)
+        Me.b_Category.TabIndex = 12
+        Me.b_Category.Text = "Categories"
+        Me.b_Category.UseVisualStyleBackColor = True
+        '
+        'b_PricingGrid
+        '
+        Me.b_PricingGrid.Location = New System.Drawing.Point(308, 377)
+        Me.b_PricingGrid.Name = "b_PricingGrid"
+        Me.b_PricingGrid.Size = New System.Drawing.Size(102, 23)
+        Me.b_PricingGrid.TabIndex = 13
+        Me.b_PricingGrid.Text = "Pricing Grid"
+        Me.b_PricingGrid.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.b_PricingGrid)
+        Me.Controls.Add(Me.b_Category)
         Me.Controls.Add(Me.bBasicCatalog)
         Me.Controls.Add(Me.tb_SessionID)
         Me.Controls.Add(Me.Label3)
@@ -130,4 +152,6 @@ Partial Class Form1
     Friend WithEvents tb_SessionID As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents bBasicCatalog As Button
+    Friend WithEvents b_Category As Button
+    Friend WithEvents b_PricingGrid As Button
 End Class

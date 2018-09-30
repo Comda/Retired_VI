@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -57,11 +57,11 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=cocapiinternal\prod;Initial Catalog=API_Store;Persist Security Info=T"& _ 
-            "rue;User ID=sa;Password=apiprod2015")>  _
-        Public ReadOnly Property API_StoreConnectionString() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=cocapiinternal\prod,1433;Initial Catalog=API_Store;Persist Security I"& _ 
+            "nfo=True;User ID=sa;Password=apiprod2015")>  _
+        Public ReadOnly Property API_StoreConnectionString1() As String
             Get
-                Return CType(Me("API_StoreConnectionString"),String)
+                Return CType(Me("API_StoreConnectionString1"),String)
             End Get
         End Property
         
@@ -70,9 +70,9 @@ Namespace My
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=cocapiinternal\prod,1433;Initial Catalog=API_Store;Persist Security I"& _ 
             "nfo=True;User ID=sa;Password=apiprod2015")>  _
-        Public ReadOnly Property API_StoreConnectionString1() As String
+        Public ReadOnly Property API_StoreConnectionString() As String
             Get
-                Return CType(Me("API_StoreConnectionString1"),String)
+                Return CType(Me("API_StoreConnectionString"),String)
             End Get
         End Property
     End Class

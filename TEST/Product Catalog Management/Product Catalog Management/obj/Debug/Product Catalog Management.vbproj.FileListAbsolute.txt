@@ -1,0 +1,17 @@
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\Product Catalog Management.exe.config
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\Product Catalog Management.exe
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\Product Catalog Management.pdb
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\Product Catalog Management.xml
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.vbprojAssemblyReference.cache
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product_Catalog_Management.MainMenu.resources
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product_Catalog_Management.Resources.resources
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.vbproj.GenerateResource.cache
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.vbproj.CoreCompileInputs.cache
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.exe
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.xml
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.pdb
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\VerifyProductExistence.dll
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\VerifyProductExistence.pdb
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\VerifyProductExistence.xml
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\VerifyProductExistence.dll.config
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.vbproj.CopyComplete

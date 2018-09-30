@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseProducts.vb" />
+    <Compile Include="Category.vb" />
     <Compile Include="CommonMethods.vb" />
     <Compile Include="DetailedProducts.vb" />
     <Compile Include="MagentoStore.Designer.vb">
@@ -91,6 +92,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="CommonProperties.vb" />
+    <Compile Include="PricingData.vb" />
     <Compile Include="Web References\Magento_API\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
