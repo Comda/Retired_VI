@@ -1,0 +1,17 @@
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\PACS.dll.config
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\PACS.dll
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\PACS.pdb
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\PACS.xml
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\API_Parameters.dll
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\API_Parameters.pdb
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\API_Parameters.xml
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\API_Parameters.dll.config
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\bin\Debug\API_Parameters.XmlSerializers.dll
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.vbprojAssemblyReference.cache
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.Resources.resources
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.vbproj.GenerateResource.cache
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.vbproj.CoreCompileInputs.cache
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.vbproj.CopyComplete
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.dll
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.xml
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PACS\obj\Debug\PACS.pdb

@@ -1,0 +1,11 @@
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameter_CLR.dacpac
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameter_CLR.dll
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameter_CLR.pdb
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameters.dll
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameters.XmlSerializers.dll
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameters.pdb
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameters.xml
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\bin\Debug\API_Parameters.dll.config
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\obj\Debug\API_Parameter_CLR.sqlprojResolveAssemblyReference.cache
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\obj\Debug\API_Parameter_CLR.dll
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\API_Parameter_CLR\API_Parameter_CLR\obj\Debug\API_Parameter_CLR.pdb

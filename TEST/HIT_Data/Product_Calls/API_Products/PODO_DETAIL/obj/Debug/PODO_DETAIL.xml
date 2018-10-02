@@ -1,0 +1,418 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PODO_DETAIL
+</name>
+</assembly>
+<members>
+<member name="T:PODO_DETAIL.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:PODO_DETAIL.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:PODO_DETAIL.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_Product">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_Product.API_PODO_ImagesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_Product.API_PODO_ImagesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_Product.API_PODO_ImagesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_ProductTableAdapters.API_PODO_ImagesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager.UpdateUpdatedRows(PODO_DETAIL.HIT_Product,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager.UpdateInsertedRows(PODO_DETAIL.HIT_Product,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager.UpdateDeletedRows(PODO_DETAIL.HIT_Product,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager.UpdateAll(PODO_DETAIL.HIT_Product)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_ProductTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductObjectControllerService">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.#ctor">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getInfoCompleted">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getLastModifiedCompleted">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getTopSellersCompleted">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getColorsCompleted">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getSetupChargesCompleted">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getImagesCompleted">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductSizesCompleted">
+<remarks/>
+</member>
+<member name="E:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductArtTemplatesCompleted">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getInfo(System.String,System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getInfoAsync(System.String,System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getInfoAsync(System.String,System.String,System.String,System.Boolean,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getLastModified(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getLastModifiedAsync(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getLastModifiedAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getTopSellers(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getTopSellersAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getTopSellersAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getColors(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getColorsAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getColorsAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getSetupCharges(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getSetupChargesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getSetupChargesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getImages(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getImagesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getImagesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductSizes(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductSizesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductSizesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductArtTemplates(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductArtTemplatesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.getProductArtTemplatesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:PODO_DETAIL.HIT_productData.ProductObjectControllerService.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductInfo">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.number">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.productUrl">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.name">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.categories">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.descriptions">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.properties">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.pricingGrid">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.images">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.colors">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.weightLbs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductInfo.weightPer">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.PricingGrid">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.PricingGrid.price">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.PricingGrid.quantity">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.PricingGrid.discount">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.PricingGrid.gridName">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductArtTemplate">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductArtTemplate.url">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductSize">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductSize.size">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductSetupData">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductSetupData.decoration_code">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductSetupData.decoration">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductSetupData.setup_charge">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductSetupData.run_charge">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductSetupData.extra_color_charge">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductSetupData.extra_location_charge">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductColorData">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductColorData.color_id">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductColorData.part_number">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductColorData.product_number">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductColorData.color">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductColorData.is_outlet">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.QuantityData">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.QuantityData.product">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.QuantityData.description">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.SalesData">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.SalesData.product">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.SalesData.description">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductTopSellers">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductTopSellers.sales">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductTopSellers.quantity">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductLastModified">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductLastModified.number">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductLastModified.timeModified">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductLastModified.domain">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.ProductImageResult">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductImageResult.all">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.ProductImageResult.main">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getInfoCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getInfoCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getInfoCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getLastModifiedCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getLastModifiedCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getLastModifiedCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getTopSellersCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getTopSellersCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getTopSellersCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getColorsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getColorsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getColorsCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getSetupChargesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getSetupChargesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getSetupChargesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getImagesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getImagesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getImagesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getProductSizesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getProductSizesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getProductSizesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getProductArtTemplatesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PODO_DETAIL.HIT_productData.getProductArtTemplatesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PODO_DETAIL.HIT_productData.getProductArtTemplatesCompletedEventArgs.Result">
+<remarks/>
+</member>
+</members>
+</doc>

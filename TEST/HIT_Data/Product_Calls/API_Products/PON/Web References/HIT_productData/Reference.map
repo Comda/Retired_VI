@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/SharedProductObjects.xsd" filename="SharedProductObjects.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductResponse.xsd" filename="GetProductResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductRequest.xsd" filename="GetProductRequest.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductCloseOutResponse.xsd" filename="GetProductCloseOutResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/iso3166-country-code.xsd" filename="iso3166-country-code.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductDateModifiedResponse.xsd" filename="GetProductDateModifiedResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductCloseOutRequest.xsd" filename="GetProductCloseOutRequest.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductSellableResponse.xsd" filename="GetProductSellableResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://ppds.hitpromo.net/productData" filename="ProductData_v1_0_0.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductDateModifiedRequest.xsd" filename="GetProductDateModifiedRequest.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/productData/GetProductSellableRequest.xsd" filename="GetProductSellableRequest.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

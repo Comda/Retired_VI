@@ -1,0 +1,10 @@
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\bin\Debug\API_Parameters.dll.config
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\bin\Debug\API_Parameters.dll
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\bin\Debug\API_Parameters.pdb
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\bin\Debug\API_Parameters.xml
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\obj\Debug\API_Parameters.Resources.resources
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\obj\Debug\API_Parameters.vbproj.GenerateResource.cache
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\obj\Debug\API_Parameters.vbproj.CoreCompileInputs.cache
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\obj\Debug\API_Parameters.dll
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\obj\Debug\API_Parameters.xml
+Q:\COMDA_REPO\VI\TEST\HIT_Data\API_Parameters\obj\Debug\API_Parameters.pdb

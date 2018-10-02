@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/SharedObjectsPricingAndConfiguration.xsd" filename="SharedObjectsPricingAndConfiguration.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/iso3166-country-code.xsd" filename="iso3166-country-code.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetAvailableChargesResponse.xsd" filename="GetAvailableChargesResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetFobPointsResponse.xsd" filename="GetFobPointsResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/iso4217-currency-code.xsd" filename="iso4217-currency-code.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetAvailableLocationsRequest.xsd" filename="GetAvailableLocationsRequest.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetFobPointsRequest.xsd" filename="GetFobPointsRequest.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetAvailableChargesRequest.xsd" filename="GetAvailableChargesRequest.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetConfigurationAndPricingResponse.xsd" filename="GetConfigurationAndPricingResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetAvailableLocationsResponse.xsd" filename="GetAvailableLocationsResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetDecorationColorsRequest.xsd" filename="GetDecorationColorsRequest.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetDecorationColorsResponse.xsd" filename="GetDecorationColorsResponse.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://ppds.hitpromo.net/pricingAndConfiguration/" filename="PricingAndConfiguration_v1_0_0.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ppds.hitpromo.net/wsdl/pricingAndConfiguration/GetConfigurationAndPricingRequest.xsd" filename="GetConfigurationAndPricingRequest.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

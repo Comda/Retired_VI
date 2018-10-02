@@ -1,0 +1,33 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [HIT_Products_CLR] (Assembly)
+       [PACS.XmlSerializers] (Assembly)
+       [PODO.XmlSerializers] (Assembly)
+       [PON.XmlSerializers] (Assembly)
+       [PACS] (Assembly)
+       [PODO] (Assembly)
+       [PON] (Assembly)
+     Create
+       [PACS] (Assembly)
+       [PACS.XmlSerializers] (Assembly)
+       [PODO] (Assembly)
+       [PODO.XmlSerializers] (Assembly)
+       [PON] (Assembly)
+       [PON.XmlSerializers] (Assembly)
+       [HIT_Products_CLR] (Assembly)
+
+** Supporting actions
+     Drop
+       [dbo].[HIT_Products] (Procedure)
+     Create
+       [dbo].[HIT_Products] (Procedure)

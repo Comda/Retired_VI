@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:ProductControllerwsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="ProductController" targetNamespace="urn:ProductControllerwsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:ProductControllerwsdl">
+      <xsd:complexType name="ProductColorDataArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ProductColorData[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ProductColorData">
+        <xsd:all>
+          <xsd:element name="color_id" type="xsd:string" />
+          <xsd:element name="part_number" type="xsd:string" />
+          <xsd:element name="product_number" type="xsd:string" />
+          <xsd:element name="color" type="xsd:string" />
+          <xsd:element name="is_outlet" type="xsd:boolean" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProductSetupDataArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ProductSetupData[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ProductSetupData">
+        <xsd:all>
+          <xsd:element name="decoration_code" type="xsd:string" />
+          <xsd:element name="decoration" type="xsd:string" />
+          <xsd:element name="setup_charge" type="xsd:string" />
+          <xsd:element name="run_charge" type="xsd:string" />
+          <xsd:element name="extra_color_charge" type="xsd:string" />
+          <xsd:element name="extra_location_charge" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProductImageResult">
+        <xsd:all>
+          <xsd:element name="all" type="tns:stringArray" />
+          <xsd:element name="main" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="stringArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CMProductDataResultArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:CMProductDataResult[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CMProductDataResult">
+        <xsd:all>
+          <xsd:element name="product" type="soap-enc:Array" />
+          <xsd:element name="imprint" type="xsd:anyType" />
+          <xsd:element name="setUpCharge" type="soap-enc:Array" />
+          <xsd:element name="itemMaterial" type="xsd:string" />
+          <xsd:element name="itemDimensions" type="xsd:string" />
+          <xsd:element name="itemColors" type="soap-enc:Array" />
+          <xsd:element name="countryOfOrigin" type="xsd:string" />
+          <xsd:element name="shipFromZip" type="xsd:string" />
+          <xsd:element name="isHazMat" type="xsd:boolean" />
+          <xsd:element name="quantityOnHand" type="soap-enc:Array" />
+          <xsd:element name="discontinued" type="xsd:boolean" />
+          <xsd:element name="lastModified" type="xsd:string" />
+          <xsd:element name="expeditedServicesOffered" type="xsd:string" />
+          <xsd:element name="images" type="soap-enc:Array" />
+          <xsd:element name="itemWeight" type="soap-enc:Array" />
+          <xsd:element name="package" type="soap-enc:Array" />
+          <xsd:element name="pricing" type="xsd:anyType" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RawProductPackingSoap">
+        <xsd:all>
+          <xsd:element name="productNumber" type="xsd:string" />
+          <xsd:element name="quantityPerBox" type="xsd:string" />
+          <xsd:element name="weight" type="xsd:string" />
+          <xsd:element name="boxLength" type="xsd:string" />
+          <xsd:element name="boxWidth" type="xsd:string" />
+          <xsd:element name="boxHeight" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ActiveProductArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ActiveProduct[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ActiveProduct">
+        <xsd:all>
+          <xsd:element name="number" type="xsd:string" />
+          <xsd:element name="domain" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProductRush">
+        <xsd:all>
+          <xsd:element name="productNumber" type="xsd:string" />
+          <xsd:element name="isRush" type="xsd:boolean" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DeactivatedProductArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:DeactivatedProduct[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeactivatedProduct">
+        <xsd:all>
+          <xsd:element name="variation" type="xsd:string" />
+          <xsd:element name="partNumber" type="xsd:string" />
+          <xsd:element name="deactivatedDate" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CategoryArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Category[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Category">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="subcategories" type="tns:SubcategoryIdArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SubcategoryIdArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:SubcategoryId[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SubcategoryId">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="intArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:int[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SubcategoryArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Subcategory[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Subcategory">
+        <xsd:all>
+          <xsd:element name="products" type="tns:ProductIdArray" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProductIdArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ProductId[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ProductId">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getOutletProductListRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getOutletProductListResponse">
+    <wsdl:part name="return" type="soap-enc:Array" />
+  </wsdl:message>
+  <wsdl:message name="getInfoRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+    <wsdl:part name="outlet" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getInfoResponse">
+    <wsdl:part name="return" type="soap-enc:Array" />
+  </wsdl:message>
+  <wsdl:message name="getLastModifiedRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getLastModifiedResponse">
+    <wsdl:part name="return" type="soap-enc:Array" />
+  </wsdl:message>
+  <wsdl:message name="getTopSellersRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="count" type="xsd:integer" />
+    <wsdl:part name="month" type="xsd:string" />
+    <wsdl:part name="year" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getTopSellersResponse">
+    <wsdl:part name="return" type="soap-enc:Array" />
+  </wsdl:message>
+  <wsdl:message name="getColorsRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+    <wsdl:part name="includeOutlet" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getColorsResponse">
+    <wsdl:part name="return" type="tns:ProductColorDataArray" />
+  </wsdl:message>
+  <wsdl:message name="getSetupChargesRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getSetupChargesResponse">
+    <wsdl:part name="return" type="tns:ProductSetupDataArray" />
+  </wsdl:message>
+  <wsdl:message name="getImagesRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getImagesResponse">
+    <wsdl:part name="return" type="tns:ProductImageResult" />
+  </wsdl:message>
+  <wsdl:message name="getProductDataCMRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumbers" type="tns:stringArray" />
+  </wsdl:message>
+  <wsdl:message name="getProductDataCMResponse">
+    <wsdl:part name="return" type="tns:CMProductDataResultArray" />
+  </wsdl:message>
+  <wsdl:message name="getInfoMultiRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumbers" type="tns:stringArray" />
+    <wsdl:part name="outlet" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getInfoMultiResponse">
+    <wsdl:part name="return" type="soap-enc:Array" />
+  </wsdl:message>
+  <wsdl:message name="getProductSizesRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getProductSizesResponse">
+    <wsdl:part name="return" type="xsd:struct" />
+  </wsdl:message>
+  <wsdl:message name="getProductPackingDataRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getProductPackingDataResponse">
+    <wsdl:part name="return" type="tns:RawProductPackingSoap" />
+  </wsdl:message>
+  <wsdl:message name="getProductArtTemplatesRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getProductArtTemplatesResponse">
+    <wsdl:part name="return" type="tns:stringArray" />
+  </wsdl:message>
+  <wsdl:message name="getActiveProductsRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="includeOutletAndCustom" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getActiveProductsResponse">
+    <wsdl:part name="return" type="tns:ActiveProductArray" />
+  </wsdl:message>
+  <wsdl:message name="isProductRushRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="productNumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="isProductRushResponse">
+    <wsdl:part name="return" type="tns:ProductRush" />
+  </wsdl:message>
+  <wsdl:message name="getProductsDeactivatedRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getProductsDeactivatedResponse">
+    <wsdl:part name="return" type="tns:DeactivatedProductArray" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesResponse">
+    <wsdl:part name="return" type="tns:CategoryArray" />
+  </wsdl:message>
+  <wsdl:message name="getProductsBySubcategoryRequest">
+    <wsdl:part name="customerNumber" type="xsd:string" />
+    <wsdl:part name="userCredential" type="xsd:string" />
+    <wsdl:part name="subcategoriesIds" type="tns:intArray" />
+  </wsdl:message>
+  <wsdl:message name="getProductsBySubcategoryResponse">
+    <wsdl:part name="return" type="tns:SubcategoryArray" />
+  </wsdl:message>
+  <wsdl:portType name="ProductControllerPortType">
+    <wsdl:operation name="getOutletProductList">
+      <wsdl:documentation>Returns list of products in outlet</wsdl:documentation>
+      <wsdl:input message="tns:getOutletProductListRequest" />
+      <wsdl:output message="tns:getOutletProductListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <wsdl:documentation>Gets the product image and other data</wsdl:documentation>
+      <wsdl:input message="tns:getInfoRequest" />
+      <wsdl:output message="tns:getInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getLastModified">
+      <wsdl:documentation>Gets the last modified time for products</wsdl:documentation>
+      <wsdl:input message="tns:getLastModifiedRequest" />
+      <wsdl:output message="tns:getLastModifiedResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopSellers">
+      <wsdl:documentation>Gets the top-selling products</wsdl:documentation>
+      <wsdl:input message="tns:getTopSellersRequest" />
+      <wsdl:output message="tns:getTopSellersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getColors">
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <wsdl:input message="tns:getColorsRequest" />
+      <wsdl:output message="tns:getColorsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSetupCharges">
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <wsdl:input message="tns:getSetupChargesRequest" />
+      <wsdl:output message="tns:getSetupChargesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getImages">
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <wsdl:input message="tns:getImagesRequest" />
+      <wsdl:output message="tns:getImagesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductDataCM">
+      <wsdl:documentation>Return product data in format specified by Cumberland Marketing [TICK:166400] DS - Another Product Service</wsdl:documentation>
+      <wsdl:input message="tns:getProductDataCMRequest" />
+      <wsdl:output message="tns:getProductDataCMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getInfoMulti">
+      <wsdl:documentation>Gets the product image and other data</wsdl:documentation>
+      <wsdl:input message="tns:getInfoMultiRequest" />
+      <wsdl:output message="tns:getInfoMultiResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductSizes">
+      <wsdl:documentation>Gets the product image and other data</wsdl:documentation>
+      <wsdl:input message="tns:getProductSizesRequest" />
+      <wsdl:output message="tns:getProductSizesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductPackingData">
+      <wsdl:documentation>Get product package data for a product</wsdl:documentation>
+      <wsdl:input message="tns:getProductPackingDataRequest" />
+      <wsdl:output message="tns:getProductPackingDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductArtTemplates">
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <wsdl:input message="tns:getProductArtTemplatesRequest" />
+      <wsdl:output message="tns:getProductArtTemplatesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getActiveProducts">
+      <wsdl:documentation>Get all active products</wsdl:documentation>
+      <wsdl:input message="tns:getActiveProductsRequest" />
+      <wsdl:output message="tns:getActiveProductsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="isProductRush">
+      <wsdl:documentation>Is the product rush service eligible</wsdl:documentation>
+      <wsdl:input message="tns:isProductRushRequest" />
+      <wsdl:output message="tns:isProductRushResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductsDeactivated">
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <wsdl:input message="tns:getProductsDeactivatedRequest" />
+      <wsdl:output message="tns:getProductsDeactivatedResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <wsdl:input message="tns:getCategoriesRequest" />
+      <wsdl:output message="tns:getCategoriesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductsBySubcategory">
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <wsdl:input message="tns:getProductsBySubcategoryRequest" />
+      <wsdl:output message="tns:getProductsBySubcategoryResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductControllerBinding" type="tns:ProductControllerPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getOutletProductList">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getOutletProductList" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getInfo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastModified">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getLastModified" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopSellers">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getTopSellers" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getColors">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getColors" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSetupCharges">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getSetupCharges" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImages">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getImages" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductDataCM">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getProductDataCM" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInfoMulti">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getInfoMulti" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSizes">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getProductSizes" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductPackingData">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getProductPackingData" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductArtTemplates">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getProductArtTemplates" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveProducts">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getActiveProducts" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isProductRush">
+      <soap:operation soapAction="urn:ProductControllerwsdl#isProductRush" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductsDeactivated">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getProductsDeactivated" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getCategories" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductsBySubcategory">
+      <soap:operation soapAction="urn:ProductControllerwsdl#getProductsBySubcategory" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ProductControllerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductControllerService">
+    <wsdl:port name="ProductControllerPort" binding="tns:ProductControllerBinding">
+      <soap:address location="https://ds.hitpromo.net/product/product?ws=1" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

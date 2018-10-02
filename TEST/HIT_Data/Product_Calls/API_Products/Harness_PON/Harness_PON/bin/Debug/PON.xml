@@ -1,0 +1,1793 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PON
+</name>
+</assembly>
+<members>
+<member name="T:PON.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:PON.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:PON.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PackagingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ShippingPackageDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductDescriptionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductMarketingPointDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductKeywordDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductPartDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartDescriptionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartDimensionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartApparelSizeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartColorDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_CategoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PackagingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ShippingPackageRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductDescriptionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductMarketingPointRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductKeywordRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductPartRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartDescriptionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartDimensionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartApparelSizeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartColorRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_CategoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PackagingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ShippingPackageRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductDescriptionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductMarketingPointRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductKeywordRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductPartRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartDescriptionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartDimensionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartApparelSizeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_PartColorRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_CategoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_Product.API_PON_ProductRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_PackagingTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_ShippingPackageTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_ProductDescriptionTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_ProductMarketingPointTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_ProductKeywordTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_ProductPartTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_PartDescriptionTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_PartDimensionTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_PartApparelSizeTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_PartColorTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_CategoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.API_PON_ProductTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:PON.HIT_ProductTableAdapters.TableAdapterManager.UpdateUpdatedRows(PON.HIT_Product,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:PON.HIT_ProductTableAdapters.TableAdapterManager.UpdateInsertedRows(PON.HIT_Product,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:PON.HIT_ProductTableAdapters.TableAdapterManager.UpdateDeletedRows(PON.HIT_Product,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:PON.HIT_ProductTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:PON.HIT_ProductTableAdapters.TableAdapterManager.UpdateAll(PON.HIT_Product)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:PON.HIT_ProductTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:PON.HIT_productData.ProductDataService">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.#ctor">
+<remarks/>
+</member>
+<member name="E:PON.HIT_productData.ProductDataService.getProductCompleted">
+<remarks/>
+</member>
+<member name="E:PON.HIT_productData.ProductDataService.getProductDateModifiedCompleted">
+<remarks/>
+</member>
+<member name="E:PON.HIT_productData.ProductDataService.getProductCloseOutCompleted">
+<remarks/>
+</member>
+<member name="E:PON.HIT_productData.ProductDataService.getProductSellableCompleted">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProduct(PON.HIT_productData.GetProductRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductAsync(PON.HIT_productData.GetProductRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductAsync(PON.HIT_productData.GetProductRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductDateModified(PON.HIT_productData.GetProductDateModifiedRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductDateModifiedAsync(PON.HIT_productData.GetProductDateModifiedRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductDateModifiedAsync(PON.HIT_productData.GetProductDateModifiedRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductCloseOut(PON.HIT_productData.GetProductCloseOutRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductCloseOutAsync(PON.HIT_productData.GetProductCloseOutRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductCloseOutAsync(PON.HIT_productData.GetProductCloseOutRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductSellable(PON.HIT_productData.GetProductSellableRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductSellableAsync(PON.HIT_productData.GetProductSellableRequest)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.getProductSellableAsync(PON.HIT_productData.GetProductSellableRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PON.HIT_productData.ProductDataService.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductRequest">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.id">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.password">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.localizationCountry">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.localizationLanguage">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.productId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.partId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.colorName">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductRequest.ApparelSizeArray">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ApparelSize">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ApparelSize.apparelStyle">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ApparelSize.labelSize">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ApparelSize.customSize">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ApparelSizeApparelStyle">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.Unisex">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.Youth">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.Girls">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.Boys">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.Womens">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.WomensTall">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.Mens">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeApparelStyle.MensTall">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ApparelSizeLabelSize">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.OSFA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item6XS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item5XS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item4XS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item3XS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item2XS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.XS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.S">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.M">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.L">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.XL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item2XL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item3XL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item4XL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item5XL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.Item6XL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.ApparelSizeLabelSize.CUSTOM">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ProductMarketingPoint">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductMarketingPoint.pointType">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductMarketingPoint.pointCopy">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ProductKeyword">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductKeyword.keyword">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ProductCategory">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductCategory.category">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductCategory.subCategory">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.RelatedProduct">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.RelatedProduct.relationType">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.RelatedProduct.productId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.RelatedProduct.partId">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.RelatedProductRelationType">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.RelatedProductRelationType.Substitute">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.RelatedProductRelationType.CompanionSell">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.RelatedProductRelationType.CommonGrouping">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.Color">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Color.colorName">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Color.hex">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Color.approximatePms">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.Specification">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Specification.specificationType">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Specification.SpecificationUom">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Specification.measurementValue">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.SpecificationSpecificationType">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Length">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Thickness">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Radius">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Volume">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Capacity">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Memory">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.DataPorts">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Capacitance">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Voltage">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.PointSize">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.SheetSize">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.SheetCount">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Pockets">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Inseam">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Bust">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Chest">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Waist">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Hips">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Cup">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Rise">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Neck">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Thigh">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Shoulders">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.Sleeve">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.SpecificationSpecificationType.DeviceSize">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ProductPackage">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.default">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.packageType">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.description">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.quantity">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.dimensionUom">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.depth">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.height">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.width">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.weightUom">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductPackage.weight">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.dimensionUom">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.dimensionUom.MM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.dimensionUom.CM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.dimensionUom.MR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.dimensionUom.IN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.dimensionUom.FT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.dimensionUom.YD">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.weightUom">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.weightUom.ME">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.weightUom.KG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.weightUom.OZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.weightUom.LB">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ShippingPackage">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.packageType">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.description">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.quantity">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.dimensionUom">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.depth">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.height">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.width">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.weightUom">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ShippingPackage.weight">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ProductDateModified">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductDateModified.productId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductDateModified.partId">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ProductCloseOut">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductCloseOut.productId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductCloseOut.partId">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductResponse">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductResponse.Product">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.Product">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.productId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.productName">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.description">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.ProductMarketingPointArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.ProductKeywordArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.productBrand">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.export">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.ProductCategoryArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.RelatedProductArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.ProductPartArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.lastChangeDate">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.creationDate">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.endDate">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.effectiveDate">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.isCaution">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.cautionComment">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.isCloseout">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Product.lineName">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ProductProductPart">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.partId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.description">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.countryOfOrigin">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.countryOfOriginSpecified">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.ColorArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.primaryMaterial">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.SpecificationArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.shape">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.ApparelSize">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.Dimension">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.leadTime">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.leadTimeSpecified">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.unspsc">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.gtin">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.isRushService">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.ProductPackagingArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.ShippingPackageArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.endDate">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.effectiveDate">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.isCloseout">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.isCaution">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.cautionComment">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.nmfcCode">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.nmfcCodeSpecified">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.nmfcDescription">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.nmfcNumber">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.isOnDemand">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ProductProductPart.isHazmat">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.countryOfOrigin">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AX">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.DZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AD">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AQ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BD">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BB">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BJ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BV">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.BI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CV">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TD">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CX">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CD">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.HR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.DK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.DJ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.DM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.DO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.EC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.EG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SV">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GQ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ER">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.EE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ET">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.FK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.FO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.FJ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.FI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.FR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.DE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GD">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GP">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.HT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.HM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.VA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.HN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.HK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.HU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ID">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IQ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.IT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.JM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.JP">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.JE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.JO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KP">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LV">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LB">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MV">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ML">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MQ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.YT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MX">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.FM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MD">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NP">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.MP">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.NO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.OM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.QA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.RE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.RO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.RU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.RW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.KN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.PM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.VC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.WS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ST">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SB">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ZA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GS">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ES">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.LK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SD">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SJ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.CH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.SY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TW">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TJ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TL">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TK">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TO">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TT">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TR">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TC">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.TV">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.UG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.UA">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.AE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.GB">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.US">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.UM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.UY">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.UZ">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.VU">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.VE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.VN">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.VG">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.VI">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.WF">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.EH">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.YE">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ZM">
+<remarks/>
+</member>
+<member name="F:PON.HIT_productData.countryOfOrigin.ZW">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.Dimension">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Dimension.dimensionUom">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Dimension.depth">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Dimension.height">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Dimension.width">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Dimension.weightUom">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.Dimension.weight">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.ErrorMessage">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ErrorMessage.code">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.ErrorMessage.description">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductDateModifiedRequest">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductDateModifiedRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductDateModifiedRequest.id">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductDateModifiedRequest.password">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductDateModifiedRequest.changeTimeStamp">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductDateModifiedResponse">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductDateModifiedResponse.ProductDateModifiedArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductDateModifiedResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductCloseOutRequest">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductCloseOutRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductCloseOutRequest.id">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductCloseOutRequest.password">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductCloseOutResponse">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductCloseOutResponse.ProductCloseOutArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductCloseOutResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductSellableRequest">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableRequest.id">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableRequest.password">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableRequest.productId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableRequest.partId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableRequest.isSellable">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductSellableResponse">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableResponse.ProductSellableArray">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.GetProductSellableResponseProductSellable">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableResponseProductSellable.productId">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.GetProductSellableResponseProductSellable.partId">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.getProductCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductDateModifiedCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductDateModifiedCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.getProductDateModifiedCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductCloseOutCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductCloseOutCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.getProductCloseOutCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductSellableCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PON.HIT_productData.getProductSellableCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PON.HIT_productData.getProductSellableCompletedEventArgs.Result">
+<remarks/>
+</member>
+</members>
+</doc>

@@ -1,0 +1,22 @@
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\bin\Debug\EscapingXML.exe.config
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\bin\Debug\EscapingXML.exe
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\bin\Debug\EscapingXML.pdb
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\bin\Debug\EscapingXML.xml
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\obj\Debug\EscapingXML.vbprojResolveAssemblyReference.cache
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\obj\Debug\EscapingXML.Form1.resources
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\obj\Debug\EscapingXML.Resources.resources
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\obj\Debug\EscapingXML.vbproj.GenerateResource.Cache
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\obj\Debug\EscapingXML.exe
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\obj\Debug\EscapingXML.xml
+C:\Users\jboyer\AppData\Local\Temporary Projects\EscapingXML\obj\Debug\EscapingXML.pdb
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\bin\Debug\EscapingXML.exe.config
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\bin\Debug\EscapingXML.exe
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\bin\Debug\EscapingXML.pdb
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\bin\Debug\EscapingXML.xml
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\obj\Debug\EscapingXML.vbprojResolveAssemblyReference.cache
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\obj\Debug\EscapingXML.Form1.resources
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\obj\Debug\EscapingXML.Resources.resources
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\obj\Debug\EscapingXML.vbproj.GenerateResource.Cache
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\obj\Debug\EscapingXML.exe
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\obj\Debug\EscapingXML.xml
+F:\OneDrive\COMDA_API_CODE\VB\TEST\HIT_API_Calls\Product_Calls\API_Products\EscapingXML\EscapingXML\obj\Debug\EscapingXML.pdb
