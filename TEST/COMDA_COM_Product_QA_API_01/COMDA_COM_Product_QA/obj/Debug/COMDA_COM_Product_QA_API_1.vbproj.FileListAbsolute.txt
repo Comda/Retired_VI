@@ -1,0 +1,14 @@
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.Resources.resources
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.vbproj.GenerateResource.cache
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.vbproj.CoreCompileInputs.cache
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\bin\Debug\COMDA_COM_Product_QA_API_1.dll.config
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\bin\Debug\COMDA_COM_Product_QA_API_1.dll
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\bin\Debug\COMDA_COM_Product_QA_API_1.pdb
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\bin\Debug\COMDA_COM_Product_QA_API_1.xml
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.dll
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.xml
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.pdb
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.vbprojAssemblyReference.cache
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\bin\Debug\Newtonsoft.Json.dll
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\bin\Debug\Newtonsoft.Json.xml
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA_API_01\COMDA_COM_Product_QA\obj\Debug\COMDA_COM_Product_QA_API_1.vbproj.CopyComplete

@@ -1,0 +1,328 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+COMDA_COM_Product_QA_API_1
+</name>
+</assembly>
+<members>
+<member name="T:COMDA_COM_Product_QA_API_1.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogImportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogImport_SKU_DetailsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogPricesImportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_SOAP_RequestsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogImportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogImport_SKU_DetailsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogPricesImportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_SOAP_RequestsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogImportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogImport_SKU_DetailsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_ProductCatalogPricesImportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStore.Magento_SOAP_RequestsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.Magento_ProductCatalogImportTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.Magento_ProductCatalogImport_SKU_DetailsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.Magento_ProductCatalogPricesImportTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.Magento_SOAP_RequestsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager.UpdateUpdatedRows(COMDA_COM_Product_QA_API_1.MagentoStore,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager.UpdateInsertedRows(COMDA_COM_Product_QA_API_1.MagentoStore,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager.UpdateDeletedRows(COMDA_COM_Product_QA_API_1.MagentoStore,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager.UpdateAll(COMDA_COM_Product_QA_API_1.MagentoStore)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.MagentoStoreTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.#ctor">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.callCompleted">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.multiCallCompleted">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.endSessionCompleted">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.loginCompleted">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.startSessionCompleted">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resourcesCompleted">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.globalFaultsCompleted">
+<remarks/>
+</member>
+<member name="E:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resourceFaultsCompleted">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.call(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.callAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.callAsync(System.String,System.String,System.Object,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.multiCall(System.String,System.Object[],System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.multiCallAsync(System.String,System.Object[],System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.multiCallAsync(System.String,System.Object[],System.Object,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.endSession(System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.endSessionAsync(System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.endSessionAsync(System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.login(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.loginAsync(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.loginAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.startSession">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.startSessionAsync">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.startSessionAsync(System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resources(System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resourcesAsync(System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resourcesAsync(System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.globalFaults(System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.globalFaultsAsync(System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.globalFaultsAsync(System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resourceFaults(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resourceFaultsAsync(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.resourceFaultsAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:COMDA_COM_Product_QA_API_1.Magento_API_01.MagentoService.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.callCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.callCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.callCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.multiCallCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.multiCallCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.multiCallCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.endSessionCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.endSessionCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.endSessionCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.loginCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.loginCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.loginCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.startSessionCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.startSessionCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.startSessionCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.resourcesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.resourcesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.resourcesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.globalFaultsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.globalFaultsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.globalFaultsCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.resourceFaultsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:COMDA_COM_Product_QA_API_1.Magento_API_01.resourceFaultsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:COMDA_COM_Product_QA_API_1.Magento_API_01.resourceFaultsCompletedEventArgs.Result">
+<remarks/>
+</member>
+</members>
+</doc>

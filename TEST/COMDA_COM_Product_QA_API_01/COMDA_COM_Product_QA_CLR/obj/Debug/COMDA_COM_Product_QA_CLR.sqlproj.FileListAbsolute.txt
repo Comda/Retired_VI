@@ -1,0 +1,16 @@
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA_CLR.dacpac
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA_CLR.dll
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA_CLR.pdb
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA.dll
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA.XmlSerializers.dll
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA.pdb
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA.xml
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\bin\Debug\COMDA_COM_Product_QA.dll.config
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\COMDA_COM_Product_QA_CLR.sqlprojAssemblyReference.cache
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\COMDA_COM_Product_QA_CLR.sqlproj.CopyComplete
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\COMDA_COM_Product_QA_CLR.dll
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\COMDA_COM_Product_QA_CLR.pdb
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\Model.xml
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\refactor.xml
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\postdeploy.sql
+Q:\COMDA_REPO\VI\TEST\COMDA_COM_Product_QA\COMDA_COM_Product_QA_CLR\obj\Debug\predeploy.sql

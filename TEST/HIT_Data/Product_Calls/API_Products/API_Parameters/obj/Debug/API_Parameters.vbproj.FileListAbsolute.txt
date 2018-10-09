@@ -18,3 +18,4 @@ Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\API_Parameters\obj\Deb
 Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\API_Parameters\obj\Debug\API_Parameters.dll
 Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\API_Parameters\obj\Debug\API_Parameters.xml
 Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\API_Parameters\obj\Debug\API_Parameters.pdb
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\API_Parameters\obj\Debug\API_Parameters.vbprojAssemblyReference.cache

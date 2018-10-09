@@ -28,3 +28,4 @@ Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PODO\obj\Debug\PODO.vb
 Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PODO\obj\Debug\PODO.dll
 Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PODO\obj\Debug\PODO.xml
 Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PODO\obj\Debug\PODO.pdb
+Q:\COMDA_REPO\VI\TEST\HIT_Data\Product_Calls\API_Products\PODO\obj\Debug\PODO.vbprojAssemblyReference.cache
