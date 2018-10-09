@@ -27,9 +27,9 @@ Partial Class MainMenu
         Me.tb_ProductIDFromCriteria = New System.Windows.Forms.TextBox()
         Me.lb_FamilyFromCriteria = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tb_CountMasterNO = New System.Windows.Forms.TextBox()
         Me.b_GetMasterNO = New System.Windows.Forms.Button()
         Me.DGV_NewMasterNo = New System.Windows.Forms.DataGridView()
-        Me.tb_CountMasterNO = New System.Windows.Forms.TextBox()
         CType(Me.DGV_FamilyByCriteria, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DGV_NewMasterNo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +86,13 @@ Partial Class MainMenu
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Selected Family - ProductID"
         '
+        'tb_CountMasterNO
+        '
+        Me.tb_CountMasterNO.Location = New System.Drawing.Point(326, 17)
+        Me.tb_CountMasterNO.Name = "tb_CountMasterNO"
+        Me.tb_CountMasterNO.Size = New System.Drawing.Size(100, 20)
+        Me.tb_CountMasterNO.TabIndex = 6
+        '
         'b_GetMasterNO
         '
         Me.b_GetMasterNO.Location = New System.Drawing.Point(213, 17)
@@ -102,15 +109,8 @@ Partial Class MainMenu
         Me.DGV_NewMasterNo.Location = New System.Drawing.Point(328, 66)
         Me.DGV_NewMasterNo.Name = "DGV_NewMasterNo"
         Me.DGV_NewMasterNo.ReadOnly = True
-        Me.DGV_NewMasterNo.Size = New System.Drawing.Size(240, 721)
+        Me.DGV_NewMasterNo.Size = New System.Drawing.Size(460, 721)
         Me.DGV_NewMasterNo.TabIndex = 5
-        '
-        'tb_CountMasterNO
-        '
-        Me.tb_CountMasterNO.Location = New System.Drawing.Point(326, 17)
-        Me.tb_CountMasterNO.Name = "tb_CountMasterNO"
-        Me.tb_CountMasterNO.Size = New System.Drawing.Size(100, 20)
-        Me.tb_CountMasterNO.TabIndex = 6
         '
         'MainMenu
         '

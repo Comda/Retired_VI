@@ -15,3 +15,7 @@ Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\
 Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\VerifyProductExistence.xml
 Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\VerifyProductExistence.dll.config
 Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.vbproj.CopyComplete
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\Product Catalog Management.exe.manifest
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\bin\Debug\Product Catalog Management.application
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.exe.manifest
+Q:\COMDA_REPO\VI\TEST\Product Catalog Management\Product Catalog Management\obj\Debug\Product Catalog Management.application
