@@ -1,0 +1,1477 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PACS
+</name>
+</assembly>
+<members>
+<member name="T:PACS.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:PACS.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:PACS.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_ChargeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartPriceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_ChargePriceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_DecorationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_LocationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartLocationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_ChargeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartPriceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_ChargePriceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_DecorationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_LocationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartLocationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_ChargeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartPriceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_ChargePriceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_DecorationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_LocationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PACS.HIT_Product.API_PACS_PartLocationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.API_PACS_ChargeTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.API_PACS_PartPriceTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.API_PACS_ChargePriceTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.API_PACS_DecorationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.API_PACS_LocationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.API_PACS_PartTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.API_PACS_PartLocationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:PACS.HIT_ProductTableAdapters.TableAdapterManager.UpdateUpdatedRows(PACS.HIT_Product,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:PACS.HIT_ProductTableAdapters.TableAdapterManager.UpdateInsertedRows(PACS.HIT_Product,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:PACS.HIT_ProductTableAdapters.TableAdapterManager.UpdateDeletedRows(PACS.HIT_Product,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:PACS.HIT_ProductTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:PACS.HIT_ProductTableAdapters.TableAdapterManager.UpdateAll(PACS.HIT_Product)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:PACS.HIT_ProductTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.PricingAndConfigurationService">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.#ctor">
+<remarks/>
+</member>
+<member name="E:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableLocationsCompleted">
+<remarks/>
+</member>
+<member name="E:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getDecorationColorsCompleted">
+<remarks/>
+</member>
+<member name="E:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getConfigurationAndPricingCompleted">
+<remarks/>
+</member>
+<member name="E:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getFobPointsCompleted">
+<remarks/>
+</member>
+<member name="E:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableChargesCompleted">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableLocations(PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableLocationsAsync(PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableLocationsAsync(PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getDecorationColors(PACS.HIT_PricingConfiguration.GetDecorationColorsRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getDecorationColorsAsync(PACS.HIT_PricingConfiguration.GetDecorationColorsRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getDecorationColorsAsync(PACS.HIT_PricingConfiguration.GetDecorationColorsRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getConfigurationAndPricing(PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getConfigurationAndPricingAsync(PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getConfigurationAndPricingAsync(PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getFobPoints(PACS.HIT_PricingConfiguration.GetFobPointsRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getFobPointsAsync(PACS.HIT_PricingConfiguration.GetFobPointsRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getFobPointsAsync(PACS.HIT_PricingConfiguration.GetFobPointsRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableCharges(PACS.HIT_PricingConfiguration.GetAvailableChargesRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableChargesAsync(PACS.HIT_PricingConfiguration.GetAvailableChargesRequest)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.getAvailableChargesAsync(PACS.HIT_PricingConfiguration.GetAvailableChargesRequest,System.Object)">
+<remarks/>
+</member>
+<member name="M:PACS.HIT_PricingConfiguration.PricingAndConfigurationService.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest.id">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest.password">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest.productId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest.localizationCountry">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsRequest.localizationLanguage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.AvailableLocation">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.AvailableLocation.locationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.AvailableLocation.locationName">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.Color">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Color.colorId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Color.colorName">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.DecorationMethod">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.DecorationMethod.decorationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.DecorationMethod.decorationName">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.PartPrice">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.PartPrice.minQuantity">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.PartPrice.price">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.PartPrice.discountCode">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.PartPrice.priceUom">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.PartPrice.priceEffectiveDate">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.PartPrice.priceExpiryDate">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.PartPricePriceUom">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.BX">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.CA">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.DZ">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.EA">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.KT">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.PR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.PK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.RL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.ST">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.SL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.PartPricePriceUom.TH">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.Part">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.partId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.partDescription">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.PartPriceArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.partGroup">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.nextPartGroup">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.nextPartGroupSpecified">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.partGroupRequired">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.partGroupDescription">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.ratio">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.defaultPart">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Part.LocationIdArray">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.PartLocationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.PartLocationId.locationId">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.ChargePrice">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.xMinQty">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.xUom">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.yMinQty">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.yUom">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.price">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.discountCode">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.repeatPrice">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.repeatDiscountCode">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.priceEffectiveDate">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ChargePrice.priceExpiryDate">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.decorationUom">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.decorationUom.Colors">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.decorationUom.Inches">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.decorationUom.Locations">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.decorationUom.Other">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.decorationUom.Stitches">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.decorationUom.SquareInches">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.Charge">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.chargeId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.chargeName">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.chargeDescription">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.chargeType">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.ChargePriceArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.chargesAppliesLTM">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.chargesPerLocation">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Charge.chargesPerColor">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.chargeType">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.chargeType.Order">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.chargeType.Run">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.chargeType.Setup">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.Decoration">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationName">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationGeometry">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationHeight">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationWidth">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationDiameter">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationUom">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.allowSubForDefaultLocation">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.allowSubForDefaultMethod">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.itemPartQuantityLTM">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.itemPartQuantityLTMSpecified">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.ChargeArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationUnitsIncluded">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationUnitsIncludedSpecified">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationUnitsIncludedUom">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationUnitsMax">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.decorationUnitsMaxSpecified">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.defaultDecoration">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.leadTime">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.leadTimeSpecified">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.rushLeadTime">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Decoration.rushLeadTimeSpecified">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.Location">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.locationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.locationName">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.DecorationArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.decorationsIncluded">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.defaultLocation">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.maxDecoration">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.minDecoration">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Location.locationRank">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.CurrencySupported">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.CurrencySupported.currency">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.CurrencyCodeType">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.AFA">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ALL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.DZD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.AON">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ARS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.AMD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.AWG">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.AUD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ATS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.AZM">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BSD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BHD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BDT">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BBD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BYR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BEF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BZD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BMD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BTN">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BOB">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BAM">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BWP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BRL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BND">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BGL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.BIF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KHR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CAD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CVE">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KYD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.XOF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.XAF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.XPF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CLP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CNY">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.COP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KMF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CDF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CRC">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.HRK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CUP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CYP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CZK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.DKK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.DEM">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.DJF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.DOP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.NLG">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.XCD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ECS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.EGP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SVC">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ERN">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.EEK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ETB">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.EUR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.FKP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.FJD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.FIM">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.FRF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GMD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GEL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GHC">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GIP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GRD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GTQ">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GYD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.HTG">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.HNL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.HKD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.HUF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ISK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.INR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.IDR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.IRR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.IQD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.IEP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ILS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ITL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.JMD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.JPY">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.JOD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KZT">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KES">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KWD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KGS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LAK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LVL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LBP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LSL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LRD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LYD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LTL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LUF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MOP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MKD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MGF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MWK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MYR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MVR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MTL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MRO">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MUR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MXN">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MDL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MNT">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MAD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MZM">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.MMK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.NAD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.NPR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ANG">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ZRN">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.NZD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.NIC">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.NGN">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KPW">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.NOK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PKR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PAB">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PGK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PYG">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PEN">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PHP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PLN">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.PTE">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.QAR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.OMR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ROL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.RUR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.RWF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.STD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SAR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SCR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SLL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SGD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SKK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SIT">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SBD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SOS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ZAR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.KRW">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ESP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.LKR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SHP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.GBP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SDP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SRG">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SZL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SEK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.CHF">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.SYP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TWD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TJR">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TZS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.THB">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TPE">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TOP">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TTD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TND">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TRL">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.TMM">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.AED">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.UGX">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.UAH">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.UYU">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.USD">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.UZS">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.VUV">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.VEB">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.VND">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.WST">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.YER">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.YUM">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ZMK">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.CurrencyCodeType.ZWD">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.Product">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Product.productId">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.FobPoint">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobPoint.fobId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobPoint.fobCity">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobPoint.fobState">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobPoint.fobPostalCode">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobPoint.fobCountry">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobPoint.CurrencySupportedArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobPoint.ProductArray">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.AvailableCharge">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.AvailableCharge.chargeId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.AvailableCharge.chargeName">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.AvailableCharge.chargeDescription">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.AvailableCharge.chargeType">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetAvailableLocationsResponse">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsResponse.AvailableLocationArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableLocationsResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.ErrorMessage">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ErrorMessage.code">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.ErrorMessage.description">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.id">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.password">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.locationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.productId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.decorationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.decorationIdSpecified">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.localizationCountry">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsRequest.localizationLanguage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetDecorationColorsResponse">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponse.DecorationColors">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetDecorationColorsResponseDecorationColors">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponseDecorationColors.ColorArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponseDecorationColors.productId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponseDecorationColors.locationId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponseDecorationColors.DecorationMethodArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponseDecorationColors.pmsMatch">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetDecorationColorsResponseDecorationColors.fullColor">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.id">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.password">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.productId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.partId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.currency">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.fobId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.priceType">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.localizationCountry">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.localizationLanguage">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingRequest.configurationType">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.priceType">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.priceType.Customer">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.priceType.List">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.priceType.Net">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.configurationType">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.configurationType.Blank">
+<remarks/>
+</member>
+<member name="F:PACS.HIT_PricingConfiguration.configurationType.Decorated">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingResponse">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingResponse.Configuration">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetConfigurationAndPricingResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.Configuration">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Configuration.PartArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Configuration.LocationArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Configuration.productId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Configuration.currency">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Configuration.FobArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.Configuration.priceType">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.FobArrayFob">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobArrayFob.fobId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.FobArrayFob.fobPostalCode">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetFobPointsRequest">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsRequest.id">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsRequest.password">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsRequest.productId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsRequest.localizationCountry">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsRequest.localizationLanguage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetFobPointsResponse">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsResponse.FobPointArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetFobPointsResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetAvailableChargesRequest">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesRequest.wsVersion">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesRequest.id">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesRequest.password">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesRequest.productId">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesRequest.localizationCountry">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesRequest.localizationLanguage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.GetAvailableChargesResponse">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesResponse.AvailableChargeArray">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.GetAvailableChargesResponse.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getAvailableLocationsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getAvailableLocationsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.getAvailableLocationsCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getDecorationColorsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getDecorationColorsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.getDecorationColorsCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getConfigurationAndPricingCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getConfigurationAndPricingCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.getConfigurationAndPricingCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getFobPointsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getFobPointsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.getFobPointsCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getAvailableChargesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:PACS.HIT_PricingConfiguration.getAvailableChargesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:PACS.HIT_PricingConfiguration.getAvailableChargesCompletedEventArgs.Result">
+<remarks/>
+</member>
+</members>
+</doc>

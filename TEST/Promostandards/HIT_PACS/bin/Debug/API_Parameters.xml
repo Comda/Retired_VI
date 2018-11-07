@@ -1,0 +1,652 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+API_Parameters
+</name>
+</assembly>
+<members>
+<member name="T:API_Parameters.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:API_Parameters.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:API_Parameters.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:API_Parameters.Request_ds">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:API_Parameters.Request_ds.API_RequestDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:API_Parameters.Request_ds.API_RequestRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:API_Parameters.Request_ds.API_RequestRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:API_Parameters.Request_dsTableAdapters.API_RequestTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:API_Parameters.Request_dsTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:API_Parameters.Request_dsTableAdapters.TableAdapterManager.UpdateUpdatedRows(API_Parameters.Request_ds,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:API_Parameters.Request_dsTableAdapters.TableAdapterManager.UpdateInsertedRows(API_Parameters.Request_ds,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:API_Parameters.Request_dsTableAdapters.TableAdapterManager.UpdateDeletedRows(API_Parameters.Request_ds,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:API_Parameters.Request_dsTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:API_Parameters.Request_dsTableAdapters.TableAdapterManager.UpdateAll(API_Parameters.Request_ds)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:API_Parameters.Request_dsTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:API_Parameters.Request_dsTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.ProductControllerService">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.#ctor">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getOutletProductListCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfoCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getLastModifiedCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getTopSellersCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getColorsCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getSetupChargesCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getImagesCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductDataCMCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfoMultiCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductSizesCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductPackingDataCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductArtTemplatesCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getActiveProductsCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.isProductRushCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsDeactivatedCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getCategoriesCompleted">
+<remarks/>
+</member>
+<member name="E:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsBySubcategoryCompleted">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getOutletProductList(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getOutletProductListAsync(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getOutletProductListAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfo(System.String,System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfoAsync(System.String,System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfoAsync(System.String,System.String,System.String,System.Boolean,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getLastModified(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getLastModifiedAsync(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getLastModifiedAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getTopSellers(System.String,System.String,System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getTopSellersAsync(System.String,System.String,System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getTopSellersAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getColors(System.String,System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getColorsAsync(System.String,System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getColorsAsync(System.String,System.String,System.String,System.Boolean,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getSetupCharges(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getSetupChargesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getSetupChargesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getImages(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getImagesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getImagesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductDataCM(System.String,System.String,System.String[])">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductDataCMAsync(System.String,System.String,System.String[])">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductDataCMAsync(System.String,System.String,System.String[],System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfoMulti(System.String,System.String,System.String[],System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfoMultiAsync(System.String,System.String,System.String[],System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getInfoMultiAsync(System.String,System.String,System.String[],System.Boolean,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductSizes(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductSizesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductSizesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductPackingData(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductPackingDataAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductPackingDataAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductArtTemplates(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductArtTemplatesAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductArtTemplatesAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getActiveProducts(System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getActiveProductsAsync(System.String,System.String,System.Boolean)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getActiveProductsAsync(System.String,System.String,System.Boolean,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.isProductRush(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.isProductRushAsync(System.String,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.isProductRushAsync(System.String,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsDeactivated(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsDeactivatedAsync(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsDeactivatedAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getCategories(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getCategoriesAsync(System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getCategoriesAsync(System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsBySubcategory(System.String,System.String,System.Int32[])">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsBySubcategoryAsync(System.String,System.String,System.Int32[])">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.getProductsBySubcategoryAsync(System.String,System.String,System.Int32[],System.Object)">
+<remarks/>
+</member>
+<member name="M:API_Parameters.net.hitpromo.ds.ProductControllerService.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.ProductId">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductId.id">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductId.name">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.Subcategory">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.Subcategory.products">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.Subcategory.id">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.Subcategory.name">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.SubcategoryId">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.SubcategoryId.id">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.SubcategoryId.name">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.Category">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.Category.id">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.Category.name">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.Category.subcategories">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.DeactivatedProduct">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.DeactivatedProduct.variation">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.DeactivatedProduct.partNumber">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.DeactivatedProduct.deactivatedDate">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.ProductRush">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductRush.productNumber">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductRush.isRush">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.ActiveProduct">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ActiveProduct.number">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ActiveProduct.domain">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.RawProductPackingSoap">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.RawProductPackingSoap.productNumber">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.RawProductPackingSoap.quantityPerBox">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.RawProductPackingSoap.weight">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.RawProductPackingSoap.boxLength">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.RawProductPackingSoap.boxWidth">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.RawProductPackingSoap.boxHeight">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.CMProductDataResult">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.product">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.imprint">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.setUpCharge">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.itemMaterial">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.itemDimensions">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.itemColors">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.countryOfOrigin">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.shipFromZip">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.isHazMat">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.quantityOnHand">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.discontinued">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.lastModified">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.expeditedServicesOffered">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.images">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.itemWeight">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.package">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.CMProductDataResult.pricing">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.ProductImageResult">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductImageResult.all">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductImageResult.main">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.ProductSetupData">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductSetupData.decoration_code">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductSetupData.decoration">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductSetupData.setup_charge">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductSetupData.run_charge">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductSetupData.extra_color_charge">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductSetupData.extra_location_charge">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.ProductColorData">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductColorData.color_id">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductColorData.part_number">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductColorData.product_number">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductColorData.color">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.ProductColorData.is_outlet">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getOutletProductListCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getOutletProductListCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getOutletProductListCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getInfoCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getInfoCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getInfoCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getLastModifiedCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getLastModifiedCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getLastModifiedCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getTopSellersCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getTopSellersCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getTopSellersCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getColorsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getColorsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getColorsCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getSetupChargesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getSetupChargesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getSetupChargesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getImagesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getImagesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getImagesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductDataCMCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductDataCMCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getProductDataCMCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getInfoMultiCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getInfoMultiCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getInfoMultiCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductSizesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductSizesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getProductSizesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductPackingDataCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductPackingDataCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getProductPackingDataCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductArtTemplatesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductArtTemplatesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getProductArtTemplatesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getActiveProductsCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getActiveProductsCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getActiveProductsCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.isProductRushCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.isProductRushCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.isProductRushCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductsDeactivatedCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductsDeactivatedCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getProductsDeactivatedCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getCategoriesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getCategoriesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getCategoriesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductsBySubcategoryCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:API_Parameters.net.hitpromo.ds.getProductsBySubcategoryCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:API_Parameters.net.hitpromo.ds.getProductsBySubcategoryCompletedEventArgs.Result">
+<remarks/>
+</member>
+</members>
+</doc>
