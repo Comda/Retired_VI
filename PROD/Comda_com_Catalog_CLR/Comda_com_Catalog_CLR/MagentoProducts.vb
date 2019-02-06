@@ -1,9 +1,7 @@
 ﻿Imports System
-Imports System.Data
 Imports System.Data.SqlClient
-Imports System.Data.SqlTypes
 Imports COMDA_COM_Product_QA
-Imports Microsoft.SqlServer.Server
+
 
 
 Partial Public Class StoredProcedures

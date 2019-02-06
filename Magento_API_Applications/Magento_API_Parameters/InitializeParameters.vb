@@ -321,8 +321,18 @@ Public Class Initialize
                 'ServiceCall = "https://www.mapleleafpromostore.com/index.php/api/v2_soap/index/"
 
                 Dim catalogProductEntityTable() As catalogProductEntity = Nothing
+                'Dim salesOrderListEntityTable() As salesOrderListEntity
+                'Dim DayOfHistory = 100
 
                 Try
+
+
+                    'Dim FilterDate As String = DateAdd(DateInterval.Day, -1 * DayOfHistory, Now().ToUniversalTime).ToString("yyyy-MM-dd HH:mm:ss")
+
+                    'Filtres = addFilter(Filtres, "created_at", "from", FilterDate)
+
+
+                    'salesOrderListEntityTable = MageHandler.salesOrderList(SessionId, Filtres)
                     catalogProductEntityTable = MageHandler.catalogProductList(SessionId, Filtres, StoreView)
 
                 Catch ex As Exception

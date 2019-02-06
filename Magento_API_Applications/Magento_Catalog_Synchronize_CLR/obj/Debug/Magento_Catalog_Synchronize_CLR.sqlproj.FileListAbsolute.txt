@@ -217,3 +217,7 @@ Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\De
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.dll
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.pdb
 Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Magento_Catalog_Synchronize_CLR.sqlprojAssemblyReference.cache
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\Model.xml
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\refactor.xml
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\postdeploy.sql
+Q:\COMDA_REPO\VI\Magento_API_Applications\Magento_Catalog_Synchronize_CLR\obj\Debug\predeploy.sql

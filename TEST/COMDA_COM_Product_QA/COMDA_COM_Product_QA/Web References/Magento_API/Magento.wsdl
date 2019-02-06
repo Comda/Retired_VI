@@ -6682,7 +6682,7 @@
   </wsdl:binding>
   <wsdl:service name="MagentoService">
     <wsdl:port name="Mage_Api_Model_Server_V2_HandlerPort" binding="typens:Mage_Api_Model_Server_V2_HandlerBinding">
-      <soap:address location="https://secure.comda.com/index.php/api/v2_soap/index/" />
+      <soap:address location="https://www.comda.com/index.php/api/v2_soap/index/" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Category.vb" />
     <Compile Include="CommonMethods.vb" />
+    <Compile Include="DetailedProducts.vb" />
     <Compile Include="MagentoStore.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

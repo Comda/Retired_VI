@@ -84,7 +84,7 @@ SKIP:
                 Dim Request As String = doc.ToString
 
                 client.Headers.Add("Content-Type", "text/xml;charset=utf-8")
-                Dim response = client.UploadString("https://secure.comda.com/index.php/api/v2_soap/index/", Request)
+                Dim response = client.UploadString("https://www.comda.com/index.php/api/v2_soap/index/", Request)
 
 
                 Dim content As String = response

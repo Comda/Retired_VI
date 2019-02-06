@@ -17,6 +17,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_CustomOptions",
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_Stock", "Magento_API_Stock\Magento_API_Stock.vbproj", "{D1EDA894-8EB8-4CB9-98E8-F1F0C3954E7F}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Magento_API_Parameters", "Magento_API_Parameters\Magento_API_Parameters.vbproj", "{7693478D-8694-4148-8AFC-6E5300AD1FCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{D1EDA894-8EB8-4CB9-98E8-F1F0C3954E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1EDA894-8EB8-4CB9-98E8-F1F0C3954E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1EDA894-8EB8-4CB9-98E8-F1F0C3954E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7693478D-8694-4148-8AFC-6E5300AD1FCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
